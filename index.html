@@ -28,6 +28,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         background:
@@ -53,6 +57,48 @@
         width: min(1280px, 100%);
         margin: 0 auto;
         padding: 22px;
+      }
+
+      .toc {
+        display: none;
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        z-index: 10;
+        width: 260px;
+        max-height: calc(100vh - 36px);
+        overflow: auto;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      .toc-title {
+        margin: 0 0 10px;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .toc-list {
+        display: grid;
+        gap: 6px;
+      }
+
+      .toc-link {
+        display: block;
+        padding: 8px 9px;
+        border-radius: 8px;
+        color: #344054;
+        font-size: 12px;
+        line-height: 1.35;
+        text-decoration: none;
+      }
+
+      .toc-link:hover {
+        background: var(--teal-soft);
+        color: var(--teal);
       }
 
       .hero {
@@ -211,6 +257,7 @@
         border-radius: 8px;
         background: var(--panel);
         box-shadow: 0 12px 28px rgba(31, 41, 51, 0.06);
+        scroll-margin-top: 18px;
       }
 
       .opportunity > section {
@@ -468,6 +515,18 @@
         }
       }
 
+      @media (min-width: 1320px) {
+        .app {
+          width: min(1180px, calc(100% - 320px));
+          margin-left: 24px;
+          margin-right: 320px;
+        }
+
+        .toc {
+          display: block;
+        }
+      }
+
       @media (max-width: 560px) {
         .app {
           padding: 14px;
@@ -550,6 +609,11 @@
       <div class="empty" id="empty">没有符合筛选条件的机会点。</div>
     </main>
 
+    <aside class="toc" aria-label="热点目录">
+      <p class="toc-title">热点目录</p>
+      <nav class="toc-list" id="tocList"></nav>
+    </aside>
+
     <div class="toast" id="toast">已复制</div>
 
     <script>
@@ -575,6 +639,7 @@
         historySelect: document.querySelector("#historySelect"),
         historyStatus: document.querySelector("#historyStatus"),
         latestButton: document.querySelector("#latestButton"),
+        tocList: document.querySelector("#tocList"),
         empty: document.querySelector("#empty"),
         toast: document.querySelector("#toast"),
       };
@@ -613,6 +678,14 @@
           item.event,
           item.platforms?.join(" "),
           item.userConcern,
+          item.userDemand,
+          item.wechatSearchKeywords,
+          item.persona,
+          item.scenario,
+          item.userActionChain,
+          item.actionValidation,
+          item.criticReview,
+          item.finalVerdict,
           item.miniappOpportunity,
           item.nameDirection,
           item.searchKeywords,
@@ -647,12 +720,19 @@
         return [
           `事件内容：${text(item.event)}`,
           `用户关心什么：${text(item.userConcern)}`,
+          `具体用户画像：${text(item.persona)}`,
+          `具体场景：${text(item.scenario)}`,
           `可切入的机会：${text(item.miniappOpportunity)}`,
           `建议名称：${text(item.nameDirection)}`,
           `小程序机会：${text(item.miniappOpportunity)}`,
           `核心功能：${text(item.coreFeatures)}`,
-          `搜索关键词：${text(item.searchKeywords)}`,
+          `微信搜索关键词：${text(item.wechatSearchKeywords || item.searchKeywords)}`,
+          `最终结论：${text(item.finalVerdict || item.recommendation)}`,
         ].join("\n");
+      }
+
+      function domIdFor(item) {
+        return `hotspot-${String(item.id || "").replace(/[^a-zA-Z0-9_-]/g, "-")}`;
       }
 
       function normalizeSourceLinks(item) {
@@ -764,6 +844,16 @@
         els.platformCount.textContent = platforms.size;
       }
 
+      function renderToc(items) {
+        if (!els.tocList) return;
+        els.tocList.innerHTML = items
+          .map((item, index) => {
+            const label = `${index + 1}. ${text(item.event)}`;
+            return `<a class="toc-link" href="#${escapeHtml(domIdFor(item))}" title="${escapeHtml(item.event)}">${escapeHtml(label)}</a>`;
+          })
+          .join("");
+      }
+
       function render() {
         const items = state.items
           .filter(itemMatches)
@@ -774,7 +864,7 @@
             const active = state.favorites.has(item.id);
             const heat = Math.max(0, Math.min(100, Number(item.heatNormalized) || 0));
             return `
-              <article class="opportunity">
+              <article class="opportunity" id="${escapeHtml(domIdFor(item))}">
                 <section>
                   <div class="meta">
                     <span class="tag teal">${escapeHtml(text(item.platforms))}</span>
@@ -800,6 +890,14 @@
                   <p class="text">${escapeHtml(item.heatWindow)}</p>
                   <p class="label">更具体的用户需求</p>
                   <p class="text">${escapeHtml(item.userDemand)}</p>
+                  <p class="label">中国大陆用户画像</p>
+                  <p class="text">${escapeHtml(item.persona)}</p>
+                  <p class="label">具体使用场景</p>
+                  <p class="text">${escapeHtml(item.scenario)}</p>
+                  <p class="label">用户动作拆解</p>
+                  <p class="text">${escapeHtml(item.userActionChain)}</p>
+                  <p class="label">动作真实性判断</p>
+                  <p class="text">${escapeHtml(item.actionValidation)}</p>
                   <p class="label">可切入的小程序机会</p>
                   <p class="text">${escapeHtml(item.miniappOpportunity)}</p>
                   <p class="label">竞品/替代方案</p>
@@ -815,6 +913,14 @@
                   <p class="text">${escapeHtml(item.canSolve)}</p>
                   <p class="label">实现/版权/数据限制</p>
                   <p class="text">${escapeHtml(item.feasibilityNotes)}</p>
+                  <p class="label">微信搜索关键词</p>
+                  <p class="text">${escapeHtml(item.wechatSearchKeywords || item.searchKeywords)}</p>
+                  <p class="label">AI 反方评审</p>
+                  <p class="text">${escapeHtml(item.criticReview)}</p>
+                  <p class="label">根据评审后的修改</p>
+                  <p class="text">${escapeHtml(item.criticRevision)}</p>
+                  <p class="label">最终结论</p>
+                  <p class="text">${escapeHtml(item.finalVerdict || item.recommendation)}</p>
                   <p class="label">搜索关键词</p>
                   <p class="text">${escapeHtml(item.searchKeywords)}</p>
                   <p class="label">核心功能</p>
@@ -837,6 +943,7 @@
         els.favoritesOnly.className = state.favoritesOnly ? "action primary" : "action";
         els.empty.style.display = items.length ? "none" : "block";
         renderStats(items);
+        renderToc(items);
       }
 
       function setupPlatforms() {
