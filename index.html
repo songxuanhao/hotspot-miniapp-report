@@ -7,15 +7,21 @@
     <style>
       :root {
         color-scheme: light;
-        --bg: #f6f7f9;
+        --bg: #f4f6f8;
         --panel: #ffffff;
-        --text: #20242a;
-        --muted: #667085;
-        --line: #d9dee7;
-        --accent: #0f766e;
-        --accent-2: #b42318;
-        --chip: #eef6f5;
-        --shadow: 0 10px 28px rgba(20, 28, 38, 0.08);
+        --panel-soft: #f9fafb;
+        --text: #1f2933;
+        --muted: #687386;
+        --line: #dde3ea;
+        --teal: #10756e;
+        --teal-soft: #e6f4f2;
+        --coral: #c2410c;
+        --coral-soft: #fff0e7;
+        --amber: #a16207;
+        --amber-soft: #fff7d6;
+        --green: #166534;
+        --green-soft: #e8f6ed;
+        --shadow: 0 18px 45px rgba(31, 41, 51, 0.09);
       }
 
       * {
@@ -24,183 +30,339 @@
 
       body {
         margin: 0;
-        background: var(--bg);
+        background:
+          radial-gradient(circle at 10% 0%, rgba(16, 117, 110, 0.12), transparent 30%),
+          linear-gradient(180deg, #ffffff 0%, var(--bg) 34%, var(--bg) 100%);
         color: var(--text);
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
           sans-serif;
       }
 
-      .app {
-        width: min(1440px, 100%);
-        margin: 0 auto;
-        padding: 18px;
+      button,
+      input,
+      select {
+        font: inherit;
       }
 
-      header {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 16px 0 18px;
+      button {
+        cursor: pointer;
+      }
+
+      .app {
+        width: min(1280px, 100%);
+        margin: 0 auto;
+        padding: 22px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 22px;
+        align-items: end;
+        padding: 16px 0 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 800;
       }
 
       h1 {
-        margin: 0 0 6px;
-        font-size: clamp(24px, 4vw, 38px);
-        line-height: 1.12;
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(28px, 5vw, 48px);
+        line-height: 1.08;
         letter-spacing: 0;
       }
 
       .subline {
-        margin: 0;
+        margin: 12px 0 0;
+        max-width: 780px;
         color: var(--muted);
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .hero-panel {
+        width: min(360px, 100%);
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-panel strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 22px;
+      }
+
+      .hero-panel span {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin: 0 0 14px;
+      }
+
+      .metric {
+        min-height: 76px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .metric b {
+        display: block;
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
       }
 
       .toolbar {
         display: grid;
-        grid-template-columns: minmax(160px, 1fr) 142px 126px 126px;
+        grid-template-columns: minmax(220px, 1fr) 150px 150px 126px;
         gap: 10px;
+        align-items: center;
         margin-bottom: 14px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 8px 22px rgba(31, 41, 51, 0.05);
       }
 
-      input,
-      select,
-      button {
+      .control,
+      .action {
         height: 42px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #fff;
         color: var(--text);
-        font: inherit;
       }
 
-      input,
-      select {
+      .control {
+        width: 100%;
         padding: 0 12px;
       }
 
-      button {
-        cursor: pointer;
+      .action {
         padding: 0 12px;
+        font-weight: 700;
       }
 
-      button.primary {
-        background: var(--accent);
-        border-color: var(--accent);
+      .action.primary {
+        border-color: var(--teal);
+        background: var(--teal);
         color: #fff;
       }
 
-      button.ghost {
-        background: #fff;
+      .feed {
+        display: grid;
+        gap: 12px;
       }
 
-      .status {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 8px;
-        margin: 0 0 14px;
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 28px;
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: var(--chip);
-        color: #115e59;
-        font-weight: 600;
-      }
-
-      .table-wrap {
-        overflow: auto;
+      .opportunity {
+        display: grid;
+        grid-template-columns: minmax(210px, 0.8fr) minmax(300px, 1.15fr) minmax(300px, 1.15fr);
+        gap: 0;
+        overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel);
-        box-shadow: var(--shadow);
+        box-shadow: 0 12px 28px rgba(31, 41, 51, 0.06);
       }
 
-      table {
-        width: 100%;
-        min-width: 1320px;
-        border-collapse: collapse;
+      .opportunity > section {
+        padding: 16px;
       }
 
-      th,
-      td {
-        border-bottom: 1px solid var(--line);
-        padding: 12px;
-        vertical-align: top;
-        text-align: left;
-        font-size: 13px;
-        line-height: 1.48;
+      .opportunity > section + section {
+        border-left: 1px solid var(--line);
       }
 
-      th {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        background: #f9fafb;
+      .event-title {
+        margin: 0 0 12px;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: var(--panel-soft);
         color: #344054;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      tr:last-child td {
-        border-bottom: 0;
-      }
-
-      .event {
-        min-width: 170px;
+        font-size: 12px;
         font-weight: 700;
       }
 
-      .wide {
-        min-width: 240px;
+      .tag.teal {
+        background: var(--teal-soft);
+        color: #115e59;
+      }
+
+      .tag.green {
+        background: var(--green-soft);
+        color: var(--green);
+      }
+
+      .tag.amber {
+        background: var(--amber-soft);
+        color: var(--amber);
+      }
+
+      .tag.coral {
+        background: var(--coral-soft);
+        color: var(--coral);
       }
 
       .heat {
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+      }
+
+      .heat-score {
+        color: var(--teal);
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .bar {
+        overflow: hidden;
+        height: 9px;
+        border-radius: 999px;
+        background: #e8edf2;
+      }
+
+      .bar i {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--teal), #d97706);
+      }
+
+      .label {
+        margin: 0 0 5px;
+        color: var(--muted);
+        font-size: 12px;
         font-weight: 800;
-        color: var(--accent);
-        white-space: nowrap;
       }
 
-      .risk-high {
-        color: var(--accent-2);
-        font-weight: 700;
+      .text {
+        margin: 0 0 12px;
+        color: #293544;
+        font-size: 14px;
+        line-height: 1.62;
       }
 
-      .favorite {
-        min-width: 76px;
+      .idea-title {
+        margin: 0 0 8px;
+        font-size: 15px;
+        font-weight: 900;
       }
 
-      .favorite.active {
-        background: #fff4cc;
-        border-color: #f4c430;
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .mini-button {
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #1f2933;
+        padding: 0 11px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .mini-button.favorite.active {
+        border-color: #d97706;
+        background: var(--amber-soft);
+        color: var(--amber);
+      }
+
+      .mini-button.copy {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #fff;
       }
 
       .empty {
         display: none;
-        padding: 28px;
-        text-align: center;
-        color: var(--muted);
-        background: #fff;
-        border: 1px solid var(--line);
+        padding: 34px 18px;
+        border: 1px dashed var(--line);
         border-radius: 8px;
+        background: #fff;
+        color: var(--muted);
+        text-align: center;
       }
 
-      @media (max-width: 760px) {
-        .app {
-          padding: 12px;
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 22px;
+        z-index: 20;
+        transform: translateX(-50%) translateY(16px);
+        opacity: 0;
+        pointer-events: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: #17212f;
+        color: #fff;
+        font-size: 13px;
+        transition: opacity 0.18s ease, transform 0.18s ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
         }
 
-        header {
-          display: block;
+        .hero-panel {
+          width: 100%;
+        }
+
+        .stats {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .toolbar {
@@ -211,69 +373,88 @@
           grid-column: 1 / -1;
         }
 
-        th,
-        td {
-          padding: 10px;
+        .opportunity {
+          grid-template-columns: 1fr;
+        }
+
+        .opportunity > section + section {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 560px) {
+        .app {
+          padding: 14px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .opportunity > section {
+          padding: 14px;
         }
       }
     </style>
   </head>
   <body>
     <main class="app">
-      <header>
+      <header class="hero">
         <div>
-          <h1>每日中国热点小程序机会报告</h1>
+          <p class="eyebrow">每日 8:00 更新</p>
+          <h1>热点不是标题，是用户此刻想解决的问题</h1>
           <p class="subline" id="summary">正在读取最新报告...</p>
         </div>
+        <aside class="hero-panel">
+          <strong id="generatedAt">生成时间：-</strong>
+          <span>收藏保存在当前浏览器；复制按钮会把单个小程序机会整理成可直接发给自己或团队的文本。</span>
+        </aside>
       </header>
 
+      <section class="stats" aria-label="报告概览">
+        <div class="metric">
+          <b id="itemCount">0</b>
+          <span>可评估机会</span>
+        </div>
+        <div class="metric">
+          <b id="favoriteCount">0</b>
+          <span>已收藏点子</span>
+        </div>
+        <div class="metric">
+          <b id="highCount">0</b>
+          <span>高优先级</span>
+        </div>
+        <div class="metric">
+          <b id="platformCount">0</b>
+          <span>覆盖平台</span>
+        </div>
+      </section>
+
       <section class="toolbar" aria-label="筛选工具">
-        <input id="search" type="search" placeholder="搜索事件、平台、关键词、机会点" />
-        <select id="priority">
+        <input class="control" id="search" type="search" placeholder="搜索事件、平台、关键词、机会点" />
+        <select class="control" id="priority">
           <option value="">全部优先级</option>
           <option value="高">高</option>
           <option value="中">中</option>
           <option value="低">低</option>
           <option value="观察">观察</option>
         </select>
-        <select id="platform">
+        <select class="control" id="platform">
           <option value="">全部平台</option>
         </select>
-        <button id="favoritesOnly" class="ghost" type="button">只看收藏</button>
+        <button id="favoritesOnly" class="action" type="button">只看收藏</button>
       </section>
 
-      <section class="status" aria-live="polite">
-        <span class="pill" id="generatedAt">生成时间：-</span>
-        <span class="pill" id="itemCount">0 条机会</span>
-        <span class="pill" id="favoriteCount">0 个收藏</span>
-      </section>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>收藏</th>
-              <th>事件</th>
-              <th>平台/排名</th>
-              <th>热度</th>
-              <th>用户关注点</th>
-              <th>小程序机会</th>
-              <th>名称方向</th>
-              <th>搜索关键词</th>
-              <th>核心功能</th>
-              <th>广告潜力</th>
-              <th>审核风险</th>
-              <th>难度</th>
-              <th>优先级</th>
-              <th>是否建议跟进</th>
-            </tr>
-          </thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </div>
-
+      <section class="feed" id="feed" aria-live="polite"></section>
       <div class="empty" id="empty">没有符合筛选条件的机会点。</div>
     </main>
+
+    <div class="toast" id="toast">已复制</div>
 
     <script>
       const state = {
@@ -283,21 +464,32 @@
       };
 
       const els = {
-        rows: document.querySelector("#rows"),
+        feed: document.querySelector("#feed"),
         summary: document.querySelector("#summary"),
         generatedAt: document.querySelector("#generatedAt"),
         itemCount: document.querySelector("#itemCount"),
         favoriteCount: document.querySelector("#favoriteCount"),
+        highCount: document.querySelector("#highCount"),
+        platformCount: document.querySelector("#platformCount"),
         search: document.querySelector("#search"),
         priority: document.querySelector("#priority"),
         platform: document.querySelector("#platform"),
         favoritesOnly: document.querySelector("#favoritesOnly"),
         empty: document.querySelector("#empty"),
+        toast: document.querySelector("#toast"),
       };
 
       function text(value) {
         if (Array.isArray(value)) return value.join("、");
         return value == null || value === "" ? "-" : String(value);
+      }
+
+      function escapeHtml(value) {
+        return text(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;");
       }
 
       function saveFavorites() {
@@ -328,8 +520,70 @@
         return true;
       }
 
-      function riskClass(value) {
-        return /高|敏感|资质|不建议/.test(text(value)) ? "risk-high" : "";
+      function riskTone(value) {
+        const v = text(value);
+        if (/高|敏感|资质|不建议|风险/.test(v)) return "coral";
+        if (/中|观察/.test(v)) return "amber";
+        return "green";
+      }
+
+      function priorityTone(value) {
+        if (value === "高") return "coral";
+        if (value === "中") return "amber";
+        if (value === "低") return "green";
+        return "teal";
+      }
+
+      function copyTextFor(item) {
+        return [
+          `热点事件：${text(item.event)}`,
+          `涉及平台：${text(item.platforms)}；排名：${text(item.rankings)}`,
+          `热度：${text(item.heatNormalized)}/100；原始热度：${text(item.heatRaw)}`,
+          `用户关注点：${text(item.userConcern)}`,
+          `小程序机会：${text(item.miniappOpportunity)}`,
+          `建议名称方向：${text(item.nameDirection)}`,
+          `搜索关键词：${text(item.searchKeywords)}`,
+          `核心功能：${text(item.coreFeatures)}`,
+          `广告变现潜力：${text(item.adPotential)}`,
+          `审核/合规风险：${text(item.complianceRisk)}`,
+          `开发难度：${text(item.difficulty)}`,
+          `优先级：${text(item.priority)}`,
+          `是否建议跟进：${text(item.recommendation)}`,
+        ].join("\n");
+      }
+
+      async function copyIdea(item) {
+        const content = copyTextFor(item);
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(content);
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = content;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          textarea.remove();
+        }
+        showToast("已复制这个小程序点子");
+      }
+
+      let toastTimer;
+      function showToast(message) {
+        els.toast.textContent = message;
+        els.toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => els.toast.classList.remove("show"), 1600);
+      }
+
+      function renderStats(items) {
+        const platforms = new Set(state.items.flatMap((item) => item.platforms || []));
+        els.itemCount.textContent = items.length;
+        els.favoriteCount.textContent = state.favorites.size;
+        els.highCount.textContent = state.items.filter((item) => item.priority === "高").length;
+        els.platformCount.textContent = platforms.size;
       }
 
       function render() {
@@ -337,52 +591,91 @@
           .filter(itemMatches)
           .sort((a, b) => (b.heatNormalized || 0) - (a.heatNormalized || 0));
 
-        els.rows.innerHTML = items
+        els.feed.innerHTML = items
           .map((item) => {
             const active = state.favorites.has(item.id);
+            const heat = Math.max(0, Math.min(100, Number(item.heatNormalized) || 0));
             return `
-              <tr>
-                <td><button class="favorite ${active ? "active" : ""}" data-id="${item.id}" type="button">${active ? "已收藏" : "收藏"}</button></td>
-                <td class="event">${text(item.event)}</td>
-                <td>${text(item.platforms)}<br>${text(item.rankings)}</td>
-                <td><span class="heat">${text(item.heatNormalized)}</span><br>${text(item.heatRaw)}</td>
-                <td class="wide">${text(item.userConcern)}</td>
-                <td class="wide">${text(item.miniappOpportunity)}</td>
-                <td>${text(item.nameDirection)}</td>
-                <td>${text(item.searchKeywords)}</td>
-                <td class="wide">${text(item.coreFeatures)}</td>
-                <td>${text(item.adPotential)}</td>
-                <td class="${riskClass(item.complianceRisk)}">${text(item.complianceRisk)}</td>
-                <td>${text(item.difficulty)}</td>
-                <td>${text(item.priority)}</td>
-                <td class="${riskClass(item.recommendation)}">${text(item.recommendation)}</td>
-              </tr>
+              <article class="opportunity">
+                <section>
+                  <div class="meta">
+                    <span class="tag teal">${escapeHtml(text(item.platforms))}</span>
+                    <span class="tag ${priorityTone(item.priority)}">${escapeHtml(text(item.priority))}</span>
+                    <span class="tag ${riskTone(item.complianceRisk)}">${escapeHtml(text(item.complianceRisk))}</span>
+                  </div>
+                  <h2 class="event-title">${escapeHtml(item.event)}</h2>
+                  <p class="label">平台排名</p>
+                  <p class="text">${escapeHtml(item.rankings)}</p>
+                  <div class="heat">
+                    <div class="heat-score">${heat}</div>
+                    <div class="bar"><i style="width:${heat}%"></i></div>
+                  </div>
+                  <p class="label">原始热度</p>
+                  <p class="text">${escapeHtml(item.heatRaw)}</p>
+                </section>
+                <section>
+                  <p class="label">用户真正关心什么</p>
+                  <p class="text">${escapeHtml(item.userConcern)}</p>
+                  <p class="label">可切入的小程序机会</p>
+                  <p class="text">${escapeHtml(item.miniappOpportunity)}</p>
+                  <p class="label">是否建议跟进</p>
+                  <p class="text">${escapeHtml(item.recommendation)}</p>
+                </section>
+                <section>
+                  <p class="idea-title">${escapeHtml(item.nameDirection)}</p>
+                  <p class="label">搜索关键词</p>
+                  <p class="text">${escapeHtml(item.searchKeywords)}</p>
+                  <p class="label">核心功能</p>
+                  <p class="text">${escapeHtml(item.coreFeatures)}</p>
+                  <div class="meta">
+                    <span class="tag green">广告：${escapeHtml(item.adPotential)}</span>
+                    <span class="tag amber">难度：${escapeHtml(item.difficulty)}</span>
+                  </div>
+                  <div class="actions">
+                    <button class="mini-button favorite ${active ? "active" : ""}" data-action="favorite" data-id="${escapeHtml(item.id)}" type="button">${active ? "已收藏" : "收藏"}</button>
+                    <button class="mini-button copy" data-action="copy" data-id="${escapeHtml(item.id)}" type="button">复制点子</button>
+                  </div>
+                </section>
+              </article>
             `;
           })
           .join("");
 
-        els.itemCount.textContent = `${items.length} 条机会`;
-        els.favoriteCount.textContent = `${state.favorites.size} 个收藏`;
         els.favoritesOnly.textContent = state.favoritesOnly ? "显示全部" : "只看收藏";
-        els.favoritesOnly.className = state.favoritesOnly ? "primary" : "ghost";
+        els.favoritesOnly.className = state.favoritesOnly ? "action primary" : "action";
         els.empty.style.display = items.length ? "none" : "block";
+        renderStats(items);
       }
 
       function setupPlatforms() {
         const platforms = [...new Set(state.items.flatMap((item) => item.platforms || []))].sort();
         els.platform.innerHTML =
           '<option value="">全部平台</option>' +
-          platforms.map((name) => `<option value="${name}">${name}</option>`).join("");
+          platforms.map((name) => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
       }
 
-      els.rows.addEventListener("click", (event) => {
-        const button = event.target.closest(".favorite");
+      els.feed.addEventListener("click", async (event) => {
+        const button = event.target.closest("button[data-action]");
         if (!button) return;
         const id = button.dataset.id;
-        if (state.favorites.has(id)) state.favorites.delete(id);
-        else state.favorites.add(id);
-        saveFavorites();
-        render();
+        const item = state.items.find((entry) => entry.id === id);
+        if (!item) return;
+
+        if (button.dataset.action === "favorite") {
+          if (state.favorites.has(id)) state.favorites.delete(id);
+          else state.favorites.add(id);
+          saveFavorites();
+          render();
+          return;
+        }
+
+        if (button.dataset.action === "copy") {
+          try {
+            await copyIdea(item);
+          } catch (error) {
+            showToast(`复制失败：${error.message}`);
+          }
+        }
       });
 
       [els.search, els.priority, els.platform].forEach((el) => {
