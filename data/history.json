@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-31 03:02:07 +08:00（手动试运行）",
+  "updatedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
   "reports": [
     {
       "date": "2026-05-31",
       "path": "reports/2026-05-31.json",
-      "summary": "手动试运行，110 个热点机会点",
-      "itemCount": 110
+      "summary": "TrendRadar API 试运行，243 个热点事件",
+      "itemCount": 243
     }
   ]
 }
