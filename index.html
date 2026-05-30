@@ -354,6 +354,18 @@
         color: var(--text);
       }
 
+      .source-toggle {
+        height: 34px;
+        width: fit-content;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--teal);
+        padding: 0 10px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
       .idea-title {
         margin: 0 0 8px;
         font-size: 15px;
@@ -545,6 +557,7 @@
         items: [],
         favoritesOnly: false,
         favorites: new Set(JSON.parse(localStorage.getItem("hotspotFavorites") || "[]")),
+        expandedSources: new Set(),
       };
 
       const els = {
@@ -695,16 +708,24 @@
         const items = links.length
           ? links
           : [{ platform: "事件", rank: "", title: item.event, heat: "" }];
+        const shouldCollapse = items.length > 4;
+        const expanded = state.expandedSources.has(item.id);
+        const visibleItems = shouldCollapse && !expanded ? items.slice(0, 4) : items;
 
         return `
           <div class="source-list">
-            ${items
+            ${visibleItems
               .map((entry) => {
                 const prefix = [entry.platform, entry.rank].filter(Boolean).join(" ");
                 const heat = entry.heat ? `｜${entry.heat}` : "";
                 return `<div class="source-item"><b>${escapeHtml(prefix || "事件")}</b>${escapeHtml(heat)}<br>${escapeHtml(entry.title || item.event)}</div>`;
               })
               .join("")}
+            ${
+              shouldCollapse
+                ? `<button class="source-toggle" data-action="source-toggle" data-id="${escapeHtml(item.id)}" type="button">${expanded ? "收回" : `展开全部 ${items.length} 条`}</button>`
+                : ""
+            }
           </div>
         `;
       }
@@ -775,13 +796,25 @@
                 <section>
                   <p class="label">用户真正关心什么</p>
                   <p class="text">${escapeHtml(item.userConcern)}</p>
+                  <p class="label">热度大概还能持续多久</p>
+                  <p class="text">${escapeHtml(item.heatWindow)}</p>
+                  <p class="label">更具体的用户需求</p>
+                  <p class="text">${escapeHtml(item.userDemand)}</p>
                   <p class="label">可切入的小程序机会</p>
                   <p class="text">${escapeHtml(item.miniappOpportunity)}</p>
+                  <p class="label">竞品/替代方案</p>
+                  <p class="text">${escapeHtml(item.competitors)}</p>
+                  <p class="label">为什么用户不用竞品而用我们</p>
+                  <p class="text">${escapeHtml(item.whyUseMiniapp)}</p>
                   <p class="label">是否建议跟进</p>
                   <p class="text">${escapeHtml(item.recommendation)}</p>
                 </section>
                 <section>
                   <p class="idea-title">${escapeHtml(item.nameDirection)}</p>
+                  <p class="label">我们能否解决需求</p>
+                  <p class="text">${escapeHtml(item.canSolve)}</p>
+                  <p class="label">实现/版权/数据限制</p>
+                  <p class="text">${escapeHtml(item.feasibilityNotes)}</p>
                   <p class="label">搜索关键词</p>
                   <p class="text">${escapeHtml(item.searchKeywords)}</p>
                   <p class="label">核心功能</p>
@@ -864,6 +897,13 @@
         const id = button.dataset.id;
         const item = state.items.find((entry) => entry.id === id);
         if (!item) return;
+
+        if (button.dataset.action === "source-toggle") {
+          if (state.expandedSources.has(id)) state.expandedSources.delete(id);
+          else state.expandedSources.add(id);
+          render();
+          return;
+        }
 
         if (button.dataset.action === "favorite") {
           if (state.favorites.has(id)) state.favorites.delete(id);
