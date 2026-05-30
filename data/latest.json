@@ -1,0 +1,27 @@
+{
+  "generatedAt": "尚未生成",
+  "status": "pending",
+  "summary": "日报自动化已配置。首次运行后这里会显示最新热点与小程序机会。",
+  "items": [
+    {
+      "id": "sample-001",
+      "event": "示例热点事件",
+      "platforms": ["微博", "知乎"],
+      "rankings": "微博 #1 / 知乎 #3",
+      "heatRaw": "微博 1000000 / 知乎 5000万热度",
+      "heatNormalized": 92,
+      "userConcern": "用户正在关注事件背后的影响、自己是否相关、以及是否有快速判断工具。",
+      "miniappOpportunity": "做一个轻量决策/查询工具，而不是直接使用热点名称。",
+      "nameDirection": "避开受保护名称，使用通用需求词，如“影响测一测”“同款清单助手”。",
+      "searchKeywords": "影响查询, 清单, 测一测, 对照表",
+      "coreFeatures": "问题引导、结果卡片、收藏清单、分享海报。",
+      "adPotential": "中",
+      "complianceRisk": "低",
+      "difficulty": "低",
+      "priority": "观察",
+      "recommendation": "示例数据，等待首次自动化生成正式建议。",
+      "sourceLinks": []
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>每日中国热点小程序机会报告</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f7f9;
+        --panel: #ffffff;
+        --text: #20242a;
+        --muted: #667085;
+        --line: #d9dee7;
+        --accent: #0f766e;
+        --accent-2: #b42318;
+        --chip: #eef6f5;
+        --shadow: 0 10px 28px rgba(20, 28, 38, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
+          sans-serif;
+      }
+
+      .app {
+        width: min(1440px, 100%);
+        margin: 0 auto;
+        padding: 18px;
+      }
+
+      header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 0 18px;
+      }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: clamp(24px, 4vw, 38px);
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .subline {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(160px, 1fr) 142px 126px 126px;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      input,
+      select,
+      button {
+        height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+      }
+
+      input,
+      select {
+        padding: 0 12px;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 0 12px;
+      }
+
+      button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      button.ghost {
+        background: #fff;
+      }
+
+      .status {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: var(--chip);
+        color: #115e59;
+        font-weight: 600;
+      }
+
+      .table-wrap {
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      table {
+        width: 100%;
+        min-width: 1320px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid var(--line);
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #f9fafb;
+        color: #344054;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .event {
+        min-width: 170px;
+        font-weight: 700;
+      }
+
+      .wide {
+        min-width: 240px;
+      }
+
+      .heat {
+        font-weight: 800;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      .risk-high {
+        color: var(--accent-2);
+        font-weight: 700;
+      }
+
+      .favorite {
+        min-width: 76px;
+      }
+
+      .favorite.active {
+        background: #fff4cc;
+        border-color: #f4c430;
+      }
+
+      .empty {
+        display: none;
+        padding: 28px;
+        text-align: center;
+        color: var(--muted);
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      @media (max-width: 760px) {
+        .app {
+          padding: 12px;
+        }
+
+        header {
+          display: block;
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .toolbar input {
+          grid-column: 1 / -1;
+        }
+
+        th,
+        td {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <div>
+          <h1>每日中国热点小程序机会报告</h1>
+          <p class="subline" id="summary">正在读取最新报告...</p>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="筛选工具">
+        <input id="search" type="search" placeholder="搜索事件、平台、关键词、机会点" />
+        <select id="priority">
+          <option value="">全部优先级</option>
+          <option value="高">高</option>
+          <option value="中">中</option>
+          <option value="低">低</option>
+          <option value="观察">观察</option>
+        </select>
+        <select id="platform">
+          <option value="">全部平台</option>
+        </select>
+        <button id="favoritesOnly" class="ghost" type="button">只看收藏</button>
+      </section>
+
+      <section class="status" aria-live="polite">
+        <span class="pill" id="generatedAt">生成时间：-</span>
+        <span class="pill" id="itemCount">0 条机会</span>
+        <span class="pill" id="favoriteCount">0 个收藏</span>
+      </section>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>收藏</th>
+              <th>事件</th>
+              <th>平台/排名</th>
+              <th>热度</th>
+              <th>用户关注点</th>
+              <th>小程序机会</th>
+              <th>名称方向</th>
+              <th>搜索关键词</th>
+              <th>核心功能</th>
+              <th>广告潜力</th>
+              <th>审核风险</th>
+              <th>难度</th>
+              <th>优先级</th>
+              <th>是否建议跟进</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+      <div class="empty" id="empty">没有符合筛选条件的机会点。</div>
+    </main>
+
+    <script>
+      const state = {
+        items: [],
+        favoritesOnly: false,
+        favorites: new Set(JSON.parse(localStorage.getItem("hotspotFavorites") || "[]")),
+      };
+
+      const els = {
+        rows: document.querySelector("#rows"),
+        summary: document.querySelector("#summary"),
+        generatedAt: document.querySelector("#generatedAt"),
+        itemCount: document.querySelector("#itemCount"),
+        favoriteCount: document.querySelector("#favoriteCount"),
+        search: document.querySelector("#search"),
+        priority: document.querySelector("#priority"),
+        platform: document.querySelector("#platform"),
+        favoritesOnly: document.querySelector("#favoritesOnly"),
+        empty: document.querySelector("#empty"),
+      };
+
+      function text(value) {
+        if (Array.isArray(value)) return value.join("、");
+        return value == null || value === "" ? "-" : String(value);
+      }
+
+      function saveFavorites() {
+        localStorage.setItem("hotspotFavorites", JSON.stringify([...state.favorites]));
+      }
+
+      function itemMatches(item) {
+        const q = els.search.value.trim().toLowerCase();
+        const priority = els.priority.value;
+        const platform = els.platform.value;
+        const haystack = [
+          item.event,
+          item.platforms?.join(" "),
+          item.userConcern,
+          item.miniappOpportunity,
+          item.nameDirection,
+          item.searchKeywords,
+          item.coreFeatures,
+          item.recommendation,
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        if (q && !haystack.includes(q)) return false;
+        if (priority && item.priority !== priority) return false;
+        if (platform && !(item.platforms || []).includes(platform)) return false;
+        if (state.favoritesOnly && !state.favorites.has(item.id)) return false;
+        return true;
+      }
+
+      function riskClass(value) {
+        return /高|敏感|资质|不建议/.test(text(value)) ? "risk-high" : "";
+      }
+
+      function render() {
+        const items = state.items
+          .filter(itemMatches)
+          .sort((a, b) => (b.heatNormalized || 0) - (a.heatNormalized || 0));
+
+        els.rows.innerHTML = items
+          .map((item) => {
+            const active = state.favorites.has(item.id);
+            return `
+              <tr>
+                <td><button class="favorite ${active ? "active" : ""}" data-id="${item.id}" type="button">${active ? "已收藏" : "收藏"}</button></td>
+                <td class="event">${text(item.event)}</td>
+                <td>${text(item.platforms)}<br>${text(item.rankings)}</td>
+                <td><span class="heat">${text(item.heatNormalized)}</span><br>${text(item.heatRaw)}</td>
+                <td class="wide">${text(item.userConcern)}</td>
+                <td class="wide">${text(item.miniappOpportunity)}</td>
+                <td>${text(item.nameDirection)}</td>
+                <td>${text(item.searchKeywords)}</td>
+                <td class="wide">${text(item.coreFeatures)}</td>
+                <td>${text(item.adPotential)}</td>
+                <td class="${riskClass(item.complianceRisk)}">${text(item.complianceRisk)}</td>
+                <td>${text(item.difficulty)}</td>
+                <td>${text(item.priority)}</td>
+                <td class="${riskClass(item.recommendation)}">${text(item.recommendation)}</td>
+              </tr>
+            `;
+          })
+          .join("");
+
+        els.itemCount.textContent = `${items.length} 条机会`;
+        els.favoriteCount.textContent = `${state.favorites.size} 个收藏`;
+        els.favoritesOnly.textContent = state.favoritesOnly ? "显示全部" : "只看收藏";
+        els.favoritesOnly.className = state.favoritesOnly ? "primary" : "ghost";
+        els.empty.style.display = items.length ? "none" : "block";
+      }
+
+      function setupPlatforms() {
+        const platforms = [...new Set(state.items.flatMap((item) => item.platforms || []))].sort();
+        els.platform.innerHTML =
+          '<option value="">全部平台</option>' +
+          platforms.map((name) => `<option value="${name}">${name}</option>`).join("");
+      }
+
+      els.rows.addEventListener("click", (event) => {
+        const button = event.target.closest(".favorite");
+        if (!button) return;
+        const id = button.dataset.id;
+        if (state.favorites.has(id)) state.favorites.delete(id);
+        else state.favorites.add(id);
+        saveFavorites();
+        render();
+      });
+
+      [els.search, els.priority, els.platform].forEach((el) => {
+        el.addEventListener("input", render);
+      });
+
+      els.favoritesOnly.addEventListener("click", () => {
+        state.favoritesOnly = !state.favoritesOnly;
+        render();
+      });
+
+      fetch("data/latest.json", { cache: "no-store" })
+        .then((res) => res.json())
+        .then((data) => {
+          state.items = Array.isArray(data.items) ? data.items : [];
+          els.summary.textContent = data.summary || "已读取最新热点报告。";
+          els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
+          setupPlatforms();
+          render();
+        })
+        .catch((error) => {
+          els.summary.textContent = `读取报告失败：${error.message}`;
+          render();
+        });
+    </script>
+  </body>
+</html>
