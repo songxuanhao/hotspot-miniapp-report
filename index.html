@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>每日中国热点小程序机会报告</title>
+    <title>每日热点</title>
     <style>
       :root {
         color-scheme: light;
@@ -173,6 +173,30 @@
         color: #fff;
       }
 
+      .history {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) auto auto;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 14px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .history-title {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .history-note {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
       .feed {
         display: grid;
         gap: 12px;
@@ -285,6 +309,51 @@
         line-height: 1.62;
       }
 
+      .link-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 12px;
+      }
+
+      .rank-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .rank-link:hover {
+        border-color: var(--teal);
+        background: var(--teal-soft);
+      }
+
+      .source-list {
+        display: grid;
+        gap: 8px;
+        margin: 0 0 12px;
+      }
+
+      .source-item {
+        padding: 9px 10px;
+        border-radius: 8px;
+        background: var(--panel-soft);
+        color: #293544;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .source-item b {
+        color: var(--text);
+      }
+
       .idea-title {
         margin: 0 0 8px;
         font-size: 15px;
@@ -369,6 +438,10 @@
           grid-template-columns: 1fr 1fr;
         }
 
+        .history {
+          grid-template-columns: 1fr;
+        }
+
         .toolbar input {
           grid-column: 1 / -1;
         }
@@ -406,8 +479,8 @@
     <main class="app">
       <header class="hero">
         <div>
-          <p class="eyebrow">每日 8:00 更新</p>
-          <h1>热点不是标题，是用户此刻想解决的问题</h1>
+          <p class="eyebrow">每日早晨八点开始</p>
+          <h1>每日热点</h1>
           <p class="subline" id="summary">正在读取最新报告...</p>
         </div>
         <aside class="hero-panel">
@@ -433,6 +506,17 @@
           <b id="platformCount">0</b>
           <span>覆盖平台</span>
         </div>
+      </section>
+
+      <section class="history" aria-label="历史热点">
+        <div>
+          <p class="history-title">历史热点列表</p>
+          <p class="history-note" id="historyStatus">正在读取历史报告...</p>
+        </div>
+        <select class="control" id="historySelect">
+          <option value="data/latest.json">今日热点</option>
+        </select>
+        <button id="latestButton" class="action" type="button">回到最新</button>
       </section>
 
       <section class="toolbar" aria-label="筛选工具">
@@ -475,6 +559,9 @@
         priority: document.querySelector("#priority"),
         platform: document.querySelector("#platform"),
         favoritesOnly: document.querySelector("#favoritesOnly"),
+        historySelect: document.querySelector("#historySelect"),
+        historyStatus: document.querySelector("#historyStatus"),
+        latestButton: document.querySelector("#latestButton"),
         empty: document.querySelector("#empty"),
         toast: document.querySelector("#toast"),
       };
@@ -490,6 +577,15 @@
           .replaceAll("<", "&lt;")
           .replaceAll(">", "&gt;")
           .replaceAll('"', "&quot;");
+      }
+
+      function safeUrl(value) {
+        try {
+          const url = new URL(String(value || ""), window.location.href);
+          return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+        } catch {
+          return "";
+        }
       }
 
       function saveFavorites() {
@@ -536,20 +632,81 @@
 
       function copyTextFor(item) {
         return [
-          `热点事件：${text(item.event)}`,
-          `涉及平台：${text(item.platforms)}；排名：${text(item.rankings)}`,
-          `热度：${text(item.heatNormalized)}/100；原始热度：${text(item.heatRaw)}`,
-          `用户关注点：${text(item.userConcern)}`,
+          `事件内容：${text(item.event)}`,
+          `用户关心什么：${text(item.userConcern)}`,
+          `可切入的机会：${text(item.miniappOpportunity)}`,
+          `建议名称：${text(item.nameDirection)}`,
           `小程序机会：${text(item.miniappOpportunity)}`,
-          `建议名称方向：${text(item.nameDirection)}`,
-          `搜索关键词：${text(item.searchKeywords)}`,
           `核心功能：${text(item.coreFeatures)}`,
-          `广告变现潜力：${text(item.adPotential)}`,
-          `审核/合规风险：${text(item.complianceRisk)}`,
-          `开发难度：${text(item.difficulty)}`,
-          `优先级：${text(item.priority)}`,
-          `是否建议跟进：${text(item.recommendation)}`,
+          `搜索关键词：${text(item.searchKeywords)}`,
         ].join("\n");
+      }
+
+      function normalizeSourceLinks(item) {
+        if (Array.isArray(item.sourceLinks) && item.sourceLinks.length) {
+          return item.sourceLinks.map((entry, index) => {
+            if (typeof entry === "string") {
+              return {
+                platform: item.platforms?.[index] || `来源 ${index + 1}`,
+                url: entry,
+                rank: "",
+                title: item.event,
+              };
+            }
+            return {
+              platform: entry.platform || item.platforms?.[index] || `来源 ${index + 1}`,
+              url: entry.url || entry.href || "",
+              rank: entry.rank || entry.ranking || "",
+              title: entry.title || entry.hotspotTitle || item.event,
+              heat: entry.heat || entry.heatRaw || "",
+            };
+          });
+        }
+
+        return (item.platforms || []).map((platform) => ({
+          platform,
+          url: "",
+          rank: "",
+          title: item.event,
+          heat: "",
+        }));
+      }
+
+      function renderRankLinks(item) {
+        const links = normalizeSourceLinks(item);
+        if (!links.length) return `<p class="text">${escapeHtml(item.rankings)}</p>`;
+
+        return `
+          <div class="link-list">
+            ${links
+              .map((entry) => {
+                const label = [entry.platform, entry.rank].filter(Boolean).join(" ");
+                const url = safeUrl(entry.url);
+                if (!url) return `<span class="rank-link">${escapeHtml(label || entry.platform)}</span>`;
+                return `<a class="rank-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label || entry.platform)}</a>`;
+              })
+              .join("")}
+          </div>
+        `;
+      }
+
+      function renderSourceItems(item) {
+        const links = normalizeSourceLinks(item);
+        const items = links.length
+          ? links
+          : [{ platform: "事件", rank: "", title: item.event, heat: "" }];
+
+        return `
+          <div class="source-list">
+            ${items
+              .map((entry) => {
+                const prefix = [entry.platform, entry.rank].filter(Boolean).join(" ");
+                const heat = entry.heat ? `｜${entry.heat}` : "";
+                return `<div class="source-item"><b>${escapeHtml(prefix || "事件")}</b>${escapeHtml(heat)}<br>${escapeHtml(entry.title || item.event)}</div>`;
+              })
+              .join("")}
+          </div>
+        `;
       }
 
       async function copyIdea(item) {
@@ -605,13 +762,15 @@
                   </div>
                   <h2 class="event-title">${escapeHtml(item.event)}</h2>
                   <p class="label">平台排名</p>
-                  <p class="text">${escapeHtml(item.rankings)}</p>
+                  ${renderRankLinks(item)}
                   <div class="heat">
                     <div class="heat-score">${heat}</div>
                     <div class="bar"><i style="width:${heat}%"></i></div>
                   </div>
                   <p class="label">原始热度</p>
                   <p class="text">${escapeHtml(item.heatRaw)}</p>
+                  <p class="label">事件全部内容</p>
+                  ${renderSourceItems(item)}
                 </section>
                 <section>
                   <p class="label">用户真正关心什么</p>
@@ -654,6 +813,51 @@
           platforms.map((name) => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
       }
 
+      function resetFilters() {
+        els.search.value = "";
+        els.priority.value = "";
+        els.platform.value = "";
+        state.favoritesOnly = false;
+      }
+
+      function loadReport(path) {
+        return fetch(path, { cache: "no-store" })
+          .then((res) => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+          })
+          .then((data) => {
+            state.items = Array.isArray(data.items) ? data.items : [];
+            els.summary.textContent = data.summary || "已读取热点报告。";
+            els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
+            setupPlatforms();
+            render();
+          });
+      }
+
+      function setupHistory() {
+        fetch("data/history.json", { cache: "no-store" })
+          .then((res) => (res.ok ? res.json() : { reports: [] }))
+          .then((data) => {
+            const reports = Array.isArray(data.reports) ? data.reports : [];
+            els.historySelect.innerHTML =
+              '<option value="data/latest.json">今日热点</option>' +
+              reports
+                .map((report) => {
+                  const path = report.path || "data/latest.json";
+                  const label = `${report.date || "历史报告"}｜${report.summary || `${report.itemCount || 0} 条机会`}`;
+                  return `<option value="${escapeHtml(path)}">${escapeHtml(label)}</option>`;
+                })
+                .join("");
+            els.historyStatus.textContent = reports.length
+              ? `可查看 ${reports.length} 份历史报告。`
+              : "暂无历史报告，首次自动化运行后会开始沉淀。";
+          })
+          .catch((error) => {
+            els.historyStatus.textContent = `历史列表读取失败：${error.message}`;
+          });
+      }
+
       els.feed.addEventListener("click", async (event) => {
         const button = event.target.closest("button[data-action]");
         if (!button) return;
@@ -687,15 +891,25 @@
         render();
       });
 
-      fetch("data/latest.json", { cache: "no-store" })
-        .then((res) => res.json())
-        .then((data) => {
-          state.items = Array.isArray(data.items) ? data.items : [];
-          els.summary.textContent = data.summary || "已读取最新热点报告。";
-          els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
-          setupPlatforms();
+      els.historySelect.addEventListener("change", () => {
+        resetFilters();
+        loadReport(els.historySelect.value).catch((error) => {
+          els.summary.textContent = `读取历史报告失败：${error.message}`;
           render();
-        })
+        });
+      });
+
+      els.latestButton.addEventListener("click", () => {
+        els.historySelect.value = "data/latest.json";
+        resetFilters();
+        loadReport("data/latest.json").catch((error) => {
+          els.summary.textContent = `读取最新报告失败：${error.message}`;
+          render();
+        });
+      });
+
+      setupHistory();
+      loadReport("data/latest.json")
         .catch((error) => {
           els.summary.textContent = `读取报告失败：${error.message}`;
           render();

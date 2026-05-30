@@ -20,7 +20,22 @@
       "difficulty": "低",
       "priority": "观察",
       "recommendation": "示例数据，等待首次自动化生成正式建议。",
-      "sourceLinks": []
+      "sourceLinks": [
+        {
+          "platform": "微博",
+          "rank": "#1",
+          "title": "示例热点事件：用户正在讨论某个突发热点背后的影响、自己是否相关、以及是否有快速判断工具",
+          "heat": "1000000",
+          "url": "https://s.weibo.com/top/summary"
+        },
+        {
+          "platform": "知乎",
+          "rank": "#3",
+          "title": "示例热点事件如何影响普通用户？有哪些可以快速自查的信息？",
+          "heat": "5000万热度",
+          "url": "https://www.zhihu.com/hot"
+        }
+      ]
     }
   ],
   "failures": []

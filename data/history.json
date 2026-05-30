@@ -1,0 +1,11 @@
+{
+  "updatedAt": "尚未生成",
+  "reports": [
+    {
+      "date": "今日",
+      "path": "data/latest.json",
+      "summary": "示例报告，首次自动化运行后会替换为正式历史列表。",
+      "itemCount": 1
+    }
+  ]
+}
