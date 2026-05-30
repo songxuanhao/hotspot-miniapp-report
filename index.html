@@ -219,6 +219,30 @@
         color: #fff;
       }
 
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 14px;
+      }
+
+      .tab {
+        height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #344054;
+        padding: 0 12px;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .tab.active {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #fff;
+      }
+
       .history {
         display: grid;
         grid-template-columns: minmax(220px, 1fr) auto auto;
@@ -250,7 +274,7 @@
 
       .opportunity {
         display: grid;
-        grid-template-columns: minmax(220px, 0.7fr) minmax(360px, 1.3fr);
+        grid-template-columns: minmax(190px, 0.5fr) minmax(500px, 1.5fr);
         gap: 0;
         overflow: hidden;
         border: 1px solid var(--line);
@@ -261,7 +285,7 @@
       }
 
       .opportunity > section {
-        padding: 16px;
+        padding: 10px;
       }
 
       .opportunity > section + section {
@@ -269,8 +293,8 @@
       }
 
       .event-title {
-        margin: 0 0 12px;
-        font-size: 18px;
+        margin: 0 0 9px;
+        font-size: 16px;
         line-height: 1.35;
       }
 
@@ -278,7 +302,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
-        margin-bottom: 12px;
+        margin-bottom: 9px;
       }
 
       .tag {
@@ -291,6 +315,13 @@
         color: #344054;
         font-size: 12px;
         font-weight: 700;
+      }
+
+      .decision-row {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
+        gap: 10px;
+        align-items: start;
       }
 
       .tag.teal {
@@ -350,24 +381,24 @@
       }
 
       .text {
-        margin: 0 0 12px;
+        margin: 0 0 8px;
         color: #293544;
-        font-size: 14px;
-        line-height: 1.62;
+        font-size: 13px;
+        line-height: 1.55;
       }
 
       .link-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        margin: 0 0 12px;
+        gap: 6px;
+        margin: 0 0 8px;
       }
 
       .rank-link {
         display: inline-flex;
         align-items: center;
-        min-height: 32px;
-        padding: 6px 10px;
+        min-height: 30px;
+        padding: 5px 9px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #fff;
@@ -390,8 +421,8 @@
 
       .compact-grid {
         display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        gap: 12px;
+        grid-template-columns: minmax(180px, 0.62fr) minmax(0, 1.38fr);
+        gap: 10px;
       }
 
       .source-item {
@@ -427,9 +458,9 @@
 
       .result-panel {
         display: grid;
-        gap: 12px;
-        margin-bottom: 14px;
-        padding: 14px;
+        gap: 8px;
+        margin-bottom: 8px;
+        padding: 10px;
         border: 1px solid var(--teal);
         border-radius: 8px;
         background: var(--teal-soft);
@@ -438,7 +469,7 @@
       .decision {
         margin: 0;
         color: #0f3f3b;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 900;
         line-height: 1.45;
       }
@@ -446,8 +477,8 @@
       .name-options {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
-        margin: 0 0 12px;
+        gap: 5px;
+        margin: 0;
         padding: 0;
         list-style: none;
       }
@@ -458,6 +489,37 @@
         border-radius: 8px;
         background: #fff;
         font-size: 13px;
+        font-weight: 800;
+      }
+
+      .quick-facts {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 2px;
+      }
+
+      .fact {
+        padding: 8px;
+        border-radius: 8px;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .fact b {
+        display: block;
+        margin-bottom: 3px;
+        color: #344054;
+        font-size: 11px;
+      }
+
+      .fact span {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: var(--text);
+        font-size: 12px;
         font-weight: 800;
       }
 
@@ -477,7 +539,7 @@
       }
 
       details.inline-detail {
-        margin: 8px 0 12px;
+        margin: 6px 0 8px;
         border: 0;
         background: transparent;
       }
@@ -584,7 +646,9 @@
         }
 
         .compact-grid,
-        .name-options {
+        .name-options,
+        .decision-row,
+        .quick-facts {
           grid-template-columns: 1fr;
         }
 
@@ -684,6 +748,12 @@
         <button id="favoritesOnly" class="action" type="button">只看收藏</button>
       </section>
 
+      <section class="tabs" aria-label="做不做筛选">
+        <button class="tab active" data-decision-filter="all" type="button">全部</button>
+        <button class="tab" data-decision-filter="do" type="button">只看可做</button>
+        <button class="tab" data-decision-filter="no" type="button">只看不做</button>
+      </section>
+
       <section class="feed" id="feed" aria-live="polite"></section>
       <div class="empty" id="empty">没有符合筛选条件的机会点。</div>
     </main>
@@ -699,8 +769,10 @@
       const state = {
         items: [],
         favoritesOnly: false,
+        decisionFilter: "all",
         favorites: new Set(JSON.parse(localStorage.getItem("hotspotFavorites") || "[]")),
         expandedSources: new Set(),
+        expandedRanks: new Set(),
       };
 
       const els = {
@@ -719,6 +791,7 @@
         historyStatus: document.querySelector("#historyStatus"),
         latestButton: document.querySelector("#latestButton"),
         tocList: document.querySelector("#tocList"),
+        decisionTabs: document.querySelectorAll("[data-decision-filter]"),
         empty: document.querySelector("#empty"),
         toast: document.querySelector("#toast"),
       };
@@ -758,6 +831,12 @@
           item.platforms?.join(" "),
           item.userConcern,
           item.userDemand,
+          item.customer,
+          item.hotspotNeedRelevance,
+          item.needStrength,
+          item.urgency,
+          item.competitionIntensity,
+          item.doDecisionRationale,
           item.wechatSearchKeywords,
           item.persona,
           item.scenario,
@@ -778,6 +857,9 @@
         if (priority && item.priority !== priority) return false;
         if (platform && !(item.platforms || []).includes(platform)) return false;
         if (state.favoritesOnly && !state.favorites.has(item.id)) return false;
+        const decision = text(item.finalDecision || item.recommendation);
+        if (state.decisionFilter === "do" && !/^做|^可做|^谨慎做/.test(decision)) return false;
+        if (state.decisionFilter === "no" && !/^不做|^不值得/.test(decision)) return false;
         return true;
       }
 
@@ -798,12 +880,12 @@
       function copyTextFor(item) {
         return [
           `事件内容：${text(item.event)}`,
-          `最终结论：${text(item.finalDecision || item.finalVerdict || item.recommendation)}`,
-          `小程序名称备选：${text(item.miniappNameOptions || item.nameDirection)}`,
-          `小程序简单介绍：${text(item.miniappIntro)}`,
+          `用户关心什么：${text(item.userConcern)}`,
+          `可切入的机会：${text(item.userDemand)}`,
+          `建议名称：${text(item.miniappNameOptions || item.nameDirection)}`,
+          `小程序机会：${text(item.miniappOpportunity || item.miniappIntro)}`,
           `核心功能：${text(item.coreFeatures)}`,
-          `微信搜索关键词：${text(item.wechatSearchKeywords || item.searchKeywords)}`,
-          `研发评审结果：${text(item.developmentReviewResult || item.feasibilityNotes)}`,
+          `搜索关键词：${text(item.wechatSearchKeywords || item.searchKeywords)}`,
         ].join("\n");
       }
 
@@ -856,10 +938,13 @@
       function renderRankLinks(item) {
         const links = normalizeSourceLinks(item);
         if (!links.length) return `<p class="text">${escapeHtml(item.rankings)}</p>`;
+        const shouldCollapse = links.length > 3;
+        const expanded = state.expandedRanks?.has(item.id);
+        const visibleLinks = shouldCollapse && !expanded ? links.slice(0, 3) : links;
 
         return `
           <div class="link-list">
-            ${links
+            ${visibleLinks
               .map((entry) => {
                 const label = [entry.platform, entry.rank].filter(Boolean).join(" ");
                 const url = safeUrl(entry.url);
@@ -867,6 +952,11 @@
                 return `<a class="rank-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label || entry.platform)}</a>`;
               })
               .join("")}
+            ${
+              shouldCollapse
+                ? `<button class="source-toggle" data-action="rank-toggle" data-id="${escapeHtml(item.id)}" type="button">${expanded ? "收回" : `展开 ${links.length} 个排名`}</button>`
+                : ""
+            }
           </div>
         `;
       }
@@ -958,14 +1048,11 @@
                     <span class="tag teal">${escapeHtml(text(item.platforms))}</span>
                     <span class="tag ${priorityTone(item.priority)}">${escapeHtml(text(item.priority))}</span>
                     <span class="tag ${riskTone(item.complianceRisk)}">${escapeHtml(text(item.complianceRisk))}</span>
+                    <span class="tag green">热度 ${heat}</span>
                   </div>
                   <h2 class="event-title">${escapeHtml(item.event)}</h2>
                   <p class="label">平台排名</p>
                   ${renderRankLinks(item)}
-                  <div class="heat">
-                    <div class="heat-score">${heat}</div>
-                    <div class="bar"><i style="width:${heat}%"></i></div>
-                  </div>
                   <details class="inline-detail">
                     <summary>查看事件全部内容</summary>
                     <div class="detail-body">
@@ -976,7 +1063,16 @@
                 <section>
                   <div class="result-panel">
                     <p class="label">最终结论</p>
-                    <p class="decision">${escapeHtml(item.finalDecision || item.finalVerdict || item.recommendation)}</p>
+                    <div class="decision-row">
+                      <p class="decision">${escapeHtml(item.finalDecision || item.finalVerdict || item.recommendation)}</p>
+                      <div class="quick-facts">
+                        <div class="fact"><b>客户</b><span>${escapeHtml(item.customer || "微信高频用户")}</span></div>
+                        <div class="fact"><b>相关性</b><span>${escapeHtml(item.hotspotNeedRelevance || "需评估")}</span></div>
+                        <div class="fact"><b>需求</b><span>${escapeHtml(item.needStrength || "非刚需")}</span></div>
+                        <div class="fact"><b>紧急度</b><span>${escapeHtml(item.urgency || "低")}</span></div>
+                        <div class="fact"><b>竞争</b><span>${escapeHtml(item.competitionIntensity || "高")}</span></div>
+                      </div>
+                    </div>
                     <div class="compact-grid">
                       <div>
                         <p class="idea-title">小程序名称备选</p>
@@ -1008,6 +1104,14 @@
                     <div class="detail-body">
                       <p class="label">用户真正关心什么</p>
                       <p class="text">${escapeHtml(item.userConcern)}</p>
+                      <p class="label">客户是谁</p>
+                      <p class="text">${escapeHtml(item.customer || item.persona)}</p>
+                      <p class="label">热点和小程序需求是否相关</p>
+                      <p class="text">${escapeHtml(item.hotspotNeedRelevance || "需要判断热点能否转成微信内的搜索、收藏、提醒、分享动作。")}</p>
+                      <p class="label">刚需 / 紧急 / 竞争</p>
+                      <p class="text">${escapeHtml([`需求：${text(item.needStrength || "非刚需")}`, `紧急度：${text(item.urgency || "低")}`, `竞争：${text(item.competitionIntensity || "高")}`].join("；"))}</p>
+                      <p class="label">做不做的核心理由</p>
+                      <p class="text">${escapeHtml(item.doDecisionRationale || item.finalDecision || item.recommendation)}</p>
                       <p class="label">热度大概还能持续多久</p>
                       <p class="text">${escapeHtml(item.heatWindow)}</p>
                       <p class="label">更具体的用户需求</p>
@@ -1078,6 +1182,10 @@
         els.priority.value = "";
         els.platform.value = "";
         state.favoritesOnly = false;
+        state.decisionFilter = "all";
+        els.decisionTabs.forEach((tab) => {
+          tab.classList.toggle("active", tab.dataset.decisionFilter === "all");
+        });
       }
 
       function loadReport(path) {
@@ -1132,6 +1240,13 @@
           return;
         }
 
+        if (button.dataset.action === "rank-toggle") {
+          if (state.expandedRanks.has(id)) state.expandedRanks.delete(id);
+          else state.expandedRanks.add(id);
+          render();
+          return;
+        }
+
         if (button.dataset.action === "favorite") {
           if (state.favorites.has(id)) state.favorites.delete(id);
           else state.favorites.add(id);
@@ -1156,6 +1271,16 @@
       els.favoritesOnly.addEventListener("click", () => {
         state.favoritesOnly = !state.favoritesOnly;
         render();
+      });
+
+      els.decisionTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          state.decisionFilter = tab.dataset.decisionFilter || "all";
+          els.decisionTabs.forEach((entry) => {
+            entry.classList.toggle("active", entry === tab);
+          });
+          render();
+        });
       });
 
       els.historySelect.addEventListener("change", () => {

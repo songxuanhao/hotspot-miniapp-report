@@ -355,7 +355,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "微信群里讨论比赛、只想快速生成赛后表达和提醒的球迷/电竞观众",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-076",
@@ -432,7 +438,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-001",
@@ -495,7 +507,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-031",
@@ -558,7 +576,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-061",
@@ -621,7 +645,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-071",
@@ -684,7 +714,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-091",
@@ -747,7 +783,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-121",
@@ -810,7 +852,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-134",
@@ -873,7 +921,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-146",
@@ -936,7 +990,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-002",
@@ -999,7 +1059,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-032",
@@ -1062,7 +1128,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-072",
@@ -1125,7 +1197,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-092",
@@ -1188,7 +1266,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-147",
@@ -1251,7 +1335,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-176",
@@ -1314,7 +1404,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-197",
@@ -1377,7 +1473,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-226",
@@ -1440,7 +1542,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "微信群里讨论比赛、只想快速生成赛后表达和提醒的球迷/电竞观众",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-003",
@@ -1503,7 +1611,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-033",
@@ -1566,7 +1680,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-093",
@@ -1629,7 +1749,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-148",
@@ -1692,7 +1818,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-177",
@@ -1755,7 +1887,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-198",
@@ -1818,7 +1956,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-122",
@@ -1881,7 +2025,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-135",
@@ -1944,7 +2094,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-004",
@@ -2007,7 +2163,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-034",
@@ -2070,7 +2232,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-062",
@@ -2133,7 +2301,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "关注财经新闻的微信用户，但小程序不提供投资建议，只适合资料收藏和提醒",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-073",
@@ -2196,7 +2370,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-094",
@@ -2259,7 +2439,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-149",
@@ -2322,7 +2508,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-199",
@@ -2385,7 +2577,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-005",
@@ -2448,7 +2646,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "关注健康信息的微信用户，但医疗内容高敏，只能做就医准备清单和官方入口",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-035",
@@ -2511,7 +2715,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-095",
@@ -2574,7 +2784,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-150",
@@ -2637,7 +2853,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-178",
@@ -2700,7 +2922,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-200",
@@ -2763,7 +2991,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-074",
@@ -2826,7 +3060,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-123",
@@ -2889,7 +3129,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-227",
@@ -2952,7 +3198,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "正在做出行安排的微信用户，需要清单、提醒和风险确认",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-006",
@@ -3015,7 +3267,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-036",
@@ -3078,7 +3336,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-096",
@@ -3141,7 +3405,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-136",
@@ -3204,7 +3474,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-151",
@@ -3267,7 +3543,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-179",
@@ -3330,7 +3612,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-201",
@@ -3393,7 +3681,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-007",
@@ -3456,7 +3750,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "关注财经新闻的微信用户，但小程序不提供投资建议，只适合资料收藏和提醒",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-037",
@@ -3519,7 +3819,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-075",
@@ -3582,7 +3888,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-097",
@@ -3645,7 +3957,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-152",
@@ -3708,7 +4026,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-202",
@@ -3771,7 +4095,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-228",
@@ -3834,7 +4164,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-063",
@@ -3897,7 +4233,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "关注财经新闻的微信用户，但小程序不提供投资建议，只适合资料收藏和提醒",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-008",
@@ -3960,7 +4302,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-038",
@@ -4023,7 +4371,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-098",
@@ -4086,7 +4440,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-124",
@@ -4149,7 +4509,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "关注财经新闻的微信用户，但小程序不提供投资建议，只适合资料收藏和提醒",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-153",
@@ -4212,7 +4578,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-203",
@@ -4275,7 +4647,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-009",
@@ -4338,7 +4716,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-039",
@@ -4401,7 +4785,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-099",
@@ -4464,7 +4854,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-137",
@@ -4527,7 +4923,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-154",
@@ -4590,7 +4992,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-180",
@@ -4653,7 +5061,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-204",
@@ -4716,7 +5130,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-229",
@@ -4779,7 +5199,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-010",
@@ -4842,7 +5268,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-040",
@@ -4905,7 +5337,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-077",
@@ -4968,7 +5406,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "关注健康信息的微信用户，但医疗内容高敏，只能做就医准备清单和官方入口",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-100",
@@ -5031,7 +5475,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-155",
@@ -5094,7 +5544,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-205",
@@ -5157,7 +5613,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-230",
@@ -5220,7 +5682,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-064",
@@ -5283,7 +5751,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-125",
@@ -5346,7 +5820,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-011",
@@ -5409,7 +5889,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-041",
@@ -5472,7 +5958,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-101",
@@ -5535,7 +6027,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-138",
@@ -5598,7 +6096,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-156",
@@ -5661,7 +6165,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-181",
@@ -5724,7 +6234,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-206",
@@ -5787,7 +6303,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-012",
@@ -5850,7 +6372,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-042",
@@ -5913,7 +6441,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-078",
@@ -5976,7 +6510,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-102",
@@ -6039,7 +6579,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "正在做出行安排的微信用户，需要清单、提醒和风险确认",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-157",
@@ -6102,7 +6648,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-182",
@@ -6165,7 +6717,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-207",
@@ -6228,7 +6786,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-231",
@@ -6291,7 +6855,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-013",
@@ -6354,7 +6924,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-043",
@@ -6417,7 +6993,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-079",
@@ -6480,7 +7062,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-103",
@@ -6543,7 +7131,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-126",
@@ -6606,7 +7200,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-158",
@@ -6669,7 +7269,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-183",
@@ -6732,7 +7338,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-208",
@@ -6795,7 +7407,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-232",
@@ -6858,7 +7476,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-014",
@@ -6921,7 +7545,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-044",
@@ -6984,7 +7614,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-065",
@@ -7047,7 +7683,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-104",
@@ -7110,7 +7752,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-139",
@@ -7173,7 +7821,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-159",
@@ -7236,7 +7890,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-209",
@@ -7299,7 +7959,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-080",
@@ -7362,7 +8028,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-233",
@@ -7425,7 +8097,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-015",
@@ -7488,7 +8166,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-045",
@@ -7551,7 +8235,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-105",
@@ -7614,7 +8304,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "微信群里讨论比赛、只想快速生成赛后表达和提醒的球迷/电竞观众",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-127",
@@ -7677,7 +8373,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "关注财经新闻的微信用户，但小程序不提供投资建议，只适合资料收藏和提醒",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-160",
@@ -7740,7 +8442,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-184",
@@ -7803,7 +8511,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-210",
@@ -7866,7 +8580,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-016",
@@ -7929,7 +8649,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-046",
@@ -7992,7 +8718,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-161",
@@ -8055,7 +8787,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-211",
@@ -8118,7 +8856,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-081",
@@ -8181,7 +8925,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-234",
@@ -8244,7 +8994,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-017",
@@ -8307,7 +9063,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-047",
@@ -8370,7 +9132,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-066",
@@ -8433,7 +9201,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-107",
@@ -8496,7 +9270,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-140",
@@ -8559,7 +9339,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-162",
@@ -8622,7 +9408,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-185",
@@ -8685,7 +9477,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-212",
@@ -8748,7 +9546,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-018",
@@ -8811,7 +9615,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-048",
@@ -8874,7 +9684,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-082",
@@ -8937,7 +9753,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-108",
@@ -9000,7 +9822,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-128",
@@ -9063,7 +9891,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-163",
@@ -9126,7 +9960,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-186",
@@ -9189,7 +10029,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-213",
@@ -9252,7 +10098,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-235",
@@ -9315,7 +10167,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "微信群里讨论比赛、只想快速生成赛后表达和提醒的球迷/电竞观众",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-019",
@@ -9378,7 +10236,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-049",
@@ -9441,7 +10305,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-083",
@@ -9504,7 +10374,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "微信群里讨论比赛、只想快速生成赛后表达和提醒的球迷/电竞观众",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-109",
@@ -9567,7 +10443,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-164",
@@ -9630,7 +10512,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-187",
@@ -9693,7 +10581,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-214",
@@ -9756,7 +10650,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-236",
@@ -9819,7 +10719,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-020",
@@ -9882,7 +10788,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-050",
@@ -9945,7 +10857,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-110",
@@ -10008,7 +10926,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-141",
@@ -10071,7 +10995,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-165",
@@ -10134,7 +11064,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-188",
@@ -10197,7 +11133,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-215",
@@ -10260,7 +11202,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-067",
@@ -10323,7 +11271,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-129",
@@ -10386,7 +11340,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-021",
@@ -10449,7 +11409,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-051",
@@ -10512,7 +11478,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-084",
@@ -10575,7 +11547,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-111",
@@ -10638,7 +11616,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-166",
@@ -10701,7 +11685,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-216",
@@ -10764,7 +11754,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-237",
@@ -10827,7 +11823,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-022",
@@ -10890,7 +11892,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-052",
@@ -10953,7 +11961,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-085",
@@ -11016,7 +12030,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-112",
@@ -11079,7 +12099,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-142",
@@ -11142,7 +12168,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-167",
@@ -11205,7 +12237,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-217",
@@ -11268,7 +12306,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-238",
@@ -11331,7 +12375,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-023",
@@ -11394,7 +12444,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-053",
@@ -11457,7 +12513,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-113",
@@ -11520,7 +12582,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-130",
@@ -11583,7 +12651,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-168",
@@ -11646,7 +12720,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-189",
@@ -11709,7 +12789,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-218",
@@ -11772,7 +12858,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-068",
@@ -11835,7 +12927,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-024",
@@ -11898,7 +12996,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-054",
@@ -11961,7 +13065,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-086",
@@ -12024,7 +13134,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-114",
@@ -12087,7 +13203,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-169",
@@ -12150,7 +13272,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-190",
@@ -12213,7 +13341,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-219",
@@ -12276,7 +13410,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-239",
@@ -12339,7 +13479,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-025",
@@ -12402,7 +13548,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-055",
@@ -12465,7 +13617,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-115",
@@ -12528,7 +13686,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-131",
@@ -12591,7 +13755,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-143",
@@ -12654,7 +13824,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-170",
@@ -12717,7 +13893,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-191",
@@ -12780,7 +13962,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-220",
@@ -12843,7 +14031,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-087",
@@ -12906,7 +14100,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-240",
@@ -12969,7 +14169,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-026",
@@ -13032,7 +14238,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-056",
@@ -13095,7 +14307,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-116",
@@ -13158,7 +14376,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-171",
@@ -13221,7 +14445,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-192",
@@ -13284,7 +14514,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-221",
@@ -13347,7 +14583,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-027",
@@ -13410,7 +14652,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-057",
@@ -13473,7 +14721,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-069",
@@ -13536,7 +14790,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-088",
@@ -13599,7 +14859,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-117",
@@ -13662,7 +14928,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-172",
@@ -13725,7 +14997,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-193",
@@ -13788,7 +15066,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-222",
@@ -13851,7 +15135,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "学生和家长，但涉及教育资质，默认只做通用提醒/清单，不碰升学决策",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-241",
@@ -13914,7 +15204,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-132",
@@ -13977,7 +15273,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-144",
@@ -14040,7 +15342,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-028",
@@ -14103,7 +15411,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-058",
@@ -14166,7 +15480,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-118",
@@ -14229,7 +15549,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-173",
@@ -14292,7 +15618,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "正在做出行安排的微信用户，需要清单、提醒和风险确认",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-194",
@@ -14355,7 +15687,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-223",
@@ -14418,7 +15756,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-029",
@@ -14481,7 +15825,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "关注财经新闻的微信用户，但小程序不提供投资建议，只适合资料收藏和提醒",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-059",
@@ -14544,7 +15894,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-089",
@@ -14607,7 +15963,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-119",
@@ -14670,7 +16032,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-174",
@@ -14733,7 +16101,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-195",
@@ -14796,7 +16170,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-224",
@@ -14859,7 +16239,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-242",
@@ -14922,7 +16308,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-030",
@@ -14985,7 +16377,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "关注健康信息的微信用户，但医疗内容高敏，只能做就医准备清单和官方入口",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-060",
@@ -15048,7 +16446,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-070",
@@ -15111,7 +16515,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-090",
@@ -15174,7 +16584,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-120",
@@ -15237,7 +16653,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-133",
@@ -15300,7 +16722,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-145",
@@ -15363,7 +16791,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-175",
@@ -15426,7 +16860,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "弱：热点讨论多，但难转成微信内高频刚需动作",
+      "needStrength": "非刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
     },
     {
       "id": "2026-05-31-api-196",
@@ -15489,7 +16929,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     },
     {
       "id": "2026-05-31-api-225",
@@ -15552,7 +16998,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "中"
         }
-      ]
+      ],
+      "customer": "在微信群吃瓜、追剧或追星的泛娱乐用户，需求多为轻讨论和收藏",
+      "hotspotNeedRelevance": "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。"
     },
     {
       "id": "2026-05-31-api-243",
@@ -15615,7 +17067,13 @@
           "fetchedAt": "2026/5/31 04:47:42 +08:00（TrendRadar/NewsNow API 手动试运行）",
           "confidence": "高"
         }
-      ]
+      ],
+      "customer": "中国大陆微信高频用户，在聊天、朋友圈或公众号里二次接触热点，希望快速完成一个轻动作",
+      "hotspotNeedRelevance": "中：有微信动作，但需避开资质、版权或平台内容边界",
+      "needStrength": "中等偏刚需",
+      "urgency": "中到高",
+      "competitionIntensity": "高",
+      "doDecisionRationale": "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
     }
   ],
   "failures": [
