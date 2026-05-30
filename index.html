@@ -250,7 +250,7 @@
 
       .opportunity {
         display: grid;
-        grid-template-columns: minmax(210px, 0.8fr) minmax(300px, 1.15fr) minmax(300px, 1.15fr);
+        grid-template-columns: minmax(220px, 0.7fr) minmax(360px, 1.3fr);
         gap: 0;
         overflow: hidden;
         border: 1px solid var(--line);
@@ -388,6 +388,12 @@
         margin: 0 0 12px;
       }
 
+      .compact-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 12px;
+      }
+
       .source-item {
         padding: 9px 10px;
         border-radius: 8px;
@@ -439,6 +445,7 @@
 
       .name-options {
         display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 6px;
         margin: 0 0 12px;
         padding: 0;
@@ -466,6 +473,19 @@
         padding: 11px 12px;
         color: var(--teal);
         font-size: 13px;
+        font-weight: 900;
+      }
+
+      details.inline-detail {
+        margin: 8px 0 12px;
+        border: 0;
+        background: transparent;
+      }
+
+      details.inline-detail summary {
+        cursor: pointer;
+        color: var(--teal);
+        font-size: 12px;
         font-weight: 900;
       }
 
@@ -560,6 +580,11 @@
         }
 
         .opportunity {
+          grid-template-columns: 1fr;
+        }
+
+        .compact-grid,
+        .name-options {
           grid-template-columns: 1fr;
         }
 
@@ -941,23 +966,42 @@
                     <div class="heat-score">${heat}</div>
                     <div class="bar"><i style="width:${heat}%"></i></div>
                   </div>
-                  <p class="label">原始热度</p>
-                  <p class="text">${escapeHtml(item.heatRaw)}</p>
-                  <p class="label">事件全部内容</p>
-                  ${renderSourceItems(item)}
+                  <details class="inline-detail">
+                    <summary>查看事件全部内容</summary>
+                    <div class="detail-body">
+                      ${renderSourceItems(item)}
+                    </div>
+                  </details>
                 </section>
                 <section>
                   <div class="result-panel">
                     <p class="label">最终结论</p>
                     <p class="decision">${escapeHtml(item.finalDecision || item.finalVerdict || item.recommendation)}</p>
-                    <p class="label">小程序简单介绍</p>
-                    <p class="text">${escapeHtml(item.miniappIntro || item.miniappOpportunity)}</p>
-                    <p class="label">微信搜索关键词</p>
-                    <p class="text">${escapeHtml(item.wechatSearchKeywords || item.searchKeywords)}</p>
-                    <p class="label">核心功能</p>
-                    <p class="text">${escapeHtml(item.coreFeatures)}</p>
-                    <p class="label">研发评审结果</p>
-                    <p class="text">${escapeHtml(item.developmentReviewResult || item.feasibilityNotes)}</p>
+                    <div class="compact-grid">
+                      <div>
+                        <p class="idea-title">小程序名称备选</p>
+                        ${renderNameOptions(item)}
+                      </div>
+                      <div>
+                        <p class="label">小程序简单介绍</p>
+                        <p class="text">${escapeHtml(item.miniappIntro || item.miniappOpportunity)}</p>
+                        <p class="label">核心功能</p>
+                        <p class="text">${escapeHtml(item.coreFeatures)}</p>
+                        <p class="label">研发评审结果</p>
+                        <p class="text">${escapeHtml(item.developmentReviewResult || item.feasibilityNotes)}</p>
+                      </div>
+                    </div>
+                    <details class="inline-detail">
+                      <summary>查看搜索词、命名规范和关键词策略</summary>
+                      <div class="detail-body">
+                        <p class="label">微信搜索关键词</p>
+                        <p class="text">${escapeHtml(item.wechatSearchKeywords || item.searchKeywords)}</p>
+                        <p class="label">名称规范提醒</p>
+                        <p class="text">${escapeHtml(item.namingComplianceNotes || "避开明星、综艺、赛事、品牌、媒体和需要资质的关键词；名称用通用需求词。")}</p>
+                        <p class="label">搜索关键词策略</p>
+                        <p class="text">${escapeHtml(item.searchKeywords)}</p>
+                      </div>
+                    </details>
                   </div>
                   <details class="analysis">
                     <summary>展开用户需求分析</summary>
@@ -984,14 +1028,6 @@
                       <p class="text">${escapeHtml(item.whyUseMiniapp)}</p>
                     </div>
                   </details>
-                </section>
-                <section>
-                  <p class="idea-title">小程序名称备选</p>
-                  ${renderNameOptions(item)}
-                  <p class="label">名称规范提醒</p>
-                  <p class="text">${escapeHtml(item.namingComplianceNotes || "避开明星、综艺、赛事、品牌、媒体和需要资质的关键词；名称用通用需求词。")}</p>
-                  <p class="label">搜索关键词策略</p>
-                  <p class="text">${escapeHtml(item.searchKeywords)}</p>
                   <details class="analysis">
                     <summary>展开两轮评审与研发边界</summary>
                     <div class="detail-body">
