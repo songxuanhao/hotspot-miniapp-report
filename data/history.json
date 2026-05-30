@@ -1,11 +1,11 @@
 {
-  "updatedAt": "尚未生成",
+  "updatedAt": "2026-05-31 03:02:07 +08:00（手动试运行）",
   "reports": [
     {
-      "date": "今日",
-      "path": "data/latest.json",
-      "summary": "示例报告，首次自动化运行后会替换为正式历史列表。",
-      "itemCount": 1
+      "date": "2026-05-31",
+      "path": "reports/2026-05-31.json",
+      "summary": "手动试运行，110 个热点机会点",
+      "itemCount": 110
     }
   ]
 }
