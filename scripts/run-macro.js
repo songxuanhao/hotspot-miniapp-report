@@ -11,27 +11,48 @@ const bundledPython = "C:\\Users\\26960\\.cache\\codex-runtimes\\codex-primary-r
 const BLS_SERIES = [
   {
     id: "CES0000000001",
-    title: "美国非农就业人数",
+    title: "美国非农就业人数（月变动）",
     country: "美国",
     category: "就业",
-    unit: "千人",
-    notes: "BLS Current Employment Statistics，总非农就业，季调。",
+    unit: "万人",
+    mode: "diff-ten-thousand",
+    notes: "BLS Current Employment Statistics，总非农就业季调值；用本月就业人数减上月就业人数计算月变动。",
+  },
+  {
+    id: "LNS14000000",
+    title: "美国失业率",
+    country: "美国",
+    category: "就业",
+    unit: "%",
+    mode: "level",
+    notes: "BLS Labor Force Statistics，失业率，季调。",
   },
   {
     id: "CUSR0000SA0",
-    title: "美国 CPI",
+    title: "美国 CPI 月率",
     country: "美国",
     category: "通胀",
-    unit: "指数",
-    notes: "BLS CPI-U All items，季调。",
+    unit: "%",
+    mode: "pct-change",
+    notes: "BLS CPI-U All items，季调；用指数计算环比。",
+  },
+  {
+    id: "CUSR0000SA0L1E",
+    title: "美国核心 CPI 月率",
+    country: "美国",
+    category: "通胀",
+    unit: "%",
+    mode: "pct-change",
+    notes: "BLS CPI-U less food and energy，季调；用指数计算环比。",
   },
   {
     id: "WPUFD4",
-    title: "美国 PPI 最终需求",
+    title: "美国 PPI 最终需求月率",
     country: "美国",
     category: "通胀",
-    unit: "指数",
-    notes: "BLS Producer Price Index，Final Demand。",
+    unit: "%",
+    mode: "pct-change",
+    notes: "BLS Producer Price Index，Final Demand；用指数计算环比。",
   },
 ];
 
@@ -240,12 +261,12 @@ function fetchText(url) {
   return fetchDirect(url);
 }
 
-function latestTwo(series) {
+function latestRows(series) {
   const data = Array.isArray(series.data) ? series.data : [];
   const cleaned = data
     .filter((item) => item.value && item.period && !item.period.includes("M13"))
     .sort((a, b) => `${b.year}${b.period}`.localeCompare(`${a.year}${a.period}`));
-  return [cleaned[0], cleaned[1]];
+  return [cleaned[0], cleaned[1], cleaned[2]];
 }
 
 function formatPeriod(row) {
@@ -263,13 +284,40 @@ function compareActual(actual, expected) {
   return "符合预期";
 }
 
+function daysAgo(dateText) {
+  const parsed = new Date(dateText);
+  if (Number.isNaN(parsed.getTime())) return Infinity;
+  return (Date.now() - parsed.getTime()) / 86400000;
+}
+
+function isFreshEvent(event) {
+  if (!event.date || event.date.includes("待接")) return false;
+  return daysAgo(event.date) <= 120;
+}
+
+function valueFromBls(latest, previous, mode) {
+  if (!latest) return "";
+  const current = Number(latest.value);
+  const prior = previous ? Number(previous.value) : NaN;
+  if (Number.isNaN(current)) return "";
+  if (mode === "diff-ten-thousand") {
+    if (Number.isNaN(prior)) return "";
+    return ((current - prior) / 10).toFixed(1);
+  }
+  if (mode === "pct-change") {
+    if (Number.isNaN(prior) || prior === 0) return "";
+    return (((current / prior) - 1) * 100).toFixed(2);
+  }
+  return current.toFixed(1);
+}
+
 async function fetchBlsEvents() {
   const events = [];
   for (const series of BLS_SERIES) {
     const url = `https://api.bls.gov/publicAPI/v2/timeseries/data/${series.id}`;
     const payload = JSON.parse(await fetchText(url));
     const item = payload.Results?.series?.[0];
-    const [latest, previous] = latestTwo(item || {});
+    const [latest, previous, beforePrevious] = latestRows(item || {});
     if (!latest) continue;
     events.push({
       id: `bls-${series.id}`,
@@ -280,8 +328,8 @@ async function fetchBlsEvents() {
       category: series.category,
       title: series.title,
       expected: "",
-      actual: `${latest.value} ${series.unit}`,
-      previous: previous ? `${previous.value} ${series.unit}` : "",
+      actual: `${valueFromBls(latest, previous, series.mode)}${series.unit}`,
+      previous: previous ? `${valueFromBls(previous, beforePrevious, series.mode)}${series.unit}` : "",
       surprise: compareActual(latest.value, ""),
       status: "released",
       importance: "high",
@@ -290,6 +338,23 @@ async function fetchBlsEvents() {
     });
   }
   return events;
+}
+
+function staleEventFrom(event) {
+  return {
+    ...event,
+    id: `stale-${event.id}`,
+    title: `${event.title}（数据源滞后）`,
+    status: "watch",
+    importance: "high",
+    actual: `源最近：${event.date} ${event.actual || "-"}`,
+    expected: event.expected || "源未给出",
+    previous: event.previous || "-",
+    surprise: "数据源滞后",
+    date: "需接最新源",
+    time: "不要按最新解读",
+    notes: `${event.source} 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。`,
+  };
 }
 
 function watchEvents() {
@@ -377,26 +442,34 @@ async function main() {
   const generatedAt = `${new Date().toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" })} +08:00`;
   const failures = [];
   const akshare = loadAkshareData();
-  let events = Array.isArray(akshare.events) ? akshare.events : [];
+  const akEvents = Array.isArray(akshare.events) ? akshare.events : [];
+  const freshAkEvents = akEvents.filter(isFreshEvent);
+  const staleKeyEvents = akEvents
+    .filter((event) => !isFreshEvent(event))
+    .filter((event) => /中国|CPI|PPI|非农|失业率/.test(event.title || ""))
+    .slice(0, 8)
+    .map(staleEventFrom);
+  let events = freshAkEvents;
   let ratioItems = Array.isArray(akshare.ratios) ? akshare.ratios : [];
   failures.push(...(Array.isArray(akshare.failures) ? akshare.failures : []));
 
-  if (!events.length) {
+  if (!freshAkEvents.some((event) => event.country === "美国")) {
     try {
-      events = await fetchBlsEvents();
+      events = [...events, ...(await fetchBlsEvents())];
     } catch (error) {
       failures.push({ source: "BLS Public Data API", error: error.message });
     }
   }
 
   if (!ratioItems.length) ratioItems = ratios();
-  events = [...events, ...watchEvents()];
+  events = [...events, ...staleKeyEvents, ...watchEvents()];
   if (!events.length) throw new Error("No macro events produced; refusing to publish an empty macro report.");
 
   const releasedCount = events.filter((event) => event.status === "released").length;
+  const staleCount = events.filter((event) => event.surprise === "数据源滞后").length;
   const report = {
     generatedAt,
-    summary: `金融宏观日历：${events.length} 个事件，${releasedCount} 个已公布数据；AkShare 提供今值/预测值/前值，yfinance 计算金银比/金油比，BLS 保留兜底。`,
+    summary: `金融宏观日历：${events.length} 个事件，${releasedCount} 个已公布数据，${staleCount} 个数据源滞后提示；美国最新实际值优先用 BLS，AkShare/yfinance 用于预期字段、经济日历和比例数据。`,
     events,
     ratios: ratioItems,
     sources: SOURCES,
