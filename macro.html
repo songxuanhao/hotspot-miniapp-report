@@ -6,23 +6,27 @@
     <title>金融宏观</title>
     <style>
       :root {
-        --bg: #f5f7f8;
-        --panel: #ffffff;
-        --ink: #17212f;
+        --bg: #f4f6f5;
+        --ink: #111827;
         --muted: #667085;
-        --line: #d9e1e8;
-        --soft: #f8fafb;
+        --line: #d7dee4;
+        --panel: #ffffff;
+        --panel-2: #f8fafc;
+        --deep: #102033;
+        --deep-2: #172a3f;
         --teal: #0f766e;
         --teal-soft: #e4f3f1;
         --red: #b42318;
         --red-soft: #fff0ed;
+        --green: #166534;
+        --green-soft: #e8f6ed;
         --blue: #175cd3;
         --blue-soft: #eef4ff;
         --amber: #a15c07;
         --amber-soft: #fff7df;
-        --green: #166534;
-        --green-soft: #e8f6ed;
-        --shadow: 0 18px 45px rgba(23, 33, 47, 0.08);
+        --purple: #6941c6;
+        --purple-soft: #f4f0ff;
+        --shadow: 0 18px 46px rgba(16, 32, 51, 0.1);
       }
 
       * {
@@ -31,88 +35,47 @@
 
       body {
         margin: 0;
-        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 38%, var(--bg) 100%);
+        background:
+          linear-gradient(180deg, rgba(16, 32, 51, 0.06), rgba(244, 246, 245, 0) 360px),
+          var(--bg);
         color: var(--ink);
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
           sans-serif;
       }
 
+      a {
+        color: inherit;
+      }
+
       .app {
-        width: min(1440px, 100%);
+        width: min(1480px, 100%);
         margin: 0 auto;
-        padding: 22px;
+        padding: 18px;
       }
 
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
-        gap: 20px;
-        align-items: end;
-        padding: 14px 0 18px;
-      }
-
-      .eyebrow {
-        margin: 0 0 8px;
-        color: var(--teal);
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(30px, 5vw, 52px);
-        line-height: 1.05;
-      }
-
-      .subline {
-        margin: 12px 0 0;
-        max-width: 860px;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.65;
-      }
-
-      .hero-panel,
-      .panel {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--panel);
-        box-shadow: var(--shadow);
-      }
-
-      .hero-panel {
-        padding: 15px;
-      }
-
-      .hero-panel strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 20px;
-      }
-
-      .hero-panel span {
-        display: block;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.55;
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 14px;
       }
 
       .page-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin: 0 0 14px;
       }
 
       .page-tab {
         display: inline-flex;
         align-items: center;
-        height: 40px;
+        height: 38px;
         padding: 0 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: #fff;
+        background: rgba(255, 255, 255, 0.82);
         color: #344054;
         font-size: 14px;
         font-weight: 900;
@@ -120,88 +83,171 @@
       }
 
       .page-tab.active {
-        border-color: var(--teal);
-        background: var(--teal);
+        border-color: var(--deep);
+        background: var(--deep);
         color: #fff;
       }
 
-      .dashboard {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 360px;
-        gap: 14px;
-        align-items: start;
+      .generated {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
       }
 
-      .stats {
+      .hero {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: minmax(0, 1fr) 380px;
+        gap: 14px;
         margin-bottom: 14px;
       }
 
-      .metric {
-        min-height: 82px;
-        padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--panel);
-      }
-
-      .metric b {
-        display: block;
-        font-size: 24px;
-        line-height: 1;
-      }
-
-      .metric span {
-        display: block;
-        margin-top: 8px;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.35;
-      }
-
-      .question-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-        margin: 0 0 14px;
-      }
-
-      .question-card {
-        display: grid;
-        gap: 10px;
-        min-height: 210px;
-        padding: 14px;
+      .hero-main,
+      .now-panel,
+      .panel,
+      .decision-card,
+      .stat {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel);
         box-shadow: var(--shadow);
       }
 
-      .question-card.defensive {
-        border-color: #f6c0b8;
-        background: linear-gradient(180deg, #fff 0%, var(--red-soft) 100%);
+      .hero-main {
+        display: grid;
+        align-content: space-between;
+        min-height: 238px;
+        padding: 20px;
+        background:
+          linear-gradient(135deg, rgba(16, 32, 51, 0.96), rgba(23, 42, 63, 0.94)),
+          var(--deep);
+        color: #fff;
       }
 
-      .question-card.risk {
-        border-color: #a9d6bb;
-        background: linear-gradient(180deg, #fff 0%, var(--green-soft) 100%);
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #9ee5db;
+        font-size: 13px;
+        font-weight: 900;
       }
 
-      .question-card.neutral {
-        border-color: #b9d0f5;
-        background: linear-gradient(180deg, #fff 0%, var(--blue-soft) 100%);
+      h1 {
+        margin: 0;
+        font-size: 48px;
+        line-height: 1.05;
       }
 
-      .question-kicker {
+      .summary {
+        max-width: 900px;
+        margin: 12px 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .hero-metric {
+        min-height: 72px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-metric b {
+        display: block;
+        font-size: 22px;
+      }
+
+      .hero-metric span {
+        display: block;
+        margin-top: 5px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .now-panel {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .now-panel h2,
+      .panel-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      .signal-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .signal {
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-2);
+      }
+
+      .signal b {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
+
+      .signal span {
+        display: -webkit-box;
+        overflow: hidden;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .decision-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .decision-card {
+        display: grid;
+        gap: 10px;
+        min-height: 210px;
+        padding: 14px;
+        border-top: 4px solid var(--blue);
+      }
+
+      .decision-card.defensive {
+        border-top-color: var(--red);
+      }
+
+      .decision-card.risk {
+        border-top-color: var(--green);
+      }
+
+      .decision-card.neutral {
+        border-top-color: var(--blue);
+      }
+
+      .decision-kicker {
         margin: 0;
         color: var(--muted);
         font-size: 12px;
         font-weight: 900;
       }
 
-      .question-card h2 {
+      .decision-card h2 {
         margin: 0;
         font-size: 17px;
         line-height: 1.35;
@@ -209,25 +255,24 @@
 
       .inclination {
         margin: 0;
-        color: var(--ink);
         font-size: 14px;
         font-weight: 900;
         line-height: 1.5;
       }
 
-      .question-card details {
-        border-top: 1px solid rgba(23, 33, 47, 0.12);
+      .decision-card details {
+        border-top: 1px solid var(--line);
         padding-top: 8px;
       }
 
-      .question-card summary {
+      .decision-card summary {
         cursor: pointer;
         color: var(--teal);
         font-size: 13px;
         font-weight: 900;
       }
 
-      .question-card ul {
+      .decision-card ul {
         margin: 8px 0 0;
         padding-left: 18px;
         color: var(--muted);
@@ -235,7 +280,7 @@
         line-height: 1.55;
       }
 
-      .question-card .how-use {
+      .how-use {
         margin: 8px 0 0;
         color: var(--ink);
         font-size: 12px;
@@ -254,10 +299,10 @@
 
       .news-link {
         display: block;
-        padding: 7px 8px;
-        border: 1px solid rgba(23, 33, 47, 0.1);
+        padding: 8px;
+        border: 1px solid var(--line);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.72);
+        background: #fff;
         color: var(--ink);
         font-size: 12px;
         font-weight: 800;
@@ -272,6 +317,13 @@
         font-weight: 800;
       }
 
+      .workbench {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 14px;
+        align-items: start;
+      }
+
       .panel-head {
         display: flex;
         justify-content: space-between;
@@ -279,12 +331,6 @@
         align-items: center;
         padding: 13px 14px;
         border-bottom: 1px solid var(--line);
-      }
-
-      .panel-title {
-        margin: 0;
-        font-size: 15px;
-        font-weight: 900;
       }
 
       .toolbar {
@@ -300,6 +346,7 @@
         background: #fff;
         color: var(--ink);
         padding: 0 10px;
+        font-weight: 800;
       }
 
       .calendar-grid {
@@ -317,14 +364,14 @@
 
       .weekday {
         padding: 9px 10px;
-        background: #f2f5f7;
-        color: var(--muted);
+        background: #eef2f4;
+        color: #475467;
         font-size: 12px;
         font-weight: 900;
       }
 
       .day-cell {
-        min-height: 148px;
+        min-height: 174px;
         padding: 8px;
         background: #fff;
       }
@@ -338,7 +385,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         font-size: 12px;
         font-weight: 900;
       }
@@ -348,32 +395,33 @@
         font-size: 11px;
       }
 
-      .cal-event {
+      .cal-item {
         display: grid;
         gap: 4px;
         width: 100%;
         margin: 0 0 6px;
         padding: 7px;
         border: 1px solid var(--line);
+        border-left: 4px solid var(--blue);
         border-radius: 8px;
-        background: var(--soft);
+        background: var(--panel-2);
         color: inherit;
         text-align: left;
         cursor: pointer;
       }
 
-      .cal-event.high {
-        border-color: #f6c0b8;
+      .cal-item.data {
+        border-left-color: var(--red);
         background: var(--red-soft);
       }
 
-      .cal-event.medium {
-        border-color: #fedf89;
-        background: var(--amber-soft);
+      .cal-item.news {
+        border-left-color: var(--purple);
+        background: var(--purple-soft);
       }
 
-      .cal-event.market {
-        border-color: #b8d1ff;
+      .cal-item.market {
+        border-left-color: var(--blue);
         background: var(--blue-soft);
       }
 
@@ -402,7 +450,7 @@
         background: #fff;
         color: #344054;
         font-size: 11px;
-        font-weight: 800;
+        font-weight: 900;
       }
 
       .pill.red {
@@ -417,70 +465,19 @@
         color: var(--blue);
       }
 
+      .pill.purple {
+        color: var(--purple);
+      }
+
       .more {
         color: var(--muted);
         font-size: 11px;
         font-weight: 800;
       }
 
-      .side {
-        display: grid;
-        gap: 14px;
-      }
-
-      .insight {
-        padding: 13px;
-      }
-
-      .insight h2 {
-        margin: 0 0 8px;
-        font-size: 17px;
-      }
-
-      .read-list {
-        display: grid;
-        gap: 8px;
-        margin-top: 10px;
-      }
-
-      .read-item,
-      .asset-card {
-        padding: 10px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--soft);
-      }
-
-      .read-item b,
-      .asset-card b {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 13px;
-      }
-
-      .read-item span,
-      .asset-card span {
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.5;
-      }
-
-      .briefing-list {
-        display: grid;
-        gap: 8px;
-        padding: 12px;
-      }
-
-      .asset-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-        padding: 12px;
-      }
-
       .detail {
         display: none;
-        padding: 13px 14px;
+        padding: 14px;
         border-top: 1px solid var(--line);
         background: #fff;
       }
@@ -491,7 +488,14 @@
 
       .detail h2 {
         margin: 0 0 8px;
-        font-size: 18px;
+        font-size: 19px;
+      }
+
+      .detail-sub {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
       }
 
       .data-row {
@@ -501,23 +505,46 @@
         margin: 10px 0;
       }
 
-      .data-box {
+      .data-box,
+      .read-item,
+      .asset-card {
         padding: 10px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: var(--soft);
+        background: var(--panel-2);
       }
 
-      .data-box b {
+      .data-box b,
+      .read-item b,
+      .asset-card b {
         display: block;
         margin-bottom: 4px;
-        color: var(--muted);
-        font-size: 11px;
+        font-size: 13px;
       }
 
-      .data-box span {
-        font-size: 15px;
-        font-weight: 900;
+      .data-box span,
+      .read-item span,
+      .asset-card span {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .side {
+        display: grid;
+        gap: 14px;
+      }
+
+      .side-body,
+      .asset-grid,
+      .briefing-list {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .asset-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .empty {
@@ -527,24 +554,37 @@
         text-align: center;
       }
 
-      @media (max-width: 1120px) {
+      @media (max-width: 1180px) {
         .hero,
-        .dashboard {
+        .workbench {
           grid-template-columns: 1fr;
         }
 
-        .stats {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .question-grid {
+        .decision-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
-      @media (max-width: 720px) {
+      @media (max-width: 760px) {
         .app {
-          padding: 14px;
+          padding: 12px;
+        }
+
+        .topbar,
+        .panel-head {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        .hero-metrics,
+        .decision-grid,
+        .asset-grid,
+        .data-row {
+          grid-template-columns: 1fr;
         }
 
         .calendar-grid {
@@ -566,94 +606,89 @@
         .day-cell.outside {
           display: none;
         }
-
-        .stats,
-        .question-grid,
-        .asset-grid,
-        .data-row {
-          grid-template-columns: 1fr;
-        }
       }
     </style>
   </head>
   <body>
     <main class="app">
-      <header class="hero">
-        <div>
-          <p class="eyebrow">每日 8:20 自动刷新</p>
-          <h1>金融宏观</h1>
-          <p class="subline" id="summary">正在读取宏观数据...</p>
+      <nav class="topbar" aria-label="报告页面">
+        <div class="page-tabs">
+          <a class="page-tab" href="./index.html">今日热点</a>
+          <a class="page-tab active" href="./macro.html">金融宏观</a>
         </div>
-        <aside class="hero-panel">
-          <strong id="generatedAt">生成时间：-</strong>
-          <span>用月历看宏观节奏：哪些数据会改变利率预期、通胀交易、商品定价和币圈风险偏好。</span>
+        <div class="generated" id="generatedAt">生成时间：-</div>
+      </nav>
+
+      <header class="hero">
+        <section class="hero-main">
+          <div>
+            <p class="eyebrow">每日 8:20 自动刷新 · 数据 + 新闻同屏</p>
+            <h1>金融宏观</h1>
+            <p class="summary" id="summary">正在读取宏观数据...</p>
+          </div>
+          <div class="hero-metrics" aria-label="宏观概览">
+            <div class="hero-metric">
+              <b id="eventCount">0</b>
+              <span>宏观数据事件</span>
+            </div>
+            <div class="hero-metric">
+              <b id="newsCount">0</b>
+              <span>实时新闻</span>
+            </div>
+            <div class="hero-metric">
+              <b id="riskSignal">-</b>
+              <span>风险体制</span>
+            </div>
+            <div class="hero-metric">
+              <b id="cryptoMood">-</b>
+              <span>币圈情绪</span>
+            </div>
+          </div>
+        </section>
+
+        <aside class="now-panel">
+          <h2>今日先看什么</h2>
+          <div class="signal-list" id="signalList"></div>
         </aside>
       </header>
 
-      <nav class="page-tabs" aria-label="报告页面">
-        <a class="page-tab" href="./index.html">今日热点</a>
-        <a class="page-tab active" href="./macro.html">金融宏观</a>
-      </nav>
+      <section class="decision-grid" id="questionGrid" aria-label="四个宏观问题"></section>
 
-      <section class="stats" aria-label="宏观概览">
-        <div class="metric">
-          <b id="eventCount">0</b>
-          <span>本月宏观事件</span>
-        </div>
-        <div class="metric">
-          <b id="highCount">0</b>
-          <span>高重要度事件</span>
-        </div>
-        <div class="metric">
-          <b id="riskSignal">-</b>
-          <span>风险偏好信号</span>
-        </div>
-        <div class="metric">
-          <b id="cryptoMood">-</b>
-          <span>币圈情绪</span>
-        </div>
-      </section>
-
-      <section class="question-grid" id="questionGrid" aria-label="四个宏观问题"></section>
-
-      <section class="dashboard">
+      <section class="workbench">
         <div class="panel">
           <div class="panel-head">
             <p class="panel-title" id="calendarTitle">宏观月历</p>
             <div class="toolbar">
-              <select class="control" id="countryFilter">
-                <option value="">全部国家/地区</option>
+              <select class="control" id="typeFilter">
+                <option value="">全部</option>
+                <option value="data">只看数据</option>
+                <option value="news">只看新闻</option>
               </select>
               <select class="control" id="impactFilter">
                 <option value="">全部影响</option>
                 <option value="rates">利率/美元</option>
                 <option value="inflation">通胀/商品</option>
-                <option value="risk">风险资产</option>
+                <option value="risk">避险/风险</option>
                 <option value="crypto">币圈</option>
               </select>
             </div>
           </div>
           <div class="calendar-grid" id="calendar"></div>
-          <div class="empty" id="empty">当前筛选下没有宏观事件。</div>
+          <div class="empty" id="empty">当前筛选下没有日历项目。</div>
           <div class="detail" id="detail"></div>
         </div>
 
         <aside class="side">
-          <section class="panel insight">
-            <h2>怎么看这张日历</h2>
-            <div class="read-list" id="readList"></div>
-          </section>
-
           <section class="panel">
             <div class="panel-head">
-              <p class="panel-title" id="briefingTitle">历史每日要闻</p>
+              <p class="panel-title">历史每日要闻</p>
             </div>
             <div class="briefing-list" id="briefingList"></div>
           </section>
 
           <section class="panel">
             <div class="panel-head">
-              <p class="panel-title">价格与比值</p>
+              <p class="panel-title">资产温度</p>
             </div>
             <div class="asset-grid" id="assetGrid"></div>
           </section>
@@ -662,7 +697,7 @@
             <div class="panel-head">
               <p class="panel-title">数据源状态</p>
             </div>
-            <div class="asset-grid" id="sourceGrid"></div>
+            <div class="side-body" id="sourceGrid"></div>
           </section>
         </aside>
       </section>
@@ -671,11 +706,11 @@
     <script>
       const state = {
         events: [],
+        news: [],
         prices: [],
         ratios: [],
         cryptoMetrics: [],
         questions: [],
-        news: [],
         dailyBriefing: null,
         sources: [],
         selectedId: "",
@@ -685,18 +720,17 @@
         summary: document.querySelector("#summary"),
         generatedAt: document.querySelector("#generatedAt"),
         eventCount: document.querySelector("#eventCount"),
-        highCount: document.querySelector("#highCount"),
+        newsCount: document.querySelector("#newsCount"),
         riskSignal: document.querySelector("#riskSignal"),
         cryptoMood: document.querySelector("#cryptoMood"),
+        signalList: document.querySelector("#signalList"),
         questionGrid: document.querySelector("#questionGrid"),
         calendarTitle: document.querySelector("#calendarTitle"),
-        countryFilter: document.querySelector("#countryFilter"),
+        typeFilter: document.querySelector("#typeFilter"),
         impactFilter: document.querySelector("#impactFilter"),
         calendar: document.querySelector("#calendar"),
         empty: document.querySelector("#empty"),
         detail: document.querySelector("#detail"),
-        readList: document.querySelector("#readList"),
-        briefingTitle: document.querySelector("#briefingTitle"),
         briefingList: document.querySelector("#briefingList"),
         assetGrid: document.querySelector("#assetGrid"),
         sourceGrid: document.querySelector("#sourceGrid"),
@@ -716,30 +750,65 @@
 
       function parseDate(value) {
         const raw = text(value);
-        const zh = raw.match(/(\d{4})年(\d{2})月份/);
+        const zh = raw.match(/(\d{4})年(\d{1,2})月份/);
         if (zh) return new Date(Number(zh[1]), Number(zh[2]) - 1, 1);
         const date = new Date(raw);
         return Number.isNaN(date.getTime()) ? null : date;
       }
 
-      function classify(event) {
-        const title = `${event.title || ""} ${event.category || ""}`;
-        if (/非农|失业|就业/.test(title)) return { impact: "rates", importance: "high", tone: "high", why: "就业决定美联储降息/加息叙事，也会影响美元、美债和风险资产。" };
-        if (/CPI|PPI|通胀/.test(title)) return { impact: "inflation", importance: "high", tone: "high", why: "通胀决定实际利率和商品定价，通常直接影响黄金、原油、美元和股票估值。" };
-        if (/BTC|ETH|恐慌|市占|加密/.test(title)) return { impact: "crypto", importance: "medium", tone: "market", why: "币圈指标用于判断风险偏好、山寨活跃度和资金是否回到 BTC 防守。" };
-        return { impact: "risk", importance: "medium", tone: "medium", why: "用于确认风险偏好和跨资产定价方向。" };
+      function parseNewsDate(value) {
+        const date = new Date(text(value));
+        return Number.isNaN(date.getTime()) ? null : date;
       }
 
-      function eventMatches(event) {
-        if (els.countryFilter.value && event.country !== els.countryFilter.value) return false;
-        const impact = classify(event).impact;
-        if (els.impactFilter.value && impact !== els.impactFilter.value) return false;
+      function classifyData(event) {
+        const title = `${event.title || ""} ${event.category || ""}`;
+        if (/非农|失业|就业/.test(title)) return { impact: "rates", tone: "data", why: "就业决定美联储降息/加息叙事，也会影响美元、美债和风险资产。" };
+        if (/CPI|PPI|通胀/.test(title)) return { impact: "inflation", tone: "data", why: "通胀决定实际利率和商品定价，通常直接影响黄金、原油、美元和估值。" };
+        if (/BTC|ETH|恐慌|市占|加密/.test(title)) return { impact: "crypto", tone: "market", why: "币圈指标用于判断风险偏好、山寨活跃度和资金是否回到 BTC 防守。" };
+        return { impact: "risk", tone: "market", why: "用于确认风险偏好和跨资产定价方向。" };
+      }
+
+      function classifyNews(news) {
+        const buckets = news.buckets || [];
+        if (buckets.includes("macro-tide")) return { impact: "rates", tone: "news", label: "宏观" };
+        if (buckets.includes("risk-regime")) return { impact: "risk", tone: "news", label: "避险" };
+        if (buckets.includes("crypto-rotation") || buckets.includes("sentiment-extreme")) return { impact: "crypto", tone: "news", label: "币圈" };
+        return { impact: "risk", tone: "news", label: "新闻" };
+      }
+
+      function calendarItems() {
+        const dataItems = state.events.map((event) => ({
+          id: `data:${event.id}`,
+          kind: "data",
+          date: parseDate(event.date),
+          title: event.title,
+          source: event.country || event.source,
+          label: event.surprise || "数据",
+          raw: event,
+          impact: classifyData(event).impact,
+        }));
+        const newsItems = state.news.map((news, index) => ({
+          id: `news:${index}`,
+          kind: "news",
+          date: parseNewsDate(news.published),
+          title: news.title,
+          source: news.source,
+          label: classifyNews(news).label,
+          raw: news,
+          impact: classifyNews(news).impact,
+        }));
+        return [...dataItems, ...newsItems].filter((item) => item.date);
+      }
+
+      function itemMatches(item) {
+        if (els.typeFilter.value && item.kind !== els.typeFilter.value) return false;
+        if (els.impactFilter.value && item.impact !== els.impactFilter.value) return false;
         return true;
       }
 
-      function monthBase(events) {
-        const dates = events.map((event) => parseDate(event.date)).filter(Boolean);
-        dates.sort((a, b) => b - a);
+      function monthBase(items) {
+        const dates = items.map((item) => item.date).filter(Boolean).sort((a, b) => b - a);
         return dates[0] || new Date();
       }
 
@@ -748,8 +817,8 @@
       }
 
       function renderCalendar() {
-        const filtered = state.events.filter(eventMatches);
-        const base = monthBase(filtered.length ? filtered : state.events);
+        const items = calendarItems().filter(itemMatches);
+        const base = monthBase(items.length ? items : calendarItems());
         const year = base.getFullYear();
         const month = base.getMonth();
         els.calendarTitle.textContent = `${year}年${String(month + 1).padStart(2, "0")}月宏观日历`;
@@ -762,47 +831,64 @@
         for (let index = 0; index < 42; index += 1) {
           const day = new Date(start);
           day.setDate(start.getDate() + index);
-          const dayEvents = filtered.filter((event) => sameDay(parseDate(event.date), day));
+          const dayItems = items.filter((item) => sameDay(item.date, day));
           const outside = day.getMonth() !== month;
           cells.push(`
             <div class="day-cell ${outside ? "outside" : ""}">
               <div class="day-num">
                 <span>${day.getDate()}</span>
-                ${dayEvents.length ? `<span class="day-count">${dayEvents.length}项</span>` : ""}
+                ${dayItems.length ? `<span class="day-count">${dayItems.length}项</span>` : ""}
               </div>
-              ${dayEvents.slice(0, 3).map(renderCalendarEvent).join("")}
-              ${dayEvents.length > 3 ? `<div class="more">还有 ${dayEvents.length - 3} 项</div>` : ""}
+              ${dayItems.slice(0, 5).map(renderCalendarItem).join("")}
+              ${dayItems.length > 5 ? `<div class="more">还有 ${dayItems.length - 5} 项</div>` : ""}
             </div>
           `);
         }
         els.calendar.innerHTML = cells.join("");
-        els.empty.style.display = filtered.length ? "none" : "block";
+        els.empty.style.display = items.length ? "none" : "block";
       }
 
-      function renderCalendarEvent(event) {
-        const meta = classify(event);
+      function renderCalendarItem(item) {
+        const isNews = item.kind === "news";
+        const raw = item.raw;
+        const badge = isNews ? "purple" : raw.surprise?.includes("上升") || raw.surprise?.includes("多增") ? "red" : raw.surprise?.includes("回落") || raw.surprise?.includes("少增") ? "green" : "blue";
         return `
-          <button class="cal-event ${meta.tone}" data-id="${escapeHtml(event.id)}" type="button">
-            <span class="cal-title">${escapeHtml(event.title)}</span>
+          <button class="cal-item ${item.kind}" data-id="${escapeHtml(item.id)}" type="button">
+            <span class="cal-title">${escapeHtml(item.title)}</span>
             <span class="cal-meta">
-              <span class="pill">${escapeHtml(event.country)}</span>
-              <span class="pill ${event.surprise.includes("上升") || event.surprise.includes("多增") ? "red" : event.surprise.includes("回落") || event.surprise.includes("少增") ? "green" : "blue"}">${escapeHtml(event.surprise)}</span>
+              <span class="pill">${escapeHtml(item.source)}</span>
+              <span class="pill ${badge}">${escapeHtml(item.label)}</span>
             </span>
           </button>
         `;
       }
 
-      function renderDetail(event) {
-        if (!event) {
+      function renderDetail(item) {
+        if (!item) {
           els.detail.classList.remove("show");
           els.detail.innerHTML = "";
           return;
         }
-        const meta = classify(event);
         els.detail.classList.add("show");
+        if (item.kind === "news") {
+          const news = item.raw;
+          els.detail.innerHTML = `
+            <h2>${escapeHtml(news.title)}</h2>
+            <p class="detail-sub">${escapeHtml(news.source)} · ${escapeHtml(news.published || "-")}</p>
+            <div class="read-item">
+              <b>为什么放进日历</b>
+              <span>新闻按发布时间落到月历里，用来解释四个宏观倾向背后的消息面。它不是交易结论，而是帮助判断数字信号是否有叙事支撑。</span>
+            </div>
+            ${news.summary ? `<p class="detail-sub">${escapeHtml(news.summary)}</p>` : ""}
+            ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
+          `;
+          return;
+        }
+        const event = item.raw;
+        const meta = classifyData(event);
         els.detail.innerHTML = `
           <h2>${escapeHtml(event.title)}</h2>
-          <p class="subline">${escapeHtml(meta.why)}</p>
+          <p class="detail-sub">${escapeHtml(meta.why)}</p>
           <div class="data-row">
             <div class="data-box"><b>实际</b><span>${escapeHtml(event.actual)}</span></div>
             <div class="data-box"><b>前值</b><span>${escapeHtml(event.previous)}</span></div>
@@ -817,37 +903,25 @@
 
       function readingFor(event) {
         const title = `${event.title || ""} ${event.surprise || ""}`;
-        if (/非农|就业/.test(title)) return "就业强，降息预期容易后移；就业弱，市场更容易交易宽松和风险偏好修复。看它主要是为了判断美元、美债和成长资产的方向。";
+        if (/非农|就业/.test(title)) return "就业强，降息预期容易后移；就业弱，市场更容易交易宽松和风险偏好修复。看它主要是为了判断美元、美债和成长资产方向。";
         if (/失业/.test(title)) return "失业率上升代表劳动力市场降温，可能支持宽松；失业率稳定则需要结合非农和工资数据判断。";
-        if (/CPI|PPI|通胀/.test(title)) return "通胀高会压制降息预期并支撑名义利率；通胀回落通常利好黄金、成长股和风险资产。中国 CPI/PPI 则更像需求和工业价格温度计。";
-        return "这个指标用于确认宏观背景，不单独做判断，要和价格比值、币圈情绪、美元/利率方向一起看。";
+        if (/CPI|PPI|通胀/.test(title)) return "通胀高会压制降息预期并支撑名义利率；通胀回落通常利好黄金、成长股和风险资产。中国 CPI/PPI 更像需求和工业价格温度计。";
+        return "这个指标用于确认宏观背景，不单独做判断，要和价格比值、币圈情绪、新闻叙事一起看。";
       }
 
       function renderQuestions() {
-        const fallback = [
-          {
-            title: "① 宏观潮水在涨还是退？",
-            subtitle: "流动性 / 政策",
-            tone: "neutral",
-            inclination: "等待数据生成后判断。",
-            bullets: [],
-            howToUse: "先看美国通胀和就业，再用中国 CPI/PPI 做需求背景确认。",
-          },
-        ];
-        const questions = state.questions.length ? state.questions : fallback;
+        const questions = state.questions.length ? state.questions : [];
         els.questionGrid.innerHTML = questions
           .map((question) => `
-            <article class="question-card ${escapeHtml(question.tone || "neutral")}">
+            <article class="decision-card ${escapeHtml(question.tone || "neutral")}">
               <div>
-                <p class="question-kicker">${escapeHtml(question.subtitle || "")}</p>
+                <p class="decision-kicker">${escapeHtml(question.subtitle || "")}</p>
                 <h2>${escapeHtml(question.title)}</h2>
               </div>
               <p class="inclination">${escapeHtml(question.inclination)}</p>
               <details>
-                <summary>展开依据和用法</summary>
-                <ul>
-                  ${(question.bullets || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-                </ul>
+                <summary>依据 / 新闻</summary>
+                <ul>${(question.bullets || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
                 <p class="how-use">${escapeHtml(question.howToUse)}</p>
                 ${renderRelatedNews(question.news || [])}
               </details>
@@ -857,9 +931,7 @@
       }
 
       function renderRelatedNews(news) {
-        if (!news.length) {
-          return `<div class="related-news"><b>相关新闻</b><span class="how-use">暂无能匹配到这一块的新闻。</span></div>`;
-        }
+        if (!news.length) return `<div class="related-news"><b>相关新闻</b><span class="how-use">暂无匹配新闻。</span></div>`;
         return `
           <div class="related-news">
             <b>相关新闻</b>
@@ -875,30 +947,31 @@
         `;
       }
 
-      function renderSide() {
-        const topEvents = state.events.filter((event) => classify(event).importance === "high").slice(0, 4);
-        els.readList.innerHTML = topEvents
-          .map((event) => `
-            <div class="read-item">
-              <b>${escapeHtml(event.title)}：${escapeHtml(event.actual)}</b>
-              <span>${escapeHtml(readingFor(event))}</span>
+      function renderSignals() {
+        const signals = state.questions.slice(0, 4);
+        els.signalList.innerHTML = signals
+          .map((question) => `
+            <div class="signal">
+              <b>${escapeHtml(question.title)}</b>
+              <span>${escapeHtml(question.inclination)}</span>
             </div>
           `)
           .join("");
+      }
 
+      function renderSide() {
         const briefing = state.dailyBriefing || {};
         const briefingItems = Array.isArray(briefing.items) ? briefing.items : [];
-        els.briefingTitle.textContent = `历史每日要闻${briefing.date ? " · " + briefing.date : ""}`;
         els.briefingList.innerHTML = briefingItems.length
           ? briefingItems
               .map((item) => `
                 <div class="read-item">
                   <b>${escapeHtml(item.title)}</b>
-                  <span>${escapeHtml(briefing.source || "新闻联播")}</span>
+                  <span>${escapeHtml(briefing.source || "新闻联播")} · ${escapeHtml(briefing.date || "-")}</span>
                 </div>
               `)
               .join("")
-          : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会挂到对应判断卡片。</span></div>`;
+          : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会进入日历。</span></div>`;
 
         const assets = [...state.prices, ...state.ratios, ...state.cryptoMetrics];
         els.assetGrid.innerHTML = assets
@@ -920,29 +993,22 @@
           .join("");
       }
 
-      function setupFilters() {
-        const countries = [...new Set(state.events.map((event) => event.country).filter(Boolean))].sort();
-        els.countryFilter.innerHTML =
-          '<option value="">全部国家/地区</option>' +
-          countries.map((country) => `<option value="${escapeHtml(country)}">${escapeHtml(country)}</option>`).join("");
-      }
-
       function renderStats() {
-        const high = state.events.filter((event) => classify(event).importance === "high").length;
         const fear = state.cryptoMetrics.find((item) => item.name.includes("恐慌"));
         const regime = state.questions.find((item) => item.id === "risk-regime");
         els.eventCount.textContent = state.events.length;
-        els.highCount.textContent = high;
+        els.newsCount.textContent = state.news.length;
         els.cryptoMood.textContent = fear ? fear.value : "-";
         els.riskSignal.textContent = regime ? (regime.tone === "defensive" ? "偏避险" : regime.tone === "risk" ? "偏冒险" : "分歧") : "-";
       }
 
       function render() {
         renderQuestions();
+        renderSignals();
         renderCalendar();
         renderSide();
         renderStats();
-        const selected = state.events.find((event) => event.id === state.selectedId) || state.events[0];
+        const selected = calendarItems().find((item) => item.id === state.selectedId) || calendarItems()[0];
         renderDetail(selected);
       }
 
@@ -950,10 +1016,10 @@
         const button = event.target.closest("button[data-id]");
         if (!button) return;
         state.selectedId = button.dataset.id;
-        renderDetail(state.events.find((entry) => entry.id === state.selectedId));
+        renderDetail(calendarItems().find((item) => item.id === state.selectedId));
       });
 
-      [els.countryFilter, els.impactFilter].forEach((el) => el.addEventListener("input", render));
+      [els.typeFilter, els.impactFilter].forEach((el) => el.addEventListener("input", render));
 
       fetch("data/macro-latest.json", { cache: "no-store" })
         .then((res) => {
@@ -962,16 +1028,15 @@
         })
         .then((data) => {
           state.events = Array.isArray(data.events) ? data.events : [];
+          state.news = Array.isArray(data.news) ? data.news : [];
           state.ratios = Array.isArray(data.ratios) ? data.ratios : [];
           state.prices = Array.isArray(data.prices) ? data.prices : [];
           state.cryptoMetrics = Array.isArray(data.cryptoMetrics) ? data.cryptoMetrics : [];
           state.questions = Array.isArray(data.questions) ? data.questions : [];
-          state.news = Array.isArray(data.news) ? data.news : [];
           state.dailyBriefing = data.dailyBriefing || null;
           state.sources = Array.isArray(data.sources) ? data.sources : [];
           els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
-          setupFilters();
           render();
         })
         .catch((error) => {
