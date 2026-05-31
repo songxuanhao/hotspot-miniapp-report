@@ -709,6 +709,7 @@
         news: [],
         prices: [],
         ratios: [],
+        rateMetrics: [],
         cryptoMetrics: [],
         questions: [],
         dailyBriefing: null,
@@ -973,7 +974,7 @@
               .join("")
           : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会进入日历。</span></div>`;
 
-        const assets = [...state.prices, ...state.ratios, ...state.cryptoMetrics];
+        const assets = [...state.prices, ...state.ratios, ...state.rateMetrics, ...state.cryptoMetrics];
         els.assetGrid.innerHTML = assets
           .map((asset) => `
             <div class="asset-card">
@@ -1030,6 +1031,7 @@
           state.events = Array.isArray(data.events) ? data.events : [];
           state.news = Array.isArray(data.news) ? data.news : [];
           state.ratios = Array.isArray(data.ratios) ? data.ratios : [];
+          state.rateMetrics = Array.isArray(data.rateMetrics) ? data.rateMetrics : [];
           state.prices = Array.isArray(data.prices) ? data.prices : [];
           state.cryptoMetrics = Array.isArray(data.cryptoMetrics) ? data.cryptoMetrics : [];
           state.questions = Array.isArray(data.questions) ? data.questions : [];
