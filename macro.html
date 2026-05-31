@@ -1125,6 +1125,134 @@
         }
       ];
 
+      function numberFrom(value) {
+        const match = String(value || "").replaceAll(",", "").match(/-?\d+(\.\d+)?/);
+        return match ? Number(match[0]) : null;
+      }
+
+      function metricByName(items, needle) {
+        return (items || []).find((item) => String(item?.name || "").includes(needle));
+      }
+
+      function eventById(id) {
+        return (state.events || []).find((event) => event.id === id);
+      }
+
+      function buildHeadlineDecision() {
+        const realRate = metricByName(state.rateMetrics, "实际利率");
+        const dxy = metricByName(state.prices, "美元指数");
+        const vix = metricByName(state.prices, "VIX");
+        const fng = metricByName(state.cryptoMetrics, "恐慌贪婪");
+        const goldOil = metricByName(state.ratios, "金油比");
+        const ethBtc = metricByName(state.ratios, "ETH/BTC");
+        const realRateValue = numberFrom(realRate?.value);
+        const dxyValue = numberFrom(dxy?.value);
+        const vixValue = numberFrom(vix?.value);
+        const fngValue = numberFrom(fng?.value);
+
+        const defensiveVotes = [];
+        const riskVotes = [];
+
+        if (realRateValue != null && realRateValue >= 2) defensiveVotes.push("实际利率仍高，黄金和风险资产都承压");
+        if (dxyValue != null && dxyValue >= 98) defensiveVotes.push("美元指数不弱，全球流动性偏紧");
+        if ((goldOil?.changePct || 0) > 5) defensiveVotes.push("金油比上行，增长担忧或避险需求抬头");
+        if ((ethBtc?.changePct || 0) < 0) defensiveVotes.push("ETH/BTC 走弱，币圈内部风险偏好不足");
+
+        if (vixValue != null && vixValue < 18) riskVotes.push("VIX 不高，市场还不是系统性恐慌");
+        if (fngValue != null && fngValue > 25 && fngValue < 75) riskVotes.push("币圈情绪未到极端，不适合硬做反转");
+
+        let headline = "偏观望，等待关键数据确认";
+        if (defensiveVotes.length >= 3 && riskVotes.length) headline = "偏防守，但不是极端避险";
+        else if (defensiveVotes.length >= 3) headline = "偏防守，优先控制风险";
+        else if (riskVotes.length >= 2 && defensiveVotes.length <= 1) headline = "偏中性，风险偏好尚未恶化";
+
+        return {
+          headline,
+          reason: [...defensiveVotes.slice(0, 2), ...riskVotes.slice(0, 1)].join("；") || "核心指标分歧较大，今天先看关键数据和新闻是否给出方向。",
+          actions: [
+            { label: "黄金", value: defensiveVotes.length >= 2 ? "观察偏多" : "等实际利率" },
+            { label: "BTC", value: (ethBtc?.changePct || 0) < 0 ? "不追" : "观察资金流" },
+            { label: "美股", value: vixValue != null && vixValue < 18 ? "等数据" : "控回撤" },
+            { label: "现金", value: "保留机动" },
+          ],
+          support: defensiveVotes,
+          counter: riskVotes,
+        };
+      }
+
+      function buildEvidenceCards(decision) {
+        const realRate = metricByName(state.rateMetrics, "实际利率");
+        const dxy = metricByName(state.prices, "美元指数");
+        const goldOil = metricByName(state.ratios, "金油比");
+        const ethBtc = metricByName(state.ratios, "ETH/BTC");
+        const fng = metricByName(state.cryptoMetrics, "恐慌贪婪");
+        const vix = metricByName(state.prices, "VIX");
+        const realRateValue = numberFrom(realRate?.value);
+        const dxyValue = numberFrom(dxy?.value);
+
+        return [
+          {
+            title: "潮水",
+            verdict: (realRateValue != null && realRateValue >= 2) || (dxyValue != null && dxyValue >= 98) ? "偏紧" : "中性",
+            note: `${realRate?.value || "实际利率缺失"}；${dxy?.value ? `DXY ${dxy.value}` : "DXY 缺失"}`,
+          },
+          {
+            title: "避险",
+            verdict: (goldOil?.changePct || 0) > 5 ? "升温" : "不极端",
+            note: goldOil ? `金油比 ${goldOil.value}，近月 ${formatPct(goldOil.changePct)}` : "等待金油比",
+          },
+          {
+            title: "币圈",
+            verdict: (ethBtc?.changePct || 0) < 0 ? "偏防守" : "观察扩散",
+            note: ethBtc ? `ETH/BTC ${ethBtc.value}，近月 ${formatPct(ethBtc.changePct)}` : "等待 ETH/BTC",
+          },
+          {
+            title: "情绪",
+            verdict: "未极端",
+            note: `${vix?.value ? `VIX ${vix.value}` : "VIX 缺失"}；${fng?.value ? `恐慌贪婪 ${fng.value}` : "情绪缺失"}`,
+          },
+        ];
+      }
+
+      function buildWatchlist(items) {
+        const scored = (items || [])
+          .map((item) => {
+            const title = item?.title || "";
+            let score = 1;
+            let why = "只在能解释资产变化时关注";
+            if (/PCE|CPI|非农|FOMC|美联储|初请|失业率/.test(title)) {
+              score = 3;
+              why = "可能改变降息预期和美元/美债方向";
+            } else if (/OPEC|原油|中东|伊朗|以色列|俄乌|关税|特朗普/.test(title)) {
+              score = 2;
+              why = "可能影响通胀、原油和黄金避险需求";
+            } else if (/BTC|比特币|ETF|稳定币|ETH/.test(title)) {
+              score = 2;
+              why = "可能影响币圈资金流和风险偏好";
+            }
+            return { ...item, score, why };
+          })
+          .sort((a, b) => b.score - a.score || a.date - b.date);
+
+        return scored.slice(0, 5);
+      }
+
+      function sevenDayItems() {
+        const now = new Date();
+        const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 2);
+        const end = new Date(now);
+        end.setDate(now.getDate() + 7);
+        return calendarItems()
+          .filter(itemMatches)
+          .filter((item) => item.date >= start && item.date <= end)
+          .sort((a, b) => a.date - b.date);
+      }
+
+      function formatPct(value) {
+        if (typeof value !== "number" || Number.isNaN(value)) return "-";
+        return `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
+      }
+
       function text(value) {
         return value == null || value === "" ? "-" : String(value);
       }
