@@ -1414,7 +1414,7 @@
             <div class="data-box"><b>预期</b><span>${escapeHtml(event.expected)}</span></div>
           </div>
           <div class="read-item">
-            <b>怎么用</b>
+            <b>所以呢</b>
             <span>${escapeHtml(readingFor(event))}</span>
           </div>
           ${renderIndicatorExplanation(event)}
@@ -1422,18 +1422,24 @@
       }
 
       function openNewsModal(news) {
+        const meta = classifyNews(news);
+        const impactText = meta.impact === "rates"
+          ? "利率、美元和黄金"
+          : meta.impact === "crypto"
+            ? "BTC、ETH 和币圈风险偏好"
+            : "黄金、原油和整体风险偏好";
         els.modalTitle.textContent = news.titleZh || news.title || "新闻详情";
         els.modalBody.innerHTML = `
           <p class="detail-sub">${escapeHtml(news.source)} · ${escapeHtml(news.published || "-")}</p>
           <div class="read-item">
-            <b>中文摘要</b>
-            <span>${escapeHtml(news.summaryZh || news.summary || "暂无摘要。")}</span>
+            <b>它影响什么</b>
+            <span>${escapeHtml(impactText)}</span>
+          </div>
+          <div class="read-item">
+            <b>所以呢</b>
+            <span>${escapeHtml(news.summaryZh || news.summary || "这条新闻只作为辅助证据，重点看它是否支持或反驳当前总判断。")}</span>
           </div>
           ${news.title && news.title !== news.titleZh ? `<div class="read-item"><b>原始标题</b><span>${escapeHtml(news.title)}</span></div>` : ""}
-          <div class="read-item">
-            <b>它影响什么</b>
-            <span>这条消息用于辅助判断利率、美元、商品或风险偏好是否正在改变；重点看它是否支持或反驳当前宏观判断。</span>
-          </div>
           ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
         `;
         els.newsModal.classList.add("show");
@@ -1453,7 +1459,7 @@
         if (!explanation) return "";
         return `
           <details class="indicator-explain">
-            <summary>${escapeHtml(explanation.name)}：指标解释 / 怎么看</summary>
+            <summary>${escapeHtml(explanation.name)}：指标解释</summary>
             <div class="explain-body">
               <div class="read-item"><b>是什么</b><span>${escapeHtml(explanation.what)}</span></div>
               <div class="read-item"><b>怎么看</b><span>${escapeHtml(explanation.read)}</span></div>
