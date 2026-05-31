@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-31 21:05:43 +08:00",
-  "summary": "宏观快照：5 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；11 个利率曲线指标，64 条实时新闻；美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。",
+  "generatedAt": "2026-05-31 21:32:24 +08:00",
+  "summary": "宏观快照：8 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；11 个利率曲线指标，78 条实时新闻；美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。",
   "events": [
     {
       "id": "fred-payems",
@@ -54,6 +54,57 @@
       "notes": "FRED 官方 CSV，无需 API key；月度失业率。"
     },
     {
+      "id": "fred-pce-yoy",
+      "date": "2026-04-01",
+      "time": "已公布",
+      "period": "2026-04-01",
+      "country": "美国",
+      "category": "通胀",
+      "title": "PCE 同比",
+      "expected": "官方源无预期",
+      "actual": "3.8%",
+      "previous": "3.5%",
+      "surprise": "较上月上升",
+      "status": "released",
+      "importance": "high",
+      "source": "FRED PCEPI",
+      "notes": "FRED PCEPI 计算 12 个月同比；PCE 是美联储更关注的通胀口径。"
+    },
+    {
+      "id": "fred-core-pce-yoy",
+      "date": "2026-04-01",
+      "time": "已公布",
+      "period": "2026-04-01",
+      "country": "美国",
+      "category": "通胀",
+      "title": "核心 PCE 同比",
+      "expected": "官方源无预期",
+      "actual": "3.3%",
+      "previous": "3.2%",
+      "surprise": "较上月上升",
+      "status": "released",
+      "importance": "high",
+      "source": "FRED PCEPILFE",
+      "notes": "FRED PCEPILFE 计算 12 个月同比；核心 PCE 是美联储偏好的通胀指标。"
+    },
+    {
+      "id": "fred-icsa",
+      "date": "2026-05-23",
+      "time": "已公布",
+      "period": "2026-05-23",
+      "country": "美国",
+      "category": "就业",
+      "title": "初请失业金人数",
+      "expected": "官方源无预期",
+      "actual": "215 千人",
+      "previous": "210 千人",
+      "surprise": "较上周上升",
+      "status": "released",
+      "importance": "high",
+      "source": "FRED ICSA",
+      "notes": "FRED ICSA，周度高频就业降温信号。"
+    },
+    {
       "id": "nbs-china-cpi",
       "date": "2026年04月份",
       "time": "已公布",
@@ -98,9 +149,10 @@
       "bullets": [
         "美国非农新增：+115 千人（前值 +185 千人）",
         "美国 CPI 同比：3.9%（前值 3.3%）",
+        "美国 PCE / 核心PCE：3.8% / 3.3%",
         "美国10年实际利率：2.06%；DXY：98.91",
         "美国10Y：4.45%；10Y-2Y：0.47%",
-        "美国失业率：4.3%",
+        "美国失业率：4.3%；初请：215 千人；ISM：-",
         "中国背景：CPI 同比 +1.2% / 环比 +0.3%；PPI 同比 +2.8%"
       ],
       "howToUse": "这块决定大方向：实际利率和 DXY 上行时，黄金/币/新兴市场通常承压；曲线倒挂加深说明衰退或紧缩压力仍在。",
@@ -108,20 +160,29 @@
         {
           "source": "Federal Reserve",
           "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+          "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
           "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
-          "published": "Thu, 28 May 2026 15:00:00 GMT"
+          "published": "Thu, 28 May 2026 15:00:00 GMT",
+          "summary": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+          "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。"
         },
         {
           "source": "Federal Reserve",
           "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Mark...",
+          "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
           "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
-          "published": "Fri, 22 May 2026 20:15:00 GMT"
+          "published": "Fri, 22 May 2026 20:15:00 GMT",
+          "summary": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+          "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。"
         },
         {
           "source": "Federal Reserve",
           "title": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
+          "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
           "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260521a.htm",
-          "published": "Thu, 21 May 2026 15:00:00 GMT"
+          "published": "Thu, 21 May 2026 15:00:00 GMT",
+          "summary": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
+          "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。"
         }
       ]
     },
@@ -134,7 +195,7 @@
       "bullets": [
         "金银比：60.5（近1月 +3.1%）",
         "金油比：52.6（近1月 +6.3%，噪音较大）",
-        "金特比：1 BTC ≈ 16.1 盎司黄金（近1月 -6.0%）",
+        "金特比：1 BTC ≈ 16.1 盎司黄金（近1月 -5.9%）",
         "VIX：15.32"
       ],
       "howToUse": "看趋势，不迷信绝对值。多个比值同向时才增强判断；如果互相打架，说明市场在转折或缺少共识。",
@@ -142,20 +203,29 @@
         {
           "source": "CoinDesk",
           "title": "U.S. says it seized about $1 billion in Iranian crypto as pressure campaign expands",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/business/2026/05/30/u-s-says-it-seized-about-usd1-billion-in-iranian-crypto-as-pressure-campaign-expands",
-          "published": "Sat, 30 May 2026 15:50:37 +0000"
+          "published": "Sat, 30 May 2026 15:50:37 +0000",
+          "summary": "The seizure, falling under \"Operation Economic Fury,\" aims to restrict Iran's access to overseas revenue, banking networks, and crypto infrastructure.",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         },
         {
           "source": "Federal Reserve",
           "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Mark...",
+          "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
           "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
-          "published": "Fri, 22 May 2026 20:15:00 GMT"
+          "published": "Fri, 22 May 2026 20:15:00 GMT",
+          "summary": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+          "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。"
         },
         {
           "source": "Federal Reserve",
           "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in a...",
+          "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
           "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm",
-          "published": "Fri, 15 May 2026 21:00:00 GMT"
+          "published": "Fri, 15 May 2026 21:00:00 GMT",
+          "summary": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+          "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。"
         }
       ]
     },
@@ -167,27 +237,36 @@
       "inclination": "ETH/BTC 走弱，资金更偏回流 BTC 防守，山寨与高弹性资产偏弱。",
       "bullets": [
         "ETH/BTC：0.0274（近1月 -5.1%）",
-        "BTC 市占率：57.3%"
+        "BTC 市占率：57.2%"
       ],
       "howToUse": "BTC 强、ETH/BTC 弱时，币圈偏防守；ETH/BTC 连续走强时，才说明资金愿意去更高风险资产里找弹性。",
       "news": [
         {
           "source": "CoinDesk",
           "title": "Bitcoin's wild days are over — and Trace Mayer says that's a good thing",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/markets/2026/05/28/dnp-trace-mayer-bitcoin-s-volatility-compression-is-a-sign-of-maturity-not-weakness",
-          "published": "Sun, 31 May 2026 13:00:00 +0000"
+          "published": "Sun, 31 May 2026 13:00:00 +0000",
+          "summary": "The creator of the Mayer Multiple argues bitcoin’s growing economic substance is compressing volatility and attracting deeper capital.",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         },
         {
           "source": "CoinDesk",
           "title": "XRP Ledger's new proposal blocks the flash loan attacks costing DeFi hundreds of millions",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/tech/2026/05/29/xrp-ledger-s-new-proposal-blocks-the-flash-loan-attacks-costing-defi-hundreds-of-millions",
-          "published": "Sun, 31 May 2026 02:30:00 +0000"
+          "published": "Sun, 31 May 2026 02:30:00 +0000",
+          "summary": "A draft XRPL amendment notes that flash loan attacks are \"structurally impossible\" on the network because of how its transactions are built, an architectural quirk that has spared the chain from the exploit class that has cost Ethereum DeFi...",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         },
         {
           "source": "CoinDesk",
           "title": "SEC sues Texas man over $12.3 million alleged crypto scheme built on fake AI trading bots",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/business/2026/05/30/sec-sues-texas-man-over-usd12-3-million-alleged-crypto-scheme-built-on-fake-ai-trading-bots",
-          "published": "Sat, 30 May 2026 17:27:34 +0000"
+          "published": "Sat, 30 May 2026 17:27:34 +0000",
+          "summary": "Fuller allegedly diverted $6.2 million for personal use and $5.5M for Ponzi-like payments; only 3% of funds went to crypto trading.",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         }
       ]
     },
@@ -199,27 +278,36 @@
       "inclination": "未到情绪极值，暂无明确择时信号，更多用于确认市场温度。",
       "bullets": [
         "恐慌贪婪指数：28/100（恐慌）",
-        "加密总市值：$2.58 万亿（24h +0.5%）"
+        "加密总市值：$2.59 万亿（24h +0.7%）"
       ],
       "howToUse": "情绪指标只在极端区间最有价值。中间区域不要硬解读，主要用来辅助判断市场是否已经过热或过冷。",
       "news": [
         {
           "source": "CoinDesk",
           "title": "Bitcoin's wild days are over — and Trace Mayer says that's a good thing",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/markets/2026/05/28/dnp-trace-mayer-bitcoin-s-volatility-compression-is-a-sign-of-maturity-not-weakness",
-          "published": "Sun, 31 May 2026 13:00:00 +0000"
+          "published": "Sun, 31 May 2026 13:00:00 +0000",
+          "summary": "The creator of the Mayer Multiple argues bitcoin’s growing economic substance is compressing volatility and attracting deeper capital.",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         },
         {
           "source": "CoinDesk",
           "title": "XRP Ledger's new proposal blocks the flash loan attacks costing DeFi hundreds of millions",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/tech/2026/05/29/xrp-ledger-s-new-proposal-blocks-the-flash-loan-attacks-costing-defi-hundreds-of-millions",
-          "published": "Sun, 31 May 2026 02:30:00 +0000"
+          "published": "Sun, 31 May 2026 02:30:00 +0000",
+          "summary": "A draft XRPL amendment notes that flash loan attacks are \"structurally impossible\" on the network because of how its transactions are built, an architectural quirk that has spared the chain from the exploit class that has cost Ethereum DeFi...",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         },
         {
           "source": "CoinDesk",
           "title": "SEC sues Texas man over $12.3 million alleged crypto scheme built on fake AI trading bots",
+          "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
           "url": "https://www.coindesk.com/business/2026/05/30/sec-sues-texas-man-over-usd12-3-million-alleged-crypto-scheme-built-on-fake-ai-trading-bots",
-          "published": "Sat, 30 May 2026 17:27:34 +0000"
+          "published": "Sat, 30 May 2026 17:27:34 +0000",
+          "summary": "Fuller allegedly diverted $6.2 million for personal use and $5.5M for Ponzi-like payments; only 3% of funds went to crypto trading.",
+          "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
         }
       ]
     }
@@ -228,9 +316,11 @@
     {
       "source": "CoinDesk",
       "title": "Bitcoin's wild days are over — and Trace Mayer says that's a good thing",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/markets/2026/05/28/dnp-trace-mayer-bitcoin-s-volatility-compression-is-a-sign-of-maturity-not-weakness",
       "published": "Sun, 31 May 2026 13:00:00 +0000",
       "summary": "The creator of the Mayer Multiple argues bitcoin’s growing economic substance is compressing volatility and attracting deeper capital.",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -239,9 +329,11 @@
     {
       "source": "CoinDesk",
       "title": "XRP Ledger's new proposal blocks the flash loan attacks costing DeFi hundreds of millions",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/tech/2026/05/29/xrp-ledger-s-new-proposal-blocks-the-flash-loan-attacks-costing-defi-hundreds-of-millions",
       "published": "Sun, 31 May 2026 02:30:00 +0000",
-      "summary": "A draft XRPL amendment notes that flash loan attacks are \"structurally impossible\" on the network because of how its transactions are built, an architectural quirk that has spared...",
+      "summary": "A draft XRPL amendment notes that flash loan attacks are \"structurally impossible\" on the network because of how its transactions are built, an architectural quirk that has spared the chain from the exploit class that has cost Ethereum DeFi...",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -250,9 +342,11 @@
     {
       "source": "CoinDesk",
       "title": "SEC sues Texas man over $12.3 million alleged crypto scheme built on fake AI trading bots",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/business/2026/05/30/sec-sues-texas-man-over-usd12-3-million-alleged-crypto-scheme-built-on-fake-ai-trading-bots",
       "published": "Sat, 30 May 2026 17:27:34 +0000",
       "summary": "Fuller allegedly diverted $6.2 million for personal use and $5.5M for Ponzi-like payments; only 3% of funds went to crypto trading.",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -261,9 +355,11 @@
     {
       "source": "CoinDesk",
       "title": "U.S. says it seized about $1 billion in Iranian crypto as pressure campaign expands",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/business/2026/05/30/u-s-says-it-seized-about-usd1-billion-in-iranian-crypto-as-pressure-campaign-expands",
       "published": "Sat, 30 May 2026 15:50:37 +0000",
       "summary": "The seizure, falling under \"Operation Economic Fury,\" aims to restrict Iran's access to overseas revenue, banking networks, and crypto infrastructure.",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "risk-regime",
         "crypto-rotation",
@@ -273,17 +369,21 @@
     {
       "source": "CoinDesk",
       "title": "Wall Street’s trillion-dollar dilemma: Why AI-powered hackers are keeping big banks off the blockchain",
+      "titleZh": "全球宏观新闻：CoinDesk 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.coindesk.com/business/2026/05/28/defi-vulnerabilities-are-tradfi-biggest-blocker-as-protocols-hit-by-near-daily-exploits-certik",
       "published": "Sat, 30 May 2026 15:00:00 +0000",
       "summary": "CertiK CEO and co-founder Ronghui Gu says April was the worst month for DeFi in four years with exploits on 27 out of 30 days.",
+      "summaryZh": "全球宏观新闻：CoinDesk 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "CoinDesk",
       "title": "When the market is bad, we build: Inside Binance’s bold 2030 master plan",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/business/2026/05/26/when-the-market-is-bad-we-build-inside-binance-s-bold-2030-master-plan",
       "published": "Sat, 30 May 2026 13:00:00 +0000",
-      "summary": "Established crypto firms will merge with traditional finance, but neither Wall Street bankers nor corporate giants will take over the crypto industry, said Binance’s Head of VIP an...",
+      "summary": "Established crypto firms will merge with traditional finance, but neither Wall Street bankers nor corporate giants will take over the crypto industry, said Binance’s Head of VIP and Institutional, Catherine Chen.",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -292,9 +392,11 @@
     {
       "source": "CoinDesk",
       "title": "Hyperliquid could become a ‘financial services juggernaut’ as DeFi expands, says Grayscale",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/business/2026/05/30/hyperliquid-could-become-a-financial-services-juggernaut-as-defi-expands-says-grayscale",
       "published": "Sat, 30 May 2026 13:00:00 +0000",
-      "summary": "The digital asset manager says Hyperliquid is emerging as a blockchain-based financial infrastructure platform with the potential to expand beyond crypto trading and challenge part...",
+      "summary": "The digital asset manager says Hyperliquid is emerging as a blockchain-based financial infrastructure platform with the potential to expand beyond crypto trading and challenge parts of traditional derivatives and exchange markets.",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -303,9 +405,11 @@
     {
       "source": "CoinDesk",
       "title": "XRP ETFs add $35 million as bitcoin and ether funds lost $2 billion in late May",
+      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.coindesk.com/markets/2026/05/30/ripple-said-to-lead-usd1-billion-xrp-treasury-raise-report",
       "published": "Sat, 30 May 2026 11:35:56 +0000",
-      "summary": "From May 20 to May 29, XRP funds took in $35 million while bitcoin and ether ETFs lost roughly $2 billion combined, with Ripple’s earlier reported XRP treasury plan still awaiting...",
+      "summary": "From May 20 to May 29, XRP funds took in $35 million while bitcoin and ether ETFs lost roughly $2 billion combined, with Ripple’s earlier reported XRP treasury plan still awaiting confirmation.",
+      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -314,17 +418,21 @@
     {
       "source": "MarketWatch",
       "title": "My golf buddy dropped me when I didn’t ask him to be my financial adviser. Was I naive?",
+      "titleZh": "全球宏观新闻：MarketWatch 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.marketwatch.com/story/my-golf-buddy-dropped-me-when-i-didnt-make-him-my-financial-adviser-be-careful-who-you-trust-b5c00854?mod=mw_rss_topstories",
       "published": "Sun, 31 May 2026 12:00:00 GMT",
       "summary": "“Friendliness alone is not a sufficient reason to trust someone with your finances.”",
+      "summaryZh": "全球宏观新闻：MarketWatch 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "MarketWatch",
       "title": "My friend, 62, earns $20,000 a year. Should she take Social Security now — and claim survivor’s benefit at 67?",
+      "titleZh": "加密市场：MarketWatch 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.marketwatch.com/story/my-friend-62-earns-20-000-a-year-should-she-take-social-security-now-or-claim-survivors-benefit-at-67-c661bdca?mod=mw_rss_topstories",
       "published": "Sun, 31 May 2026 11:50:00 GMT",
       "summary": "“I calculated her break-even point to be around age 78.”",
+      "summaryZh": "加密市场：MarketWatch 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -333,25 +441,31 @@
     {
       "source": "MarketWatch",
       "title": "‘He threatened to cut the roots’: A tree fell onto my neighbor’s property during a storm. Then all hell broke loose.",
+      "titleZh": "全球宏观新闻：MarketWatch 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.marketwatch.com/story/he-threatened-to-cut-the-roots-a-tree-fell-onto-my-neighbors-property-during-a-storm-then-all-hell-broke-loose-90da5af2?mod=mw_rss_topstories",
       "published": "Sun, 31 May 2026 11:00:00 GMT",
       "summary": "“The neighbor estimates damage from the tree at approximately $6,000 or more.”",
+      "summaryZh": "全球宏观新闻：MarketWatch 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "MarketWatch",
       "title": "‘It is such a fine line’: I am a CFP and see nothing wrong with networking on the golf course. Am I wrong?",
+      "titleZh": "全球宏观新闻：MarketWatch 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.marketwatch.com/story/it-is-such-a-fine-line-i-am-a-cfp-and-see-nothing-wrong-with-networking-on-the-golf-course-am-i-wrong-50a698e8?mod=mw_rss_topstories",
       "published": "Sat, 30 May 2026 20:58:00 GMT",
       "summary": "“I would love to develop working relationships with almost everyone I play golf with.”",
+      "summaryZh": "全球宏观新闻：MarketWatch 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "MarketWatch",
       "title": "‘I have no preexisting conditions’: I’m 56, earn $198,000 and want to retire early. Can I afford private healthcare?",
+      "titleZh": "加密市场：MarketWatch 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://www.marketwatch.com/story/i-have-no-preexisting-conditions-im-56-earn-198-000-and-want-to-retire-early-can-i-afford-private-healthcare-e80cdd26?mod=mw_rss_topstories",
       "published": "Sat, 30 May 2026 20:55:00 GMT",
       "summary": "“I’m trying to figure out whether it’s worth my while achieving FIRE.”",
+      "summaryZh": "加密市场：MarketWatch 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
@@ -360,33 +474,41 @@
     {
       "source": "MarketWatch",
       "title": "As Big Tech’s power demand surges, data centers bring utilities a huge new profit center",
+      "titleZh": "市场风险情绪：MarketWatch 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://www.marketwatch.com/story/in-america-big-techs-ai-data-centers-come-first-and-your-community-will-be-last-to-know-06a3fce4?mod=mw_rss_topstories",
       "published": "Sat, 30 May 2026 18:56:00 GMT",
       "summary": "The market hasn’t fully priced the next logical step for the AI buildout: Big Tech acquiring regulated utilities outright.",
+      "summaryZh": "市场风险情绪：MarketWatch 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "MarketWatch",
       "title": "China’s next export shock walks on two legs — and costs less than a used car",
+      "titleZh": "美国政策与贸易：MarketWatch 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "url": "https://www.marketwatch.com/story/chinas-next-export-shock-walks-on-two-legs-and-costs-less-than-a-used-car-f0becf3f?mod=mw_rss_topstories",
       "published": "Sat, 30 May 2026 18:50:00 GMT",
       "summary": "Beijing is funding humanoid robots to slash Chinese factory costs and build a competitive advantage.",
+      "summaryZh": "美国政策与贸易：MarketWatch 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": []
     },
     {
       "source": "MarketWatch",
       "title": "Why double-digit earnings growth won’t stop the next bear market",
+      "titleZh": "市场风险情绪：MarketWatch 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://www.marketwatch.com/story/why-double-digit-earnings-growth-wont-stop-the-next-bear-market-791ae3ef?mod=mw_rss_topstories",
       "published": "Sat, 30 May 2026 18:46:00 GMT",
       "summary": "Spiking S&P 500 profits often signal the final innings of a bull market. History says stocks are on thin ice.",
+      "summaryZh": "市场风险情绪：MarketWatch 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Federal Reserve",
       "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
       "published": "Thu, 28 May 2026 15:00:00 GMT",
       "summary": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide"
       ]
@@ -394,17 +516,21 @@
     {
       "source": "Federal Reserve",
       "title": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm",
       "published": "Tue, 26 May 2026 18:00:00 GMT",
       "summary": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": []
     },
     {
       "source": "Federal Reserve",
       "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Mark...",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
       "published": "Fri, 22 May 2026 20:15:00 GMT",
-      "summary": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh a...",
+      "summary": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide",
         "risk-regime"
@@ -413,17 +539,21 @@
     {
       "source": "Federal Reserve",
       "title": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
+      "titleZh": "全球宏观新闻：Federal Reserve 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260522a.htm",
       "published": "Fri, 22 May 2026 20:00:00 GMT",
       "summary": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
+      "summaryZh": "全球宏观新闻：Federal Reserve 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "Federal Reserve",
       "title": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260521a.htm",
       "published": "Thu, 21 May 2026 15:00:00 GMT",
       "summary": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide"
       ]
@@ -431,9 +561,11 @@
     {
       "source": "Federal Reserve",
       "title": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions...",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260520a.htm",
       "published": "Wed, 20 May 2026 20:00:00 GMT",
-      "summary": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of cl...",
+      "summary": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide"
       ]
@@ -441,9 +573,11 @@
     {
       "source": "Federal Reserve",
       "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260520a.htm",
       "published": "Wed, 20 May 2026 18:00:00 GMT",
       "summary": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide"
       ]
@@ -451,9 +585,11 @@
     {
       "source": "Federal Reserve",
       "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in a...",
+      "titleZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm",
       "published": "Fri, 15 May 2026 21:00:00 GMT",
       "summary": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+      "summaryZh": "美联储与利率：Federal Reserve 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide",
         "risk-regime"
@@ -462,57 +598,71 @@
     {
       "source": "Fed Speeches",
       "title": "Bowman, A Framework for Practical Monetary Policy Decision Making",
+      "titleZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.federalreserve.gov/newsevents/speech/bowman20260529a.htm",
       "published": "Fri, 29 May 2026 13:10:00 GMT",
       "summary": "Speech At the Reykjavík Economic Conference 2026, Central Bank of Iceland, Reykjavík, Iceland",
+      "summaryZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "Fed Speeches",
       "title": "Jefferson, Global Economic Developments and the U.S. Economy",
+      "titleZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.federalreserve.gov/newsevents/speech/jefferson20260527a.htm",
       "published": "Thu, 28 May 2026 00:00:00 GMT",
       "summary": "Speech At the 2026 Bank of Japan-Institute for Monetary and Economic Studies Conference, Tokyo, Japan",
+      "summaryZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "Fed Speeches",
       "title": "Cook, The Opportunities and Risks AI Presents for the Economy and Financial System",
+      "titleZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.federalreserve.gov/newsevents/speech/cook20260527a.htm",
       "published": "Wed, 27 May 2026 19:55:00 GMT",
       "summary": "Speech At the Stanford Institute for Economic Policy Research, Stanford University, Stanford, California",
+      "summaryZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "Fed Speeches",
       "title": "Waller, Policy Risks Have Changed",
+      "titleZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.federalreserve.gov/newsevents/speech/waller20260522a.htm",
       "published": "Fri, 22 May 2026 14:00:00 GMT",
       "summary": "Speech At The Centre for Central Banking Guest Lecture, Frankfurt School of Finance and Management, Frankfurt, Germany",
+      "summaryZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "Fed Speeches",
       "title": "Barr, Measuring Financial Health",
+      "titleZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://www.federalreserve.gov/newsevents/speech/barr20260520a.htm",
       "published": "Wed, 20 May 2026 13:15:00 GMT",
       "summary": "Speech At EMERGE Financial Health 2026 Scaling Progress, Shaping the Future, Atlanta, Georgia",
+      "summaryZh": "全球宏观新闻：Fed Speeches 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": []
     },
     {
       "source": "Fed Speeches",
       "title": "Barr, Efficient and Effective Central Banking: Beyond the Balance Sheet",
+      "titleZh": "市场风险情绪：Fed Speeches 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://www.federalreserve.gov/newsevents/speech/barr20260514a.htm",
       "published": "Thu, 14 May 2026 23:00:00 GMT",
       "summary": "Speech At the Money Marketeers of New York University, New York, New York",
+      "summaryZh": "市场风险情绪：Fed Speeches 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Fed Speeches",
       "title": "Bowman, Opening Remarks",
+      "titleZh": "美联储与利率：Fed Speeches 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/speech/bowman20260514a.htm",
       "published": "Thu, 14 May 2026 17:00:00 GMT",
       "summary": "Speech At the Federal Reserve Bank of Kansas City 2026 Future of Banking Conference: Powering Progress, Protecting Trust, Kansas City, Missouri (via pre-recorded video)",
+      "summaryZh": "美联储与利率：Fed Speeches 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide"
       ]
@@ -520,17 +670,21 @@
     {
       "source": "Fed Speeches",
       "title": "Bowman, When Regulation Reshapes Markets: The Migration of Corporate Lending",
+      "titleZh": "美联储与利率：Fed Speeches 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://www.federalreserve.gov/newsevents/speech/bowman20260508a.htm",
       "published": "Fri, 8 May 2026 23:30:00 GMT",
       "summary": "Speech At the Hoover Institution Annual Monetary Policy Conference, Stanford, California",
+      "summaryZh": "美联储与利率：Fed Speeches 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": []
     },
     {
       "source": "Google News · Trump/Tariff",
       "title": "Trump wants to ‘manage’ China trade. Businesses see a tariff opening. - Politico",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbGZ0RElvZWg0Y0xtbTNTNXVkS2lrYU5fTG9RY054MVYwOVBwMzVua1dmMjJHQjNwRmVvRUp5WDRiZkhXb0ZfOHV6dzBjSDNXclN3RGNWUjRvRy1PXzhNcndxcHZCNW1TX3UxTHVIRHJHOWJhSzNEV0RvcW91N0xmRVN6VGZOa3l2UkhMNHhKbUI?oc=5",
       "published": "Sat, 30 May 2026 14:00:00 GMT",
       "summary": "Trump wants to ‘manage’ China trade. Businesses see a tariff opening. Politico",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": [
         "risk-regime"
       ]
@@ -538,9 +692,11 @@
     {
       "source": "Google News · Trump/Tariff",
       "title": "What Just Happened with Trump's Tariffs, and Why Does it Matter - Kavout",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZlg3NEdRRm5RekFka2IyYVlILUVoVS1Cd0t4Z3BGVTRwcFF5MFlTV2ppMVFYS3REZG01cC1hcm9uRjI0TFNkOXZ5YlY1OWVETDctbC05X1VjeDBrWjZKN3pveXRydkVqVkNHRzdEM0F0MlBXTURnUWl5S3NMNVZtaFY2MVRmU1ROd2tFczJsQ25CVHZUUFEweDlwSGF1QQ?oc=5",
       "published": "Sat, 30 May 2026 23:33:48 GMT",
       "summary": "What Just Happened with Trump's Tariffs, and Why Does it Matter Kavout",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": [
         "risk-regime"
       ]
@@ -548,31 +704,35 @@
     {
       "source": "Google News · Trump/Tariff",
       "title": "Markets rally as Trump pauses global tariffs, targets China - ig.com",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQang5dzVKZFZPcE14YTZ6eWh1eENOdlhLcmszc0ZwSF9tUFE4dnh1ZURzZG5kUHBrVkVQckNQRThNaFhiUVlWWXB3UWdTVUdkNW9uM1ZJNFRxMl92V2ZhTmtvSkttSjBiaGpFVlc1WVl3RnpCeEp0UjJ0ZGNfMi1UTnQxenNkNVpjdjNDNkVmS2VRc1pKNWVjZEhXRC1tZkdZaUYxRHRsdDR1WjF6eDJjTUdRcDB6VGlY?oc=5",
       "published": "Fri, 29 May 2026 09:47:18 GMT",
       "summary": "Markets rally as Trump pauses global tariffs, targets China ig.com",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": [
         "risk-regime"
       ]
     },
     {
       "source": "Google News · Trump/Tariff",
-      "title": "US-China Trade War: Trump Risks Imploding US China Trade Truce With Iran Tariff | WION Miles Mcbride (GIezt3zzrW) - Mshale",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5RVlkzMGNpdTV2VmF6V0NQTnRndGlmcWZlbmZvaU50eUFJbi1BWHVVUEczSmRUeThWU1dTMDh0eDRZUGdIa3lWRkZYN3NPLWZwbDBGRDkyQTc1TTQ?oc=5",
-      "published": "Fri, 29 May 2026 16:16:39 GMT",
-      "summary": "US-China Trade War: Trump Risks Imploding US China Trade Truce With Iran Tariff | WION Miles Mcbride (GIezt3zzrW) Mshale",
+      "title": "BREAKING: Trump Pauses Tariffs For All But “125% TARIFF ON CHINA” — Bessent, Leavitt Speak Out Burnley Vs Aston Villa (9lI7Rp0QWo) - Mshale",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Na2FGMTRJcGlNRTl5WjJpV1puU2dFU29sQ3ppbU5aWFVUNFpPZkNleURhajNmRFJYWlJ5ZWNjc3VUc2Rac0dUWDdBREJPcl9CdTlBX3E5NEtmczA?oc=5",
+      "published": "Sun, 31 May 2026 02:56:45 GMT",
+      "summary": "BREAKING: Trump Pauses Tariffs For All But “125% TARIFF ON CHINA” — Bessent, Leavitt Speak Out Burnley Vs Aston Villa (9lI7Rp0QWo) Mshale",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": [
-        "risk-regime",
-        "crypto-rotation",
-        "sentiment-extreme"
+        "risk-regime"
       ]
     },
     {
       "source": "Google News · Trump/Tariff",
       "title": "As China’s surpluses become unbearable, the EU is edging toward its own Section 301 - Atlantic Council",
+      "titleZh": "加密市场：Google News · Trump/Tariff 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPZWduYms0MXd1bDI4cEIwMGVQY2ZCSzJSVGdTMUVzYl9lZlV6QlByckZzSmJIY0pZdHUtTFNNOXdoZ0hUcVhNaDBGQlhGejI5eVJfWDBMVUpGTUZhR2ZSdjhqMkF2QWh4SDNsRGdBSFNoZXhUYkZLLXJ1ZkhmcGtzby1SQmxTckRZbXZPazNaUW9VSjdvWE80eVNTSFprMnZSaVpRVHFSZG5LUEhoN2I0NU4yRVlvcWNRUVl5OGpJYXZMbUM4MzM0dDBsZGtNRUk?oc=5",
       "published": "Thu, 28 May 2026 20:56:11 GMT",
       "summary": "As China’s surpluses become unbearable, the EU is edging toward its own Section 301 Atlantic Council",
+      "summaryZh": "加密市场：Google News · Trump/Tariff 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
       "buckets": [
         "risk-regime",
         "crypto-rotation",
@@ -582,9 +742,11 @@
     {
       "source": "Google News · Trump/Tariff",
       "title": "Trump struck a deal for China to buy $17B a year in US ag products; farmers skeptical - Aberdeen Insider",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOek9kUWN2VVFlSnRSZUxSZlBVVXlqM211cVRrdmw1ODhwTWozU0l4SThBOTl2cnN3bmE2dUNtZmdBS3ZaSEEyQmJiTHJtZURGOU5FMU5iLU1QYkJxOEtITHV4Mnc2My04Rm1KSGpwQV81WU91X21kS1BoMWpZbHJHNktmWUxxMWwxT1NiUVFrdXNBNXJKOGU3M01sWTV0a0Z3NEQ4em10ZFdUeXRKTjNLTXNR?oc=5",
       "published": "Fri, 29 May 2026 19:00:31 GMT",
       "summary": "Trump struck a deal for China to buy $17B a year in US ag products; farmers skeptical Aberdeen Insider",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": [
         "risk-regime"
       ]
@@ -592,28 +754,33 @@
     {
       "source": "Google News · Trump/Tariff",
       "title": "Opinion | Communist China tries to steal the free-market mantle from America - The Washington Post",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWm9JSm5Za0s3czhBcGRqQ2FJdjh3OGliZFhaQkhzVm9IbC1KQlEtQlVwWkJuYmRjcHc5ZXNpZENVc1VBRWpxc2VtRVdEb2tjX3cwcC1xbWd5MlpGNVk2VzBqWFpxbkgxSHNxbmdXeFkzZFdJM20wU05MdGFoZk80WlRDalNVU3NLSkIyVE4xTHhmZVVk?oc=5",
       "published": "Fri, 29 May 2026 16:45:00 GMT",
       "summary": "Opinion | Communist China tries to steal the free-market mantle from America The Washington Post",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": []
     },
     {
       "source": "Google News · Trump/Tariff",
-      "title": "US sets Taiwan tariffs at 15% on auto parts, wood, aircraft parts - Supply Chain Dive",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNR1QyTzNQVmwwUE1YVEVXWFdYLTBiaWJ5QW91cl93V3dsVWl1cEhUckNPU3FZUWVwSU14VDNrbmw3V2FhZ09vcGtjYnFOZm0tZFBkUng2Y1pCbm9xS0ZabUlkV05FSDFEdjhReXFTWmlSNWQ5cHpVUkZFWUNtVEhoNDZJb3pGN1BuNkx1b1JYbkFjNjdrd0Qwemp6Nk53YTlmeTRSSG5xWXk5WWM?oc=5",
-      "published": "Fri, 29 May 2026 21:57:14 GMT",
-      "summary": "US sets Taiwan tariffs at 15% on auto parts, wood, aircraft parts Supply Chain Dive",
+      "title": "Trump launches investigations: Is a new trade war coming? - Moomoo",
+      "titleZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
+      "url": "https://news.google.com/rss/articles/CBMi3gNBVV95cUxOU3MxcUhobVZpaEFGTnJ1dGFqcTJMNFB2Tmlod2pVLXhlMEtNR2F6akRaQWVsTlFlcUI1TWJrR25ESEphTVBZbDk3amRJNnhiUURSMUF0bnlGQ1k1c2tGZGVFTWZnanItbTdHcTRONVhLemRwVUQ3WHNfMjB2SzBKN1VfQ1R0Q0NEeVpDa1pMMHF3R1FwdU5qQnBaaTV4alYzWFRqbURYMGg2dkxDclJ6aWhjbWpwVGwtTV9nckpUZExsdlRFRVE2ZnV1UV9YM0ItdU9vX3NWT3BxWHRhajBRbzNwSHZlZmxCZkFUMERGNzlneTdoT2IzZUdDRTNYblQyOWtjM0ZUUHdESHRYM25WWXdXYmo0amktUHAwd2tFNTJIUEgwcTloYW9Db29fSklsYjhxdVF3TDZlNGJXeFpVMkRrUlZVOEYyLWJDby1faXBHdmNHaVg1b3I2QXc4MW9mWUNKYkR3dHM2eU03VUF3UEQ3eGk0TWpMMEh1Z1d4ZS1zV3BnNG82dms4UGZSRzNkMDVLZzBnRDJsNjlqVzhFaGptS1ZpMENVN01HaVFmTF9NTi04VFp5em1sNVlZUkJlUDJDRTZVXzFfUU1nbmxyZTFBckszc0JXYU4zV3Rn?oc=5",
+      "published": "Sun, 31 May 2026 05:35:32 GMT",
+      "summary": "Trump launches investigations: Is a new trade war coming? Moomoo",
+      "summaryZh": "美国政策与贸易：Google News · Trump/Tariff 报道，涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。",
       "buckets": [
-        "macro-tide",
         "risk-regime"
       ]
     },
     {
       "source": "Google News · War/Geopolitics",
       "title": "Stocks eke out record closing highs, oil slides as markets eye US-Iran peace progress - Reuters",
+      "titleZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdV9qQk1melo5ZHFLUTQwdUptamlUWFQyVzRzZHNMVTkwVDdWcDgzaVhiYUMwSHZwU0VyTVJZT3lCMTRlTVozVnNEek1aNkNTdW1Ha1JmUXlweHhrbUZCX2dQb1ZZb052bFktd0ROSmhtNDVTblc0RjFpamdUeFFKX2NlRQ?oc=5",
       "published": "Thu, 28 May 2026 01:11:58 GMT",
       "summary": "Stocks eke out record closing highs, oil slides as markets eye US-Iran peace progress Reuters",
+      "summaryZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -621,9 +788,11 @@
     {
       "source": "Google News · War/Geopolitics",
       "title": "Is Gold's Current Rally Sustainable Amidst Middle East Tensions - Kavout",
+      "titleZh": "全球宏观新闻：Google News · War/Geopolitics 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOMzVJRGh1NExWdHREaGZ5czBTbFZlVlpDZnRuQmV2QjMzZEE1c1ZndHhCWmNsbUc3bFNON2tFTEp3NDE2RUVFNWNPVnFRUDRwX2xfY2R1aFozRzIzTEtIQjlMNEMtS0JCbFpPdUZmQWQxOUZUbnJfeXNlMWZFZVUyNTFUWmZFdlNUazRHYTJpYl9nSVhuRmUxOWZvQ0R4Nk0?oc=5",
       "published": "Sat, 30 May 2026 05:37:30 GMT",
       "summary": "Is Gold's Current Rally Sustainable Amidst Middle East Tensions Kavout",
+      "summaryZh": "全球宏观新闻：Google News · War/Geopolitics 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
       "buckets": [
         "risk-regime"
       ]
@@ -631,9 +800,11 @@
     {
       "source": "Google News · War/Geopolitics",
       "title": "WAR शुरू😱😭🔴 सोमवार को Stock Market CRASH होगा? 🔴 US Israel Iran War Impact On Share Market Crude Oil Seven (TqpRPg9t7N) - Mshale",
+      "titleZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1aZmFhN2RWanR4alVicUU0cThxVEVCbVdHRlN0S1kzRzNiU2xPcE1Pc2toS0wtaWxHazF4VGdaXzlyTzBiVEVhRHZQYjlvOE80c1hpYXlIajhNX0U?oc=5",
       "published": "Wed, 27 May 2026 07:37:25 GMT",
       "summary": "WAR शुरू😱😭🔴 सोमवार को Stock Market CRASH होगा? 🔴 US Israel Iran War Impact On Share Market Crude Oil Seven (TqpRPg9t7N) Mshale",
+      "summaryZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -641,9 +812,11 @@
     {
       "source": "Google News · War/Geopolitics",
       "title": "The U.S.-Iran Ceasefire Illusion: Energy Shortages Far from Over - ORF Middle East",
+      "titleZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYVpBRVZUN0dBLWZUS2xOQUxWa3RfRDNWU0o3MDl3S2c1YXhMTlBmR19nLXhHZGYySnpMaDZ3dXpiM2ppQkVQU2Q2VHJzMi0xVHhhN3JMcmRpRm1KalpsQm44bWNnT2cxQmoxTmRsMUFNWDJ2eFFRZWFZLWFqU2RIZVZFSXNBOE5sMlMtb1ZBRXgtdWpmZUxnUQ?oc=5",
       "published": "Tue, 26 May 2026 09:40:28 GMT",
       "summary": "The U.S.-Iran Ceasefire Illusion: Energy Shortages Far from Over ORF Middle East",
+      "summaryZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -651,9 +824,11 @@
     {
       "source": "Google News · War/Geopolitics",
       "title": "Why a global recession is on the cards as Iran war enters fourth month - The Times",
+      "titleZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOWWg3UE54ZllnUk5lM0RQbDVjOGdkejNyampoNVMtOWJhcF9PaDAwQmlPZ2FsNzdlNFQzOGtpa3JMNHVUdzVNa3VqMFJTSnJqV2hTRzk1MEZ5ZjR1UVoycTJXY3VidTFjRW5sRzdMU0FVNU5ZMDBGMFdoVGtyUjZFbHAwaXRCVWN5RkRXcXdMM2g3OWhtVmRNZW9jWFl2eXdzM3JZclA4bDdkbElUWW9JbXRnZkVrbGpwZjJ0emZ6T3BPLXV2QkFmY1E5TEw?oc=5",
       "published": "Wed, 27 May 2026 16:30:05 GMT",
       "summary": "Why a global recession is on the cards as Iran war enters fourth month The Times",
+      "summaryZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -661,9 +836,11 @@
     {
       "source": "Google News · War/Geopolitics",
       "title": "Israel strikes Iran: oil surges 5.73%, markets fall on escalation - ig.com",
+      "titleZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQVzRsRHpvZUFzbU9fZms1S1EzMTZObGg5UXZHelZkQzFNN3Q5RlYwaTU3S0hZb3FFUzdrTnhya3JUNHMyNzB3TTVyRjRMRC1oaUI2bTFDRVhzZVlrZ3J4Z3pma3F0UllTSVNoUEl2dzZNRFp0VHFycUtIak45Tm5EbkNVTHJtRW40ZnRXdWRrMHoyYUltampHWVFTdVkxYUltY1ZsMzNNazA4bURabmFEMXYzV1FHTld1?oc=5",
       "published": "Fri, 29 May 2026 09:54:07 GMT",
       "summary": "Israel strikes Iran: oil surges 5.73%, markets fall on escalation ig.com",
+      "summaryZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -671,39 +848,23 @@
     {
       "source": "Google News · War/Geopolitics",
       "title": "How to dodge the Iran war - The Northern Miner",
+      "titleZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS3VLeWNmWFZ1SFVfei1RMGdGbWJQLVZaY3B4VFplOGtJYTdLbmhIWlhweGZwRHl2R1p1TlZCbGFITnNvUGVrTlhEX1lOa2N1dFdsQzFaWGwyelFVb3NuTS0xZEcwS1JyQkZrYVVfX3paMGtDcEpoaUExT0FjeGNYdXlSb3lNY21CckszRjZ2YkNuNjVIN1F4SC1TaVV1SkRY?oc=5",
       "published": "Fri, 29 May 2026 11:50:16 GMT",
       "summary": "How to dodge the Iran war The Northern Miner",
+      "summaryZh": "战争与地缘：Google News · War/Geopolitics 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
     },
     {
       "source": "Google News · War/Geopolitics",
-      "title": "War, Oil Prices and Computing Power: The Rising Cost Floor Beneath the AI Bull Market - TradingKey",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNS1piMEU3YUs1Mm5FRGw0NlpPSUx0OHBZTlRRTFQwbHNncmFuQncwZDZuUjE1T2VpTnVaWGdKOEc3QWpIQ2dUUnJ5dzFwZGdRVGZKM3h1NW1tVTM0UzhkRnpKMi1tZ2xWRDBUYkdndkZ3THVUTF9XVTZBS1ZvZzUwUkRrWGdfdkFzLWRfc3JfVjRCVWcybE5qTnVwd2lNTWRrUEtqN2k3RFJQZm4zcHJqZ3FMckZVdzg?oc=5",
-      "published": "Sat, 30 May 2026 20:01:23 GMT",
-      "summary": "War, Oil Prices and Computing Power: The Rising Cost Floor Beneath the AI Bull Market TradingKey",
-      "buckets": [
-        "risk-regime"
-      ]
-    },
-    {
-      "source": "Google News · Fed/Rates",
-      "title": "The Latest Fed May Inflation Update Is In -- and It's a Good News-Bad News Scenario for Wall Street - AOL.com",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9kLU4xLXNEemVteGhROVJnSGl1VHFPZlpEYURSWkhZU2pLTUd4OWo0clQ4ZEhCeWcyM3RicTFObkxHYkxnWk1FamJnLXV5MVdUVXowMU1KRlFsMGRKUTdmZ1F0Vl9yWEd3a3RZUFNYOEt4N0dRcDJBTmZYWDA?oc=5",
-      "published": "Sun, 31 May 2026 09:13:34 GMT",
-      "summary": "The Latest Fed May Inflation Update Is In -- and It's a Good News-Bad News Scenario for Wall Street AOL.com",
-      "buckets": [
-        "macro-tide"
-      ]
-    },
-    {
-      "source": "Google News · Fed/Rates",
-      "title": "The Stock Market May Be in Trouble: President Trump Put Fed Chair Kevin Warsh in a Tough Spot - AOL.com",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPazA1d09uclJUdDVvM2Y1SFI5NkF2WkJ1MEZDc0Iwb3lNMC1xeWo5R3pkZTJidWZBck0zWnIyX0V2bGpPajc1UGttbkZaZ2NrV3NTR25KNlVZQ2xEZTJUSnR0YXlub2IwWTdUaGU3OC1qX1VQckhQMWlpUFBCQzJkUE1GRXo?oc=5",
-      "published": "Sun, 31 May 2026 09:02:46 GMT",
-      "summary": "The Stock Market May Be in Trouble: President Trump Put Fed Chair Kevin Warsh in a Tough Spot AOL.com",
+      "title": "Gold falls as war-driven inflation fears fuel rate-hike bets - Reuters",
+      "titleZh": "美联储与利率：Google News · War/Geopolitics 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORlJCLUk1UjZTTllqd1RacFBFNXZWanBUZkZpVTlyWktFYm1Fb01OZVpBX2tyelRoWnptU2RsZVRtTktJZEp4MnVoVWdaaGJENnJLT09jLVREUmNuVnhXSVo3R0J3VFc5MGhaUHZ5Y2FaODhjVXVRRE1PekJKNVltR3ZremkyM005M2J5VWV1Y1hsZXFQeVh6bWk3QlRQdlVJdUpzMUxn?oc=5",
+      "published": "Tue, 26 May 2026 19:23:26 GMT",
+      "summary": "Gold falls as war-driven inflation fears fuel rate-hike bets Reuters",
+      "summaryZh": "美联储与利率：Google News · War/Geopolitics 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide",
         "risk-regime"
@@ -711,20 +872,50 @@
     },
     {
       "source": "Google News · Fed/Rates",
-      "title": "Fed officials weigh possible rate hikes as inflation risks grow - MSN",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNVp5Y1oxNklPdFJ4Zi1Ja2MyUXdENXdzN19FRTVyR2Y5RjR2M0hEVC00Yi1nMGpZRHNIMHVqWmJ6YmF4OC1KNDgxbU14eTVTS25KMDhucHBfSXVIRm9FQ3V3UXc2T3E0UVJuN2xrX3d3YWZfRGxaRXd3TVE3c2xqb2trZnpDeGx0bm9SeEgyMllLNTdleWNEWGlQVFdXRGhFeTR3SWREODRxUQ?oc=5",
-      "published": "Sat, 30 May 2026 14:09:42 GMT",
-      "summary": "Fed officials weigh possible rate hikes as inflation risks grow MSN",
+      "title": "The Latest Fed May Inflation Update Is In -- and It's a Good News-Bad News Scenario for Wall Street - AOL.com",
+      "titleZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9kLU4xLXNEemVteGhROVJnSGl1VHFPZlpEYURSWkhZU2pLTUd4OWo0clQ4ZEhCeWcyM3RicTFObkxHYkxnWk1FamJnLXV5MVdUVXowMU1KRlFsMGRKUTdmZ1F0Vl9yWEd3a3RZUFNYOEt4N0dRcDJBTmZYWDA?oc=5",
+      "published": "Sun, 31 May 2026 09:13:34 GMT",
+      "summary": "The Latest Fed May Inflation Update Is In -- and It's a Good News-Bad News Scenario for Wall Street AOL.com",
+      "summaryZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide"
       ]
     },
     {
       "source": "Google News · Fed/Rates",
+      "title": "Treasury yields are soaring -- and that's not a coincidence with Kevin Warsh now leading the Federal Reserve - MSN",
+      "titleZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMixgNBVV95cUxNd054WWpObE1va21FRk1Oa24wNldtSGV3OXdjcWV2LUxQWlQ0eDEwZjVKSlpkaUxjYmdIZUVRZnpKX0dFRlhvRmNKTjNiQXRhc0xzdzE0OENiVXg2bndXZGltMnhfQ0lUNHdxRVNJZWt1Y3dLaEVlY2xsWTJ1NmpRZW5SQ1gzQThaeFRGNUlGVGpNYmpyOXRPOHhoWnFQVnlBSTh0b2tTR0xwZ05HN0VacjR3aXJxdWxVdG1ScFF4MzFGRHVrQzRVOGRKb0gtX09EZjV0VVNKLVJuZmloNHVlZlZWQlhFTmpEYnMtbFlQNnVGVzFDSktpZFBsekRMZzhQZ2hKRGFnd3c0cXIzbElwekQySFhpRWYtVzFBWmE2bFI3VmF6cTNxVnBjOWE2dGpVdVgzNXlzWXFjUVVBZld4d0FobExzQ0FldE1nVTNRdEFyOGNXNE9Pd3FaR19DUk1WbkR4TTNLSWk0WlAxbnlxU1d1alROTVRYUUNRTFE5Sk9EUGZ3S3g4dWVYT1BvQjhKV085WU9VOFQzclg1eVQtRGdTVGg0RHU0eHYyUWJ6TDg2OUQ2REEzTEdvSURnX2M3eXk0MGtn?oc=5",
+      "published": "Sun, 31 May 2026 04:20:29 GMT",
+      "summary": "Treasury yields are soaring -- and that's not a coincidence with Kevin Warsh now leading the Federal Reserve MSN",
+      "summaryZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "source": "Google News · Fed/Rates",
+      "title": "The Stock Market May Be in Trouble: President Trump Put Fed Chair Kevin Warsh in a Tough Spot - AOL.com",
+      "titleZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPazA1d09uclJUdDVvM2Y1SFI5NkF2WkJ1MEZDc0Iwb3lNMC1xeWo5R3pkZTJidWZBck0zWnIyX0V2bGpPajc1UGttbkZaZ2NrV3NTR25KNlVZQ2xEZTJUSnR0YXlub2IwWTdUaGU3OC1qX1VQckhQMWlpUFBCQzJkUE1GRXo?oc=5",
+      "published": "Sun, 31 May 2026 09:02:46 GMT",
+      "summary": "The Stock Market May Be in Trouble: President Trump Put Fed Chair Kevin Warsh in a Tough Spot AOL.com",
+      "summaryZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "source": "Google News · Fed/Rates",
       "title": "This Is a Flashing Warning Sign for the Stock Market That Investors Shouldn't Ignore - AOL.com",
+      "titleZh": "战争与地缘：Google News · Fed/Rates 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQeE9hQ3IwbWpjakY4emprcTZvd1pFbEFsbm4wZEt5c2FHRU1RZHdXaElYMFJCTDYtX2h1Z3huMlBwRExlRlR6WjZ0Ml90enNhc3F1Z1VjMXo1TkUtTmthaU9IZF9VVEZKX0RmUnNMTTU5NXhBRUpDSVlmaXZlYlpxRjE2cUU?oc=5",
       "published": "Sun, 31 May 2026 06:40:09 GMT",
       "summary": "This Is a Flashing Warning Sign for the Stock Market That Investors Shouldn't Ignore AOL.com",
+      "summaryZh": "战争与地缘：Google News · Fed/Rates 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -732,9 +923,24 @@
     {
       "source": "Google News · Fed/Rates",
       "title": "Stocks are rallying despite the Iran war and stubborn inflation. Here's why. - AOL.com",
+      "titleZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNQm9FcGVjX2JfNUZPNS03NWZVYWFwNnV1V3BUMldfUGtzZllxRzltUWl3V0VXR3lPNkRaczRQT3dSZFk0MmVKNzh1VUxlT1FHNEZaZmY3eGU4cHBiZmhSVkdaNHdrZEpLSlNHUDhmcF9oM0ZPYlprSUM5N0p0OExSWm93?oc=5",
       "published": "Sun, 31 May 2026 12:21:36 GMT",
       "summary": "Stocks are rallying despite the Iran war and stubborn inflation. Here's why. AOL.com",
+      "summaryZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "source": "Google News · Fed/Rates",
+      "title": "Stock Market Investors Got a Final Warning From Fed Chair Jerome Powell. History Says This Will Happen Next. - AOL.com",
+      "titleZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRXVtWU5FRVVVMTFUbFV3MVBGYWRpdmJIREdnRVpDT3JCMEdrZTN1bnM2cXRXcjZpU2RfTXdnWlJTcUIxTlE4OS0zNVVxZmo1RTYwU3BmWW81SWJYUmx6U1poNmZzc1U0SlBSLUdTRHBjeW5IZlVyNEpKa045TWEzMk1B?oc=5",
+      "published": "Sun, 31 May 2026 00:22:51 GMT",
+      "summary": "Stock Market Investors Got a Final Warning From Fed Chair Jerome Powell. History Says This Will Happen Next. AOL.com",
+      "summaryZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
       "buckets": [
         "macro-tide",
         "risk-regime"
@@ -743,38 +949,103 @@
     {
       "source": "Google News · Fed/Rates",
       "title": "What the Final Weeks of May Are Telling Long-Term Investors About the Market - AOL.com",
+      "titleZh": "市场风险情绪：Google News · Fed/Rates 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE96ZFYwN01MSjJibEpWNHM2Qmx1a2VvUHcyWW9FcmZyNXRRUkEwUmdzczRxMDlmVE9EMHc3eFNScGtkZXhBZGYydGtoSHgzNzFubFhLLV9qYmZDdWxGQXFkcEMxemhSVDZURjlTWm1TalhkQS0tdFoxOTdfczg?oc=5",
       "published": "Sun, 31 May 2026 05:14:37 GMT",
       "summary": "What the Final Weeks of May Are Telling Long-Term Investors About the Market AOL.com",
+      "summaryZh": "市场风险情绪：Google News · Fed/Rates 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · Fed/Rates",
-      "title": "Stock Market Investors Got a Final Warning From Fed Chair Jerome Powell. History Says This Will Happen Next. - AOL.com",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRXVtWU5FRVVVMTFUbFV3MVBGYWRpdmJIREdnRVpDT3JCMEdrZTN1bnM2cXRXcjZpU2RfTXdnWlJTcUIxTlE4OS0zNVVxZmo1RTYwU3BmWW81SWJYUmx6U1poNmZzc1U0SlBSLUdTRHBjeW5IZlVyNEpKa045TWEzMk1B?oc=5",
-      "published": "Sun, 31 May 2026 00:22:51 GMT",
-      "summary": "Stock Market Investors Got a Final Warning From Fed Chair Jerome Powell. History Says This Will Happen Next. AOL.com",
+      "title": "Markets Now Pricing in Rate Hikes Through 2027 as Fed Cut Expectations Evaporate - AOL.com",
+      "titleZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9wbTlFeFZvYlB0TldkUV9ib3RmMGZ5TmRpOGYzRC16RzYxMzBjYnczM3ZDM0tNLWdSMDJQS3ZnYnc2azZFeXQ2M2daN3Q0eWxnSDliVzU3U3FyUl8xaVJLZ29HSGZlN3psWjBXVGxPQi1KNFZYM1lSU2gxaHF5dlE?oc=5",
+      "published": "Sun, 31 May 2026 01:33:21 GMT",
+      "summary": "Markets Now Pricing in Rate Hikes Through 2027 as Fed Cut Expectations Evaporate AOL.com",
+      "summaryZh": "美联储与利率：Google News · Fed/Rates 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "source": "Google News · PCE/ISM/Claims",
+      "title": "What to Look Out for in Economic Data This Week (June 1-5) - Kiplinger",
+      "titleZh": "全球宏观新闻：Google News · PCE/ISM/Claims 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1MeVNwMVVnVmhvRWo4b0N4WkhCRXQxTVRtb2ZmTWhCSmd4eERsN3Nfdllwejg0eG5ueFFCRUdPTzVUaXh4dEFZaWJqN3FFZnlFWTBlZ2ZvVkFFRzVScTR3TXRhZGl6MHp2RUF1clppVDRvR1lveC1FaXNCeXQ?oc=5",
+      "published": "Fri, 29 May 2026 19:04:48 GMT",
+      "summary": "What to Look Out for in Economic Data This Week (June 1-5) Kiplinger",
+      "summaryZh": "全球宏观新闻：Google News · PCE/ISM/Claims 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
+      "buckets": []
+    },
+    {
+      "source": "Google News · PCE/ISM/Claims",
+      "title": "Is Inflation the Single Biggest Risk to the Economy in 2026 - Kavout",
+      "titleZh": "美联储与利率：Google News · PCE/ISM/Claims 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQdFpFdHlKaVFydW5uTlVxbW9YUXNFcU9HcmcyTVAzVU5nS0wwVC16ZUtnbldIdTJGeHJpVDF6eFVqMUdick1lM2tfVzVqOC1ZWl9WNUg0T3d2YUNaMmZKUUJwTnk2WmtodkUzVG5yckVWcl9sMXhOOWJTaTBDcU1qVC1RNGFVWGNlZnZOdkx5dDdpNVdEYlIwUlB3?oc=5",
+      "published": "Wed, 27 May 2026 07:00:00 GMT",
+      "summary": "Is Inflation the Single Biggest Risk to the Economy in 2026 Kavout",
+      "summaryZh": "美联储与利率：Google News · PCE/ISM/Claims 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "source": "Google News · PCE/ISM/Claims",
+      "title": "GDP and PCE tomorrow morning; SpaceX IPO timeline accelerates - Kraken Blog",
+      "titleZh": "美联储与利率：Google News · PCE/ISM/Claims 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBPSWw1SEs1bENlVnFVZEhaV3dFaUVOb3o0SmpfUHpkeElTT00taUJtUm1sblhiQXJWMVZTUWxQOWN5VXhXa3MtLUZka2dWckFmVzdfN2xRODAxNVlWUWZF?oc=5",
+      "published": "Wed, 27 May 2026 09:13:16 GMT",
+      "summary": "GDP and PCE tomorrow morning; SpaceX IPO timeline accelerates Kraken Blog",
+      "summaryZh": "美联储与利率：Google News · PCE/ISM/Claims 报道，涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。",
+      "buckets": []
+    },
+    {
+      "source": "Google News · PCE/ISM/Claims",
+      "title": "Private economic reports: Looking beyond Uncle Sam’s data - Britannica",
+      "titleZh": "全球宏观新闻：Google News · PCE/ISM/Claims 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE15VzRNUlQ0REEtSU9SMTBQZThXc2dPWG03M2ZfN0FxNmhBUXB1NjVodWEwWjBFQkxreHZjcnJtcnJmM2NOODFFeGJJRkNSWFhQczk0c0YtazFnOFlCSkVjdlhXT0FnT2d2bmlCNjljZy1nOHRjdlFv?oc=5",
+      "published": "Tue, 26 May 2026 07:00:00 GMT",
+      "summary": "Private economic reports: Looking beyond Uncle Sam’s data Britannica",
+      "summaryZh": "全球宏观新闻：Google News · PCE/ISM/Claims 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
+      "buckets": []
+    },
+    {
+      "source": "Google News · PCE/ISM/Claims",
+      "title": "Wall Street flips firmly bullish after gold’s late-week recovery, Main Street sentiment sours with jobs data on deck - KITCO",
+      "titleZh": "全球宏观新闻：Google News · PCE/ISM/Claims 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONVZrVU1VclJyVER2LWdlcGFYZmY5aXF0N2xuTWZsQkV2c24wd1YtbDFPZE1yb0EyQ3h4RjlXS0VfQTNzcy1qMTdZNkZzU2o0cUFNV3JIeWZYNkVGYUtmMTdSd3B1cW5rRWpSck5TcEFRUldGR2NHWlYzbWVHTmN0eThRdkFTQkFhNTBpTVZJUzZVMDdMWTAyNEQyUU9VMnlIM0lITnVMZWxzWkRVLU5UMWQ0RFVVN29vaXdrUGl3?oc=5",
+      "published": "Fri, 29 May 2026 18:47:00 GMT",
+      "summary": "Wall Street flips firmly bullish after gold’s late-week recovery, Main Street sentiment sours with jobs data on deck KITCO",
+      "summaryZh": "全球宏观新闻：Google News · PCE/ISM/Claims 报道，这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。",
+      "buckets": [
+        "macro-tide",
+        "risk-regime",
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · PCE/ISM/Claims",
+      "title": "Weekly Outlook: Serious Divisions Between the US and Iran, Next Week’s Trouble for Gold Isn’t Nonfarm Payrolls! - Bitget",
+      "titleZh": "战争与地缘：Google News · PCE/ISM/Claims 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA0bUpaZVZKNnN6VHdmV1M2Zzd2MGZxUlgtSEZhbnNPSWYtZkdUX1ZsTWVWQmdRRkpfZl9mcTA1Y2haTl9NZVZxaE1VVk9ZNklIaU5lUzgxQ0Rvdnl2SGRBRkFtd9IBY0FVX3lxTFA0bUpaZVZKNnN6VHdmV1M2Zzd2MGZxUlgtSEZhbnNPSWYtZkdUX1ZsTWVWQmdRRkpfZl9mcTA1Y2haTl9NZVZxaE1VVk9ZNklIaU5lUzgxQ0Rvdnl2SGRBRkFtdw?oc=5",
+      "published": "Sun, 31 May 2026 00:23:50 GMT",
+      "summary": "Weekly Outlook: Serious Divisions Between the US and Iran, Next Week’s Trouble for Gold Isn’t Nonfarm Payrolls! Bitget",
+      "summaryZh": "战争与地缘：Google News · PCE/ISM/Claims 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "macro-tide",
         "risk-regime"
       ]
     },
     {
-      "source": "Google News · Fed/Rates",
-      "title": "Markets Now Pricing in Rate Hikes Through 2027 as Fed Cut Expectations Evaporate - AOL.com",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9wbTlFeFZvYlB0TldkUV9ib3RmMGZ5TmRpOGYzRC16RzYxMzBjYnczM3ZDM0tNLWdSMDJQS3ZnYnc2azZFeXQ2M2daN3Q0eWxnSDliVzU3U3FyUl8xaVJLZ29HSGZlN3psWjBXVGxPQi1KNFZYM1lSU2gxaHF5dlE?oc=5",
-      "published": "Sun, 31 May 2026 01:33:21 GMT",
-      "summary": "Markets Now Pricing in Rate Hikes Through 2027 as Fed Cut Expectations Evaporate AOL.com",
-      "buckets": [
-        "macro-tide"
-      ]
-    },
-    {
       "source": "Google News · Oil/OPEC",
       "title": "How the Iran War Is Disrupting Global Oil and Gas Supply - EnergyNow",
+      "titleZh": "战争与地缘：Google News · Oil/OPEC 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVDkyM1dfNzhVYTVieUk5VmxNaUR5cnNDZmZ5SUozcmFHZzdoS2JtZmU0OEItNXpGVWQyeHg2VzN5RnhFZE1VR0k1bXJvRmtLRENJVTNDVXVxLTlJRjZveEhWUzhqcGJ4aURMMy1wa1hJWnFUWHBFVG9aNFY2SC04TVIyV2RrS1kxeEJGeUdtbw?oc=5",
       "published": "Sat, 30 May 2026 10:14:22 GMT",
       "summary": "How the Iran War Is Disrupting Global Oil and Gas Supply EnergyNow",
+      "summaryZh": "战争与地缘：Google News · Oil/OPEC 报道，涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。",
       "buckets": [
         "risk-regime"
       ]
@@ -782,58 +1053,177 @@
     {
       "source": "Google News · China Macro",
       "title": "The Bear Case: How ZTS Behaves During Market Shocks - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObkUxRzRHQXAwY2h3b2YzNU5XXzFqWjlrVmVlT3l5Y0psYS1scmdvQkJnMlV1LXIzY3VsaE5DMTlqbXc5WXV2OEl4aTRzSGJXVkF2M0hTd25Ma01RQWhRaWlHVnZVMXRpWGpnWDk5S1ZoY0NFLTNDSlhFclVJdGx1NE9OblJ0X05lU0dUOENoLU9TTU9zTE9rOE04aFVvVnR2QlQwNHJ2X3I2OU12U180?oc=5",
       "published": "Wed, 27 May 2026 05:14:15 GMT",
       "summary": "The Bear Case: How ZTS Behaves During Market Shocks Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · China Macro",
       "title": "The Bear Case: How WMT Behaves During Market Shocks - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQd191NVlEeFI0bkhGWWhzZHBJNi05RDhzQUtueFJPUjY3Q2VrSEdvUzRXeTljVDVwYm00REtGZ0ZnbS01NEtpalRacjBja3l1Rl9ZY1hqYWd4Qmo4VWphbWZEeEZJZXdNcWQwVXl2X2tJQlhRYk9YM3J5QUh5QUtEVnppQU1UX1lONjd5bDFnX2E3NGUyX016RndxN1RzRFRseHFxZFk2RDV1cHpNc3Z3?oc=5",
       "published": "Wed, 27 May 2026 05:08:11 GMT",
       "summary": "The Bear Case: How WMT Behaves During Market Shocks Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · China Macro",
       "title": "How Low Can REGN Really Go In A Market Crash? - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPV0U3SFNTaGZWTzYzck1zR0FaX0ZDWmhkLU42Ynk2dmVJUzZEeGctazdnNVVicnQyeWpOSV9ZWF95R2pfZDdIaU83TTg0Z2tCeURzN1JCOG5wYko2OWMwaFJlUXZ0dVF3SjV0RHVDcVd5OXNBNERwejNYdDRBNjk3WjU2Wk1lWkVxajFoQXMzZ2pRbXRWdHJQLXNOeDFRaGZ2Ukw4OGhZdGI?oc=5",
       "published": "Wed, 27 May 2026 05:14:29 GMT",
       "summary": "How Low Can REGN Really Go In A Market Crash? Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · China Macro",
       "title": "How Low Can MU Really Go In A Market Crash? - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONVVJcDVlRzU2OWV4aUk1Wi1fQ1hpSFVtamxYWlBYMWpZMzBqZkphZ1E1VzlPSTl5VEFFeldzenl4QUJVZXFKT0xaaGhQSUE5QUlHemNMcnJMSnE1M3FkRVBDYTI4SXQ3cTVNTDdQUFl3TU9oVm5nNlJyeEFYMTB5aUFiN1ZzMVQwSWl4WUlzbDhodDdqb2p5N0Y5LWlDU1RoVGpR?oc=5",
       "published": "Fri, 29 May 2026 05:15:17 GMT",
       "summary": "How Low Can MU Really Go In A Market Crash? Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · China Macro",
       "title": "How Low Can AZO Really Go In A Market Crash? - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNy1FTTlONUIwVHlTT0poMjR2am1vclFyVENHZTBaMWg5TzFYVmU5VndKRW1XdHdqU1NaOUxxSEZKb0lDZnZsY21jYlp4ZWlqRnhDX0NHZmxXc2k1bFhpQ1pacGxUbHRPM1J5Sk5QOHpaM2VEVDc5MGx6NUFlbEQxci02T3p3VlpzTHlRUVJfVE9CQVpfaGFXR3ZDQW9iT3BXZ3gtTUpn?oc=5",
       "published": "Wed, 27 May 2026 05:11:20 GMT",
       "summary": "How Low Can AZO Really Go In A Market Crash? Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · China Macro",
       "title": "How Low Can SNPS Really Go In A Market Crash? - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa05XZWdteG81c1NmQkRIQjkzMTJsOExGcEhUTVlzQ281c3JJR1BuUWg0dTZiZ0JOZUVLWjlFa3NZOHlnVE1yQnk1OG5zQzM1Ri1TMEZkdFlEZGdNR1VJclliVEhiWmZUcGE2SjEwSEVtUmRrZXpFaDBzSkpnSVRfNGVmTkFpWGRMZDNILUQ1SGJ5eUROQ3h2cnB1SlQ0RXBOQkx5SkdweVpmSTg?oc=5",
       "published": "Fri, 29 May 2026 05:17:34 GMT",
       "summary": "How Low Can SNPS Really Go In A Market Crash? Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
     },
     {
       "source": "Google News · China Macro",
       "title": "How Low Can BSX Really Go In A Market Crash? - Trefis",
+      "titleZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNdmVlRXNadjd5RVlVa3NDeXhPYlhQLXhfY1pjY1hzNk13dG9SWDA2RkhTdmNqMENnVFNYenBVcFFNOXpRTEJUaUdKblljaGpXYmpKcGFHOTRkMW1URlhXZjQybHFZNFh2dE9WajVzM3pacEF6bFlKZFUyY01fUEptZ21fSFFfOWZoNTZHN2hXN09FVzNrU091Wk1OWnB6WEdhbTdNOTZ3QmE?oc=5",
       "published": "Thu, 28 May 2026 08:29:16 GMT",
       "summary": "How Low Can BSX Really Go In A Market Crash? Trefis",
+      "summaryZh": "市场风险情绪：Google News · China Macro 报道，涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。",
       "buckets": []
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Bitcoin ETF outflows reach record 9-day streak as investors pull $2.8 billion - CoinDesk",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZ0tFR2Y0TjN1ZmJFWFI5ajUybzVUQmNVa2ZUdmtIdExtVEJOb0RycmYwZzE3S0tyTFJkQjZsTE03dTE4MzIxa2VMMEY1X2pLZVF1T1VwQTQxUmVNaGotUHRWQnFxWjhfMW5qTFBIRENFbjh6TVFHd1NUQ3hfUktZVDNtN2VaMDZTWlh4cHpEUE5kcVFpUGFubzFxY0xJTXVhdzM5ekJoN0VBcnZTOVZRMWxhc09TMGxORmVXZDBBeWo5eUQz?oc=5",
+      "published": "Fri, 29 May 2026 10:42:58 GMT",
+      "summary": "Bitcoin ETF outflows reach record 9-day streak as investors pull $2.8 billion CoinDesk",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Bitcoin ETFs Lose $2.26 Billion In Two Weeks - Yahoo Finance",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNLTdRdmhYQm1vOEpVaU0zMWpuS1JYRVpVVkhlcDJhTEx1Y3MxbmZueXNFSXVldVZPaktPcm9aSU1RbXcxMUdCY1ZudWllTmh4Y0hfRXFwMFJFeC1FOGtxd2MydHdNYWdiWlAxOVJJVWJocWZRRkxmR3E1dEZrQjVtQWo1a0kxaXF4NHJzZDFFdUk?oc=5",
+      "published": "Mon, 25 May 2026 13:12:00 GMT",
+      "summary": "Bitcoin ETFs Lose $2.26 Billion In Two Weeks Yahoo Finance",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Bitcoin Outlook: ETF Inflows, Institutional Demand and Geopolitical Risks Fuel Volatility - ig.com",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdy1FZjFoVnZlMXRSNFdwZFhGNTVMWmZfZHdtb2RLVjU4MHFRY3ROQmsxSWppQTVsWnRXbVZmUElMWm9HTUdSV3JhYWgzOGhzZEswdUZOMUJVTjYzTTcyT0tYc1pKTk1SNklHdi1GTk9NNWhhbWYwVVNBNWMyd2g5LXB2M25FSDJ5eXVFaWY2OGxHOE1fd0Itck9ORXZGSGlkSWFBUFNqLWNWQVNfWVotdVhUX2E?oc=5",
+      "published": "Wed, 27 May 2026 09:32:07 GMT",
+      "summary": "Bitcoin Outlook: ETF Inflows, Institutional Demand and Geopolitical Risks Fuel Volatility ig.com",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Spot bitcoin ETFs continue outflow streak amid $1.3 billion IBIT whale trade - The Block",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5TSTZtbkt3SkVVckJDQWVkRng0dndMaWlDbmMzYkJjRVF1TWhqM1FfbVYyN1R4N0RGVVhJUkZHME43aW9NSDZETEYtdDVCUHpQOUFKbEYyYkJSOWdDVF9uN0QwSTZFbWR1dkl2T0JYVEVuNVVRMHBsV0Z3STdadw?oc=5",
+      "published": "Wed, 27 May 2026 09:47:26 GMT",
+      "summary": "Spot bitcoin ETFs continue outflow streak amid $1.3 billion IBIT whale trade The Block",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Are Bitcoin ETFs Signaling a 'Smart Money' Exit - Kavout",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPOE1mX1c5SEM3MTRzOGh4NkF1QUQxcWdUQk5yWE54eElVWHphNG1Bd1lmVWViOHVTZkFTdGNOdTZ4QXR0dDVWSk9yc3RlWHptektTZGJBeV82aHRhTGY3ekxJdG5LQUZQb2Y3TmpRQ2lOcTE1RFFxYkduekQzUlcwWEc1TEtLZEk?oc=5",
+      "published": "Fri, 29 May 2026 23:52:21 GMT",
+      "summary": "Are Bitcoin ETFs Signaling a 'Smart Money' Exit Kavout",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Learn All Crypto Topics | Phemex Blog - Phemex",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9Qc24xUzdlRGtMM1pJY1dudTVHNlUtN1VMeW9aUXpKb19lNXBWYm9RUUJDZjlZc3l2Z1FnR1J3TWVEeHJsNkNlaGFUNGszenRBcWRFZGZGNzI0UWstZDBpUmk1TkdSZUJFNjljMkVpUnRFa0E?oc=5",
+      "published": "Tue, 26 May 2026 05:26:37 GMT",
+      "summary": "Learn All Crypto Topics | Phemex Blog Phemex",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Bitcoin ETF Flows 2026: Why Institutional Investors Are Pulling Back After Record Inflows - Intellectia AI",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5ncW1OeWVqcml3ZWpfSFJtTXZjYWhXWWZpUjZEajJWNHlUOTM5TVBaSDFUZWVDa0ZTTm05OUxKNlpZQkY5Ull4ZXlwVl9CUktBX2JKX2dPM3c1dGRrSGhiOXd6UldTTzNWclpr?oc=5",
+      "published": "Mon, 25 May 2026 12:16:27 GMT",
+      "summary": "Bitcoin ETF Flows 2026: Why Institutional Investors Are Pulling Back After Record Inflows Intellectia AI",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "Google News · BTC ETF Flows",
+      "title": "Bitcoin and Ethereum ETF outflows expose rotation into HYPE, XRP and Solana - CryptoSlate",
+      "titleZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE11SDBzczRqM1pERkM3cnRpSEZmVmJGWmxIclpqZnVpT3B0UE9zTjh4cUo3VEMxLTM5ZFRkQUJsTWFmMGV1aFFUMl9BMVBhcUZEandveTNtZ2RvT3hqM3NaMFFBemVWMXVtWExyNlRoclRhc21NUnVsUXAxOA?oc=5",
+      "published": "Mon, 25 May 2026 16:15:09 GMT",
+      "summary": "Bitcoin and Ethereum ETF outflows expose rotation into HYPE, XRP and Solana CryptoSlate",
+      "summaryZh": "加密市场：Google News · BTC ETF Flows 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
     }
   ],
   "dailyBriefing": {
@@ -900,23 +1290,23 @@
     {
       "name": "金特比",
       "value": "1 BTC ≈ 16.1 盎司黄金",
-      "rawValue": 16.061482827128238,
-      "changePct": -6.009772825167925,
+      "rawValue": 16.081426559438274,
+      "changePct": -5.89306405358625,
       "notes": "BTC 价格 / 黄金价格；上行代表 BTC 相对黄金更强，偏风险偏好。"
     },
     {
       "name": "ETH/BTC",
       "value": "0.0274",
-      "rawValue": 0.027361926416531023,
-      "changePct": -5.140044377460063,
+      "rawValue": 0.0273797102731181,
+      "changePct": -5.078390244597964,
       "notes": "ETH 相对 BTC 强弱；上行通常代表币圈内部风险偏好更强。"
     }
   ],
   "prices": [
     {
-      "name": "黄金",
+      "name": "国际金价",
       "value": "$4,593.0",
-      "notes": "Yahoo Finance，2026-05-31"
+      "notes": "Yahoo Finance GC=F，作为伦敦金现货近似观察，2026-05-31"
     },
     {
       "name": "白银",
@@ -967,12 +1357,12 @@
     },
     {
       "name": "BTC",
-      "value": "$73,770",
+      "value": "$73,862",
       "notes": "Yahoo Finance，2026-05-31"
     },
     {
       "name": "ETH",
-      "value": "$2,018",
+      "value": "$2,022",
       "notes": "Yahoo Finance，2026-05-31"
     },
     {
@@ -996,15 +1386,15 @@
     },
     {
       "name": "加密总市值",
-      "value": "$2.58 万亿",
-      "rawValue": 2582683287204.737,
-      "changePct": 0.5189825831204524,
-      "notes": "24h +0.5%；来源 CoinGecko。"
+      "value": "$2.59 万亿",
+      "rawValue": 2586313011975.733,
+      "changePct": 0.6602528050035835,
+      "notes": "24h +0.7%；来源 CoinGecko。"
     },
     {
       "name": "BTC 市占率",
-      "value": "57.3%",
-      "rawValue": 57.26615110254318,
+      "value": "57.2%",
+      "rawValue": 57.24803167680401,
       "notes": "BTC 市值占全市场比例；来源 CoinGecko。"
     }
   ],
@@ -1091,7 +1481,7 @@
     {
       "name": "FRED CSV",
       "status": "已接入，无需 key",
-      "usage": "美国非农、CPI、失业率；官方时间序列，直连 CSV。"
+      "usage": "美国非农、CPI/PCE/核心PCE、初请失业金、ISM、失业率；官方时间序列，直连 CSV。"
     },
     {
       "name": "AkShare 国家统计局源",
@@ -1101,7 +1491,7 @@
     {
       "name": "yfinance",
       "status": "已接入，本地依赖",
-      "usage": "黄金、白银、WTI、BTC、ETH 价格与比值。"
+      "usage": "伦敦金、黄金、白银、WTI/Brent、铜、DXY、VIX、股指、USD/JPY、BTC、ETH 价格与比值。"
     },
     {
       "name": "alternative.me / CoinGecko",
@@ -1116,7 +1506,7 @@
     {
       "name": "RSS / Google News / AkShare 新闻",
       "status": "已接入，无需 key",
-      "usage": "CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；新闻联播为 best-effort。"
+      "usage": "CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；新闻标题/摘要自动转中文，新闻联播为 best-effort。"
     }
   ],
   "failures": []

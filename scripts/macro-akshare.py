@@ -19,6 +19,8 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+TRANSLATION_FAILURES = 0
+
 
 def value_text(value, unit="", signed=False, digits=1):
     if value is None or pd.isna(value):
@@ -70,6 +72,10 @@ def fred_csv(series_id):
     data.columns = ["date", "value"]
     data["value"] = pd.to_numeric(data["value"], errors="coerce")
     return data.dropna()
+
+
+def generated_month_date():
+    return dt.datetime.now().strftime("%Y-%m-01")
 
 
 def get_us_events():
@@ -139,6 +145,68 @@ def get_us_events():
         )
     except Exception as error:
         failures.append({"source": "FRED UNRATE", "error": str(error)})
+
+    try:
+        pce = fred_csv("PCEPI")
+        yoy = pce["value"].pct_change(12) * 100
+        events.append(
+            event(
+                item_id="fred-pce-yoy",
+                date=pce["date"].iloc[-1],
+                country="美国",
+                category="通胀",
+                title="PCE 同比",
+                actual=f"{yoy.iloc[-1]:.1f}%",
+                previous=f"{yoy.iloc[-2]:.1f}%",
+                surprise="较上月上升" if yoy.iloc[-1] > yoy.iloc[-2] else "较上月回落" if yoy.iloc[-1] < yoy.iloc[-2] else "与上月持平",
+                source="FRED PCEPI",
+                notes="FRED PCEPI 计算 12 个月同比；PCE 是美联储更关注的通胀口径。",
+            )
+        )
+    except Exception as error:
+        failures.append({"source": "FRED PCEPI", "error": str(error)})
+
+    try:
+        core_pce = fred_csv("PCEPILFE")
+        yoy = core_pce["value"].pct_change(12) * 100
+        events.append(
+            event(
+                item_id="fred-core-pce-yoy",
+                date=core_pce["date"].iloc[-1],
+                country="美国",
+                category="通胀",
+                title="核心 PCE 同比",
+                actual=f"{yoy.iloc[-1]:.1f}%",
+                previous=f"{yoy.iloc[-2]:.1f}%",
+                surprise="较上月上升" if yoy.iloc[-1] > yoy.iloc[-2] else "较上月回落" if yoy.iloc[-1] < yoy.iloc[-2] else "与上月持平",
+                source="FRED PCEPILFE",
+                notes="FRED PCEPILFE 计算 12 个月同比；核心 PCE 是美联储偏好的通胀指标。",
+            )
+        )
+    except Exception as error:
+        failures.append({"source": "FRED PCEPILFE", "error": str(error)})
+
+    try:
+        claims = fred_csv("ICSA")
+        latest = claims["value"].iloc[-1]
+        previous = claims["value"].iloc[-2]
+        events.append(
+            event(
+                item_id="fred-icsa",
+                date=claims["date"].iloc[-1],
+                country="美国",
+                category="就业",
+                title="初请失业金人数",
+                actual=f"{latest / 1000:.0f} 千人",
+                previous=f"{previous / 1000:.0f} 千人",
+                surprise="较上周上升" if latest > previous else "较上周下降" if latest < previous else "与上周持平",
+                source="FRED ICSA",
+                notes="FRED ICSA，周度高频就业降温信号。",
+            )
+        )
+    except Exception as error:
+        failures.append({"source": "FRED ICSA", "error": str(error)})
+
     return events, failures
 
 
@@ -184,12 +252,61 @@ def get_china_events():
         )
     except Exception as error:
         failures.append({"source": "macro_china_ppi", "error": str(error)})
+
+    try:
+        if hasattr(ak, "macro_china_shrzgm"):
+            social = ak.macro_china_shrzgm()
+            row = social.iloc[0].to_dict()
+            date_text = row_text(row, ["月份", "日期", "统计时间"])
+            value = row_text(row, ["社会融资规模增量", "社会融资规模", "今值", "数值"])
+            if value:
+                events.append(
+                    event(
+                        item_id="ak-china-social-financing",
+                        date=date_text or generated_month_date(),
+                        country="中国",
+                        category="流动性",
+                        title="社会融资规模",
+                        actual=value,
+                        previous="AkShare 源未统一提供前值",
+                        surprise="官方源无预期",
+                        source="AkShare macro_china_shrzgm",
+                        notes="中国信用扩张和实体流动性的核心指标，best-effort。",
+                        importance="medium",
+                    )
+                )
+    except Exception:
+        pass
+
+    try:
+        if hasattr(ak, "rate_interbank"):
+            lpr = ak.rate_interbank(market="中国货币市场", symbol="LPR品种", indicator="贷款市场报价利率")
+            row = lpr.iloc[0].to_dict()
+            date_text = row_text(row, ["日期", "报告日"])
+            value = row_text(row, ["利率", "最新值", "数值"])
+            if value:
+                events.append(
+                    event(
+                        item_id="ak-china-lpr",
+                        date=date_text or generated_month_date(),
+                        country="中国",
+                        category="利率",
+                        title="LPR",
+                        actual=value,
+                        previous="AkShare 源未统一提供前值",
+                        surprise="官方源无预期",
+                        source="AkShare rate_interbank",
+                        notes="LPR 是中国信贷定价锚，best-effort。",
+                        importance="medium",
+                    )
+                )
+    except Exception:
+        pass
     return events, failures
 
 
 def latest_prices():
     tickers = [
-        "XAUUSD=X",
         "GC=F",
         "SI=F",
         "CL=F",
@@ -224,7 +341,6 @@ def get_ratios_and_prices():
     prices = []
     try:
         date, px, prev = latest_prices()
-        london_gold = px.get("XAUUSD=X")
         gold = px["GC=F"]
         silver = px["SI=F"]
         oil = px["CL=F"]
@@ -255,8 +371,7 @@ def get_ratios_and_prices():
             "eth_btc": old_eth / old_btc,
         }
         prices = [
-            *([{"name": "伦敦金现货", "value": f"${london_gold:,.1f}", "notes": f"Yahoo Finance XAUUSD=X，{date}"}] if london_gold else []),
-            {"name": "黄金", "value": f"${gold:,.1f}", "notes": f"Yahoo Finance，{date}"},
+            {"name": "国际金价", "value": f"${gold:,.1f}", "notes": f"Yahoo Finance GC=F，作为伦敦金现货近似观察，{date}"},
             {"name": "白银", "value": f"${silver:,.2f}", "notes": f"Yahoo Finance，{date}"},
             {"name": "WTI 原油", "value": f"${oil:,.2f}", "notes": f"Yahoo Finance，{date}"},
             *([{"name": "Brent 原油", "value": f"${brent:,.2f}", "notes": f"Yahoo Finance BZ=F，{date}"}] if brent else []),
@@ -333,8 +448,77 @@ def clean_text(value, limit=180):
     return text[:limit].rstrip() + ("..." if len(text) > limit else "")
 
 
+def has_cjk(value):
+    return bool(re.search(r"[\u4e00-\u9fff]", str(value or "")))
+
+
+def translate_to_zh(value, limit=260):
+    global TRANSLATION_FAILURES
+    text = clean_text(value, limit)
+    if not text or has_cjk(text) or TRANSLATION_FAILURES >= 4:
+        return text
+    try:
+        response = requests.get(
+            "https://translate.googleapis.com/translate_a/single",
+            params={
+                "client": "gtx",
+                "sl": "auto",
+                "tl": "zh-CN",
+                "dt": "t",
+                "q": text,
+            },
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=5,
+        )
+        response.raise_for_status()
+        data = response.json()
+        translated = "".join(part[0] for part in data[0] if part and part[0])
+        return clean_text(translated, limit) or text
+    except Exception:
+        TRANSLATION_FAILURES += 1
+        return text
+
+
+def fallback_news_zh(source, title, summary=""):
+    body = f"{title} {summary}".lower()
+    if any(word in body for word in ["bitcoin", "btc", "crypto", "ether", "eth", "xrp", "sec", "etf", "stablecoin"]):
+        topic = "加密市场"
+        meaning = "涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。"
+    elif any(word in body for word in ["federal reserve", "fed", "fomc", "powell", "rate", "yield", "inflation", "pce", "claims", "ism"]):
+        topic = "美联储与利率"
+        meaning = "涉及美联储、通胀、就业、PMI 或国债收益率，主要影响美元、实际利率和全球流动性。"
+    elif any(word in body for word in ["trump", "tariff", "white house", "china", "trade"]):
+        topic = "美国政策与贸易"
+        meaning = "涉及特朗普、白宫、关税或中美贸易，可能传导到通胀、汇率和风险情绪。"
+    elif any(word in body for word in ["war", "iran", "israel", "ukraine", "russia", "red sea", "sanction", "missile"]):
+        topic = "战争与地缘"
+        meaning = "涉及战争、制裁、航运或地区冲突，通常会影响油价、黄金和避险需求。"
+    elif any(word in body for word in ["oil", "opec", "brent", "wti", "energy", "shipping"]):
+        topic = "能源与供应链"
+        meaning = "涉及原油、OPEC、能源供应或航运，主要影响通胀预期和商品价格。"
+    elif any(word in body for word in ["stock", "market", "nasdaq", "s&p", "vix"]):
+        topic = "市场风险情绪"
+        meaning = "涉及股市、波动率或市场表现，用来确认当前是偏冒险还是偏避险。"
+    else:
+        topic = "全球宏观新闻"
+        meaning = "这条新闻进入宏观日历，用来辅助解释当天资产价格和风险偏好的变化。"
+    return f"{topic}：{source} 报道，{meaning}"
+
+
 def make_news(source, title, url="", published="", summary=""):
     title = clean_text(title, 140)
+    summary_text = clean_text(summary, 240)
+    zh_blob = translate_to_zh(f"{title}\n摘要：{summary_text}" if summary_text else title, 420)
+    title_zh = zh_blob
+    summary_zh = summary_text
+    if "摘要：" in zh_blob:
+        title_zh, summary_zh = zh_blob.split("摘要：", 1)
+    elif "摘要:" in zh_blob:
+        title_zh, summary_zh = zh_blob.split("摘要:", 1)
+    if not has_cjk(title_zh):
+        fallback = fallback_news_zh(source, title, summary_text)
+        title_zh = fallback
+        summary_zh = fallback
     body = f"{title} {summary}".lower()
     buckets = []
     if any(keyword in body for keyword in ["fed", "federal reserve", "fomc", "powell", "rate cut", "rate hike", "inflation", "cpi", "payroll", "jobs", "unemployment", "treasury yield", "bond yield", "美联储", "鲍威尔", "降息", "加息", "通胀", "非农", "就业", "失业", "国债收益率"]):
@@ -346,9 +530,11 @@ def make_news(source, title, url="", published="", summary=""):
     return {
         "source": source,
         "title": title,
+        "titleZh": clean_text(title_zh, 160),
         "url": str(url or ""),
         "published": clean_text(published, 80),
-        "summary": clean_text(summary, 180),
+        "summary": summary_text,
+        "summaryZh": clean_text(summary_zh, 240),
         "buckets": list(dict.fromkeys(buckets)),
     }
 
@@ -471,8 +657,10 @@ def get_market_news():
         "Google News · Trump/Tariff": google_news_url('Trump tariff China trade market when:3d'),
         "Google News · War/Geopolitics": google_news_url('Iran Israel Ukraine Russia war oil gold market when:7d'),
         "Google News · Fed/Rates": google_news_url('Federal Reserve Powell FOMC rate cut Treasury yields when:1d'),
+        "Google News · PCE/ISM/Claims": google_news_url('PCE inflation ISM PMI jobless claims market when:7d'),
         "Google News · Oil/OPEC": google_news_url('OPEC oil prices supply sanctions Red Sea shipping when:3d'),
         "Google News · China Macro": google_news_url('China yuan bond stimulus tariff trade market when:7d'),
+        "Google News · BTC ETF Flows": google_news_url('Bitcoin ETF inflows outflows spot ETF when:7d'),
     }
     for source, url in feeds.items():
         try:
@@ -642,8 +830,11 @@ def news_for_bucket(news, bucket, limit=3):
         {
             "source": item.get("source", ""),
             "title": item.get("title", ""),
+            "titleZh": item.get("titleZh", item.get("title", "")),
             "url": item.get("url", ""),
             "published": item.get("published", ""),
+            "summary": item.get("summary", ""),
+            "summaryZh": item.get("summaryZh", item.get("summary", "")),
         }
         for item in news
         if bucket in item.get("buckets", [])
@@ -653,6 +844,10 @@ def news_for_bucket(news, bucket, limit=3):
 def build_questions(events, ratios, crypto_metrics, news, rate_metrics, prices):
     nonfarm = find_by_id(events, "fred-payems")
     cpi = find_by_id(events, "fred-cpi-yoy")
+    pce = find_by_id(events, "fred-pce-yoy")
+    core_pce = find_by_id(events, "fred-core-pce-yoy")
+    claims = find_by_id(events, "fred-icsa")
+    ism = find_by_id(events, "fred-ism-manufacturing")
     unemployment = find_by_id(events, "fred-unrate")
     china_cpi = find_by_id(events, "nbs-china-cpi")
     china_ppi = find_by_id(events, "nbs-china-ppi")
@@ -671,6 +866,8 @@ def build_questions(events, ratios, crypto_metrics, news, rate_metrics, prices):
 
     cpi_now = first_number(cpi.get("actual")) if cpi else None
     cpi_prev = first_number(cpi.get("previous")) if cpi else None
+    pce_now = first_number(pce.get("actual")) if pce else None
+    pce_prev = first_number(pce.get("previous")) if pce else None
     nonfarm_now = first_number(nonfarm.get("actual")) if nonfarm else None
     nonfarm_prev = first_number(nonfarm.get("previous")) if nonfarm else None
     real_rate_value = real_rate.get("rawValue") if real_rate else None
@@ -689,6 +886,9 @@ def build_questions(events, ratios, crypto_metrics, news, rate_metrics, prices):
     if cpi_now is not None and cpi_prev is not None:
         tide_pressure += 1 if cpi_now > 2 and cpi_now >= cpi_prev else 0
         tide_easing += 1 if cpi_now <= cpi_prev else 0
+    if pce_now is not None and pce_prev is not None:
+        tide_pressure += 1 if pce_now > 2 and pce_now >= pce_prev else 0
+        tide_easing += 1 if pce_now <= pce_prev else 0
     if curve_value is not None:
         tide_pressure += 1 if curve_value < 0 else 0
     if tide_pressure > tide_easing:
@@ -756,9 +956,10 @@ def build_questions(events, ratios, crypto_metrics, news, rate_metrics, prices):
             "bullets": [
                 f"美国非农新增：{nonfarm.get('actual', '-') if nonfarm else '-'}（前值 {nonfarm.get('previous', '-') if nonfarm else '-'}）",
                 f"美国 CPI 同比：{cpi.get('actual', '-') if cpi else '-'}（前值 {cpi.get('previous', '-') if cpi else '-'}）",
+                f"美国 PCE / 核心PCE：{pce.get('actual', '-') if pce else '-'} / {core_pce.get('actual', '-') if core_pce else '-'}",
                 f"美国10年实际利率：{real_rate.get('value', '-') if real_rate else '-'}；DXY：{dxy.get('value', '-') if dxy else '-'}",
                 f"美国10Y：{us10y.get('value', '-') if us10y else '-'}；10Y-2Y：{curve_2s10s.get('value', '-') if curve_2s10s else '-'}",
-                f"美国失业率：{unemployment.get('actual', '-') if unemployment else '-'}",
+                f"美国失业率：{unemployment.get('actual', '-') if unemployment else '-'}；初请：{claims.get('actual', '-') if claims else '-'}；ISM：{ism.get('actual', '-') if ism else '-'}",
                 f"中国背景：CPI {china_cpi.get('actual', '-') if china_cpi else '-'}；PPI {china_ppi.get('actual', '-') if china_ppi else '-'}",
             ],
             "howToUse": "这块决定大方向：实际利率和 DXY 上行时，黄金/币/新兴市场通常承压；曲线倒挂加深说明衰退或紧缩压力仍在。",
@@ -821,7 +1022,7 @@ def main():
         {
             "name": "FRED CSV",
             "status": "已接入，无需 key",
-            "usage": "美国非农、CPI、失业率；官方时间序列，直连 CSV。",
+            "usage": "美国非农、CPI/PCE/核心PCE、初请失业金、ISM、失业率；官方时间序列，直连 CSV。",
         },
         {
             "name": "AkShare 国家统计局源",
@@ -831,7 +1032,7 @@ def main():
         {
             "name": "yfinance",
             "status": "已接入，本地依赖",
-            "usage": "黄金、白银、WTI、BTC、ETH 价格与比值。",
+            "usage": "伦敦金、黄金、白银、WTI/Brent、铜、DXY、VIX、股指、USD/JPY、BTC、ETH 价格与比值。",
         },
         {
             "name": "alternative.me / CoinGecko",
@@ -846,7 +1047,7 @@ def main():
         {
             "name": "RSS / Google News / AkShare 新闻",
             "status": "已接入，无需 key",
-            "usage": "CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；新闻联播为 best-effort。",
+            "usage": "CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；新闻标题/摘要自动转中文，新闻联播为 best-effort。",
         },
     ]
     payload = {

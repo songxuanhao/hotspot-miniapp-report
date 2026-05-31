@@ -317,6 +317,12 @@
         font-weight: 800;
       }
 
+      .news-button {
+        width: 100%;
+        cursor: pointer;
+        text-align: left;
+      }
+
       .workbench {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 360px;
@@ -554,6 +560,63 @@
         text-align: center;
       }
 
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        background: rgba(16, 32, 51, 0.5);
+      }
+
+      .modal-backdrop.show {
+        display: flex;
+      }
+
+      .news-modal {
+        width: min(680px, 100%);
+        max-height: min(720px, 88vh);
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 26px 80px rgba(16, 32, 51, 0.26);
+      }
+
+      .modal-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+        padding: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .modal-head h2 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.35;
+      }
+
+      .modal-close {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 1;
+      }
+
+      .modal-body {
+        display: grid;
+        gap: 12px;
+        padding: 16px;
+      }
+
       @media (max-width: 1180px) {
         .hero,
         .workbench {
@@ -701,6 +764,16 @@
           </section>
         </aside>
       </section>
+
+      <div class="modal-backdrop" id="newsModal" role="dialog" aria-modal="true" aria-label="新闻详情">
+        <article class="news-modal">
+          <div class="modal-head">
+            <h2 id="modalTitle">新闻详情</h2>
+            <button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+        </article>
+      </div>
     </main>
 
     <script>
@@ -735,6 +808,10 @@
         briefingList: document.querySelector("#briefingList"),
         assetGrid: document.querySelector("#assetGrid"),
         sourceGrid: document.querySelector("#sourceGrid"),
+        newsModal: document.querySelector("#newsModal"),
+        modalTitle: document.querySelector("#modalTitle"),
+        modalBody: document.querySelector("#modalBody"),
+        modalClose: document.querySelector("#modalClose"),
       };
 
       function text(value) {
@@ -793,7 +870,7 @@
           id: `news:${index}`,
           kind: "news",
           date: parseNewsDate(news.published),
-          title: news.title,
+          title: news.titleZh || news.title,
           source: news.source,
           label: classifyNews(news).label,
           raw: news,
@@ -873,16 +950,9 @@
         els.detail.classList.add("show");
         if (item.kind === "news") {
           const news = item.raw;
-          els.detail.innerHTML = `
-            <h2>${escapeHtml(news.title)}</h2>
-            <p class="detail-sub">${escapeHtml(news.source)} · ${escapeHtml(news.published || "-")}</p>
-            <div class="read-item">
-              <b>为什么放进日历</b>
-              <span>新闻按发布时间落到月历里，用来解释四个宏观倾向背后的消息面。它不是交易结论，而是帮助判断数字信号是否有叙事支撑。</span>
-            </div>
-            ${news.summary ? `<p class="detail-sub">${escapeHtml(news.summary)}</p>` : ""}
-            ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
-          `;
+          openNewsModal(news);
+          els.detail.classList.remove("show");
+          els.detail.innerHTML = "";
           return;
         }
         const event = item.raw;
@@ -900,6 +970,28 @@
             <span>${escapeHtml(readingFor(event))}</span>
           </div>
         `;
+      }
+
+      function openNewsModal(news) {
+        els.modalTitle.textContent = news.titleZh || news.title || "新闻详情";
+        els.modalBody.innerHTML = `
+          <p class="detail-sub">${escapeHtml(news.source)} · ${escapeHtml(news.published || "-")}</p>
+          <div class="read-item">
+            <b>中文摘要</b>
+            <span>${escapeHtml(news.summaryZh || news.summary || "暂无摘要。")}</span>
+          </div>
+          ${news.title && news.title !== news.titleZh ? `<div class="read-item"><b>原始标题</b><span>${escapeHtml(news.title)}</span></div>` : ""}
+          <div class="read-item">
+            <b>为什么放进日历</b>
+            <span>新闻按发布时间落到月历里，用来解释四个宏观倾向背后的消息面。它不是交易结论，而是帮助判断数字信号是否有叙事支撑。</span>
+          </div>
+          ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
+        `;
+        els.newsModal.classList.add("show");
+      }
+
+      function closeNewsModal() {
+        els.newsModal.classList.remove("show");
       }
 
       function readingFor(event) {
@@ -937,11 +1029,11 @@
           <div class="related-news">
             <b>相关新闻</b>
             ${news
-              .map((item) => `
-                <a class="news-link" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener">
+              .map((item, index) => `
+                <button class="news-link news-button" data-related-news="${escapeHtml(encodeURIComponent(JSON.stringify(item)))}" type="button">
                   <span>${escapeHtml(item.source)} ${item.published ? "· " + escapeHtml(item.published) : ""}</span>
-                  ${escapeHtml(item.title)}
-                </a>
+                  ${escapeHtml(item.titleZh || item.title)}
+                </button>
               `)
               .join("")}
           </div>
@@ -1018,6 +1110,24 @@
         if (!button) return;
         state.selectedId = button.dataset.id;
         renderDetail(calendarItems().find((item) => item.id === state.selectedId));
+      });
+
+      document.addEventListener("click", (event) => {
+        const related = event.target.closest("button[data-related-news]");
+        if (!related) return;
+        try {
+          openNewsModal(JSON.parse(decodeURIComponent(related.getAttribute("data-related-news"))));
+        } catch {
+          return;
+        }
+      });
+
+      els.modalClose.addEventListener("click", closeNewsModal);
+      els.newsModal.addEventListener("click", (event) => {
+        if (event.target === els.newsModal) closeNewsModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeNewsModal();
       });
 
       [els.typeFilter, els.impactFilter].forEach((el) => el.addEventListener("input", render));

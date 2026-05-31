@@ -36,7 +36,7 @@ function runPythonCollector() {
         HTTPS_PROXY: process.env.HTTPS_PROXY || "http://127.0.0.1:10808",
         HTTP_PROXY: process.env.HTTP_PROXY || "http://127.0.0.1:10808",
       },
-      timeout: 180000,
+      timeout: 300000,
     });
     if (result.status === 0 && result.stdout.trim()) {
       return JSON.parse(result.stdout);
