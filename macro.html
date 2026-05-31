@@ -553,6 +553,54 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .explain-list {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .explain-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .explain-card summary {
+        cursor: pointer;
+        padding: 10px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .explain-card p {
+        margin: 0;
+        padding: 0 10px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .indicator-explain {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .indicator-explain summary {
+        cursor: pointer;
+        padding: 10px;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .indicator-explain .explain-body {
+        display: grid;
+        gap: 8px;
+        padding: 0 10px 10px;
+      }
+
       .empty {
         display: none;
         padding: 30px;
@@ -758,6 +806,13 @@
 
           <section class="panel">
             <div class="panel-head">
+              <p class="panel-title">指标解释库</p>
+            </div>
+            <div class="explain-list" id="explainList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
               <p class="panel-title">数据源状态</p>
             </div>
             <div class="side-body" id="sourceGrid"></div>
@@ -807,12 +862,79 @@
         detail: document.querySelector("#detail"),
         briefingList: document.querySelector("#briefingList"),
         assetGrid: document.querySelector("#assetGrid"),
+        explainList: document.querySelector("#explainList"),
         sourceGrid: document.querySelector("#sourceGrid"),
         newsModal: document.querySelector("#newsModal"),
         modalTitle: document.querySelector("#modalTitle"),
         modalBody: document.querySelector("#modalBody"),
         modalClose: document.querySelector("#modalClose"),
       };
+
+      const INDICATOR_EXPLANATIONS = [
+        {
+          keys: ["nbs-china-cpi", "中国CPI", "中国 CPI"],
+          name: "中国 CPI",
+          what: "中国消费者物价指数，衡量居民购买一篮子商品和服务的价格变化，是观察通胀和消费端温度的核心指标。",
+          read: "CPI 上升通常代表消费端价格上涨，过高会带来通胀压力；CPI 下行则可能提示需求偏弱或通缩压力。",
+          asset: "温和上行通常对企业收入和股市不差；持续过高会压制政策宽松空间，持续过低则说明内需偏弱。"
+        },
+        {
+          keys: ["nbs-china-ppi", "中国PPI", "中国 PPI"],
+          name: "中国 PPI",
+          what: "生产者价格指数，反映工业生产领域价格变化，能观察企业成本、利润和上游原材料压力。",
+          read: "PPI 上升说明生产成本抬升，若企业无法转嫁给消费者，利润会被压缩；PPI 低迷说明工业需求或价格承压。",
+          asset: "PPI 明显高于预期偏通胀，明显低于预期偏通缩。结合 CPI 看，能判断价格压力是否从生产端传到消费端。"
+        },
+        {
+          keys: ["中国PMI", "PMI"],
+          name: "中国 PMI",
+          what: "制造业采购经理人指数，覆盖订单、生产、库存、就业等，属于宏观经济的先导指标。",
+          read: "50 是荣枯线，大于 50 偏景气，小于 50 偏不景气。新订单改善、库存下降，通常说明经济动能在修复。",
+          asset: "PMI 连续改善更支持权益资产；PMI 持续低于 50，往往意味着增长压力仍在。"
+        },
+        {
+          keys: ["社融", "M1", "M2", "LPR"],
+          name: "社融 / M1 / M2 / LPR",
+          what: "社融衡量实体经济拿到的总融资，M1 更贴近企业活跃资金，M2 是广义货币供给，LPR 是中国贷款定价锚。",
+          read: "社融和 M1 改善说明信用和经营活跃度修复；M2 高但 M1 弱，常见于钱多但实体投资意愿不足。",
+          asset: "信用扩张通常利好权益和地产链；信用偏弱则说明宽松传导还不顺。"
+        },
+        {
+          keys: ["fred-cpi-yoy", "美国CPI"],
+          name: "美国 CPI",
+          what: "美国消费者物价指数，是市场观察美国通胀压力的重要指标。",
+          read: "CPI 高或反弹，会压低降息预期并推高名义利率；CPI 回落，通常支持宽松预期。",
+          asset: "高通胀偏利多美元和美债收益率，压制黄金、成长股和币圈；通胀降温则相反。"
+        },
+        {
+          keys: ["fred-pce-yoy", "fred-core-pce-yoy", "PCE", "核心PCE"],
+          name: "美国 PCE / 核心 PCE",
+          what: "PCE 是个人消费支出物价指数，核心 PCE 剔除食品和能源，是美联储更偏好的通胀口径。",
+          read: "核心 PCE 高于 2% 且不降温，说明美联储维持紧政策的理由还在；持续降温则支持降息叙事。",
+          asset: "核心 PCE 偏高通常利好美元、压制黄金；低于目标或快速降温通常利好黄金和风险资产。"
+        },
+        {
+          keys: ["fred-payems", "非农", "fred-icsa", "fred-unrate", "失业率"],
+          name: "美国就业：非农 / 初请 / 失业率",
+          what: "非农反映就业新增，初请失业金是高频就业降温信号，失业率反映劳动力市场整体状态。",
+          read: "就业强会推迟降息，弱就业会强化宽松预期；但过弱也可能变成衰退交易。",
+          asset: "强就业偏利多美元、利空黄金；就业温和降温通常利好风险资产，急剧恶化则偏避险。"
+        },
+        {
+          keys: ["10Y-2Y", "10年国债", "实际利率", "收益率"],
+          name: "收益率曲线 / 实际利率",
+          what: "10Y-2Y、10Y-3M、30Y-10Y 等利差用来观察政策强度、增长预期和衰退风险；实际利率是黄金的重要锚。",
+          read: "曲线倒挂说明短端政策利率压得高，经济压力较大；实际利率上行会提高持有黄金的机会成本。",
+          asset: "实际利率上行通常压制黄金和成长资产；曲线从倒挂转陡，要分清是复苏转陡还是衰退降息转陡。"
+        },
+        {
+          keys: ["金银比", "金油比", "金特比", "BTC 约合"],
+          name: "金银比 / 金油比 / 金特比",
+          what: "金银比看避险与工业需求，金油比看黄金相对能源和增长预期，金特比看 BTC 相对黄金的强弱。",
+          read: "金银比、金油比上行通常偏避险或增长担忧；金特比上行说明 BTC 相对黄金更强，风险偏好更足。",
+          asset: "这些比值要看趋势和共振，单日变化噪音很大，多个比值同向时参考价值更高。"
+        }
+      ];
 
       function text(value) {
         return value == null || value === "" ? "-" : String(value);
@@ -969,6 +1091,7 @@
             <b>怎么用</b>
             <span>${escapeHtml(readingFor(event))}</span>
           </div>
+          ${renderIndicatorExplanation(event)}
         `;
       }
 
@@ -992,6 +1115,26 @@
 
       function closeNewsModal() {
         els.newsModal.classList.remove("show");
+      }
+
+      function explanationFor(value) {
+        const body = `${value?.id || ""} ${value?.name || ""} ${value?.title || ""} ${value?.category || ""} ${value?.notes || ""}`;
+        return INDICATOR_EXPLANATIONS.find((item) => item.keys.some((key) => body.includes(key)));
+      }
+
+      function renderIndicatorExplanation(event) {
+        const explanation = explanationFor(event);
+        if (!explanation) return "";
+        return `
+          <details class="indicator-explain">
+            <summary>${escapeHtml(explanation.name)}：指标解释 / 怎么看</summary>
+            <div class="explain-body">
+              <div class="read-item"><b>是什么</b><span>${escapeHtml(explanation.what)}</span></div>
+              <div class="read-item"><b>怎么看</b><span>${escapeHtml(explanation.read)}</span></div>
+              <div class="read-item"><b>对资产的含义</b><span>${escapeHtml(explanation.asset)}</span></div>
+            </div>
+          </details>
+        `;
       }
 
       function readingFor(event) {
@@ -1075,6 +1218,14 @@
             </div>
           `)
           .join("");
+
+        els.explainList.innerHTML = INDICATOR_EXPLANATIONS.map((item, index) => `
+          <details class="explain-card" ${index < 3 ? "open" : ""}>
+            <summary>${escapeHtml(item.name)}</summary>
+            <p>${escapeHtml(item.read)}</p>
+            <p>${escapeHtml(item.asset)}</p>
+          </details>
+        `).join("");
 
         els.sourceGrid.innerHTML = state.sources
           .map((source) => `
