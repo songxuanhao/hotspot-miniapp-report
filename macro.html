@@ -836,17 +836,6 @@
         font-weight: 900;
       }
 
-      .legacy-hooks {
-        display: none;
-      }
-
-      .shell > .topbar,
-      .shell > .hero,
-      .shell > .decision-grid,
-      .shell > .workbench {
-        display: none;
-      }
-
       @media (max-width: 1180px) {
         .hero,
         .workbench {
@@ -1020,104 +1009,6 @@
           </details>
         </aside>
       </section>
-      <nav class="topbar" aria-label="报告页面">
-        <div class="page-tabs">
-          <a class="page-tab" href="./index.html">今日热点</a>
-          <a class="page-tab active" href="./macro.html">金融宏观</a>
-        </div>
-        <div class="generated" id="generatedAt">生成时间：-</div>
-      </nav>
-
-      <header class="hero">
-        <section class="hero-main">
-          <div>
-            <p class="eyebrow">每日 8:20 自动刷新 · 数据 + 新闻同屏</p>
-            <h1>金融宏观</h1>
-            <p class="summary" id="summary">正在读取宏观数据...</p>
-          </div>
-          <div class="hero-metrics" aria-label="宏观概览">
-            <div class="hero-metric">
-              <b id="eventCount">0</b>
-              <span>宏观数据事件</span>
-            </div>
-            <div class="hero-metric">
-              <b id="newsCount">0</b>
-              <span>实时新闻</span>
-            </div>
-            <div class="hero-metric">
-              <b id="riskSignal">-</b>
-              <span>风险体制</span>
-            </div>
-            <div class="hero-metric">
-              <b id="cryptoMood">-</b>
-              <span>币圈情绪</span>
-            </div>
-          </div>
-        </section>
-
-        <aside class="now-panel">
-          <h2>今日先看什么</h2>
-          <div class="signal-list" id="signalList"></div>
-        </aside>
-      </header>
-
-      <section class="decision-grid" id="questionGrid" aria-label="四个宏观问题"></section>
-
-      <section class="workbench">
-        <div class="panel">
-          <div class="panel-head">
-            <p class="panel-title" id="calendarTitle">宏观月历</p>
-            <div class="toolbar">
-              <select class="control" id="typeFilter">
-                <option value="">全部</option>
-                <option value="data">只看数据</option>
-                <option value="news">只看新闻</option>
-              </select>
-              <select class="control" id="impactFilter">
-                <option value="">全部影响</option>
-                <option value="rates">利率/美元</option>
-                <option value="inflation">通胀/商品</option>
-                <option value="risk">避险/风险</option>
-                <option value="crypto">币圈</option>
-              </select>
-            </div>
-          </div>
-          <div class="calendar-grid" id="calendar"></div>
-          <div class="empty" id="empty">当前筛选下没有日历项目。</div>
-          <div class="detail" id="detail"></div>
-        </div>
-
-        <aside class="side">
-          <section class="panel">
-            <div class="panel-head">
-              <p class="panel-title">历史每日要闻</p>
-            </div>
-            <div class="briefing-list" id="briefingList"></div>
-          </section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <p class="panel-title">资产温度</p>
-            </div>
-            <div class="asset-grid" id="assetGrid"></div>
-          </section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <p class="panel-title">指标解释库</p>
-            </div>
-            <div class="explain-list" id="explainList"></div>
-          </section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <p class="panel-title">数据源状态</p>
-            </div>
-            <div class="side-body" id="sourceGrid"></div>
-          </section>
-        </aside>
-      </section>
-
       <div class="modal-backdrop" id="newsModal" role="dialog" aria-modal="true" aria-label="新闻详情">
         <article class="news-modal">
           <div class="modal-head">
@@ -1444,6 +1335,7 @@
       }
 
       function renderQuestions() {
+        if (!els.questionGrid) return;
         const questions = state.questions.length ? state.questions : [];
         els.questionGrid.innerHTML = questions
           .map((question) => `
@@ -1482,6 +1374,7 @@
       }
 
       function renderSignals() {
+        if (!els.signalList) return;
         const signals = state.questions.slice(0, 4);
         els.signalList.innerHTML = signals
           .map((question) => `
@@ -1496,16 +1389,18 @@
       function renderSide() {
         const briefing = state.dailyBriefing || {};
         const briefingItems = Array.isArray(briefing.items) ? briefing.items : [];
-        els.briefingList.innerHTML = briefingItems.length
-          ? briefingItems
-              .map((item) => `
-                <div class="read-item">
-                  <b>${escapeHtml(item.title)}</b>
-                  <span>${escapeHtml(briefing.source || "新闻联播")} · ${escapeHtml(briefing.date || "-")}</span>
-                </div>
-              `)
-              .join("")
-          : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会进入日历。</span></div>`;
+        if (els.briefingList) {
+          els.briefingList.innerHTML = briefingItems.length
+            ? briefingItems
+                .map((item) => `
+                  <div class="read-item">
+                    <b>${escapeHtml(item.title)}</b>
+                    <span>${escapeHtml(briefing.source || "新闻联播")} · ${escapeHtml(briefing.date || "-")}</span>
+                  </div>
+                `)
+                .join("")
+            : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会进入日历。</span></div>`;
+        }
 
         const assets = [...state.prices, ...state.ratios, ...state.rateMetrics, ...state.cryptoMetrics];
         els.assetGrid.innerHTML = assets
@@ -1538,10 +1433,10 @@
       function renderStats() {
         const fear = state.cryptoMetrics.find((item) => item.name.includes("恐慌"));
         const regime = state.questions.find((item) => item.id === "risk-regime");
-        els.eventCount.textContent = state.events.length;
-        els.newsCount.textContent = state.news.length;
-        els.cryptoMood.textContent = fear ? fear.value : "-";
-        els.riskSignal.textContent = regime ? (regime.tone === "defensive" ? "偏避险" : regime.tone === "risk" ? "偏冒险" : "分歧") : "-";
+        if (els.eventCount) els.eventCount.textContent = state.events.length;
+        if (els.newsCount) els.newsCount.textContent = state.news.length;
+        if (els.cryptoMood) els.cryptoMood.textContent = fear ? fear.value : "-";
+        if (els.riskSignal) els.riskSignal.textContent = regime ? (regime.tone === "defensive" ? "偏避险" : regime.tone === "risk" ? "偏冒险" : "分歧") : "-";
       }
 
       function render() {
@@ -1596,12 +1491,12 @@
           state.questions = Array.isArray(data.questions) ? data.questions : [];
           state.dailyBriefing = data.dailyBriefing || null;
           state.sources = Array.isArray(data.sources) ? data.sources : [];
-          els.summary.textContent = data.summary || "已读取金融宏观日历。";
+          if (els.summary) els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
           render();
         })
         .catch((error) => {
-          els.summary.textContent = `宏观数据读取失败：${error.message}`;
+          if (els.summary) els.summary.textContent = `宏观数据读取失败：${error.message}`;
           render();
         });
     </script>
