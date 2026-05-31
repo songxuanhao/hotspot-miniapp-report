@@ -1,3 +1,4 @@
 .python-deps/
 __pycache__/
 .superpowers/
+.worktrees/
