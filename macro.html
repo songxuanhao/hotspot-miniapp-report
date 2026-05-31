@@ -665,6 +665,188 @@
         padding: 16px;
       }
 
+      .shell {
+        width: min(1440px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 42px;
+      }
+
+      .cockpit-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 18px;
+        align-items: stretch;
+        padding: 22px;
+        border-radius: 10px;
+        background: #101828;
+        color: #fff;
+      }
+
+      .cockpit-hero h1 {
+        margin: 6px 0 8px;
+        font-size: clamp(26px, 4vw, 44px);
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .hero-reason {
+        max-width: 920px;
+        margin: 0;
+        color: #d0d5dd;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .hero-meta {
+        display: grid;
+        align-content: space-between;
+        gap: 10px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #d0d5dd;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .asset-actions,
+      .evidence-grid,
+      .watchlist,
+      .asset-temperature,
+      .risk-schedule,
+      .evidence-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .asset-actions {
+        grid-template-columns: repeat(4, minmax(0, max-content));
+        margin-top: 14px;
+      }
+
+      .action-chip {
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: #f2f4f7;
+        color: #344054;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .cockpit-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 380px;
+        gap: 14px;
+        margin-top: 14px;
+        align-items: start;
+      }
+
+      .main-column,
+      .side-column {
+        display: grid;
+        gap: 14px;
+      }
+
+      .evidence-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .evidence-card,
+      .watch-card,
+      .schedule-item,
+      .temperature-card,
+      .evidence-note {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        padding: 12px;
+      }
+
+      .evidence-card b,
+      .watch-card b,
+      .temperature-card b {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      .evidence-card p,
+      .watch-card p,
+      .schedule-item p,
+      .temperature-card span,
+      .evidence-note span {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .split-evidence {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .split-evidence > div:first-child {
+        border-right: 1px solid var(--line);
+      }
+
+      .panel-head.compact {
+        padding: 13px 14px;
+      }
+
+      .risk-schedule {
+        padding: 12px;
+      }
+
+      .schedule-item {
+        display: grid;
+        grid-template-columns: 76px minmax(0, 1fr) 110px;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .side-column {
+        position: sticky;
+        top: 12px;
+        max-height: calc(100vh - 24px);
+        overflow: auto;
+      }
+
+      .collapsed-panel {
+        padding: 0;
+      }
+
+      .collapsed-panel summary {
+        cursor: pointer;
+        padding: 13px 14px;
+        font-weight: 900;
+      }
+
+      .calendar-drawer {
+        border-top: 1px solid var(--line);
+      }
+
+      .calendar-drawer summary {
+        cursor: pointer;
+        padding: 12px 14px;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .legacy-hooks {
+        display: none;
+      }
+
+      .shell > .topbar,
+      .shell > .hero,
+      .shell > .decision-grid,
+      .shell > .workbench {
+        display: none;
+      }
+
       @media (max-width: 1180px) {
         .hero,
         .workbench {
@@ -672,6 +854,23 @@
         }
 
         .decision-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .cockpit-hero,
+        .cockpit-grid,
+        .split-evidence {
+          grid-template-columns: 1fr;
+        }
+
+        .side-column {
+          position: static;
+          max-height: none;
+        }
+
+        .evidence-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -718,10 +917,109 @@
           display: none;
         }
       }
+
+      @media (max-width: 720px) {
+        .shell {
+          width: min(100% - 20px, 1440px);
+          padding-top: 12px;
+        }
+
+        .asset-actions,
+        .evidence-grid,
+        .schedule-item {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
-    <main class="app">
+    <main class="shell">
+      <section class="cockpit-hero">
+        <div>
+          <p class="eyebrow">每日金融宏观</p>
+          <h1 id="headlineDecision">正在生成宏观判断</h1>
+          <p class="hero-reason" id="headlineReason">读取最新宏观数据、新闻和资产温度...</p>
+          <div class="asset-actions" id="assetActions"></div>
+        </div>
+        <div class="hero-meta">
+          <span id="generatedAt">--</span>
+          <span id="dataHealth">数据源检查中</span>
+        </div>
+      </section>
+
+      <section class="cockpit-grid">
+        <div class="main-column">
+          <section class="evidence-grid" id="evidenceCards"></section>
+
+          <section class="panel split-evidence">
+            <div>
+              <div class="panel-head compact">
+                <p class="panel-title">支持当前判断</p>
+              </div>
+              <div class="evidence-list" id="supportEvidence"></div>
+            </div>
+            <div>
+              <div class="panel-head compact">
+                <p class="panel-title">反向证据</p>
+              </div>
+              <div class="evidence-list" id="counterEvidence"></div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <p class="panel-title" id="calendarTitle">7 天风险日程</p>
+              <div class="toolbar">
+                <select class="control" id="typeFilter">
+                  <option value="">全部</option>
+                  <option value="data">只看数据</option>
+                  <option value="news">只看新闻</option>
+                </select>
+                <select class="control" id="impactFilter">
+                  <option value="">全部影响</option>
+                  <option value="rates">利率/美元</option>
+                  <option value="inflation">通胀/商品</option>
+                  <option value="risk">避险/风险</option>
+                  <option value="crypto">币圈</option>
+                </select>
+              </div>
+            </div>
+            <div class="risk-schedule" id="riskSchedule"></div>
+            <details class="calendar-drawer">
+              <summary>查看完整月历</summary>
+              <div class="calendar-grid" id="calendar"></div>
+            </details>
+            <div class="empty" id="empty">当前筛选下没有风险事件。</div>
+            <div class="detail" id="detail"></div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel">
+            <div class="panel-head compact">
+              <p class="panel-title">今日 / 本周必盯</p>
+            </div>
+            <div class="watchlist" id="watchlist"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head compact">
+              <p class="panel-title">资产温度</p>
+            </div>
+            <div class="asset-temperature" id="assetGrid"></div>
+          </section>
+
+          <details class="panel collapsed-panel">
+            <summary>指标解释库</summary>
+            <div class="explain-list" id="explainList"></div>
+          </details>
+
+          <details class="panel collapsed-panel">
+            <summary>系统状态</summary>
+            <div class="side-body" id="sourceGrid"></div>
+          </details>
+        </aside>
+      </section>
       <nav class="topbar" aria-label="报告页面">
         <div class="page-tabs">
           <a class="page-tab" href="./index.html">今日热点</a>
@@ -1105,8 +1403,8 @@
           </div>
           ${news.title && news.title !== news.titleZh ? `<div class="read-item"><b>原始标题</b><span>${escapeHtml(news.title)}</span></div>` : ""}
           <div class="read-item">
-            <b>为什么放进日历</b>
-            <span>新闻按发布时间落到月历里，用来解释四个宏观倾向背后的消息面。它不是交易结论，而是帮助判断数字信号是否有叙事支撑。</span>
+            <b>它影响什么</b>
+            <span>这条消息用于辅助判断利率、美元、商品或风险偏好是否正在改变；重点看它是否支持或反驳当前宏观判断。</span>
           </div>
           ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
         `;
