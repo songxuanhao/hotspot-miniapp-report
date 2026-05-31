@@ -1,328 +1,179 @@
 {
-  "generatedAt": "2026/5/31 16:59:44 +08:00",
-  "summary": "金融宏观日历：16 个事件，5 个已公布数据，8 个数据源滞后提示；美国最新实际值优先用 BLS，AkShare/yfinance 用于预期字段、经济日历和比例数据。",
+  "generatedAt": "2026-05-31 17:22:39 +08:00",
+  "summary": "宏观快照：5 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。",
   "events": [
     {
-      "id": "bls-CES0000000001",
-      "date": "2026 April",
+      "id": "fred-payems",
+      "date": "2026-04-01",
       "time": "已公布",
-      "period": "2026 April",
+      "period": "2026-04-01",
       "country": "美国",
       "category": "就业",
-      "title": "美国非农就业人数（月变动）",
-      "expected": "",
-      "actual": "11.5万人",
-      "previous": "18.5万人",
-      "surprise": "暂无预期",
+      "title": "非农新增就业",
+      "expected": "官方源无预期",
+      "actual": "+115 千人",
+      "previous": "+185 千人",
+      "surprise": "较上月少增",
       "status": "released",
       "importance": "high",
-      "source": "BLS Public Data API",
-      "notes": "BLS Current Employment Statistics，总非农就业季调值；用本月就业人数减上月就业人数计算月变动。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
+      "source": "FRED PAYEMS",
+      "notes": "FRED 官方 CSV，无需 API key；PAYEMS 为非农就业总人数，脚本用环比差值计算新增就业。"
     },
     {
-      "id": "bls-LNS14000000",
-      "date": "2026 April",
+      "id": "fred-cpi-yoy",
+      "date": "2026-04-01",
       "time": "已公布",
-      "period": "2026 April",
+      "period": "2026-04-01",
+      "country": "美国",
+      "category": "通胀",
+      "title": "CPI 同比",
+      "expected": "官方源无预期",
+      "actual": "3.9%",
+      "previous": "3.3%",
+      "surprise": "较上月上升",
+      "status": "released",
+      "importance": "high",
+      "source": "FRED CPIAUCSL",
+      "notes": "FRED 官方 CSV，无需 API key；用 CPI 指数计算 12 个月同比。"
+    },
+    {
+      "id": "fred-unrate",
+      "date": "2026-04-01",
+      "time": "已公布",
+      "period": "2026-04-01",
       "country": "美国",
       "category": "就业",
-      "title": "美国失业率",
-      "expected": "",
+      "title": "失业率",
+      "expected": "官方源无预期",
       "actual": "4.3%",
       "previous": "4.3%",
-      "surprise": "暂无预期",
+      "surprise": "与上月持平",
       "status": "released",
       "importance": "high",
-      "source": "BLS Public Data API",
-      "notes": "BLS Labor Force Statistics，失业率，季调。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
+      "source": "FRED UNRATE",
+      "notes": "FRED 官方 CSV，无需 API key；月度失业率。"
     },
     {
-      "id": "bls-CUSR0000SA0",
-      "date": "2026 April",
+      "id": "nbs-china-cpi",
+      "date": "2026年04月份",
       "time": "已公布",
-      "period": "2026 April",
-      "country": "美国",
+      "period": "2026年04月份",
+      "country": "中国",
       "category": "通胀",
-      "title": "美国 CPI 月率",
-      "expected": "",
-      "actual": "0.64%",
-      "previous": "0.87%",
-      "surprise": "暂无预期",
+      "title": "CPI",
+      "expected": "官方源无预期",
+      "actual": "同比 +1.2% / 环比 +0.3%",
+      "previous": "国家统计局源未给上月对比列",
+      "surprise": "官方源无预期",
       "status": "released",
       "importance": "high",
-      "source": "BLS Public Data API",
-      "notes": "BLS CPI-U All items，季调；用指数计算环比。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
+      "source": "AkShare macro_china_cpi（国家统计局源）",
+      "notes": "AkShare 国家统计局源，当前比金十宏观函数更新；使用全国同比和环比。"
     },
     {
-      "id": "bls-CUSR0000SA0L1E",
-      "date": "2026 April",
+      "id": "nbs-china-ppi",
+      "date": "2026年04月份",
       "time": "已公布",
-      "period": "2026 April",
-      "country": "美国",
+      "period": "2026年04月份",
+      "country": "中国",
       "category": "通胀",
-      "title": "美国核心 CPI 月率",
-      "expected": "",
-      "actual": "0.38%",
-      "previous": "0.20%",
-      "surprise": "暂无预期",
+      "title": "PPI",
+      "expected": "官方源无预期",
+      "actual": "同比 +2.8%",
+      "previous": "国家统计局源未给上月对比列",
+      "surprise": "官方源无预期",
       "status": "released",
       "importance": "high",
-      "source": "BLS Public Data API",
-      "notes": "BLS CPI-U less food and energy，季调；用指数计算环比。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
-    },
-    {
-      "id": "bls-WPUFD4",
-      "date": "2026 April",
-      "time": "已公布",
-      "period": "2026 April",
-      "country": "美国",
-      "category": "通胀",
-      "title": "美国 PPI 最终需求月率",
-      "expected": "",
-      "actual": "1.44%",
-      "previous": "0.92%",
-      "surprise": "暂无预期",
-      "status": "released",
-      "importance": "high",
-      "source": "BLS Public Data API",
-      "notes": "BLS Producer Price Index，Final Demand；用指数计算环比。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
-    },
-    {
-      "id": "stale-akshare-macro_usa_non_farm",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-01",
-      "country": "美国",
-      "category": "就业",
-      "title": "美国非农就业人数（数据源滞后）",
-      "expected": "10.6万人",
-      "actual": "源最近：2025-08-01 7.3万人",
-      "previous": "1.4万人",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_usa_non_farm",
-      "notes": "AkShare macro_usa_non_farm 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-akshare-macro_usa_unemployment_rate",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-01",
-      "country": "美国",
-      "category": "就业",
-      "title": "美国失业率（数据源滞后）",
-      "expected": "4.2%",
-      "actual": "源最近：2025-08-01 4.2%",
-      "previous": "4.1%",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_usa_unemployment_rate",
-      "notes": "AkShare macro_usa_unemployment_rate 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-akshare-macro_usa_cpi_monthly",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-12",
-      "country": "美国",
-      "category": "通胀",
-      "title": "美国 CPI 月率（数据源滞后）",
-      "expected": "0.2%",
-      "actual": "源最近：2025-08-12 0.2%",
-      "previous": "0.3%",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_usa_cpi_monthly",
-      "notes": "AkShare macro_usa_cpi_monthly 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-akshare-macro_usa_core_cpi_monthly",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-12",
-      "country": "美国",
-      "category": "通胀",
-      "title": "美国核心 CPI 月率（数据源滞后）",
-      "expected": "0.3%",
-      "actual": "源最近：2025-08-12 0.3%",
-      "previous": "0.2%",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_usa_core_cpi_monthly",
-      "notes": "AkShare macro_usa_core_cpi_monthly 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-akshare-macro_china_cpi_monthly",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-09",
-      "country": "中国",
-      "category": "通胀",
-      "title": "中国 CPI 月率（数据源滞后）",
-      "expected": "0.3%",
-      "actual": "源最近：2025-08-09 0.4%",
-      "previous": "-0.1%",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_china_cpi_monthly",
-      "notes": "AkShare macro_china_cpi_monthly 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-akshare-macro_china_cpi_yearly",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-09",
-      "country": "中国",
-      "category": "通胀",
-      "title": "中国 CPI 年率（数据源滞后）",
-      "expected": "-0.1%",
-      "actual": "源最近：2025-08-09 0.0%",
-      "previous": "0.1%",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_china_cpi_yearly",
-      "notes": "AkShare macro_china_cpi_yearly 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-akshare-macro_china_ppi_yearly",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-08-09",
-      "country": "中国",
-      "category": "通胀",
-      "title": "中国 PPI 年率（数据源滞后）",
-      "expected": "-3.4%",
-      "actual": "源最近：2025-08-09 -3.6%",
-      "previous": "-3.6%",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare macro_china_ppi_yearly",
-      "notes": "AkShare macro_china_ppi_yearly 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "stale-calendar-39",
-      "date": "需接最新源",
-      "time": "不要按最新解读",
-      "period": "2025-11-26",
-      "country": "澳大利亚",
-      "category": "经济日历",
-      "title": "澳大利亚10月统计局加权CPI年率(%)（数据源滞后）",
-      "expected": "3.6",
-      "actual": "源最近：2025-11-26 3.4",
-      "previous": "3.5",
-      "surprise": "数据源滞后",
-      "status": "watch",
-      "importance": "high",
-      "source": "AkShare news_economic_baidu",
-      "notes": "AkShare news_economic_baidu 最近已公布值过旧，当前不会把它当作最新宏观数据。建议接 Trading Economics 或官方源校验。"
-    },
-    {
-      "id": "watch-china-cpi",
-      "date": "待接经济日历",
-      "time": "通常每月上旬",
-      "period": "-",
-      "country": "中国",
-      "category": "通胀",
-      "title": "中国 CPI",
-      "expected": "待接 API",
-      "actual": "待公布",
-      "previous": "待接 API",
-      "surprise": "待公布",
-      "status": "watch",
-      "importance": "high",
-      "source": "Trading Economics / 国家统计局",
-      "notes": "AkShare 中国宏观历史值已接入；若需要公布前精确日历和更稳预期，可再接 Trading Economics。"
-    },
-    {
-      "id": "watch-china-ppi",
-      "date": "待接经济日历",
-      "time": "通常每月上旬",
-      "period": "-",
-      "country": "中国",
-      "category": "通胀",
-      "title": "中国 PPI",
-      "expected": "待接 API",
-      "actual": "待公布",
-      "previous": "待接 API",
-      "surprise": "待公布",
-      "status": "watch",
-      "importance": "high",
-      "source": "Trading Economics / 国家统计局",
-      "notes": "AkShare 中国宏观历史值已接入；若需要公布前精确日历和更稳预期，可再接 Trading Economics。"
-    },
-    {
-      "id": "watch-us-nfp-calendar",
-      "date": "待接经济日历",
-      "time": "通常每月第一个周五 20:30/21:30 北京时间",
-      "period": "-",
-      "country": "美国",
-      "category": "就业",
-      "title": "美国非农就业公布日",
-      "expected": "待接 API",
-      "actual": "BLS 实际值已接",
-      "previous": "BLS 前值已接",
-      "surprise": "待接预期",
-      "status": "watch",
-      "importance": "high",
-      "source": "Trading Economics Calendar API",
-      "notes": "AkShare 已提供历史今值/预测值/前值；公布前提醒仍建议用经济日历源。"
+      "source": "AkShare macro_china_ppi（国家统计局源）",
+      "notes": "AkShare 国家统计局源，当前比金十宏观函数更新；使用当月同比增长。"
     }
   ],
   "ratios": [
     {
       "name": "金银比",
-      "value": "60.53",
-      "notes": "yfinance 期货收盘价计算：黄金 4593.00 / 白银 75.88。"
+      "value": "60.5",
+      "notes": "黄金价格 / 白银价格。"
     },
     {
       "name": "金油比",
-      "value": "52.58",
-      "notes": "yfinance 期货收盘价计算：黄金 4593.00 / WTI 原油 87.36。"
+      "value": "52.6",
+      "notes": "黄金价格 / WTI 原油价格。"
+    },
+    {
+      "name": "金特比",
+      "value": "1 BTC ≈ 16.0 盎司黄金",
+      "notes": "BTC 价格 / 黄金价格。"
+    },
+    {
+      "name": "ETH/BTC",
+      "value": "0.0274",
+      "notes": "ETH 相对 BTC 强弱。"
+    }
+  ],
+  "prices": [
+    {
+      "name": "黄金",
+      "value": "$4,593.0",
+      "notes": "Yahoo Finance，2026-05-29"
+    },
+    {
+      "name": "白银",
+      "value": "$75.88",
+      "notes": "Yahoo Finance，2026-05-29"
+    },
+    {
+      "name": "WTI 原油",
+      "value": "$87.36",
+      "notes": "Yahoo Finance，2026-05-29"
+    },
+    {
+      "name": "BTC",
+      "value": "$73,373",
+      "notes": "Yahoo Finance，2026-05-29"
+    },
+    {
+      "name": "ETH",
+      "value": "$2,012",
+      "notes": "Yahoo Finance，2026-05-29"
+    }
+  ],
+  "cryptoMetrics": [
+    {
+      "name": "恐慌贪婪指数",
+      "value": "28/100",
+      "notes": "恐慌；来源 alternative.me。"
+    },
+    {
+      "name": "加密总市值",
+      "value": "$2.58 万亿",
+      "notes": "24h +0.8%；来源 CoinGecko。"
+    },
+    {
+      "name": "BTC 市占率",
+      "value": "57.3%",
+      "notes": "BTC 市值占全市场比例；来源 CoinGecko。"
     }
   ],
   "sources": [
     {
-      "name": "AkShare",
+      "name": "FRED CSV",
+      "status": "已接入，无需 key",
+      "usage": "美国非农、CPI、失业率；官方时间序列，直连 CSV。"
+    },
+    {
+      "name": "AkShare 国家统计局源",
       "status": "已接入，本地依赖",
-      "usage": "美国/中国宏观数据，字段通常包含今值、预测值、前值；免费但属于第三方公开源封装。",
-      "url": "https://akshare.akfamily.xyz/"
+      "usage": "中国 CPI/PPI 官方统计源封装，替代停更的金十宏观函数。"
     },
     {
       "name": "yfinance",
       "status": "已接入，本地依赖",
-      "usage": "用 GC=F、SI=F、CL=F 收盘价计算金银比、金油比；免费源可能偶发限流。",
-      "url": "https://github.com/ranaroussi/yfinance"
+      "usage": "黄金、白银、WTI、BTC、ETH 价格与比值。"
     },
     {
-      "name": "BLS Public Data API",
-      "status": "保留兜底，无需 key",
-      "usage": "美国非农、CPI、PPI 实际值和前值；不提供市场预期，且不适合抢时效。",
-      "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/"
-    },
-    {
-      "name": "Trading Economics Calendar API",
-      "status": "待接 API key",
-      "usage": "最适合经济日历、预期值、实际值、前值、国家/重要性筛选；可覆盖中国 CPI/PPI。",
-      "url": "https://docs.tradingeconomics.com/economic_calendar/"
-    },
-    {
-      "name": "FRED API",
-      "status": "待接免费 API key",
-      "usage": "适合美国宏观时间序列、黄金、白银、WTI 等，用于金银比、金油比。",
-      "url": "https://fred.stlouisfed.org/docs/api/api_key.html"
-    },
-    {
-      "name": "中国国家统计局数据接口",
-      "status": "待确认指标码和稳定性",
-      "usage": "可作为中国 CPI/PPI 官方来源，但公开接口文档不完整，建议先用 Trading Economics 做日历。",
-      "url": "https://data.stats.gov.cn/"
+      "name": "alternative.me / CoinGecko",
+      "status": "已接入，无需 key",
+      "usage": "恐慌贪婪指数、加密总市值、BTC 市占率。"
     }
   ],
   "failures": []

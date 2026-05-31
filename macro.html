@@ -296,6 +296,8 @@
       }
 
       .source-list,
+      .crypto-list,
+      .price-list,
       .ratio-list {
         display: grid;
         gap: 8px;
@@ -303,6 +305,8 @@
       }
 
       .source,
+      .crypto,
+      .price,
       .ratio {
         padding: 10px;
         border: 1px solid var(--line);
@@ -311,6 +315,8 @@
       }
 
       .source b,
+      .crypto b,
+      .price b,
       .ratio b {
         display: block;
         margin-bottom: 4px;
@@ -318,6 +324,8 @@
       }
 
       .source span,
+      .crypto span,
+      .price span,
       .ratio span {
         display: block;
         color: var(--muted);
@@ -421,9 +429,14 @@
 
         <aside class="panel">
           <div class="panel-head">
-            <p class="panel-title">比例与数据源</p>
+            <p class="panel-title">价格、比值与币圈</p>
           </div>
+          <div class="price-list" id="priceList"></div>
           <div class="ratio-list" id="ratioList"></div>
+          <div class="crypto-list" id="cryptoList"></div>
+          <div class="panel-head">
+            <p class="panel-title">数据源</p>
+          </div>
           <div class="source-list" id="sourceList"></div>
         </aside>
       </section>
@@ -433,6 +446,8 @@
       const state = {
         events: [],
         ratios: [],
+        prices: [],
+        cryptoMetrics: [],
         sources: [],
       };
 
@@ -447,7 +462,9 @@
         statusFilter: document.querySelector("#statusFilter"),
         calendar: document.querySelector("#calendar"),
         empty: document.querySelector("#empty"),
+        priceList: document.querySelector("#priceList"),
         ratioList: document.querySelector("#ratioList"),
+        cryptoList: document.querySelector("#cryptoList"),
         sourceList: document.querySelector("#sourceList"),
       };
 
@@ -512,12 +529,34 @@
           .join("");
         els.empty.style.display = events.length ? "none" : "block";
 
+        els.priceList.innerHTML = state.prices
+          .map(
+            (price) => `
+              <div class="price">
+                <b>${escapeHtml(price.name)}：${escapeHtml(price.value)}</b>
+                <span>${escapeHtml(price.notes)}</span>
+              </div>
+            `,
+          )
+          .join("");
+
         els.ratioList.innerHTML = state.ratios
           .map(
             (ratio) => `
               <div class="ratio">
                 <b>${escapeHtml(ratio.name)}：${escapeHtml(ratio.value)}</b>
                 <span>${escapeHtml(ratio.notes)}</span>
+              </div>
+            `,
+          )
+          .join("");
+
+        els.cryptoList.innerHTML = state.cryptoMetrics
+          .map(
+            (metric) => `
+              <div class="crypto">
+                <b>${escapeHtml(metric.name)}：${escapeHtml(metric.value)}</b>
+                <span>${escapeHtml(metric.notes)}</span>
               </div>
             `,
           )
@@ -550,6 +589,8 @@
         .then((data) => {
           state.events = Array.isArray(data.events) ? data.events : [];
           state.ratios = Array.isArray(data.ratios) ? data.ratios : [];
+          state.prices = Array.isArray(data.prices) ? data.prices : [];
+          state.cryptoMetrics = Array.isArray(data.cryptoMetrics) ? data.cryptoMetrics : [];
           state.sources = Array.isArray(data.sources) ? data.sources : [];
           els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
