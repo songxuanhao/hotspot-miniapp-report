@@ -1,7 +1,58 @@
 {
-  "generatedAt": "2026/5/31 16:14:14 +08:00",
-  "summary": "金融宏观日历：3 个事件，0 个已公布数据；美国实际值来自 BLS，预期值/中国 CPI PPI/比例类数据待接 API。",
+  "generatedAt": "2026/5/31 16:15:24 +08:00",
+  "summary": "金融宏观日历：6 个事件，3 个已公布数据；美国实际值来自 BLS，预期值/中国 CPI PPI/比例类数据待接 API。",
   "events": [
+    {
+      "id": "bls-CES0000000001",
+      "date": "2026 April",
+      "time": "已公布",
+      "period": "2026 April",
+      "country": "美国",
+      "category": "就业",
+      "title": "美国非农就业人数",
+      "expected": "",
+      "actual": "158736 千人",
+      "previous": "158621 千人",
+      "surprise": "暂无预期",
+      "status": "released",
+      "importance": "high",
+      "source": "BLS Public Data API",
+      "notes": "BLS Current Employment Statistics，总非农就业，季调。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
+    },
+    {
+      "id": "bls-CUSR0000SA0",
+      "date": "2026 April",
+      "time": "已公布",
+      "period": "2026 April",
+      "country": "美国",
+      "category": "通胀",
+      "title": "美国 CPI",
+      "expected": "",
+      "actual": "332.407 指数",
+      "previous": "330.293 指数",
+      "surprise": "暂无预期",
+      "status": "released",
+      "importance": "high",
+      "source": "BLS Public Data API",
+      "notes": "BLS CPI-U All items，季调。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
+    },
+    {
+      "id": "bls-WPUFD4",
+      "date": "2026 April",
+      "time": "已公布",
+      "period": "2026 April",
+      "country": "美国",
+      "category": "通胀",
+      "title": "美国 PPI 最终需求",
+      "expected": "",
+      "actual": "156.878 指数",
+      "previous": "154.656 指数",
+      "surprise": "暂无预期",
+      "status": "released",
+      "importance": "high",
+      "source": "BLS Public Data API",
+      "notes": "BLS Producer Price Index，Final Demand。；BLS 免费 API 只提供实际值，预期值需接经济日历 API。"
+    },
     {
       "id": "watch-china-cpi",
       "date": "待接经济日历",
@@ -92,10 +143,5 @@
       "url": "https://data.stats.gov.cn/"
     }
   ],
-  "failures": [
-    {
-      "source": "BLS Public Data API",
-      "error": "Unexpected token 'a', \"a54\r\n{\"sta\"... is not valid JSON"
-    }
-  ]
+  "failures": []
 }

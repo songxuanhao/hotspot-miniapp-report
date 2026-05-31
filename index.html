@@ -153,6 +153,33 @@
         line-height: 1.55;
       }
 
+      .page-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 14px;
+      }
+
+      .page-tab {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #344054;
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .page-tab.active {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #fff;
+      }
+
       .stats {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -702,6 +729,11 @@
           <span>收藏保存在当前浏览器；复制按钮会把单个小程序机会整理成可直接发给自己或团队的文本。</span>
         </aside>
       </header>
+
+      <nav class="page-tabs" aria-label="报告页面">
+        <a class="page-tab active" href="./index.html">今日热点</a>
+        <a class="page-tab" href="./macro.html">金融宏观</a>
+      </nav>
 
       <section class="stats" aria-label="报告概览">
         <div class="metric">
