@@ -161,6 +161,87 @@
         line-height: 1.35;
       }
 
+      .question-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin: 0 0 14px;
+      }
+
+      .question-card {
+        display: grid;
+        gap: 10px;
+        min-height: 210px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .question-card.defensive {
+        border-color: #f6c0b8;
+        background: linear-gradient(180deg, #fff 0%, var(--red-soft) 100%);
+      }
+
+      .question-card.risk {
+        border-color: #a9d6bb;
+        background: linear-gradient(180deg, #fff 0%, var(--green-soft) 100%);
+      }
+
+      .question-card.neutral {
+        border-color: #b9d0f5;
+        background: linear-gradient(180deg, #fff 0%, var(--blue-soft) 100%);
+      }
+
+      .question-kicker {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .question-card h2 {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .inclination {
+        margin: 0;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1.5;
+      }
+
+      .question-card details {
+        border-top: 1px solid rgba(23, 33, 47, 0.12);
+        padding-top: 8px;
+      }
+
+      .question-card summary {
+        cursor: pointer;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .question-card ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .question-card .how-use {
+        margin: 8px 0 0;
+        color: var(--ink);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
       .panel-head {
         display: flex;
         justify-content: space-between;
@@ -419,6 +500,10 @@
         .stats {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .question-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 720px) {
@@ -447,6 +532,7 @@
         }
 
         .stats,
+        .question-grid,
         .asset-grid,
         .data-row {
           grid-template-columns: 1fr;
@@ -491,6 +577,8 @@
           <span>币圈情绪</span>
         </div>
       </section>
+
+      <section class="question-grid" id="questionGrid" aria-label="四个宏观问题"></section>
 
       <section class="dashboard">
         <div class="panel">
@@ -543,6 +631,7 @@
         prices: [],
         ratios: [],
         cryptoMetrics: [],
+        questions: [],
         sources: [],
         selectedId: "",
       };
@@ -554,6 +643,7 @@
         highCount: document.querySelector("#highCount"),
         riskSignal: document.querySelector("#riskSignal"),
         cryptoMood: document.querySelector("#cryptoMood"),
+        questionGrid: document.querySelector("#questionGrid"),
         calendarTitle: document.querySelector("#calendarTitle"),
         countryFilter: document.querySelector("#countryFilter"),
         impactFilter: document.querySelector("#impactFilter"),
@@ -686,6 +776,38 @@
         return "这个指标用于确认宏观背景，不单独做判断，要和价格比值、币圈情绪、美元/利率方向一起看。";
       }
 
+      function renderQuestions() {
+        const fallback = [
+          {
+            title: "① 宏观潮水在涨还是退？",
+            subtitle: "流动性 / 政策",
+            tone: "neutral",
+            inclination: "等待数据生成后判断。",
+            bullets: [],
+            howToUse: "先看美国通胀和就业，再用中国 CPI/PPI 做需求背景确认。",
+          },
+        ];
+        const questions = state.questions.length ? state.questions : fallback;
+        els.questionGrid.innerHTML = questions
+          .map((question) => `
+            <article class="question-card ${escapeHtml(question.tone || "neutral")}">
+              <div>
+                <p class="question-kicker">${escapeHtml(question.subtitle || "")}</p>
+                <h2>${escapeHtml(question.title)}</h2>
+              </div>
+              <p class="inclination">${escapeHtml(question.inclination)}</p>
+              <details>
+                <summary>展开依据和用法</summary>
+                <ul>
+                  ${(question.bullets || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+                </ul>
+                <p class="how-use">${escapeHtml(question.howToUse)}</p>
+              </details>
+            </article>
+          `)
+          .join("");
+      }
+
       function renderSide() {
         const topEvents = state.events.filter((event) => classify(event).importance === "high").slice(0, 4);
         els.readList.innerHTML = topEvents
@@ -727,14 +849,15 @@
       function renderStats() {
         const high = state.events.filter((event) => classify(event).importance === "high").length;
         const fear = state.cryptoMetrics.find((item) => item.name.includes("恐慌"));
-        const btc = state.cryptoMetrics.find((item) => item.name.includes("BTC"));
+        const regime = state.questions.find((item) => item.id === "risk-regime");
         els.eventCount.textContent = state.events.length;
         els.highCount.textContent = high;
         els.cryptoMood.textContent = fear ? fear.value : "-";
-        els.riskSignal.textContent = btc ? btc.value : "-";
+        els.riskSignal.textContent = regime ? (regime.tone === "defensive" ? "偏避险" : regime.tone === "risk" ? "偏冒险" : "分歧") : "-";
       }
 
       function render() {
+        renderQuestions();
         renderCalendar();
         renderSide();
         renderStats();
@@ -761,6 +884,7 @@
           state.ratios = Array.isArray(data.ratios) ? data.ratios : [];
           state.prices = Array.isArray(data.prices) ? data.prices : [];
           state.cryptoMetrics = Array.isArray(data.cryptoMetrics) ? data.cryptoMetrics : [];
+          state.questions = Array.isArray(data.questions) ? data.questions : [];
           state.sources = Array.isArray(data.sources) ? data.sources : [];
           els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
