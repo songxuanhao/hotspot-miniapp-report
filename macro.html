@@ -1036,6 +1036,15 @@
 
       const els = {
         summary: document.querySelector("#summary"),
+        headlineDecision: document.querySelector("#headlineDecision"),
+        headlineReason: document.querySelector("#headlineReason"),
+        assetActions: document.querySelector("#assetActions"),
+        dataHealth: document.querySelector("#dataHealth"),
+        evidenceCards: document.querySelector("#evidenceCards"),
+        supportEvidence: document.querySelector("#supportEvidence"),
+        counterEvidence: document.querySelector("#counterEvidence"),
+        watchlist: document.querySelector("#watchlist"),
+        riskSchedule: document.querySelector("#riskSchedule"),
         generatedAt: document.querySelector("#generatedAt"),
         eventCount: document.querySelector("#eventCount"),
         newsCount: document.querySelector("#newsCount"),
@@ -1514,6 +1523,80 @@
           .join("");
       }
 
+      function renderHeadline() {
+        const decision = buildHeadlineDecision();
+        if (els.headlineDecision) els.headlineDecision.textContent = decision.headline;
+        if (els.headlineReason) els.headlineReason.textContent = decision.reason;
+        if (els.assetActions) {
+          els.assetActions.innerHTML = decision.actions
+            .map((item) => `<span class="action-chip"><b>${escapeHtml(item.label)}</b>：${escapeHtml(item.value)}</span>`)
+            .join("");
+        }
+        if (els.dataHealth) {
+          els.dataHealth.textContent = state.sources.some((source) => source.status === "failed")
+            ? "閮ㄥ垎鏁版嵁婧愬け璐ワ紝鏍稿績鎶ュ憡鍙敤"
+            : "核心数据源正常";
+        }
+        return decision;
+      }
+
+      function renderEvidenceCards(decision) {
+        if (els.evidenceCards) {
+          els.evidenceCards.innerHTML = buildEvidenceCards(decision)
+            .map((card) => `
+              <article class="evidence-card">
+                <b>${escapeHtml(card.title)}：${escapeHtml(card.verdict)}</b>
+                <p>${escapeHtml(card.note)}</p>
+              </article>
+            `)
+            .join("");
+        }
+
+        if (els.supportEvidence) {
+          els.supportEvidence.innerHTML = (decision.support.length ? decision.support : ["没有足够强的单边证据，先等待关键数据。"])
+            .slice(0, 4)
+            .map((item) => `<div class="evidence-note"><span>${escapeHtml(item)}</span></div>`)
+            .join("");
+        }
+
+        if (els.counterEvidence) {
+          els.counterEvidence.innerHTML = (decision.counter.length ? decision.counter : ["暂时缺少明显反向证据，但仍需看新闻和数据是否突然转向。"])
+            .slice(0, 4)
+            .map((item) => `<div class="evidence-note"><span>${escapeHtml(item)}</span></div>`)
+            .join("");
+        }
+      }
+
+      function renderWatchlist() {
+        if (!els.watchlist) return;
+        const items = buildWatchlist(sevenDayItems());
+        els.watchlist.innerHTML = items.length
+          ? items.map((item) => `
+              <button class="watch-card" data-id="${escapeHtml(item.id)}" type="button">
+                <b>${item.score === 3 ? "高" : item.score === 2 ? "中" : "低"}｜${escapeHtml(item.title)}</b>
+                <p>${escapeHtml(item.why)}</p>
+              </button>
+            `).join("")
+          : `<div class="watch-card"><b>暂无必盯事件</b><p>当前 7 天窗口内没有足以改变总判断的事件。</p></div>`;
+      }
+
+      function renderRiskSchedule() {
+        if (!els.riskSchedule) return;
+        const nearTerm = sevenDayItems();
+        const top = buildWatchlist(nearTerm);
+        const topIds = new Set(top.map((item) => item.id));
+        const items = top.concat(nearTerm.filter((item) => !topIds.has(item.id))).slice(0, 12);
+        els.riskSchedule.innerHTML = items.length
+          ? items.map((item) => `
+              <button class="schedule-item" data-id="${escapeHtml(item.id)}" type="button">
+                <b>${escapeHtml(item.date.toLocaleDateString("zh-CN", { month: "2-digit", day: "2-digit" }))}</b>
+                <p>${escapeHtml(item.title)}</p>
+                <span class="pill">${escapeHtml(item.label)}</span>
+              </button>
+            `).join("")
+          : `<div class="schedule-item"><b>-</b><p>当前筛选下没有风险事件。</p><span class="pill">空</span></div>`;
+      }
+
       function renderSide() {
         const briefing = state.dailyBriefing || {};
         const briefingItems = Array.isArray(briefing.items) ? briefing.items : [];
@@ -1568,16 +1651,18 @@
       }
 
       function render() {
-        renderQuestions();
-        renderSignals();
+        const decision = renderHeadline();
+        renderEvidenceCards(decision);
+        renderWatchlist();
+        renderRiskSchedule();
         renderCalendar();
         renderSide();
         renderStats();
-        const selected = calendarItems().find((item) => item.id === state.selectedId) || calendarItems()[0];
+        const selected = calendarItems().find((item) => item.id === state.selectedId) || sevenDayItems()[0] || calendarItems()[0];
         renderDetail(selected);
       }
 
-      els.calendar.addEventListener("click", (event) => {
+      document.addEventListener("click", (event) => {
         const button = event.target.closest("button[data-id]");
         if (!button) return;
         state.selectedId = button.dataset.id;
