@@ -550,10 +550,24 @@ function defaultCompetitors(category) {
 }
 
 const { records, failures, sourceAudit } = normalizeRecords();
+
+if (!records.length) {
+  const failureSummary = failures
+    .map((failure) => `${failure.platform || failure.id}: ${failure.error || "unknown error"}`)
+    .join("; ");
+  throw new Error(
+    `All API sources failed; refusing to overwrite the last valid report with an empty report. ${failureSummary}`,
+  );
+}
+
 const groups = mergeRecords(records);
 const items = groups
   .map(analysisFor)
   .sort((a, b) => b.heatNormalized - a.heatNormalized || b.platforms.length - a.platforms.length);
+
+if (!items.length) {
+  throw new Error("No merged hotspot items were produced; refusing to publish an empty report.");
+}
 
 const successfulPlatforms = sourceAudit.filter((entry) => entry.status === "success" || entry.status === "cache").length;
 const summary = `固定脚本自动运行：调用 ${PLATFORMS.length} 个平台，成功 ${successfulPlatforms} 个，共 ${records.length} 条榜单记录，合并为 ${items.length} 个热点事件。全程未使用网页抓取。`;
