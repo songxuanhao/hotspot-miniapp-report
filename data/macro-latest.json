@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-31 17:47:48 +08:00",
-  "summary": "宏观快照：5 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。",
+  "generatedAt": "2026-05-31 18:26:32 +08:00",
+  "summary": "宏观快照：5 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；20 条实时新闻；美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。",
   "events": [
     {
       "id": "fred-payems",
@@ -101,7 +101,15 @@
         "美国失业率：4.3%",
         "中国背景：CPI 同比 +1.2% / 环比 +0.3%；PPI 同比 +2.8%"
       ],
-      "howToUse": "这块决定大方向：潮水退时，黄金、现金流、BTC 防守更值得看；潮水涨时，成长股、山寨、周期资产才更容易顺风。"
+      "howToUse": "这块决定大方向：潮水退时，黄金、现金流、BTC 防守更值得看；潮水涨时，成长股、山寨、周期资产才更容易顺风。",
+      "news": [
+        {
+          "source": "MarketWatch",
+          "title": "Your portfolio can’t afford the real bill for the Iran war",
+          "url": "https://www.marketwatch.com/story/the-true-cost-of-the-iran-war-is-billions-more-than-the-pentagon-says-and-were-paying-for-it-7bf90988?mod=mw_rss_topstories",
+          "published": "Sat, 30 May 2026 18:18:00 GMT"
+        }
+      ]
     },
     {
       "id": "risk-regime",
@@ -114,7 +122,27 @@
         "金油比：52.6（近1月 +14.4%，噪音较大）",
         "金特比：1 BTC ≈ 16.0 盎司黄金（近1月 -3.9%）"
       ],
-      "howToUse": "看趋势，不迷信绝对值。多个比值同向时才增强判断；如果互相打架，说明市场在转折或缺少共识。"
+      "howToUse": "看趋势，不迷信绝对值。多个比值同向时才增强判断；如果互相打架，说明市场在转折或缺少共识。",
+      "news": [
+        {
+          "source": "CoinDesk",
+          "title": "U.S. says it seized about $1 billion in Iranian crypto as pressure campaign expands",
+          "url": "https://www.coindesk.com/business/2026/05/30/u-s-says-it-seized-about-usd1-billion-in-iranian-crypto-as-pressure-campaign-expands",
+          "published": "Sat, 30 May 2026 15:50:37 +0000"
+        },
+        {
+          "source": "CoinDesk",
+          "title": "Bitcoin, ether, XRP, dogecoin lag a nine-week stocks rally as ETF demand cools",
+          "url": "https://www.coindesk.com/markets/2026/05/30/bitcoin-ether-xrp-dogecoin-lag-a-nine-week-stocks-rally-as-etf-demand-cools",
+          "published": "Sat, 30 May 2026 05:41:30 +0000"
+        },
+        {
+          "source": "CoinDesk",
+          "title": "Bitcoin’s biggest quantum risk may not be wallet keys. An early investor fears something bigger",
+          "url": "https://www.coindesk.com/tech/2026/05/30/bitcoin-s-biggest-quantum-risk-may-not-be-wallet-keys-an-early-investor-fears-something-bigger",
+          "published": "Sat, 30 May 2026 05:27:39 +0000"
+        }
+      ]
     },
     {
       "id": "crypto-rotation",
@@ -126,7 +154,27 @@
         "ETH/BTC：0.0274（近1月 -8.6%）",
         "BTC 市占率：57.3%"
       ],
-      "howToUse": "BTC 强、ETH/BTC 弱时，币圈偏防守；ETH/BTC 连续走强时，才说明资金愿意去更高风险资产里找弹性。"
+      "howToUse": "BTC 强、ETH/BTC 弱时，币圈偏防守；ETH/BTC 连续走强时，才说明资金愿意去更高风险资产里找弹性。",
+      "news": [
+        {
+          "source": "CoinDesk",
+          "title": "XRP Ledger's new proposal blocks the flash loan attacks costing DeFi hundreds of millions",
+          "url": "https://www.coindesk.com/tech/2026/05/29/xrp-ledger-s-new-proposal-blocks-the-flash-loan-attacks-costing-defi-hundreds-of-millions",
+          "published": "Sun, 31 May 2026 02:30:00 +0000"
+        },
+        {
+          "source": "CoinDesk",
+          "title": "SEC sues Texas man over $12.3 million alleged crypto scheme built on fake AI trading bots",
+          "url": "https://www.coindesk.com/business/2026/05/30/sec-sues-texas-man-over-usd12-3-million-alleged-crypto-scheme-built-on-fake-ai-trading-bots",
+          "published": "Sat, 30 May 2026 17:27:34 +0000"
+        },
+        {
+          "source": "CoinDesk",
+          "title": "U.S. says it seized about $1 billion in Iranian crypto as pressure campaign expands",
+          "url": "https://www.coindesk.com/business/2026/05/30/u-s-says-it-seized-about-usd1-billion-in-iranian-crypto-as-pressure-campaign-expands",
+          "published": "Sat, 30 May 2026 15:50:37 +0000"
+        }
+      ]
     },
     {
       "id": "sentiment-extreme",
@@ -136,11 +184,281 @@
       "inclination": "未到情绪极值，暂无明确择时信号，更多用于确认市场温度。",
       "bullets": [
         "恐慌贪婪指数：28/100（恐慌）",
-        "加密总市值：$2.58 万亿（24h +0.8%）"
+        "加密总市值：$2.58 万亿（24h +0.6%）"
       ],
-      "howToUse": "情绪指标只在极端区间最有价值。中间区域不要硬解读，主要用来辅助判断市场是否已经过热或过冷。"
+      "howToUse": "情绪指标只在极端区间最有价值。中间区域不要硬解读，主要用来辅助判断市场是否已经过热或过冷。",
+      "news": [
+        {
+          "source": "CoinDesk",
+          "title": "XRP Ledger's new proposal blocks the flash loan attacks costing DeFi hundreds of millions",
+          "url": "https://www.coindesk.com/tech/2026/05/29/xrp-ledger-s-new-proposal-blocks-the-flash-loan-attacks-costing-defi-hundreds-of-millions",
+          "published": "Sun, 31 May 2026 02:30:00 +0000"
+        },
+        {
+          "source": "CoinDesk",
+          "title": "SEC sues Texas man over $12.3 million alleged crypto scheme built on fake AI trading bots",
+          "url": "https://www.coindesk.com/business/2026/05/30/sec-sues-texas-man-over-usd12-3-million-alleged-crypto-scheme-built-on-fake-ai-trading-bots",
+          "published": "Sat, 30 May 2026 17:27:34 +0000"
+        },
+        {
+          "source": "CoinDesk",
+          "title": "U.S. says it seized about $1 billion in Iranian crypto as pressure campaign expands",
+          "url": "https://www.coindesk.com/business/2026/05/30/u-s-says-it-seized-about-usd1-billion-in-iranian-crypto-as-pressure-campaign-expands",
+          "published": "Sat, 30 May 2026 15:50:37 +0000"
+        }
+      ]
     }
   ],
+  "news": [
+    {
+      "source": "CoinDesk",
+      "title": "XRP Ledger's new proposal blocks the flash loan attacks costing DeFi hundreds of millions",
+      "url": "https://www.coindesk.com/tech/2026/05/29/xrp-ledger-s-new-proposal-blocks-the-flash-loan-attacks-costing-defi-hundreds-of-millions",
+      "published": "Sun, 31 May 2026 02:30:00 +0000",
+      "summary": "A draft XRPL amendment notes that flash loan attacks are \"structurally impossible\" on the network because of how its transactions are built, an architectural quirk that has spared...",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "SEC sues Texas man over $12.3 million alleged crypto scheme built on fake AI trading bots",
+      "url": "https://www.coindesk.com/business/2026/05/30/sec-sues-texas-man-over-usd12-3-million-alleged-crypto-scheme-built-on-fake-ai-trading-bots",
+      "published": "Sat, 30 May 2026 17:27:34 +0000",
+      "summary": "Fuller allegedly diverted $6.2 million for personal use and $5.5M for Ponzi-like payments; only 3% of funds went to crypto trading.",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "U.S. says it seized about $1 billion in Iranian crypto as pressure campaign expands",
+      "url": "https://www.coindesk.com/business/2026/05/30/u-s-says-it-seized-about-usd1-billion-in-iranian-crypto-as-pressure-campaign-expands",
+      "published": "Sat, 30 May 2026 15:50:37 +0000",
+      "summary": "The seizure, falling under \"Operation Economic Fury,\" aims to restrict Iran's access to overseas revenue, banking networks, and crypto infrastructure.",
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "Wall Street’s trillion-dollar dilemma: Why AI-powered hackers are keeping big banks off the blockchain",
+      "url": "https://www.coindesk.com/business/2026/05/28/defi-vulnerabilities-are-tradfi-biggest-blocker-as-protocols-hit-by-near-daily-exploits-certik",
+      "published": "Sat, 30 May 2026 15:00:00 +0000",
+      "summary": "CertiK CEO and co-founder Ronghui Gu says April was the worst month for DeFi in four years with exploits on 27 out of 30 days.",
+      "buckets": []
+    },
+    {
+      "source": "CoinDesk",
+      "title": "When the market is bad, we build: Inside Binance’s bold 2030 master plan",
+      "url": "https://www.coindesk.com/business/2026/05/26/when-the-market-is-bad-we-build-inside-binance-s-bold-2030-master-plan",
+      "published": "Sat, 30 May 2026 13:00:00 +0000",
+      "summary": "Established crypto firms will merge with traditional finance, but neither Wall Street bankers nor corporate giants will take over the crypto industry, said Binance’s Head of VIP an...",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "Hyperliquid could become a ‘financial services juggernaut’ as DeFi expands, says Grayscale",
+      "url": "https://www.coindesk.com/business/2026/05/30/hyperliquid-could-become-a-financial-services-juggernaut-as-defi-expands-says-grayscale",
+      "published": "Sat, 30 May 2026 13:00:00 +0000",
+      "summary": "The digital asset manager says Hyperliquid is emerging as a blockchain-based financial infrastructure platform with the potential to expand beyond crypto trading and challenge part...",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "XRP ETFs add $35 million as bitcoin and ether funds lost $2 billion in late May",
+      "url": "https://www.coindesk.com/markets/2026/05/30/ripple-said-to-lead-usd1-billion-xrp-treasury-raise-report",
+      "published": "Sat, 30 May 2026 11:35:56 +0000",
+      "summary": "From May 20 to May 29, XRP funds took in $35 million while bitcoin and ether ETFs lost roughly $2 billion combined, with Ripple’s earlier reported XRP treasury plan still awaiting...",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "Bitcoin, ether, XRP, dogecoin lag a nine-week stocks rally as ETF demand cools",
+      "url": "https://www.coindesk.com/markets/2026/05/30/bitcoin-ether-xrp-dogecoin-lag-a-nine-week-stocks-rally-as-etf-demand-cools",
+      "published": "Sat, 30 May 2026 05:41:30 +0000",
+      "summary": "The S&P 500 posted its longest weekly winning streak since 2023 and Brent oil stabilized near $92 on US-Iran ceasefire hopes. The biggest cryptocurrencies still drifted lower, with...",
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "Bitcoin’s biggest quantum risk may not be wallet keys. An early investor fears something bigger",
+      "url": "https://www.coindesk.com/tech/2026/05/30/bitcoin-s-biggest-quantum-risk-may-not-be-wallet-keys-an-early-investor-fears-something-bigger",
+      "published": "Sat, 30 May 2026 05:27:39 +0000",
+      "summary": "Andrew Gault, the venture capitalist who funded the quantum hardware labs now threatening bitcoin, says the industry is looking in the wrong place. Google's own security team moved...",
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "CoinDesk",
+      "title": "‘The banks will not accept it’: Dimon escalates battle over stablecoin rewards in CLARITY Act debate",
+      "url": "https://www.coindesk.com/policy/2026/05/29/the-banks-will-not-accept-it-dimon-escalates-battle-over-stablecoin-rewards-in-clarity-act-debate",
+      "published": "Fri, 29 May 2026 20:03:52 +0000",
+      "summary": "JPMorgan CEO Jamie Dimon criticized Coinbase CEO Brian Armstrong and warned the current CLARITY Act framework could ultimately fail, as banks and crypto firms clash over whether st...",
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "MarketWatch",
+      "title": "‘It is such a fine line’: I am a CFP and see nothing wrong with networking on the golf course. Am I wrong?",
+      "url": "https://www.marketwatch.com/story/it-is-such-a-fine-line-i-am-a-cfp-and-see-nothing-wrong-with-networking-on-the-golf-course-am-i-wrong-50a698e8?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 20:58:00 GMT",
+      "summary": "“I would love to develop working relationships with almost everyone I play golf with.”",
+      "buckets": []
+    },
+    {
+      "source": "MarketWatch",
+      "title": "‘I have no preexisting conditions’: I’m 56, earn $198,000 and want to retire early. Can I afford private healthcare?",
+      "url": "https://www.marketwatch.com/story/i-have-no-preexisting-conditions-im-56-earn-198-000-and-want-to-retire-early-can-i-afford-private-healthcare-e80cdd26?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 20:55:00 GMT",
+      "summary": "“I’m trying to figure out whether it’s worth my while achieving FIRE.”",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "MarketWatch",
+      "title": "As Big Tech’s power demand surges, data centers bring utilities a huge new profit center",
+      "url": "https://www.marketwatch.com/story/in-america-big-techs-ai-data-centers-come-first-and-your-community-will-be-last-to-know-06a3fce4?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 18:56:00 GMT",
+      "summary": "The market hasn’t fully priced the next logical step for the AI buildout: Big Tech acquiring regulated utilities outright.",
+      "buckets": []
+    },
+    {
+      "source": "MarketWatch",
+      "title": "China’s next export shock walks on two legs — and costs less than a used car",
+      "url": "https://www.marketwatch.com/story/chinas-next-export-shock-walks-on-two-legs-and-costs-less-than-a-used-car-f0becf3f?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 18:50:00 GMT",
+      "summary": "Beijing is funding humanoid robots to slash Chinese factory costs and build a competitive advantage.",
+      "buckets": []
+    },
+    {
+      "source": "MarketWatch",
+      "title": "Why double-digit earnings growth won’t stop the next bear market",
+      "url": "https://www.marketwatch.com/story/why-double-digit-earnings-growth-wont-stop-the-next-bear-market-791ae3ef?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 18:46:00 GMT",
+      "summary": "Spiking S&P 500 profits often signal the final innings of a bull market. History says stocks are on thin ice.",
+      "buckets": []
+    },
+    {
+      "source": "MarketWatch",
+      "title": "America is losing the AI productivity war to 3.5 million Chinese STEM graduates",
+      "url": "https://www.marketwatch.com/story/why-america-is-losing-the-ai-productivity-war-to-3-5-million-chinese-stem-graduates-4ffeb298?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 18:36:00 GMT",
+      "summary": "Big Tech’s structural mistakes are costing stock investors and fueling a massive talent crisis.",
+      "buckets": [
+        "risk-regime"
+      ]
+    },
+    {
+      "source": "MarketWatch",
+      "title": "This bear market signal Wall Street ignores is putting your money at risk right now",
+      "url": "https://www.marketwatch.com/story/this-bear-market-signal-wall-street-ignores-is-putting-your-money-at-risk-right-now-46f1fcf3?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 18:25:00 GMT",
+      "summary": "Veteran trader Steve Burns prepares for a 50% decline and exposes the 3 “deadly stock-market sins” destroying portfolios.",
+      "buckets": []
+    },
+    {
+      "source": "MarketWatch",
+      "title": "Your portfolio can’t afford the real bill for the Iran war",
+      "url": "https://www.marketwatch.com/story/the-true-cost-of-the-iran-war-is-billions-more-than-the-pentagon-says-and-were-paying-for-it-7bf90988?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 18:18:00 GMT",
+      "summary": "The Pentagon claims the conflict has cost $29 billion — but the true cost is much higher and it’s fueling inflation.",
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "source": "MarketWatch",
+      "title": "My friend, 62, earns $20,000 a year. Should she take Social Security now — and claim survivor’s benefit at 67?",
+      "url": "https://www.marketwatch.com/story/my-friend-62-earns-20-000-a-year-should-she-take-social-security-now-or-claim-survivors-benefit-at-67-c661bdca?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 15:18:00 GMT",
+      "summary": "“I calculated her break-even point to be around age 78.”",
+      "buckets": [
+        "crypto-rotation",
+        "sentiment-extreme"
+      ]
+    },
+    {
+      "source": "MarketWatch",
+      "title": "My husband took out a $100,000 Parent PLUS loan for his daughter. She dropped out, citing mental-health issues. Should we refinance?",
+      "url": "https://www.marketwatch.com/story/my-husband-took-out-a-100-000-parent-plus-loan-for-his-daughter-she-dropped-out-should-we-refinance-bea7dc6e?mod=mw_rss_topstories",
+      "published": "Sat, 30 May 2026 15:10:00 GMT",
+      "summary": "“There is little to no chance that she will ever be able to repay these loans.”",
+      "buckets": []
+    }
+  ],
+  "dailyBriefing": {
+    "date": "20260530",
+    "source": "新闻联播",
+    "items": [
+      {
+        "title": "习近平同埃及总统就中埃建交70周年互致贺电 李强同埃及总理互致贺电",
+        "url": "20260530"
+      },
+      {
+        "title": "【新思想引领新征程】矢志创新勇攀高峰 加快建设科技强国",
+        "url": "20260530"
+      },
+      {
+        "title": "李强对安全生产工作作出重要批示强调 坚决贯彻落实习近平总书记关于安全生产的重要指示精神 切实维护人民群众生命财产安全和社会大局稳定",
+        "url": "20260530"
+      },
+      {
+        "title": "神舟二十一号飞行乘组返回任务圆满成功",
+        "url": "20260530"
+      },
+      {
+        "title": "全国科技工作者日 多场活动弘扬科学家精神",
+        "url": "20260530"
+      },
+      {
+        "title": "【党旗在基层一线高高飘扬】党员先锋队抢通群众出行路",
+        "url": "20260530"
+      },
+      {
+        "title": "【暖心一瞬】合力救援 托起生命希望",
+        "url": "20260530"
+      },
+      {
+        "title": "湖北省委主要负责同志职务调整",
+        "url": "20260530"
+      },
+      {
+        "title": "国内联播快讯",
+        "url": "20260530"
+      },
+      {
+        "title": "日本民众集会反对高市政府危险动向",
+        "url": "20260530"
+      }
+    ]
+  },
   "ratios": [
     {
       "name": "金银比",
@@ -209,14 +527,14 @@
     {
       "name": "加密总市值",
       "value": "$2.58 万亿",
-      "rawValue": 2584680005569.053,
-      "changePct": 0.8286221630322995,
-      "notes": "24h +0.8%；来源 CoinGecko。"
+      "rawValue": 2578460269917.3047,
+      "changePct": 0.566926394456636,
+      "notes": "24h +0.6%；来源 CoinGecko。"
     },
     {
       "name": "BTC 市占率",
       "value": "57.3%",
-      "rawValue": 57.26754839278729,
+      "rawValue": 57.26826620994019,
       "notes": "BTC 市值占全市场比例；来源 CoinGecko。"
     }
   ],
@@ -240,6 +558,11 @@
       "name": "alternative.me / CoinGecko",
       "status": "已接入，无需 key",
       "usage": "恐慌贪婪指数、加密总市值、BTC 市占率。"
+    },
+    {
+      "name": "RSS / AkShare 新闻",
+      "status": "已接入，无需 key",
+      "usage": "CoinDesk、MarketWatch 实时财经新闻；AkShare 中文快讯和新闻联播为 best-effort。"
     }
   ],
   "failures": []

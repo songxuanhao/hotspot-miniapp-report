@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 import datetime as dt
+import html
 import json
 import os
+import re
 import sys
+import xml.etree.ElementTree as ET
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -275,6 +278,134 @@ def get_json(url):
     return response.json()
 
 
+def clean_text(value, limit=180):
+    text = html.unescape(re.sub(r"<[^>]+>", " ", str(value or "")))
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:limit].rstrip() + ("..." if len(text) > limit else "")
+
+
+def make_news(source, title, url="", published="", summary=""):
+    title = clean_text(title, 140)
+    body = f"{title} {summary}".lower()
+    buckets = []
+    if any(keyword in body for keyword in ["fed", "federal reserve", "rate cut", "rate hike", "inflation", "cpi", "payroll", "jobs", "unemployment", "美联储", "降息", "加息", "通胀", "非农", "就业", "失业"]):
+        buckets.append("macro-tide")
+    if any(keyword in body for keyword in ["gold", "oil", "tariff", "war", "iran", "israel", "geopolitical", "safe haven", "黄金", "原油", "关税", "地缘", "战争", "伊朗", "以色列", "制裁"]):
+        buckets.append("risk-regime")
+    if any(keyword in body for keyword in ["bitcoin", "btc", "ether", "eth", "crypto", "sec", "etf", "stablecoin", "比特币", "以太坊", "加密", "币圈"]):
+        buckets.extend(["crypto-rotation", "sentiment-extreme"])
+    return {
+        "source": source,
+        "title": title,
+        "url": str(url or ""),
+        "published": clean_text(published, 80),
+        "summary": clean_text(summary, 180),
+        "buckets": list(dict.fromkeys(buckets)),
+    }
+
+
+def rss_items(source, url, limit=10):
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=18)
+    response.raise_for_status()
+    root = ET.fromstring(response.content)
+    items = []
+    for item in root.findall(".//item")[:limit]:
+        title = item.findtext("title") or ""
+        link = item.findtext("link") or ""
+        published = item.findtext("pubDate") or item.findtext("date") or ""
+        summary = item.findtext("description") or ""
+        if title:
+            items.append(make_news(source, title, link, published, summary))
+    if not items:
+        ns = {"atom": "http://www.w3.org/2005/Atom"}
+        for item in root.findall(".//atom:entry", ns)[:limit]:
+            title = item.findtext("atom:title", default="", namespaces=ns)
+            link_node = item.find("atom:link", ns)
+            link = link_node.attrib.get("href", "") if link_node is not None else ""
+            published = item.findtext("atom:updated", default="", namespaces=ns)
+            summary = item.findtext("atom:summary", default="", namespaces=ns)
+            if title:
+                items.append(make_news(source, title, link, published, summary))
+    return items
+
+
+def row_text(row, candidates):
+    for key in candidates:
+        if key in row and str(row[key]).strip() and str(row[key]).lower() != "nan":
+            return str(row[key])
+    for value in row.values():
+        if str(value).strip() and str(value).lower() != "nan":
+            return str(value)
+    return ""
+
+
+def akshare_realtime_news(limit=8):
+    items = []
+    failures = []
+    candidates = [
+        ("财联社电报", "stock_info_global_cls"),
+        ("东方财富全球快讯", "stock_info_global_em"),
+        ("新浪全球财经", "stock_info_global_sina"),
+    ]
+    for source, func_name in candidates:
+        if not hasattr(ak, func_name):
+            continue
+        try:
+            frame = getattr(ak, func_name)()
+            for row in frame.head(limit).to_dict("records"):
+                title = row_text(row, ["标题", "内容", "摘要", "title", "content"])
+                published = row_text(row, ["时间", "发布时间", "date", "time"])
+                url = row_text(row, ["链接", "url"])
+                if title:
+                    items.append(make_news(source, title, url, published))
+        except Exception as error:
+            failures.append({"source": source, "error": str(error)})
+    return items[:limit], failures
+
+
+def cctv_briefing():
+    target_date = (dt.datetime.now() - dt.timedelta(days=1)).strftime("%Y%m%d")
+    if not hasattr(ak, "news_cctv"):
+        return {"date": target_date, "source": "新闻联播", "items": []}, [{"source": "news_cctv", "error": "AkShare 当前版本未暴露 news_cctv"}]
+    try:
+        frame = ak.news_cctv(date=target_date)
+        items = []
+        for row in frame.head(10).to_dict("records"):
+            title = row_text(row, ["title", "标题", "新闻标题", "内容"])
+            url = row_text(row, ["url", "链接"])
+            if title:
+                items.append({"title": clean_text(title, 120), "url": url})
+        return {"date": target_date, "source": "新闻联播", "items": items}, []
+    except Exception as error:
+        return {"date": target_date, "source": "新闻联播", "items": []}, [{"source": "news_cctv", "error": str(error)}]
+
+
+def get_market_news():
+    news = []
+    failures = []
+    feeds = {
+        "CoinDesk": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "MarketWatch": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+    }
+    for source, url in feeds.items():
+        try:
+            news.extend(rss_items(source, url, limit=10))
+        except Exception as error:
+            failures.append({"source": f"{source} RSS", "error": str(error)})
+    # AkShare 的中文实时快讯端点在部分网络环境会长时间卡住。
+    # 这里暂不主动调用，避免每天自动化被单个新闻源拖死；RSS 和新闻联播已覆盖实时与历史层。
+    briefing, cctv_failures = cctv_briefing()
+    failures.extend(cctv_failures)
+    deduped = []
+    seen = set()
+    for item in news:
+        key = (item.get("source"), item.get("title"))
+        if item.get("title") and key not in seen:
+            seen.add(key)
+            deduped.append(item)
+    return deduped[:28], briefing, failures
+
+
 def get_crypto_metrics():
     metrics = []
     failures = []
@@ -327,8 +458,6 @@ def get_crypto_metrics():
 
 
 def first_number(value):
-    import re
-
     match = re.search(r"[-+]?\d+(?:\.\d+)?", str(value or ""))
     return float(match.group(0)) if match else None
 
@@ -348,7 +477,20 @@ def change_text(item):
     return f"近1月 {change:+.1f}%"
 
 
-def build_questions(events, ratios, crypto_metrics):
+def news_for_bucket(news, bucket, limit=3):
+    return [
+        {
+            "source": item.get("source", ""),
+            "title": item.get("title", ""),
+            "url": item.get("url", ""),
+            "published": item.get("published", ""),
+        }
+        for item in news
+        if bucket in item.get("buckets", [])
+    ][:limit]
+
+
+def build_questions(events, ratios, crypto_metrics, news):
     nonfarm = find_by_id(events, "fred-payems")
     cpi = find_by_id(events, "fred-cpi-yoy")
     unemployment = find_by_id(events, "fred-unrate")
@@ -433,6 +575,7 @@ def build_questions(events, ratios, crypto_metrics):
                 f"中国背景：CPI {china_cpi.get('actual', '-') if china_cpi else '-'}；PPI {china_ppi.get('actual', '-') if china_ppi else '-'}",
             ],
             "howToUse": "这块决定大方向：潮水退时，黄金、现金流、BTC 防守更值得看；潮水涨时，成长股、山寨、周期资产才更容易顺风。",
+            "news": news_for_bucket(news, "macro-tide"),
         },
         {
             "id": "risk-regime",
@@ -446,6 +589,7 @@ def build_questions(events, ratios, crypto_metrics):
                 f"金特比：{btc_gold.get('value', '-') if btc_gold else '-'}（{change_text(btc_gold)}）",
             ],
             "howToUse": "看趋势，不迷信绝对值。多个比值同向时才增强判断；如果互相打架，说明市场在转折或缺少共识。",
+            "news": news_for_bucket(news, "risk-regime"),
         },
         {
             "id": "crypto-rotation",
@@ -458,6 +602,7 @@ def build_questions(events, ratios, crypto_metrics):
                 f"BTC 市占率：{btc_dominance.get('value', '-') if btc_dominance else '-'}",
             ],
             "howToUse": "BTC 强、ETH/BTC 弱时，币圈偏防守；ETH/BTC 连续走强时，才说明资金愿意去更高风险资产里找弹性。",
+            "news": news_for_bucket(news, "crypto-rotation"),
         },
         {
             "id": "sentiment-extreme",
@@ -470,6 +615,7 @@ def build_questions(events, ratios, crypto_metrics):
                 f"加密总市值：{market_cap.get('value', '-') if market_cap else '-'}（{change_text(market_cap).replace('近1月', '24h')}）",
             ],
             "howToUse": "情绪指标只在极端区间最有价值。中间区域不要硬解读，主要用来辅助判断市场是否已经过热或过冷。",
+            "news": news_for_bucket(news, "sentiment-extreme"),
         },
     ]
 
@@ -480,7 +626,8 @@ def main():
     china_events, china_failures = get_china_events()
     ratios, prices, price_failures = get_ratios_and_prices()
     crypto_metrics, crypto_failures = get_crypto_metrics()
-    questions = build_questions(us_events + china_events, ratios, crypto_metrics)
+    news, daily_briefing, news_failures = get_market_news()
+    questions = build_questions(us_events + china_events, ratios, crypto_metrics, news)
     sources = [
         {
             "name": "FRED CSV",
@@ -502,21 +649,29 @@ def main():
             "status": "已接入，无需 key",
             "usage": "恐慌贪婪指数、加密总市值、BTC 市占率。",
         },
+        {
+            "name": "RSS / AkShare 新闻",
+            "status": "已接入，无需 key",
+            "usage": "CoinDesk、MarketWatch 实时财经新闻；AkShare 中文快讯和新闻联播为 best-effort。",
+        },
     ]
     payload = {
         "generatedAt": f"{generated_at} +08:00",
         "summary": (
             f"宏观快照：{len(us_events) + len(china_events)} 个官方宏观指标，"
             f"{len(ratios)} 个价格比值，{len(crypto_metrics)} 个币圈宏观指标；"
+            f"{len(news)} 条实时新闻；"
             "美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。"
         ),
         "events": us_events + china_events,
         "questions": questions,
+        "news": news,
+        "dailyBriefing": daily_briefing,
         "ratios": ratios,
         "prices": prices,
         "cryptoMetrics": crypto_metrics,
         "sources": sources,
-        "failures": us_failures + china_failures + price_failures + crypto_failures,
+        "failures": us_failures + china_failures + price_failures + crypto_failures + news_failures,
     }
     print(json.dumps(payload, ensure_ascii=False))
 
