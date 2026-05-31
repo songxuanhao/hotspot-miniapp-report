@@ -1534,7 +1534,7 @@
         }
         if (els.dataHealth) {
           els.dataHealth.textContent = state.sources.some((source) => source.status === "failed")
-            ? "閮ㄥ垎鏁版嵁婧愬け璐ワ紝鏍稿績鎶ュ憡鍙敤"
+            ? "部分数据源失败，核心报告可用"
             : "核心数据源正常";
         }
         return decision;
