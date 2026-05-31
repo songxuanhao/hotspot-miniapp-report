@@ -6,22 +6,23 @@
     <title>金融宏观</title>
     <style>
       :root {
-        color-scheme: light;
-        --bg: #f4f6f8;
+        --bg: #f5f7f8;
         --panel: #ffffff;
-        --panel-soft: #f9fafb;
-        --text: #1f2933;
-        --muted: #687386;
-        --line: #dde3ea;
-        --teal: #10756e;
-        --teal-soft: #e6f4f2;
-        --amber: #a16207;
-        --amber-soft: #fff7d6;
-        --coral: #c2410c;
-        --coral-soft: #fff0e7;
+        --ink: #17212f;
+        --muted: #667085;
+        --line: #d9e1e8;
+        --soft: #f8fafb;
+        --teal: #0f766e;
+        --teal-soft: #e4f3f1;
+        --red: #b42318;
+        --red-soft: #fff0ed;
+        --blue: #175cd3;
+        --blue-soft: #eef4ff;
+        --amber: #a15c07;
+        --amber-soft: #fff7df;
         --green: #166534;
         --green-soft: #e8f6ed;
-        --shadow: 0 18px 45px rgba(31, 41, 51, 0.09);
+        --shadow: 0 18px 45px rgba(23, 33, 47, 0.08);
       }
 
       * {
@@ -30,72 +31,68 @@
 
       body {
         margin: 0;
-        background:
-          radial-gradient(circle at 12% 0%, rgba(16, 117, 110, 0.12), transparent 30%),
-          linear-gradient(180deg, #ffffff 0%, var(--bg) 34%, var(--bg) 100%);
-        color: var(--text);
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 38%, var(--bg) 100%);
+        color: var(--ink);
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
           sans-serif;
       }
 
-      button,
-      input,
-      select {
-        font: inherit;
-      }
-
       .app {
-        width: min(1280px, 100%);
+        width: min(1440px, 100%);
         margin: 0 auto;
         padding: 22px;
       }
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 22px;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+        gap: 20px;
         align-items: end;
-        padding: 16px 0 20px;
+        padding: 14px 0 18px;
       }
 
       .eyebrow {
-        margin: 0 0 10px;
+        margin: 0 0 8px;
         color: var(--teal);
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 900;
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(28px, 5vw, 48px);
-        line-height: 1.08;
+        font-size: clamp(30px, 5vw, 52px);
+        line-height: 1.05;
       }
 
       .subline {
         margin: 12px 0 0;
-        max-width: 820px;
+        max-width: 860px;
         color: var(--muted);
         font-size: 15px;
         line-height: 1.65;
       }
 
-      .hero-panel {
-        width: min(380px, 100%);
-        padding: 16px;
+      .hero-panel,
+      .panel {
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.82);
+        background: var(--panel);
         box-shadow: var(--shadow);
+      }
+
+      .hero-panel {
+        padding: 15px;
       }
 
       .hero-panel strong {
         display: block;
         margin-bottom: 6px;
-        font-size: 22px;
+        font-size: 20px;
       }
 
       .hero-panel span {
+        display: block;
         color: var(--muted);
         font-size: 13px;
         line-height: 1.55;
@@ -128,15 +125,22 @@
         color: #fff;
       }
 
+      .dashboard {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 14px;
+        align-items: start;
+      }
+
       .stats {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
-        margin: 0 0 14px;
+        margin-bottom: 14px;
       }
 
       .metric {
-        min-height: 76px;
+        min-height: 82px;
         padding: 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -154,20 +158,7 @@
         margin-top: 8px;
         color: var(--muted);
         font-size: 12px;
-      }
-
-      .layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-        gap: 14px;
-        align-items: start;
-      }
-
-      .panel {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--panel);
-        box-shadow: 0 12px 28px rgba(31, 41, 51, 0.06);
+        line-height: 1.35;
       }
 
       .panel-head {
@@ -196,141 +187,220 @@
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #fff;
-        color: var(--text);
+        color: var(--ink);
         padding: 0 10px;
       }
 
-      .calendar {
+      .calendar-grid {
         display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
       }
 
-      .event {
-        display: grid;
-        grid-template-columns: 112px minmax(0, 1fr) 150px;
-        gap: 12px;
-        padding: 12px 14px;
+      .weekday,
+      .day-cell {
+        border-right: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
       }
 
-      .event:last-child {
-        border-bottom: 0;
-      }
-
-      .event-date {
+      .weekday {
+        padding: 9px 10px;
+        background: #f2f5f7;
         color: var(--muted);
         font-size: 12px;
-        line-height: 1.45;
+        font-weight: 900;
       }
 
-      .event-date b {
-        display: block;
-        color: var(--text);
-        font-size: 15px;
+      .day-cell {
+        min-height: 148px;
+        padding: 8px;
+        background: #fff;
       }
 
-      .event-main h2 {
+      .day-cell.outside {
+        background: #f8fafb;
+        color: #98a2b3;
+      }
+
+      .day-num {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .day-count {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .cal-event {
+        display: grid;
+        gap: 4px;
+        width: 100%;
         margin: 0 0 6px;
-        font-size: 16px;
-        line-height: 1.35;
+        padding: 7px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--soft);
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
       }
 
-      .event-main p {
-        margin: 0;
-        color: #344054;
-        font-size: 13px;
-        line-height: 1.55;
+      .cal-event.high {
+        border-color: #f6c0b8;
+        background: var(--red-soft);
       }
 
-      .badge-row {
+      .cal-event.medium {
+        border-color: #fedf89;
+        background: var(--amber-soft);
+      }
+
+      .cal-event.market {
+        border-color: #b8d1ff;
+        background: var(--blue-soft);
+      }
+
+      .cal-title {
+        overflow: hidden;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.25;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .cal-meta {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 8px;
+        gap: 4px;
       }
 
-      .badge {
+      .pill {
         display: inline-flex;
+        min-height: 20px;
         align-items: center;
-        min-height: 24px;
-        padding: 3px 8px;
+        padding: 2px 6px;
         border-radius: 999px;
-        background: var(--panel-soft);
+        background: #fff;
         color: #344054;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 800;
       }
 
-      .badge.green {
-        background: var(--green-soft);
+      .pill.red {
+        color: var(--red);
+      }
+
+      .pill.green {
         color: var(--green);
       }
 
-      .badge.amber {
-        background: var(--amber-soft);
-        color: var(--amber);
+      .pill.blue {
+        color: var(--blue);
       }
 
-      .badge.coral {
-        background: var(--coral-soft);
-        color: var(--coral);
-      }
-
-      .actuals {
-        display: grid;
-        gap: 6px;
-        align-content: start;
-      }
-
-      .actual {
-        padding: 8px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--panel-soft);
-        font-size: 12px;
-      }
-
-      .actual b {
-        display: block;
-        margin-bottom: 3px;
+      .more {
         color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
       }
 
-      .source-list,
-      .crypto-list,
-      .price-list,
-      .ratio-list {
+      .side {
+        display: grid;
+        gap: 14px;
+      }
+
+      .insight {
+        padding: 13px;
+      }
+
+      .insight h2 {
+        margin: 0 0 8px;
+        font-size: 17px;
+      }
+
+      .read-list {
         display: grid;
         gap: 8px;
-        padding: 12px;
+        margin-top: 10px;
       }
 
-      .source,
-      .crypto,
-      .price,
-      .ratio {
+      .read-item,
+      .asset-card {
         padding: 10px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: var(--panel-soft);
+        background: var(--soft);
       }
 
-      .source b,
-      .crypto b,
-      .price b,
-      .ratio b {
+      .read-item b,
+      .asset-card b {
         display: block;
         margin-bottom: 4px;
         font-size: 13px;
       }
 
-      .source span,
-      .crypto span,
-      .price span,
-      .ratio span {
-        display: block;
+      .read-item span,
+      .asset-card span {
         color: var(--muted);
         font-size: 12px;
         line-height: 1.5;
+      }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .detail {
+        display: none;
+        padding: 13px 14px;
+        border-top: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .detail.show {
+        display: block;
+      }
+
+      .detail h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .data-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 10px 0;
+      }
+
+      .data-box {
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--soft);
+      }
+
+      .data-box b {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .data-box span {
+        font-size: 15px;
+        font-weight: 900;
       }
 
       .empty {
@@ -340,31 +410,45 @@
         text-align: center;
       }
 
-      @media (max-width: 980px) {
+      @media (max-width: 1120px) {
         .hero,
-        .layout {
+        .dashboard {
           grid-template-columns: 1fr;
-        }
-
-        .hero-panel {
-          width: 100%;
         }
 
         .stats {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-
-        .event {
-          grid-template-columns: 1fr;
-        }
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 720px) {
         .app {
           padding: 14px;
         }
 
-        .stats {
+        .calendar-grid {
+          display: block;
+          border: 0;
+        }
+
+        .weekday {
+          display: none;
+        }
+
+        .day-cell {
+          min-height: auto;
+          margin-bottom: 8px;
+          border: 1px solid var(--line);
+          border-radius: 8px;
+        }
+
+        .day-cell.outside {
+          display: none;
+        }
+
+        .stats,
+        .asset-grid,
+        .data-row {
           grid-template-columns: 1fr;
         }
       }
@@ -374,13 +458,13 @@
     <main class="app">
       <header class="hero">
         <div>
-          <p class="eyebrow">每日自动更新宏观日历</p>
+          <p class="eyebrow">每日 8:20 自动刷新</p>
           <h1>金融宏观</h1>
           <p class="subline" id="summary">正在读取宏观数据...</p>
         </div>
         <aside class="hero-panel">
           <strong id="generatedAt">生成时间：-</strong>
-          <span>把非农、CPI/PPI、利率、贵金属与能源比例等数据放到一个日历里，重点看预期、实际和超预期方向。</span>
+          <span>用月历看宏观节奏：哪些数据会改变利率预期、通胀交易、商品定价和币圈风险偏好。</span>
         </aside>
       </header>
 
@@ -392,52 +476,63 @@
       <section class="stats" aria-label="宏观概览">
         <div class="metric">
           <b id="eventCount">0</b>
-          <span>日历事件</span>
+          <span>本月宏观事件</span>
         </div>
         <div class="metric">
-          <b id="actualCount">0</b>
-          <span>已公布数据</span>
+          <b id="highCount">0</b>
+          <span>高重要度事件</span>
         </div>
         <div class="metric">
-          <b id="sourceCount">0</b>
-          <span>数据源</span>
+          <b id="riskSignal">-</b>
+          <span>风险偏好信号</span>
         </div>
         <div class="metric">
-          <b id="watchCount">0</b>
-          <span>重点关注</span>
+          <b id="cryptoMood">-</b>
+          <span>币圈情绪</span>
         </div>
       </section>
 
-      <section class="layout">
+      <section class="dashboard">
         <div class="panel">
           <div class="panel-head">
-            <p class="panel-title">宏观日历</p>
+            <p class="panel-title" id="calendarTitle">宏观月历</p>
             <div class="toolbar">
               <select class="control" id="countryFilter">
                 <option value="">全部国家/地区</option>
               </select>
-              <select class="control" id="statusFilter">
-                <option value="">全部状态</option>
-                <option value="released">已公布</option>
-                <option value="watch">待接 API</option>
+              <select class="control" id="impactFilter">
+                <option value="">全部影响</option>
+                <option value="rates">利率/美元</option>
+                <option value="inflation">通胀/商品</option>
+                <option value="risk">风险资产</option>
+                <option value="crypto">币圈</option>
               </select>
             </div>
           </div>
-          <div class="calendar" id="calendar"></div>
-          <div class="empty" id="empty">暂无符合筛选条件的宏观事件。</div>
+          <div class="calendar-grid" id="calendar"></div>
+          <div class="empty" id="empty">当前筛选下没有宏观事件。</div>
+          <div class="detail" id="detail"></div>
         </div>
 
-        <aside class="panel">
-          <div class="panel-head">
-            <p class="panel-title">价格、比值与币圈</p>
-          </div>
-          <div class="price-list" id="priceList"></div>
-          <div class="ratio-list" id="ratioList"></div>
-          <div class="crypto-list" id="cryptoList"></div>
-          <div class="panel-head">
-            <p class="panel-title">数据源</p>
-          </div>
-          <div class="source-list" id="sourceList"></div>
+        <aside class="side">
+          <section class="panel insight">
+            <h2>怎么看这张日历</h2>
+            <div class="read-list" id="readList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <p class="panel-title">价格与比值</p>
+            </div>
+            <div class="asset-grid" id="assetGrid"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <p class="panel-title">数据源状态</p>
+            </div>
+            <div class="asset-grid" id="sourceGrid"></div>
+          </section>
         </aside>
       </section>
     </main>
@@ -445,27 +540,29 @@
     <script>
       const state = {
         events: [],
-        ratios: [],
         prices: [],
+        ratios: [],
         cryptoMetrics: [],
         sources: [],
+        selectedId: "",
       };
 
       const els = {
         summary: document.querySelector("#summary"),
         generatedAt: document.querySelector("#generatedAt"),
         eventCount: document.querySelector("#eventCount"),
-        actualCount: document.querySelector("#actualCount"),
-        sourceCount: document.querySelector("#sourceCount"),
-        watchCount: document.querySelector("#watchCount"),
+        highCount: document.querySelector("#highCount"),
+        riskSignal: document.querySelector("#riskSignal"),
+        cryptoMood: document.querySelector("#cryptoMood"),
+        calendarTitle: document.querySelector("#calendarTitle"),
         countryFilter: document.querySelector("#countryFilter"),
-        statusFilter: document.querySelector("#statusFilter"),
+        impactFilter: document.querySelector("#impactFilter"),
         calendar: document.querySelector("#calendar"),
         empty: document.querySelector("#empty"),
-        priceList: document.querySelector("#priceList"),
-        ratioList: document.querySelector("#ratioList"),
-        cryptoList: document.querySelector("#cryptoList"),
-        sourceList: document.querySelector("#sourceList"),
+        detail: document.querySelector("#detail"),
+        readList: document.querySelector("#readList"),
+        assetGrid: document.querySelector("#assetGrid"),
+        sourceGrid: document.querySelector("#sourceGrid"),
       };
 
       function text(value) {
@@ -480,97 +577,143 @@
           .replaceAll('"', "&quot;");
       }
 
-      function surpriseTone(value) {
-        if (/超出|高于|偏强/.test(text(value))) return "coral";
-        if (/不及|低于|偏弱/.test(text(value))) return "green";
-        return "amber";
+      function parseDate(value) {
+        const raw = text(value);
+        const zh = raw.match(/(\d{4})年(\d{2})月份/);
+        if (zh) return new Date(Number(zh[1]), Number(zh[2]) - 1, 1);
+        const date = new Date(raw);
+        return Number.isNaN(date.getTime()) ? null : date;
+      }
+
+      function classify(event) {
+        const title = `${event.title || ""} ${event.category || ""}`;
+        if (/非农|失业|就业/.test(title)) return { impact: "rates", importance: "high", tone: "high", why: "就业决定美联储降息/加息叙事，也会影响美元、美债和风险资产。" };
+        if (/CPI|PPI|通胀/.test(title)) return { impact: "inflation", importance: "high", tone: "high", why: "通胀决定实际利率和商品定价，通常直接影响黄金、原油、美元和股票估值。" };
+        if (/BTC|ETH|恐慌|市占|加密/.test(title)) return { impact: "crypto", importance: "medium", tone: "market", why: "币圈指标用于判断风险偏好、山寨活跃度和资金是否回到 BTC 防守。" };
+        return { impact: "risk", importance: "medium", tone: "medium", why: "用于确认风险偏好和跨资产定价方向。" };
       }
 
       function eventMatches(event) {
         if (els.countryFilter.value && event.country !== els.countryFilter.value) return false;
-        if (els.statusFilter.value === "released" && event.status !== "released") return false;
-        if (els.statusFilter.value === "watch" && event.status !== "watch") return false;
+        const impact = classify(event).impact;
+        if (els.impactFilter.value && impact !== els.impactFilter.value) return false;
         return true;
       }
 
-      function render() {
-        const events = state.events.filter(eventMatches);
-        els.calendar.innerHTML = events
-          .map((event) => {
-            const actuals = [
-              ["预期", event.expected],
-              ["实际", event.actual],
-              ["前值", event.previous],
-            ];
-            return `
-              <article class="event">
-                <div class="event-date">
-                  <b>${escapeHtml(event.date || "-")}</b>
-                  <span>${escapeHtml(event.time || event.period || "-")}</span>
-                </div>
-                <div class="event-main">
-                  <h2>${escapeHtml(event.title)}</h2>
-                  <p>${escapeHtml(event.notes)}</p>
-                  <div class="badge-row">
-                    <span class="badge">${escapeHtml(event.country)}</span>
-                    <span class="badge">${escapeHtml(event.category)}</span>
-                    <span class="badge ${event.status === "released" ? "green" : "amber"}">${event.status === "released" ? "已公布" : "待接 API"}</span>
-                    <span class="badge ${surpriseTone(event.surprise)}">${escapeHtml(event.surprise)}</span>
-                  </div>
-                </div>
-                <div class="actuals">
-                  ${actuals
-                    .map(([label, value]) => `<div class="actual"><b>${label}</b>${escapeHtml(value)}</div>`)
-                    .join("")}
-                </div>
-              </article>
-            `;
-          })
-          .join("");
-        els.empty.style.display = events.length ? "none" : "block";
+      function monthBase(events) {
+        const dates = events.map((event) => parseDate(event.date)).filter(Boolean);
+        dates.sort((a, b) => b - a);
+        return dates[0] || new Date();
+      }
 
-        els.priceList.innerHTML = state.prices
-          .map(
-            (price) => `
-              <div class="price">
-                <b>${escapeHtml(price.name)}：${escapeHtml(price.value)}</b>
-                <span>${escapeHtml(price.notes)}</span>
+      function sameDay(a, b) {
+        return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+      }
+
+      function renderCalendar() {
+        const filtered = state.events.filter(eventMatches);
+        const base = monthBase(filtered.length ? filtered : state.events);
+        const year = base.getFullYear();
+        const month = base.getMonth();
+        els.calendarTitle.textContent = `${year}年${String(month + 1).padStart(2, "0")}月宏观日历`;
+        const first = new Date(year, month, 1);
+        const start = new Date(first);
+        start.setDate(1 - first.getDay());
+        const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
+        const cells = weekdays.map((day) => `<div class="weekday">周${day}</div>`);
+
+        for (let index = 0; index < 42; index += 1) {
+          const day = new Date(start);
+          day.setDate(start.getDate() + index);
+          const dayEvents = filtered.filter((event) => sameDay(parseDate(event.date), day));
+          const outside = day.getMonth() !== month;
+          cells.push(`
+            <div class="day-cell ${outside ? "outside" : ""}">
+              <div class="day-num">
+                <span>${day.getDate()}</span>
+                ${dayEvents.length ? `<span class="day-count">${dayEvents.length}项</span>` : ""}
               </div>
-            `,
-          )
+              ${dayEvents.slice(0, 3).map(renderCalendarEvent).join("")}
+              ${dayEvents.length > 3 ? `<div class="more">还有 ${dayEvents.length - 3} 项</div>` : ""}
+            </div>
+          `);
+        }
+        els.calendar.innerHTML = cells.join("");
+        els.empty.style.display = filtered.length ? "none" : "block";
+      }
+
+      function renderCalendarEvent(event) {
+        const meta = classify(event);
+        return `
+          <button class="cal-event ${meta.tone}" data-id="${escapeHtml(event.id)}" type="button">
+            <span class="cal-title">${escapeHtml(event.title)}</span>
+            <span class="cal-meta">
+              <span class="pill">${escapeHtml(event.country)}</span>
+              <span class="pill ${event.surprise.includes("上升") || event.surprise.includes("多增") ? "red" : event.surprise.includes("回落") || event.surprise.includes("少增") ? "green" : "blue"}">${escapeHtml(event.surprise)}</span>
+            </span>
+          </button>
+        `;
+      }
+
+      function renderDetail(event) {
+        if (!event) {
+          els.detail.classList.remove("show");
+          els.detail.innerHTML = "";
+          return;
+        }
+        const meta = classify(event);
+        els.detail.classList.add("show");
+        els.detail.innerHTML = `
+          <h2>${escapeHtml(event.title)}</h2>
+          <p class="subline">${escapeHtml(meta.why)}</p>
+          <div class="data-row">
+            <div class="data-box"><b>实际</b><span>${escapeHtml(event.actual)}</span></div>
+            <div class="data-box"><b>前值</b><span>${escapeHtml(event.previous)}</span></div>
+            <div class="data-box"><b>预期</b><span>${escapeHtml(event.expected)}</span></div>
+          </div>
+          <div class="read-item">
+            <b>怎么用</b>
+            <span>${escapeHtml(readingFor(event))}</span>
+          </div>
+        `;
+      }
+
+      function readingFor(event) {
+        const title = `${event.title || ""} ${event.surprise || ""}`;
+        if (/非农|就业/.test(title)) return "就业强，降息预期容易后移；就业弱，市场更容易交易宽松和风险偏好修复。看它主要是为了判断美元、美债和成长资产的方向。";
+        if (/失业/.test(title)) return "失业率上升代表劳动力市场降温，可能支持宽松；失业率稳定则需要结合非农和工资数据判断。";
+        if (/CPI|PPI|通胀/.test(title)) return "通胀高会压制降息预期并支撑名义利率；通胀回落通常利好黄金、成长股和风险资产。中国 CPI/PPI 则更像需求和工业价格温度计。";
+        return "这个指标用于确认宏观背景，不单独做判断，要和价格比值、币圈情绪、美元/利率方向一起看。";
+      }
+
+      function renderSide() {
+        const topEvents = state.events.filter((event) => classify(event).importance === "high").slice(0, 4);
+        els.readList.innerHTML = topEvents
+          .map((event) => `
+            <div class="read-item">
+              <b>${escapeHtml(event.title)}：${escapeHtml(event.actual)}</b>
+              <span>${escapeHtml(readingFor(event))}</span>
+            </div>
+          `)
           .join("");
 
-        els.ratioList.innerHTML = state.ratios
-          .map(
-            (ratio) => `
-              <div class="ratio">
-                <b>${escapeHtml(ratio.name)}：${escapeHtml(ratio.value)}</b>
-                <span>${escapeHtml(ratio.notes)}</span>
-              </div>
-            `,
-          )
+        const assets = [...state.prices, ...state.ratios, ...state.cryptoMetrics];
+        els.assetGrid.innerHTML = assets
+          .map((asset) => `
+            <div class="asset-card">
+              <b>${escapeHtml(asset.name)}：${escapeHtml(asset.value)}</b>
+              <span>${escapeHtml(asset.notes)}</span>
+            </div>
+          `)
           .join("");
 
-        els.cryptoList.innerHTML = state.cryptoMetrics
-          .map(
-            (metric) => `
-              <div class="crypto">
-                <b>${escapeHtml(metric.name)}：${escapeHtml(metric.value)}</b>
-                <span>${escapeHtml(metric.notes)}</span>
-              </div>
-            `,
-          )
-          .join("");
-
-        els.sourceList.innerHTML = state.sources
-          .map(
-            (source) => `
-              <div class="source">
-                <b>${escapeHtml(source.name)}</b>
-                <span>${escapeHtml(source.status)} · ${escapeHtml(source.usage)}</span>
-              </div>
-            `,
-          )
+        els.sourceGrid.innerHTML = state.sources
+          .map((source) => `
+            <div class="asset-card">
+              <b>${escapeHtml(source.name)}</b>
+              <span>${escapeHtml(source.status)} · ${escapeHtml(source.usage)}</span>
+            </div>
+          `)
           .join("");
       }
 
@@ -580,6 +723,33 @@
           '<option value="">全部国家/地区</option>' +
           countries.map((country) => `<option value="${escapeHtml(country)}">${escapeHtml(country)}</option>`).join("");
       }
+
+      function renderStats() {
+        const high = state.events.filter((event) => classify(event).importance === "high").length;
+        const fear = state.cryptoMetrics.find((item) => item.name.includes("恐慌"));
+        const btc = state.cryptoMetrics.find((item) => item.name.includes("BTC"));
+        els.eventCount.textContent = state.events.length;
+        els.highCount.textContent = high;
+        els.cryptoMood.textContent = fear ? fear.value : "-";
+        els.riskSignal.textContent = btc ? btc.value : "-";
+      }
+
+      function render() {
+        renderCalendar();
+        renderSide();
+        renderStats();
+        const selected = state.events.find((event) => event.id === state.selectedId) || state.events[0];
+        renderDetail(selected);
+      }
+
+      els.calendar.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-id]");
+        if (!button) return;
+        state.selectedId = button.dataset.id;
+        renderDetail(state.events.find((entry) => entry.id === state.selectedId));
+      });
+
+      [els.countryFilter, els.impactFilter].forEach((el) => el.addEventListener("input", render));
 
       fetch("data/macro-latest.json", { cache: "no-store" })
         .then((res) => {
@@ -594,10 +764,6 @@
           state.sources = Array.isArray(data.sources) ? data.sources : [];
           els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
-          els.eventCount.textContent = state.events.length;
-          els.actualCount.textContent = state.events.filter((event) => event.status === "released").length;
-          els.sourceCount.textContent = state.sources.length;
-          els.watchCount.textContent = state.events.filter((event) => event.importance === "high").length;
           setupFilters();
           render();
         })
@@ -605,8 +771,6 @@
           els.summary.textContent = `宏观数据读取失败：${error.message}`;
           render();
         });
-
-      [els.countryFilter, els.statusFilter].forEach((el) => el.addEventListener("input", render));
     </script>
   </body>
 </html>
