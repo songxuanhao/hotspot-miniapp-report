@@ -564,6 +564,48 @@ def rss_items(source, url, limit=10):
     return items
 
 
+def format_unix_time(value):
+    try:
+        return dt.datetime.fromtimestamp(int(value)).strftime("%Y-%m-%d %H:%M")
+    except Exception:
+        return ""
+
+
+def wallstreetcn_live_items(limit=12):
+    url = "https://api-one-wscn.awtmt.com/apiv1/content/lives"
+    response = requests.get(
+        url,
+        params={"channel": "global-channel", "client": "pc", "limit": limit},
+        headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "application/json,text/plain,*/*",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        },
+        timeout=18,
+    )
+    response.raise_for_status()
+    data = response.json().get("data", {}).get("items", [])
+    items = []
+    for entry in data[:limit]:
+        summary = clean_text(
+            f"{entry.get('content_text') or ''} {entry.get('content_more') or ''}",
+            360,
+        )
+        title = clean_text(entry.get("title") or summary, 120)
+        if not title:
+            continue
+        item = make_news(
+            "华尔街见闻7x24",
+            title,
+            entry.get("uri", ""),
+            format_unix_time(entry.get("display_time")),
+            summary,
+        )
+        item["buckets"] = list(dict.fromkeys([*item.get("buckets", []), "macro-tide", "risk-regime"]))
+        items.append(item)
+    return items
+
+
 def gdelt_items(topic, query, bucket, limit=6):
     url = "https://api.gdeltproject.org/api/v2/doc/doc"
     params = {
@@ -593,6 +635,10 @@ def gdelt_items(topic, query, bucket, limit=6):
 
 def google_news_url(query):
     return f"https://news.google.com/rss/search?q={quote_plus(query)}&hl=en-US&gl=US&ceid=US:en"
+
+
+def google_news_zh_url(query):
+    return f"https://news.google.com/rss/search?q={quote_plus(query)}&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
 
 
 def row_text(row, candidates):
@@ -649,7 +695,29 @@ def cctv_briefing():
 def get_market_news():
     news = []
     failures = []
+    chinese_direct_sources = [
+        ("华尔街见闻7x24", wallstreetcn_live_items),
+    ]
+    for source, fetcher in chinese_direct_sources:
+        try:
+            news.extend(fetcher())
+        except Exception as error:
+            failures.append({"source": source, "error": str(error)})
+
     feeds = {
+        "Google新闻 · 财经头条": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "Google新闻 · 国际头条": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "Google新闻 · 美国财经": google_news_zh_url("美国 经济 美股 美债 美元 黄金"),
+        "Google新闻 · 全球央行": google_news_zh_url("美联储 欧洲央行 日本央行 降息 加息"),
+        "Google新闻 · 大宗商品": google_news_zh_url("黄金 原油 铜价 OPEC 通胀 供应链"),
+        "Google新闻 · 中国市场": google_news_zh_url("中国 宏观 人民币 国债 社融 LPR A股 港股"),
+        "Google新闻 · 美联储利率": google_news_zh_url("美联储 降息 加息 通胀 PCE 非农 美债收益率 when:7d"),
+        "Google新闻 · 特朗普关税": google_news_zh_url("特朗普 关税 中美贸易 美元 黄金 股市 when:7d"),
+        "Google新闻 · 战争地缘": google_news_zh_url("俄乌 中东 伊朗 以色列 红海 战争 黄金 原油 when:7d"),
+        "Google新闻 · 原油OPEC": google_news_zh_url("OPEC 原油 油价 红海 航运 通胀 when:7d"),
+        "Google新闻 · 中国宏观": google_news_zh_url("中国 CPI PPI 社融 LPR 人民币 国债 收益率 when:7d"),
+        "Google新闻 · 贵金属": google_news_zh_url("伦敦金 沪金 黄金 ETF 央行购金 美元 实际利率 when:7d"),
+        "Google新闻 · 币圈宏观": google_news_zh_url("比特币 ETF 资金流入 稳定币 以太坊 SEC when:7d"),
         "CoinDesk": "https://www.coindesk.com/arc/outboundfeeds/rss/",
         "MarketWatch": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
         "Federal Reserve": "https://www.federalreserve.gov/feeds/press_all.xml",
