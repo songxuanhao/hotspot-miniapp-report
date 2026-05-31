@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026/5/31 16:14:14 +08:00",
+  "summary": "金融宏观日历：3 个事件，0 个已公布数据；美国实际值来自 BLS，预期值/中国 CPI PPI/比例类数据待接 API。",
+  "events": [
+    {
+      "id": "watch-china-cpi",
+      "date": "待接经济日历",
+      "time": "通常每月上旬",
+      "period": "-",
+      "country": "中国",
+      "category": "通胀",
+      "title": "中国 CPI",
+      "expected": "待接 API",
+      "actual": "待公布",
+      "previous": "待接 API",
+      "surprise": "待公布",
+      "status": "watch",
+      "importance": "high",
+      "source": "Trading Economics / 国家统计局",
+      "notes": "建议接 Trading Economics 日历拿预期、实际、前值；官方 NBS 可做校验源。"
+    },
+    {
+      "id": "watch-china-ppi",
+      "date": "待接经济日历",
+      "time": "通常每月上旬",
+      "period": "-",
+      "country": "中国",
+      "category": "通胀",
+      "title": "中国 PPI",
+      "expected": "待接 API",
+      "actual": "待公布",
+      "previous": "待接 API",
+      "surprise": "待公布",
+      "status": "watch",
+      "importance": "high",
+      "source": "Trading Economics / 国家统计局",
+      "notes": "和 CPI 同源处理，重点看是否超预期改善或恶化。"
+    },
+    {
+      "id": "watch-us-nfp-calendar",
+      "date": "待接经济日历",
+      "time": "通常每月第一个周五 20:30/21:30 北京时间",
+      "period": "-",
+      "country": "美国",
+      "category": "就业",
+      "title": "美国非农就业公布日",
+      "expected": "待接 API",
+      "actual": "BLS 实际值已接",
+      "previous": "BLS 前值已接",
+      "surprise": "待接预期",
+      "status": "watch",
+      "importance": "high",
+      "source": "Trading Economics Calendar API",
+      "notes": "要判断超预期/不及预期，必须拿市场预期字段。"
+    }
+  ],
+  "ratios": [
+    {
+      "name": "金银比",
+      "value": "待接 FRED_API_KEY",
+      "notes": "建议用 FRED 黄金、白银日度价格序列计算。无 key 时先展示为待接。"
+    },
+    {
+      "name": "金油比",
+      "value": "待接 FRED_API_KEY",
+      "notes": "建议用 FRED 黄金价格和 WTI 原油日度价格计算。"
+    }
+  ],
+  "sources": [
+    {
+      "name": "BLS Public Data API",
+      "status": "已接入，无需 key",
+      "usage": "美国非农、CPI、PPI 实际值和前值；不提供市场预期。",
+      "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/"
+    },
+    {
+      "name": "Trading Economics Calendar API",
+      "status": "待接 API key",
+      "usage": "最适合经济日历、预期值、实际值、前值、国家/重要性筛选；可覆盖中国 CPI/PPI。",
+      "url": "https://docs.tradingeconomics.com/economic_calendar/"
+    },
+    {
+      "name": "FRED API",
+      "status": "待接免费 API key",
+      "usage": "适合美国宏观时间序列、黄金、白银、WTI 等，用于金银比、金油比。",
+      "url": "https://fred.stlouisfed.org/docs/api/api_key.html"
+    },
+    {
+      "name": "中国国家统计局数据接口",
+      "status": "待确认指标码和稳定性",
+      "usage": "可作为中国 CPI/PPI 官方来源，但公开接口文档不完整，建议先用 Trading Economics 做日历。",
+      "url": "https://data.stats.gov.cn/"
+    }
+  ],
+  "failures": [
+    {
+      "source": "BLS Public Data API",
+      "error": "Unexpected token 'a', \"a54\r\n{\"sta\"... is not valid JSON"
+    }
+  ]
+}
