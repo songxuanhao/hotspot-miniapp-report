@@ -6,6 +6,7 @@ const https = require("https");
 const { spawnSync } = require("child_process");
 
 const repoRoot = path.resolve(__dirname, "..");
+const bundledPython = "C:\\Users\\26960\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe";
 
 const BLS_SERIES = [
   {
@@ -36,9 +37,21 @@ const BLS_SERIES = [
 
 const SOURCES = [
   {
+    name: "AkShare",
+    status: fs.existsSync(path.join(repoRoot, ".python-deps", "akshare")) ? "已接入，本地依赖" : "待安装本地依赖",
+    usage: "美国/中国宏观数据，字段通常包含今值、预测值、前值；免费但属于第三方公开源封装。",
+    url: "https://akshare.akfamily.xyz/",
+  },
+  {
+    name: "yfinance",
+    status: fs.existsSync(path.join(repoRoot, ".python-deps", "yfinance")) ? "已接入，本地依赖" : "待安装本地依赖",
+    usage: "用 GC=F、SI=F、CL=F 收盘价计算金银比、金油比；免费源可能偶发限流。",
+    url: "https://github.com/ranaroussi/yfinance",
+  },
+  {
     name: "BLS Public Data API",
-    status: "已接入，无需 key",
-    usage: "美国非农、CPI、PPI 实际值和前值；不提供市场预期。",
+    status: "保留兜底，无需 key",
+    usage: "美国非农、CPI、PPI 实际值和前值；不提供市场预期，且不适合抢时效。",
     url: "https://api.bls.gov/publicAPI/v2/timeseries/data/",
   },
   {
@@ -73,6 +86,34 @@ function run(command, args, options = {}) {
     ...options,
   });
   if (result.status !== 0) throw new Error(`${command} ${args.join(" ")} failed`);
+}
+
+function loadAkshareData() {
+  const candidates = [
+    process.env.PYTHON,
+    bundledPython,
+    "python",
+  ].filter(Boolean);
+  const script = path.join(repoRoot, "scripts", "macro-akshare.py");
+  for (const python of candidates) {
+    const result = spawnSync(python, [script], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      shell: false,
+      env: {
+        ...process.env,
+        PYTHONPATH: path.join(repoRoot, ".python-deps"),
+        PYTHONIOENCODING: "utf-8",
+        HTTPS_PROXY: process.env.HTTPS_PROXY || "http://127.0.0.1:10808",
+        HTTP_PROXY: process.env.HTTP_PROXY || "http://127.0.0.1:10808",
+      },
+      timeout: 120000,
+    });
+    if (result.status === 0 && result.stdout.trim()) {
+      return JSON.parse(result.stdout);
+    }
+  }
+  return { events: [], ratios: [], failures: [{ source: "AkShare/yfinance", error: "Python macro source failed or dependencies missing" }] };
 }
 
 function fetchDirect(url) {
@@ -268,7 +309,7 @@ function watchEvents() {
       status: "watch",
       importance: "high",
       source: "Trading Economics / 国家统计局",
-      notes: "建议接 Trading Economics 日历拿预期、实际、前值；官方 NBS 可做校验源。",
+      notes: "AkShare 中国宏观历史值已接入；若需要公布前精确日历和更稳预期，可再接 Trading Economics。",
     },
     {
       id: "watch-china-ppi",
@@ -285,7 +326,7 @@ function watchEvents() {
       status: "watch",
       importance: "high",
       source: "Trading Economics / 国家统计局",
-      notes: "和 CPI 同源处理，重点看是否超预期改善或恶化。",
+      notes: "AkShare 中国宏观历史值已接入；若需要公布前精确日历和更稳预期，可再接 Trading Economics。",
     },
     {
       id: "watch-us-nfp-calendar",
@@ -302,7 +343,7 @@ function watchEvents() {
       status: "watch",
       importance: "high",
       source: "Trading Economics Calendar API",
-      notes: "要判断超预期/不及预期，必须拿市场预期字段。",
+      notes: "AkShare 已提供历史今值/预测值/前值；公布前提醒仍建议用经济日历源。",
     },
   ];
 }
@@ -335,21 +376,29 @@ async function main() {
 
   const generatedAt = `${new Date().toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" })} +08:00`;
   const failures = [];
-  let events = [];
-  try {
-    events = await fetchBlsEvents();
-  } catch (error) {
-    failures.push({ source: "BLS Public Data API", error: error.message });
+  const akshare = loadAkshareData();
+  let events = Array.isArray(akshare.events) ? akshare.events : [];
+  let ratioItems = Array.isArray(akshare.ratios) ? akshare.ratios : [];
+  failures.push(...(Array.isArray(akshare.failures) ? akshare.failures : []));
+
+  if (!events.length) {
+    try {
+      events = await fetchBlsEvents();
+    } catch (error) {
+      failures.push({ source: "BLS Public Data API", error: error.message });
+    }
   }
+
+  if (!ratioItems.length) ratioItems = ratios();
   events = [...events, ...watchEvents()];
   if (!events.length) throw new Error("No macro events produced; refusing to publish an empty macro report.");
 
   const releasedCount = events.filter((event) => event.status === "released").length;
   const report = {
     generatedAt,
-    summary: `金融宏观日历：${events.length} 个事件，${releasedCount} 个已公布数据；美国实际值来自 BLS，预期值/中国 CPI PPI/比例类数据待接 API。`,
+    summary: `金融宏观日历：${events.length} 个事件，${releasedCount} 个已公布数据；AkShare 提供今值/预测值/前值，yfinance 计算金银比/金油比，BLS 保留兜底。`,
     events,
-    ratios: ratios(),
+    ratios: ratioItems,
     sources: SOURCES,
     failures,
   };
