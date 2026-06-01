@@ -1060,7 +1060,7 @@
 
       .chart-card {
         position: relative;
-        overflow-x: auto;
+        overflow: hidden;
         padding: 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -2194,10 +2194,10 @@
         const ctx = canvas.getContext("2d");
         const points = pointsForRange(asset);
         const values = points.map((point) => point.value).filter((value) => typeof value === "number");
-        const pointGap = state.selectedRange === "1y" ? 34 : 42;
-        const logicalWidth = Math.max(680, (values.length - 1) * pointGap + 100);
-        canvas.style.width = `${logicalWidth}px`;
+        const container = canvas.parentElement;
+        canvas.style.width = "100%";
         canvas.style.height = "320px";
+        const logicalWidth = Math.max(520, Math.floor(canvas.getBoundingClientRect().width || (container.clientWidth - 28)));
         const scale = window.devicePixelRatio || 1;
         canvas.width = Math.floor(logicalWidth * scale);
         canvas.height = Math.floor(320 * scale);
@@ -2237,12 +2237,14 @@
           ctx.fillText(formatNumber(tick), 8, yy + 4);
         });
 
+        const labelEvery = values.length <= 45 ? 1 : values.length <= 110 ? 3 : values.length <= 190 ? 7 : 14;
         mappedPoints.forEach((point, index) => {
           ctx.strokeStyle = "rgba(83,98,116,0.18)";
           ctx.beginPath();
           ctx.moveTo(point.x, height - padding.bottom);
           ctx.lineTo(point.x, height - padding.bottom + 5);
           ctx.stroke();
+          if (index % labelEvery !== 0 && index !== mappedPoints.length - 1) return;
           ctx.save();
           ctx.translate(point.x, height - padding.bottom + 18);
           ctx.rotate(-Math.PI / 4);
@@ -2327,7 +2329,6 @@
           button.classList.toggle("active", button.dataset.range === state.selectedRange);
         });
         drawAssetChart(asset);
-        els.drawerChart.parentElement.scrollLeft = els.drawerChart.parentElement.scrollWidth;
         renderChartStats(asset);
         els.assetDrawer.classList.add("show");
         els.assetDrawer.setAttribute("aria-hidden", "false");

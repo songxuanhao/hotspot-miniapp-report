@@ -37,6 +37,12 @@ try {
 ].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
 
 [
+  "overflow-x: auto",
+  "scrollLeft",
+  "pointGap",
+].forEach((needle) => assert(!html.includes(needle), `macro chart should not require horizontal scrolling: ${needle}`));
+
+[
   "function summarizeItem",
   "function summarizeNewsConclusion",
   "function articleTypeFor",
