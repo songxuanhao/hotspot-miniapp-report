@@ -1621,54 +1621,111 @@
           .trim();
       }
 
-      function impactForNews(news) {
-        const meta = classifyNews(news);
-        if (meta.impact === "rates") return "这会影响利率、美元和黄金的短线定价。";
-        if (meta.impact === "crypto") return "这会影响 BTC、ETH 和币圈风险偏好。";
-        return "这会影响黄金、原油和整体风险偏好。";
+      function newsTimeText(news) {
+        const date = parseNewsDate(news?.published);
+        if (!date) return "时间未明";
+        return date.toLocaleString("zh-CN", {
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        });
       }
 
-      function inferredNewsConclusion(news, parts) {
-        const body = `${parts.join(" ")} ${news?.titleZh || ""} ${news?.title || ""}`.toLowerCase();
-        if (/非农|payroll|jobs/.test(body) && /黄金|gold|美元|dollar/.test(body)) return "市场关注非农数据对黄金和美元的影响。";
-        if (/非农|payroll|jobs/.test(body)) return "市场等待非农数据确认就业降温程度。";
-        if (/债券|国债|treasury|yield/.test(body) && /加息|rate hike|2027/.test(body)) return "债券交易员押注高利率维持更久。";
-        if (/黄金|gold/.test(body) && /震荡|波动|避险/.test(body)) return "黄金价格仍受避险和利率预期拉扯。";
-        if (/美元|dollar|dxy/.test(body) && /强|弱|大洗牌/.test(body)) return "美元强弱成为当前资产定价主线。";
-        if (/比特币|bitcoin|btc|etf/.test(body)) return "比特币资金流向影响币圈风险偏好。";
-        if (/opec|原油|oil|红海|伊朗|以色列|俄乌|war/.test(body)) return "地缘和供给消息继续影响油价与避险资产。";
-        return stripNewsSource(parts[0] || "市场出现一条需要跟踪的新消息。");
+      function expectedValueFrom(body) {
+        const match = body.match(/(?:预期|预计|预测|共识|市场预估|expected)[为是约：:\s]*(?:达到|录得|升至|降至)?\s*([+-]?\d+(?:\.\d+)?\s*(?:%|万人|千人|万人次|万|亿|点|基点|bp|美元|桶|盎司)?)/i);
+        return match ? match[1].replace(/\s+/g, "") : "";
       }
 
-      function inferredNewsReasons(news, parts) {
+      function firstUsefulSentence(parts) {
+        const banned = /^(市场)?(关注|等待|聚焦)|文章分析了|本文探讨了|市场如何反应|怎么看|如何反应/;
+        return parts.find((part) => part.length >= 8 && !banned.test(part)) || parts[0] || "";
+      }
+
+      function eventNameFromNews(news, body) {
+        const title = stripNewsSource(news?.titleZh || news?.title || "");
+        const beforeColon = title.split(/[：:]/)[0];
+        return stripNewsSource(beforeColon || body)
+          .replace(/^(前瞻|快讯|重磅|独家)\s*/, "")
+          .replace(/市场(关注|等待|聚焦).*/, "")
+          .replace(/将公布|即将公布|公布前.*/, "")
+          .replace(/市场如何反应.*/, "")
+          .trim()
+          .slice(0, 42) || "关键财经事件";
+      }
+
+      function isForwardNews(body) {
+        return /前瞻|将公布|即将公布|待公布|将召开|即将召开|决议前|会议前|公布前|倒计时|预期|预计|预测|市场预估/i.test(body);
+      }
+
+      function factForNews(news, parts) {
+        const body = `${parts.join(" ")} ${news?.titleZh || ""} ${news?.title || ""}`;
+        const time = newsTimeText(news);
+        if (isForwardNews(body)) {
+          const expected = expectedValueFrom(body);
+          const eventName = eventNameFromNews(news, body);
+          return `${eventName}将公布或推进，接口摘要${expected ? `给出的预期值为${expected}` : "未给出明确预期值"}，当前更新时间为${time}。`;
+        }
+        let fact = stripNewsSource(firstUsefulSentence(parts))
+          .replace(/^市场(关注|等待|聚焦)[:：，,]?\s*/, "")
+          .replace(/市场如何反应[？?]?/g, "")
+          .replace(/^[：:，,]\s*/, "")
+          .trim();
+        if (!fact) fact = "出现一条需要纳入宏观判断的财经消息";
+        fact = fact.length > 88 ? `${fact.slice(0, 88)}...` : fact;
+        return /(\d{1,2}月\d{1,2}日|\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}|今日|周[一二三四五六日天])/.test(fact)
+          ? (fact.endsWith("。") ? fact : `${fact}。`)
+          : `${fact}（更新时间：${time}）。`;
+      }
+
+      function impactForNews(news, parts) {
         const body = `${parts.join(" ")} ${news?.titleZh || ""} ${news?.title || ""}`.toLowerCase();
-        const reasons = [];
-        if (/非农|payroll|jobs/.test(body)) reasons.push("非农数据会改变市场对就业强弱和降息节奏的判断。");
-        if (/黄金|gold/.test(body)) reasons.push("黄金对实际利率、美元和避险需求变化敏感。");
-        if (/美元|dollar|dxy/.test(body)) reasons.push("美元走强会压制黄金、商品和部分风险资产。");
-        if (/债券|国债|treasury|yield|加息|rate hike/.test(body)) reasons.push("债券收益率变化会直接影响估值和全球流动性。");
-        if (/比特币|bitcoin|btc|etf|crypto/.test(body)) reasons.push("币圈资金流会影响 BTC、ETH 和山寨资产的风险偏好。");
-        if (/opec|原油|oil|红海|伊朗|以色列|俄乌|war/.test(body)) reasons.push("地缘或供给冲击会推高油价波动并带动避险交易。");
-        if (!reasons.length) reasons.push(impactForNews(news));
-        return reasons;
+        const forward = isForwardNews(body);
+        const hot = /超预期|高于预期|强于预期|升温|上升|上涨|走高|hawkish|hot|higher|加息|推迟降息|通胀粘性|强劲/.test(body);
+        const cool = /不及预期|低于预期|弱于预期|降温|下滑|回落|走低|dovish|cool|lower|降息|宽松|疲软|放缓/.test(body);
+        const easing = /停火|和谈|缓和|解除|增产|恢复供应|降关税|ceasefire|deal/.test(body);
+
+        if (/财报|营收|利润|ipo|ai|anthropic|openai|英伟达|nvidia|苹果|微软|meta|资本开支|数据中心|芯片|半导体/.test(body)) {
+          return "主要影响美股科技和 AI 产业链，因为业绩、IPO 或资本开支会改变纳指盈利预期和风险偏好。";
+        }
+        if (/cpi|pce|ppi|通胀|物价|非农|就业|失业|初请|fomc|美联储|鲍威尔|fed|利率|降息|加息|国债|treasury|yield|dxy|美元指数|美元走强|美元走弱|美元反弹|美元回落|收益率/.test(body)) {
+          if (forward) return "若数据高于预期，利好美元和美债收益率、利空黄金和美股估值；若低于预期则利好黄金和美债价格，因为降息预期会升温。";
+          if (hot) return "利好美元和美债收益率、利空黄金和风险资产，因为更强数据会削弱降息预期并抬高实际利率。";
+          if (cool) return "利好黄金和美债价格、利空美元，因为经济或通胀降温会强化降息预期。";
+          return "短线主要影响美元、美债和黄金，因为它会改变市场对央行利率路径的定价。";
+        }
+        if (/opec|原油|oil|brent|wti|红海|伊朗|以色列|俄乌|乌克兰|俄罗斯|中东|战争|冲突|袭击|地缘/.test(body)) {
+          if (easing) return "利空原油和黄金避险溢价、利好风险资产，因为供应和地缘风险溢价会下降。";
+          return "利好原油和黄金、利空高风险资产，因为地缘冲突或供给扰动会推升能源价格和避险需求。";
+        }
+        if (/特朗普|trump|关税|tariff|贸易|制裁|出口管制|对华|白宫|国会|财政|赤字/.test(body)) {
+          return "利空全球风险资产和人民币资产、利好美元短线避险，因为关税或政策不确定性会抬升通胀和贸易摩擦溢价。";
+        }
+        if (/gdp|pmi|零售|消费者信心|ism|房地产|社融|m2|lpr|经济增长|制造业/.test(body)) {
+          if (forward) return "若增长数据好于预期，利好股票和工业品、利空债券价格；若差于预期则利好债券和黄金，因为避险与宽松预期会上升。";
+          if (hot) return "利好股票和工业品、利空债券价格，因为增长韧性会提高盈利预期并压低降息交易。";
+          if (cool) return "利好债券和黄金、利空周期股，因为增长走弱会提升避险和政策宽松预期。";
+          return "主要影响股债跷跷板，因为增长强弱会改变盈利预期和利率预期。";
+        }
+        if (/比特币|bitcoin|btc|eth|以太坊|crypto|币圈|加密|稳定币|链上|((sec|etf).*(比特币|bitcoin|btc|eth|以太坊|crypto|币圈|加密))/.test(body)) {
+          if (/流入|增持|批准|买入|新高|上涨|走强|inflow|approve/.test(body)) return "利好 BTC、ETH 和币圈风险偏好，因为资金流入或监管利好会提高加密资产需求。";
+          if (/流出|抛售|起诉|监管|下跌|走弱|outflow|lawsuit/.test(body)) return "利空 BTC、ETH 和山寨币，因为资金流出或监管压力会压低风险偏好。";
+          return "主要影响 BTC、ETH 和山寨币，因为币圈资金流会放大风险偏好的变化。";
+        }
+        return "短线影响偏中性，先看美元、美债收益率、黄金和股指是否同向确认，因为接口摘要没有给出足够强的传导线索。";
       }
 
       function summarizeNewsConclusion(news) {
-        const type = articleTypeFor(news);
         const parts = cleanNewsBody(news);
-        const first = inferredNewsConclusion(news, parts);
-        const conclusion = (type === "opinion"
-          ? first.replace(/^(认为|指出|分析|预计|警告|称|表示)[:：，,]?\s*/, "")
-          : first
-        ).slice(0, type === "opinion" ? 30 : 46);
-        const bodyReasons = parts.slice(1, 5);
-        const reasons = bodyReasons.length
-          ? bodyReasons.map(stripNewsSource)
-          : inferredNewsReasons(news, parts);
+        const fact = factForNews(news, parts);
+        const impact = impactForNews(news, parts);
         return {
-          type,
-          conclusion: conclusion.endsWith("。") ? conclusion : `${conclusion}。`,
-          reasons: reasons.map((reason) => reason.endsWith("。") ? reason : `${reason}。`),
+          type: articleTypeFor(news),
+          fact,
+          impact,
+          conclusion: `事实:${fact}`,
+          reasons: [`影响:${impact}`],
         };
       }
 
@@ -1680,6 +1737,8 @@
           return {
             conclusion: summary.conclusion,
             reasons: summary.reasons,
+            fact: summary.fact,
+            impact: summary.impact,
           };
         }
 
@@ -1701,6 +1760,21 @@
             event.notes ? `数据来源：${event.source || item.source}，${event.notes}` : `数据来源：${event.source || item.source}`,
           ].filter(Boolean),
         };
+      }
+
+      function dedupeNews(items) {
+        const seen = new Set();
+        return (items || []).filter((news) => {
+          const title = stripNewsSource(news?.titleZh || news?.title || "");
+          const summary = stripNewsSource(news?.summaryZh || news?.summary || "");
+          const key = (news?.url || `${title} ${summary}`)
+            .toLowerCase()
+            .replace(/[^\u4e00-\u9fa5a-z0-9]/gi, "")
+            .slice(0, 96);
+          if (!key || seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
       }
 
       function renderAccordionItems(items, options = {}) {
@@ -1862,11 +1936,12 @@
         const raw = item.raw;
         const badge = isNews ? "purple" : raw.surprise?.includes("上升") || raw.surprise?.includes("多增") ? "red" : raw.surprise?.includes("回落") || raw.surprise?.includes("少增") ? "green" : "blue";
         const summary = summarizeItem(item);
+        const timeLabel = isNews ? newsTimeText(raw) : item.source;
         return `
           <button class="cal-item ${item.kind}" data-id="${escapeHtml(item.id)}" type="button">
             <span class="cal-title">${escapeHtml(summary.conclusion)}</span>
             <span class="cal-meta">
-              <span class="pill">${escapeHtml(item.source)}</span>
+              <span class="pill">${escapeHtml(timeLabel)}</span>
               <span class="pill ${badge}">${escapeHtml(item.label)}</span>
             </span>
           </button>
@@ -1913,14 +1988,14 @@
         const summary = summarizeItem(item);
         els.modalTitle.textContent = summary.conclusion;
         els.modalBody.innerHTML = `
-          <p class="detail-sub">${escapeHtml(news.source)} · ${escapeHtml(news.published || "-")}</p>
           <div class="read-item">
-            <b>支撑理由</b>
-            <ol class="reason-list">
-              ${summary.reasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}
-            </ol>
+            <b>事实</b>
+            <span>${escapeHtml(summary.fact || summary.conclusion.replace(/^事实[:：]/, ""))}</span>
           </div>
-          ${news.title && news.title !== news.titleZh ? `<div class="read-item"><b>原始标题</b><span>${escapeHtml(news.title)}</span></div>` : ""}
+          <div class="read-item">
+            <b>影响</b>
+            <span>${escapeHtml(summary.impact || summary.reasons.join(""))}</span>
+          </div>
           ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
         `;
         els.newsModal.classList.add("show");
@@ -1988,8 +2063,8 @@
             ${news
               .map((item, index) => `
                 <button class="news-link news-button" data-related-news="${escapeHtml(encodeURIComponent(JSON.stringify(item)))}" type="button">
-                  <span>${escapeHtml(item.source)} ${item.published ? "· " + escapeHtml(item.published) : ""}</span>
-                  ${escapeHtml(item.titleZh || item.title)}
+                  <span>${escapeHtml(newsTimeText(item))}</span>
+                  ${escapeHtml(summarizeNewsConclusion(item).fact)}
                 </button>
               `)
               .join("")}
@@ -2462,7 +2537,7 @@
         })
         .then((data) => {
           state.events = Array.isArray(data.events) ? data.events : [];
-          state.news = Array.isArray(data.news) ? data.news : [];
+          state.news = dedupeNews(Array.isArray(data.news) ? data.news : []);
           state.ratios = Array.isArray(data.ratios) ? data.ratios : [];
           state.assetHistory = Array.isArray(data.assetHistory) ? data.assetHistory : [];
           state.rateMetrics = Array.isArray(data.rateMetrics) ? data.rateMetrics : [];

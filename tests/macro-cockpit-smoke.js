@@ -45,6 +45,10 @@ try {
 [
   "function summarizeItem",
   "function summarizeNewsConclusion",
+  "function factForNews",
+  "function impactForNews",
+  "function expectedValueFrom",
+  "function dedupeNews",
   "function articleTypeFor",
   "function renderAccordionItems",
   "function renderAssetSpotlight",
@@ -56,7 +60,15 @@ try {
   "data-accordion-id",
   "data-asset-key",
   'id="chartTooltip"',
+  "事实:",
+  "影响:",
 ].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
+
+[
+  "市场关注非农数据对黄金和美元的影响",
+  "市场等待非农数据确认就业降温程度",
+  "比特币资金流向影响币圈风险偏好",
+].forEach((needle) => assert(!html.includes(needle), `remove shallow news summary: ${needle}`));
 
 const dataPath = path.join(repoRoot, "data", "macro-latest.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
