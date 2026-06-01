@@ -754,6 +754,111 @@
         align-items: start;
       }
 
+      .asset-spotlight-panel {
+        margin-top: 14px;
+      }
+
+      .asset-spotlight {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px;
+      }
+
+      .asset-tile {
+        min-height: 108px;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text-main);
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .asset-tile:hover {
+        border-color: var(--deep);
+        box-shadow: 0 10px 24px rgba(16, 32, 51, 0.08);
+      }
+
+      .asset-tile b {
+        display: block;
+        color: var(--text-strong);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .asset-tile strong {
+        display: block;
+        margin: 8px 0 6px;
+        color: var(--text-strong);
+        font-size: 21px;
+        line-height: 1;
+      }
+
+      .asset-tile span {
+        display: block;
+        color: var(--text-quiet);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .accordion-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .accordion-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .accordion-trigger {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        gap: 10px;
+        width: 100%;
+        padding: 12px;
+        border: 0;
+        background: transparent;
+        color: var(--text-main);
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .accordion-trigger b {
+        color: var(--text-strong);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .accordion-trigger span {
+        align-self: start;
+      }
+
+      .accordion-body {
+        display: none;
+        padding: 0 12px 12px;
+      }
+
+      .accordion-card.open .accordion-body {
+        display: block;
+      }
+
+      .reason-list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text-support);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .reason-list li + li {
+        margin-top: 4px;
+      }
+
       .main-column,
       .side-column {
         display: grid;
@@ -859,6 +964,140 @@
         font-weight: 900;
       }
 
+      .asset-drawer-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: none;
+        background: rgba(16, 32, 51, 0.42);
+      }
+
+      .asset-drawer-backdrop.show {
+        display: block;
+      }
+
+      .asset-drawer {
+        width: min(760px, calc(100vw - 28px));
+        height: 100%;
+        overflow: auto;
+        background: #f8fafc;
+        box-shadow: 24px 0 60px rgba(16, 32, 51, 0.22);
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+      }
+
+      .asset-drawer-backdrop.show .asset-drawer {
+        transform: translateX(0);
+      }
+
+      .drawer-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .drawer-head h2 {
+        margin: 0;
+        color: var(--text-strong);
+        font-size: 24px;
+      }
+
+      .drawer-price {
+        margin: 8px 0 0;
+        color: var(--text-strong);
+        font-size: 32px;
+        font-weight: 900;
+      }
+
+      .drawer-meta {
+        margin: 6px 0 0;
+        color: var(--text-quiet);
+        font-size: 13px;
+      }
+
+      .drawer-close {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text-strong);
+        font-size: 20px;
+      }
+
+      .drawer-body {
+        display: grid;
+        gap: 12px;
+        padding: 16px;
+      }
+
+      .range-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .range-tabs button {
+        height: 34px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text-main);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .range-tabs button.active {
+        border-color: var(--deep);
+        background: var(--deep);
+        color: #fff;
+      }
+
+      .chart-card {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      #drawerChart {
+        width: 100%;
+        height: 320px;
+        display: block;
+      }
+
+      .chart-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .chart-stat {
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .chart-stat b {
+        display: block;
+        color: var(--text-quiet);
+        font-size: 12px;
+      }
+
+      .chart-stat span {
+        display: block;
+        margin-top: 4px;
+        color: var(--text-strong);
+        font-size: 16px;
+        font-weight: 900;
+      }
+
       @media (max-width: 1180px) {
         .hero,
         .workbench {
@@ -937,6 +1176,7 @@
         }
 
         .asset-actions,
+        .asset-spotlight,
         .evidence-grid,
         .schedule-item {
           grid-template-columns: 1fr;
@@ -963,6 +1203,14 @@
         <a class="page-tab" href="./index.html">今日热点</a>
         <a class="page-tab active" href="./macro.html">金融宏观</a>
       </nav>
+
+      <section class="panel asset-spotlight-panel">
+        <div class="panel-head compact">
+          <p class="panel-title">资产温度</p>
+          <span class="kicker">点击资产查看近一年走势</span>
+        </div>
+        <div class="asset-spotlight" id="assetSpotlight"></div>
+      </section>
 
       <section class="cockpit-grid">
         <div class="main-column">
@@ -1019,13 +1267,6 @@
             <div class="watchlist" id="watchlist"></div>
           </section>
 
-          <section class="panel">
-            <div class="panel-head compact">
-              <p class="panel-title">资产温度</p>
-            </div>
-            <div class="asset-temperature" id="assetGrid"></div>
-          </section>
-
           <details class="panel collapsed-panel">
             <summary>指标解释库</summary>
             <div class="explain-list" id="explainList"></div>
@@ -1037,6 +1278,31 @@
           </details>
         </aside>
       </section>
+      <div class="asset-drawer-backdrop" id="assetDrawer" aria-hidden="true">
+        <aside class="asset-drawer" role="dialog" aria-modal="true" aria-label="资产走势">
+          <div class="drawer-head">
+            <div>
+              <h2 id="drawerTitle">资产走势</h2>
+              <div class="drawer-price" id="drawerPrice">-</div>
+              <p class="drawer-meta" id="drawerMeta">读取历史价格中</p>
+            </div>
+            <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭">×</button>
+          </div>
+          <div class="drawer-body">
+            <div class="range-tabs" id="rangeTabs">
+              <button class="active" data-range="1d" type="button">今日</button>
+              <button data-range="7d" type="button">7天</button>
+              <button data-range="1m" type="button">1月</button>
+              <button data-range="3m" type="button">3月</button>
+              <button data-range="1y" type="button">1年</button>
+            </div>
+            <div class="chart-card">
+              <canvas id="drawerChart" width="680" height="320"></canvas>
+            </div>
+            <div class="chart-stats" id="chartStats"></div>
+          </div>
+        </aside>
+      </div>
       <div class="modal-backdrop" id="newsModal" role="dialog" aria-modal="true" aria-label="新闻详情">
         <article class="news-modal">
           <div class="modal-head">
@@ -1054,12 +1320,16 @@
         news: [],
         prices: [],
         ratios: [],
+        assetHistory: [],
         rateMetrics: [],
         cryptoMetrics: [],
         questions: [],
         dailyBriefing: null,
         sources: [],
         selectedId: "",
+        selectedAccordionId: "",
+        selectedAssetKey: "",
+        selectedRange: "1m",
       };
 
       const els = {
@@ -1087,9 +1357,18 @@
         empty: document.querySelector("#empty"),
         detail: document.querySelector("#detail"),
         briefingList: document.querySelector("#briefingList"),
+        assetSpotlight: document.querySelector("#assetSpotlight"),
         assetGrid: document.querySelector("#assetGrid"),
         explainList: document.querySelector("#explainList"),
         sourceGrid: document.querySelector("#sourceGrid"),
+        assetDrawer: document.querySelector("#assetDrawer"),
+        drawerTitle: document.querySelector("#drawerTitle"),
+        drawerPrice: document.querySelector("#drawerPrice"),
+        drawerMeta: document.querySelector("#drawerMeta"),
+        drawerChart: document.querySelector("#drawerChart"),
+        drawerClose: document.querySelector("#drawerClose"),
+        rangeTabs: document.querySelector("#rangeTabs"),
+        chartStats: document.querySelector("#chartStats"),
         newsModal: document.querySelector("#newsModal"),
         modalTitle: document.querySelector("#modalTitle"),
         modalBody: document.querySelector("#modalBody"),
@@ -1274,6 +1553,81 @@
         return scored.slice(0, 5);
       }
 
+      function sentenceParts(value) {
+        return text(value)
+          .replace(/\s+/g, " ")
+          .split(/(?<=[。！？；;.!?])\s*/)
+          .map((item) => item.trim())
+          .filter(Boolean);
+      }
+
+      function compactConclusion(value, fallback = "这条信息需要继续观察") {
+        const source = sentenceParts(value).join(" ");
+        if (!source || source === "-") return fallback;
+        return source.length > 76 ? `${source.slice(0, 76)}...` : source;
+      }
+
+      function summarizeItem(item) {
+        if (!item) return { conclusion: "-", reasons: [] };
+        if (item.kind === "news") {
+          const news = item.raw || {};
+          const meta = classifyNews(news);
+          const summary = news.summaryZh || news.summary || news.titleZh || news.title;
+          const reasons = sentenceParts(summary).slice(0, 4);
+          if (news.source || news.published) reasons.push(`来源：${news.source || "新闻"}${news.published ? `，发布时间 ${news.published}` : ""}`);
+          reasons.push(`影响：${meta.impact === "rates" ? "利率、美元和黄金" : meta.impact === "crypto" ? "BTC、ETH 和币圈风险偏好" : "黄金、原油和整体风险偏好"}`);
+          return {
+            conclusion: compactConclusion(summary, news.titleZh || news.title || "市场出现一条需要跟踪的新消息"),
+            reasons,
+          };
+        }
+
+        const event = item.raw || {};
+        const meta = classifyData(event);
+        const actual = event.actual && event.actual !== "-" ? `实际 ${event.actual}` : "";
+        const previous = event.previous && event.previous !== "-" ? `前值 ${event.previous}` : "";
+        const surprise = event.surprise && event.surprise !== "-" ? event.surprise : "";
+        const conclusion = compactConclusion(
+          `${event.title || item.title}${actual ? `：${actual}` : ""}${surprise ? `，${surprise}` : ""}`,
+          event.title || item.title
+        );
+        return {
+          conclusion,
+          reasons: [
+            [actual, previous].filter(Boolean).join("；") || "官方源暂未给出可比数值。",
+            event.expected && event.expected !== "-" ? `预期：${event.expected}` : "免费官方源通常没有市场预期，只能和前值、趋势交叉判断。",
+            meta.why,
+            event.notes ? `数据来源：${event.source || item.source}，${event.notes}` : `数据来源：${event.source || item.source}`,
+          ].filter(Boolean),
+        };
+      }
+
+      function renderAccordionItems(items, options = {}) {
+        const scope = options.scope || "global";
+        const ids = items.map((item) => `${scope}:${item.id}`);
+        if (!state.selectedAccordionId && ids.length) state.selectedAccordionId = ids[0];
+        return items
+          .map((item) => {
+            const accordionId = `${scope}:${item.id}`;
+            const summary = summarizeItem(item);
+            const open = accordionId === state.selectedAccordionId;
+            return `
+              <article class="accordion-card ${open ? "open" : ""}">
+                <button class="accordion-trigger" data-accordion-id="${escapeHtml(accordionId)}" type="button">
+                  <b>${escapeHtml(summary.conclusion)}</b>
+                  <span class="pill">${escapeHtml(options.showDate ? item.date.toLocaleDateString("zh-CN", { month: "2-digit", day: "2-digit" }) : item.label)}</span>
+                </button>
+                <div class="accordion-body">
+                  <ol class="reason-list">
+                    ${summary.reasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}
+                  </ol>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
       function sevenDayItems() {
         const now = new Date();
         const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 2);
@@ -1406,9 +1760,10 @@
         const isNews = item.kind === "news";
         const raw = item.raw;
         const badge = isNews ? "purple" : raw.surprise?.includes("上升") || raw.surprise?.includes("多增") ? "red" : raw.surprise?.includes("回落") || raw.surprise?.includes("少增") ? "green" : "blue";
+        const summary = summarizeItem(item);
         return `
           <button class="cal-item ${item.kind}" data-id="${escapeHtml(item.id)}" type="button">
-            <span class="cal-title">${escapeHtml(item.title)}</span>
+            <span class="cal-title">${escapeHtml(summary.conclusion)}</span>
             <span class="cal-meta">
               <span class="pill">${escapeHtml(item.source)}</span>
               <span class="pill ${badge}">${escapeHtml(item.label)}</span>
@@ -1450,22 +1805,19 @@
       }
 
       function openNewsModal(news) {
-        const meta = classifyNews(news);
-        const impactText = meta.impact === "rates"
-          ? "利率、美元和黄金"
-          : meta.impact === "crypto"
-            ? "BTC、ETH 和币圈风险偏好"
-            : "黄金、原油和整体风险偏好";
-        els.modalTitle.textContent = news.titleZh || news.title || "新闻详情";
+        const item = {
+          kind: "news",
+          raw: news,
+        };
+        const summary = summarizeItem(item);
+        els.modalTitle.textContent = summary.conclusion;
         els.modalBody.innerHTML = `
           <p class="detail-sub">${escapeHtml(news.source)} · ${escapeHtml(news.published || "-")}</p>
           <div class="read-item">
-            <b>它影响什么</b>
-            <span>${escapeHtml(impactText)}</span>
-          </div>
-          <div class="read-item">
-            <b>所以呢</b>
-            <span>${escapeHtml(news.summaryZh || news.summary || "这条新闻只作为辅助证据，重点看它是否支持或反驳当前总判断。")}</span>
+            <b>支撑理由</b>
+            <ol class="reason-list">
+              ${summary.reasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}
+            </ol>
           </div>
           ${news.title && news.title !== news.titleZh ? `<div class="read-item"><b>原始标题</b><span>${escapeHtml(news.title)}</span></div>` : ""}
           ${news.url ? `<a class="news-link" href="${escapeHtml(news.url)}" target="_blank" rel="noopener">打开原文</a>` : ""}
@@ -1605,12 +1957,7 @@
         if (!els.watchlist) return;
         const items = buildWatchlist(sevenDayItems());
         els.watchlist.innerHTML = items.length
-          ? items.map((item) => `
-              <button class="watch-card" data-id="${escapeHtml(item.id)}" type="button">
-                <b>${item.score === 3 ? "高" : item.score === 2 ? "中" : "低"}｜${escapeHtml(item.title)}</b>
-                <p>${escapeHtml(item.why)}</p>
-              </button>
-            `).join("")
+          ? renderAccordionItems(items.map((item) => ({ ...item, label: item.score === 3 ? "高" : item.score === 2 ? "中" : "低" })), { scope: "watch" })
           : `<div class="watch-card"><b>暂无必盯事件</b><p>当前 7 天窗口内没有足以改变总判断的事件。</p></div>`;
       }
 
@@ -1621,14 +1968,166 @@
         const topIds = new Set(top.map((item) => item.id));
         const items = top.concat(nearTerm.filter((item) => !topIds.has(item.id))).slice(0, 12);
         els.riskSchedule.innerHTML = items.length
-          ? items.map((item) => `
-              <button class="schedule-item" data-id="${escapeHtml(item.id)}" type="button">
-                <b>${escapeHtml(item.date.toLocaleDateString("zh-CN", { month: "2-digit", day: "2-digit" }))}</b>
-                <p>${escapeHtml(item.title)}</p>
-                <span class="pill">${escapeHtml(item.label)}</span>
+          ? renderAccordionItems(items, { scope: "schedule", showDate: true })
+          : `<div class="schedule-item"><b>-</b><p>当前筛选下没有风险事件。</p><span class="pill">空</span></div>`;
+      }
+
+      function assetDisplayMap() {
+        const all = [...state.prices, ...state.ratios, ...state.rateMetrics, ...state.cryptoMetrics];
+        return new Map(all.map((asset) => [asset.name, asset]));
+      }
+
+      function visibleAssetHistory() {
+        const current = assetDisplayMap();
+        const preferred = ["国际金价", "BTC", "美元指数 DXY", "VIX", "WTI 原油", "标普500", "ETH", "白银"];
+        const ordered = [...state.assetHistory].sort((a, b) => {
+          const ai = preferred.indexOf(a.name);
+          const bi = preferred.indexOf(b.name);
+          return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+        });
+        return ordered
+          .filter((asset) => current.has(asset.name))
+          .slice(0, 8)
+          .map((asset) => ({ ...asset, current: current.get(asset.name) }));
+      }
+
+      function renderAssetSpotlight() {
+        if (!els.assetSpotlight) return;
+        const assets = visibleAssetHistory();
+        els.assetSpotlight.innerHTML = assets.length
+          ? assets.map((asset) => `
+              <button class="asset-tile" data-asset-key="${escapeHtml(asset.key)}" type="button">
+                <b>${escapeHtml(asset.name)}</b>
+                <strong>${escapeHtml(asset.current?.value || "-")}</strong>
+                <span>${escapeHtml(asset.updatedAt || asset.current?.notes || "-")}</span>
               </button>
             `).join("")
-          : `<div class="schedule-item"><b>-</b><p>当前筛选下没有风险事件。</p><span class="pill">空</span></div>`;
+          : `<div class="asset-tile"><b>资产数据暂缺</b><strong>-</strong><span>等待下一次自动化刷新。</span></div>`;
+      }
+
+      function pointsForRange(asset) {
+        const points = Array.isArray(asset?.points) ? asset.points : [];
+        const count = state.selectedRange === "1d"
+          ? 1
+          : state.selectedRange === "7d"
+            ? 7
+            : state.selectedRange === "1m"
+              ? 31
+              : state.selectedRange === "3m"
+                ? 92
+                : 366;
+        return points.slice(-count);
+      }
+
+      function formatNumber(value) {
+        if (typeof value !== "number" || Number.isNaN(value)) return "-";
+        return value >= 1000 ? value.toLocaleString("en-US", { maximumFractionDigits: 0 }) : value.toLocaleString("en-US", { maximumFractionDigits: 2 });
+      }
+
+      function drawAssetChart(asset) {
+        const canvas = els.drawerChart;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const rect = canvas.getBoundingClientRect();
+        const scale = window.devicePixelRatio || 1;
+        canvas.width = Math.max(680, Math.floor(rect.width * scale));
+        canvas.height = Math.floor(320 * scale);
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        const width = canvas.width / scale;
+        const height = 320;
+        ctx.clearRect(0, 0, width, height);
+        const points = pointsForRange(asset);
+        const values = points.map((point) => point.value).filter((value) => typeof value === "number");
+        if (values.length < 2) {
+          ctx.fillStyle = "#536274";
+          ctx.font = "14px Microsoft YaHei, sans-serif";
+          ctx.fillText("该时间维度下数据点不足。", 22, 46);
+          return;
+        }
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const padding = { top: 22, right: 24, bottom: 34, left: 54 };
+        const innerW = width - padding.left - padding.right;
+        const innerH = height - padding.top - padding.bottom;
+        const y = (value) => padding.top + (max === min ? 0.5 : (max - value) / (max - min)) * innerH;
+        const x = (index) => padding.left + (index / (values.length - 1)) * innerW;
+
+        ctx.strokeStyle = "#d7dee4";
+        ctx.lineWidth = 1;
+        [0, 0.5, 1].forEach((ratio) => {
+          const yy = padding.top + ratio * innerH;
+          ctx.beginPath();
+          ctx.moveTo(padding.left, yy);
+          ctx.lineTo(width - padding.right, yy);
+          ctx.stroke();
+        });
+
+        ctx.beginPath();
+        values.forEach((value, index) => {
+          const xx = x(index);
+          const yy = y(value);
+          if (index === 0) ctx.moveTo(xx, yy);
+          else ctx.lineTo(xx, yy);
+        });
+        ctx.strokeStyle = values[values.length - 1] >= values[0] ? "#166534" : "#b42318";
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        const gradient = ctx.createLinearGradient(0, padding.top, 0, height - padding.bottom);
+        gradient.addColorStop(0, values[values.length - 1] >= values[0] ? "rgba(22, 101, 52, 0.18)" : "rgba(180, 35, 24, 0.16)");
+        gradient.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.lineTo(width - padding.right, height - padding.bottom);
+        ctx.lineTo(padding.left, height - padding.bottom);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        ctx.fillStyle = "#536274";
+        ctx.font = "12px Microsoft YaHei, sans-serif";
+        ctx.fillText(formatNumber(max), 8, padding.top + 4);
+        ctx.fillText(formatNumber(min), 8, height - padding.bottom);
+        ctx.fillText(points[0].date, padding.left, height - 10);
+        ctx.textAlign = "right";
+        ctx.fillText(points[points.length - 1].date, width - padding.right, height - 10);
+        ctx.textAlign = "left";
+      }
+
+      function renderChartStats(asset) {
+        if (!els.chartStats) return;
+        const points = pointsForRange(asset);
+        const first = points[0]?.value;
+        const last = points[points.length - 1]?.value;
+        const change = typeof first === "number" && typeof last === "number" && first !== 0 ? (last / first - 1) * 100 : null;
+        const values = points.map((point) => point.value).filter((value) => typeof value === "number");
+        const high = values.length ? Math.max(...values) : null;
+        const low = values.length ? Math.min(...values) : null;
+        els.chartStats.innerHTML = [
+          ["区间涨跌", change == null ? "-" : formatPct(change)],
+          ["区间高点", high == null ? "-" : formatNumber(high)],
+          ["区间低点", low == null ? "-" : formatNumber(low)],
+        ].map(([label, value]) => `<div class="chart-stat"><b>${label}</b><span>${value}</span></div>`).join("");
+      }
+
+      function openAssetDrawer(key) {
+        const asset = state.assetHistory.find((item) => item.key === key);
+        if (!asset) return;
+        const current = assetDisplayMap().get(asset.name);
+        state.selectedAssetKey = key;
+        els.drawerTitle.textContent = asset.name;
+        els.drawerPrice.textContent = current?.value || formatNumber(asset.points?.at(-1)?.value);
+        els.drawerMeta.textContent = `${asset.source || "Yahoo Finance"} · ${asset.symbol} · 更新 ${asset.updatedAt || "-"}`;
+        els.rangeTabs.querySelectorAll("button").forEach((button) => {
+          button.classList.toggle("active", button.dataset.range === state.selectedRange);
+        });
+        drawAssetChart(asset);
+        renderChartStats(asset);
+        els.assetDrawer.classList.add("show");
+        els.assetDrawer.setAttribute("aria-hidden", "false");
+      }
+
+      function closeAssetDrawer() {
+        els.assetDrawer.classList.remove("show");
+        els.assetDrawer.setAttribute("aria-hidden", "true");
       }
 
       function renderSide() {
@@ -1646,16 +2145,6 @@
                 .join("")
             : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会进入日历。</span></div>`;
         }
-
-        const assets = [...state.prices, ...state.ratios, ...state.rateMetrics, ...state.cryptoMetrics];
-        els.assetGrid.innerHTML = assets
-          .map((asset) => `
-            <div class="asset-card">
-              <b>${escapeHtml(asset.name)}：${escapeHtml(asset.value)}</b>
-              <span>${escapeHtml(asset.notes)}</span>
-            </div>
-          `)
-          .join("");
 
         els.explainList.innerHTML = INDICATOR_EXPLANATIONS.map((item, index) => `
           <details class="explain-card" ${index < 3 ? "open" : ""}>
@@ -1690,6 +2179,7 @@
         renderWatchlist();
         renderRiskSchedule();
         renderCalendar();
+        renderAssetSpotlight();
         renderSide();
         renderStats();
         const selected = calendarItems().find((item) => item.id === state.selectedId);
@@ -1703,6 +2193,32 @@
         if (!button) return;
         state.selectedId = button.dataset.id;
         renderDetail(calendarItems().find((item) => item.id === state.selectedId));
+      });
+
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-accordion-id]");
+        if (!button) return;
+        state.selectedAccordionId = button.dataset.accordionId;
+        renderWatchlist();
+        renderRiskSchedule();
+      });
+
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-asset-key]");
+        if (!button) return;
+        openAssetDrawer(button.dataset.assetKey);
+      });
+
+      els.rangeTabs.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-range]");
+        if (!button) return;
+        state.selectedRange = button.dataset.range;
+        openAssetDrawer(state.selectedAssetKey);
+      });
+
+      els.drawerClose.addEventListener("click", closeAssetDrawer);
+      els.assetDrawer.addEventListener("click", (event) => {
+        if (event.target === els.assetDrawer) closeAssetDrawer();
       });
 
       document.addEventListener("click", (event) => {
@@ -1720,7 +2236,10 @@
         if (event.target === els.newsModal) closeNewsModal();
       });
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeNewsModal();
+        if (event.key === "Escape") {
+          closeNewsModal();
+          closeAssetDrawer();
+        }
       });
 
       [els.typeFilter, els.impactFilter].forEach((el) => el.addEventListener("input", render));
@@ -1734,6 +2253,7 @@
           state.events = Array.isArray(data.events) ? data.events : [];
           state.news = Array.isArray(data.news) ? data.news : [];
           state.ratios = Array.isArray(data.ratios) ? data.ratios : [];
+          state.assetHistory = Array.isArray(data.assetHistory) ? data.assetHistory : [];
           state.rateMetrics = Array.isArray(data.rateMetrics) ? data.rateMetrics : [];
           state.prices = Array.isArray(data.prices) ? data.prices : [];
           state.cryptoMetrics = Array.isArray(data.cryptoMetrics) ? data.cryptoMetrics : [];
@@ -1743,6 +2263,8 @@
           if (els.summary) els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
           render();
+          const deepLinkedAsset = decodeURIComponent(location.hash.replace(/^#asset=/, ""));
+          if (deepLinkedAsset && deepLinkedAsset !== location.hash) openAssetDrawer(deepLinkedAsset);
         })
         .catch((error) => {
           if (els.summary) els.summary.textContent = `宏观数据读取失败：${error.message}`;

@@ -26,12 +26,36 @@ try {
 [
   'id="headlineDecision"',
   'id="assetActions"',
+  'id="assetSpotlight"',
   'id="evidenceCards"',
   'id="supportEvidence"',
   'id="counterEvidence"',
   'id="watchlist"',
   'id="riskSchedule"',
+  'id="assetDrawer"',
+  'id="drawerChart"',
 ].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
+
+[
+  "function summarizeItem",
+  "function renderAccordionItems",
+  "function renderAssetSpotlight",
+  "function openAssetDrawer",
+  "function drawAssetChart",
+  "data-accordion-id",
+  "data-asset-key",
+].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
+
+const dataPath = path.join(repoRoot, "data", "macro-latest.json");
+const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
+assert(Array.isArray(data.assetHistory), "macro-latest.json should include assetHistory");
+if (Array.isArray(data.assetHistory)) {
+  assert(data.assetHistory.length >= 3, "assetHistory should include at least three tracked assets");
+  assert(
+    data.assetHistory.some((asset) => Array.isArray(asset.points) && asset.points.length >= 20),
+    "assetHistory should include chartable price points"
+  );
+}
 
 [
   "为什么放入日历",

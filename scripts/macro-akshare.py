@@ -305,28 +305,61 @@ def get_china_events():
     return events, failures
 
 
+ASSET_DEFINITIONS = [
+    {"key": "gold", "name": "国际金价", "symbol": "GC=F", "unit": "美元/盎司"},
+    {"key": "silver", "name": "白银", "symbol": "SI=F", "unit": "美元/盎司"},
+    {"key": "wti", "name": "WTI 原油", "symbol": "CL=F", "unit": "美元/桶"},
+    {"key": "brent", "name": "Brent 原油", "symbol": "BZ=F", "unit": "美元/桶"},
+    {"key": "copper", "name": "铜", "symbol": "HG=F", "unit": "美元/磅"},
+    {"key": "dxy", "name": "美元指数 DXY", "symbol": "DX-Y.NYB", "unit": "点"},
+    {"key": "vix", "name": "VIX", "symbol": "^VIX", "unit": "点"},
+    {"key": "spx", "name": "标普500", "symbol": "^GSPC", "unit": "点"},
+    {"key": "nasdaq", "name": "纳斯达克", "symbol": "^IXIC", "unit": "点"},
+    {"key": "usdjpy", "name": "USD/JPY", "symbol": "USDJPY=X", "unit": "汇率"},
+    {"key": "btc", "name": "BTC", "symbol": "BTC-USD", "unit": "美元"},
+    {"key": "eth", "name": "ETH", "symbol": "ETH-USD", "unit": "美元"},
+]
+
+
+def build_asset_history(data):
+    history = []
+    for asset in ASSET_DEFINITIONS:
+        symbol = asset["symbol"]
+        if symbol not in data.columns:
+            continue
+        series = data[symbol].dropna()
+        if series.empty:
+            continue
+        points = [
+            {"date": index.strftime("%Y-%m-%d"), "value": round(float(value), 4)}
+            for index, value in series.items()
+            if not pd.isna(value)
+        ]
+        if not points:
+            continue
+        history.append(
+            {
+                "key": asset["key"],
+                "name": asset["name"],
+                "symbol": symbol,
+                "unit": asset["unit"],
+                "source": "Yahoo Finance",
+                "updatedAt": points[-1]["date"],
+                "points": points,
+            }
+        )
+    return history
+
+
 def latest_prices():
-    tickers = [
-        "GC=F",
-        "SI=F",
-        "CL=F",
-        "BZ=F",
-        "HG=F",
-        "DX-Y.NYB",
-        "^VIX",
-        "^GSPC",
-        "^IXIC",
-        "USDJPY=X",
-        "BTC-USD",
-        "ETH-USD",
-    ]
-    data = yf.download(tickers, period="3mo", interval="1d", progress=False, auto_adjust=False)["Close"].ffill().dropna(how="all")
+    tickers = [asset["symbol"] for asset in ASSET_DEFINITIONS]
+    data = yf.download(tickers, period="1y", interval="1d", progress=False, auto_adjust=False)["Close"].ffill().dropna(how="all")
     last = data.iloc[-1]
     base = data.iloc[-23] if len(data) >= 23 else data.iloc[0]
     date = data.index[-1].strftime("%Y-%m-%d")
     latest = {ticker: float(last[ticker]) for ticker in tickers if ticker in last and not pd.isna(last[ticker])}
     previous = {ticker: float(base[ticker]) for ticker in tickers if ticker in base and not pd.isna(base[ticker])}
-    return date, latest, previous
+    return date, latest, previous, build_asset_history(data)
 
 
 def pct_change(current, previous):
@@ -339,8 +372,9 @@ def get_ratios_and_prices():
     failures = []
     ratios = []
     prices = []
+    asset_history = []
     try:
-        date, px, prev = latest_prices()
+        date, px, prev, asset_history = latest_prices()
         gold = px["GC=F"]
         silver = px["SI=F"]
         oil = px["CL=F"]
@@ -433,7 +467,7 @@ def get_ratios_and_prices():
         ]
     except Exception as error:
         failures.append({"source": "yfinance", "error": str(error)})
-    return ratios, prices, failures
+    return ratios, prices, asset_history, failures
 
 
 def get_json(url):
@@ -1081,7 +1115,7 @@ def main():
     generated_at = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     us_events, us_failures = get_us_events()
     china_events, china_failures = get_china_events()
-    ratios, prices, price_failures = get_ratios_and_prices()
+    ratios, prices, asset_history, price_failures = get_ratios_and_prices()
     crypto_metrics, crypto_failures = get_crypto_metrics()
     rate_metrics, rate_failures = get_rate_metrics()
     news, daily_briefing, news_failures = get_market_news()
@@ -1132,6 +1166,7 @@ def main():
         "dailyBriefing": daily_briefing,
         "ratios": ratios,
         "prices": prices,
+        "assetHistory": asset_history,
         "cryptoMetrics": crypto_metrics,
         "rateMetrics": rate_metrics,
         "sources": sources,
