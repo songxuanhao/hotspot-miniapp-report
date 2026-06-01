@@ -1664,8 +1664,10 @@
         renderCalendar();
         renderSide();
         renderStats();
-        const selected = calendarItems().find((item) => item.id === state.selectedId) || sevenDayItems()[0] || calendarItems()[0];
-        renderDetail(selected);
+        const selected = calendarItems().find((item) => item.id === state.selectedId);
+        const defaultData = sevenDayItems().find((item) => item.kind === "data")
+          || calendarItems().find((item) => item.kind === "data");
+        renderDetail(selected?.kind === "data" ? selected : defaultData);
       }
 
       document.addEventListener("click", (event) => {
