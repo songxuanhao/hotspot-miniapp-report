@@ -1059,6 +1059,8 @@
       }
 
       .chart-card {
+        position: relative;
+        overflow-x: auto;
         padding: 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -1067,8 +1069,30 @@
 
       #drawerChart {
         width: 100%;
+        max-width: none;
         height: 320px;
         display: block;
+      }
+
+      .chart-tooltip {
+        position: absolute;
+        z-index: 2;
+        display: none;
+        min-width: 136px;
+        padding: 8px 10px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 8px 24px rgba(16, 32, 51, 0.12);
+        color: var(--text-strong);
+        font-size: 12px;
+        pointer-events: none;
+      }
+
+      .chart-tooltip b {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 13px;
       }
 
       .chart-stats {
@@ -1298,6 +1322,7 @@
             </div>
             <div class="chart-card">
               <canvas id="drawerChart" width="680" height="320"></canvas>
+              <div class="chart-tooltip" id="chartTooltip"></div>
             </div>
             <div class="chart-stats" id="chartStats"></div>
           </div>
@@ -1330,6 +1355,7 @@
         selectedAccordionId: "",
         selectedAssetKey: "",
         selectedRange: "1m",
+        chartLayout: null,
       };
 
       const els = {
@@ -1366,6 +1392,7 @@
         drawerPrice: document.querySelector("#drawerPrice"),
         drawerMeta: document.querySelector("#drawerMeta"),
         drawerChart: document.querySelector("#drawerChart"),
+        chartTooltip: document.querySelector("#chartTooltip"),
         drawerClose: document.querySelector("#drawerClose"),
         rangeTabs: document.querySelector("#rangeTabs"),
         chartStats: document.querySelector("#chartStats"),
@@ -1548,7 +1575,7 @@
             }
             return { ...item, score, why };
           })
-          .sort((a, b) => b.score - a.score || a.date - b.date);
+          .sort((a, b) => b.score - a.score || b.date - a.date);
 
         return scored.slice(0, 5);
       }
@@ -1567,18 +1594,92 @@
         return source.length > 76 ? `${source.slice(0, 76)}...` : source;
       }
 
+      function articleTypeFor(news) {
+        const body = `${news?.summaryZh || ""} ${news?.summary || ""} ${news?.titleZh || ""} ${news?.title || ""}`;
+        return /认为|指出|分析|预计|警告|称|表示|应该|可能|或将|能否|为何|怎么看|如何|opinion|analysis|why|could|should/i.test(body)
+          ? "opinion"
+          : "report";
+      }
+
+      function cleanNewsBody(news) {
+        const title = text(news?.titleZh || news?.title).replace(/[?？]+/g, "。");
+        const summary = text(news?.summaryZh || news?.summary).replace(/[?？]+/g, "。");
+        const body = summary && summary !== "-" && summary !== title ? summary : title;
+        return sentenceParts(body)
+          .filter((item) => !/^本文|^文章|^本篇|探讨了|分析了/.test(item))
+          .map((item) => stripNewsSource(item.replace(/^摘要[:：]\s*/, "")))
+          .filter(Boolean);
+      }
+
+      function stripNewsSource(value) {
+        return text(value)
+          .replace(/\s*[-—]\s*(搜狐网|新浪财经|财联社|华尔街见闻|金融界|环球市场播报|TradingKey|Bitget|Binance|hstrong\.com|Google新闻|MarketWatch|CoinDesk|路透|Reuters)\s*$/gi, "")
+          .replace(/^(搜狐网|新浪财经|财联社|华尔街见闻|金融界|TradingKey|Bitget|Binance)[:：]\s*/gi, "")
+          .replace(/^[高低中]\s*[|｜]\s*/, "")
+          .replace(/^(前瞻|快讯|独家|重磅)[:：]\s*/, "")
+          .replace(/[“”"]/g, "")
+          .trim();
+      }
+
+      function impactForNews(news) {
+        const meta = classifyNews(news);
+        if (meta.impact === "rates") return "这会影响利率、美元和黄金的短线定价。";
+        if (meta.impact === "crypto") return "这会影响 BTC、ETH 和币圈风险偏好。";
+        return "这会影响黄金、原油和整体风险偏好。";
+      }
+
+      function inferredNewsConclusion(news, parts) {
+        const body = `${parts.join(" ")} ${news?.titleZh || ""} ${news?.title || ""}`.toLowerCase();
+        if (/非农|payroll|jobs/.test(body) && /黄金|gold|美元|dollar/.test(body)) return "市场关注非农数据对黄金和美元的影响。";
+        if (/非农|payroll|jobs/.test(body)) return "市场等待非农数据确认就业降温程度。";
+        if (/债券|国债|treasury|yield/.test(body) && /加息|rate hike|2027/.test(body)) return "债券交易员押注高利率维持更久。";
+        if (/黄金|gold/.test(body) && /震荡|波动|避险/.test(body)) return "黄金价格仍受避险和利率预期拉扯。";
+        if (/美元|dollar|dxy/.test(body) && /强|弱|大洗牌/.test(body)) return "美元强弱成为当前资产定价主线。";
+        if (/比特币|bitcoin|btc|etf/.test(body)) return "比特币资金流向影响币圈风险偏好。";
+        if (/opec|原油|oil|红海|伊朗|以色列|俄乌|war/.test(body)) return "地缘和供给消息继续影响油价与避险资产。";
+        return stripNewsSource(parts[0] || "市场出现一条需要跟踪的新消息。");
+      }
+
+      function inferredNewsReasons(news, parts) {
+        const body = `${parts.join(" ")} ${news?.titleZh || ""} ${news?.title || ""}`.toLowerCase();
+        const reasons = [];
+        if (/非农|payroll|jobs/.test(body)) reasons.push("非农数据会改变市场对就业强弱和降息节奏的判断。");
+        if (/黄金|gold/.test(body)) reasons.push("黄金对实际利率、美元和避险需求变化敏感。");
+        if (/美元|dollar|dxy/.test(body)) reasons.push("美元走强会压制黄金、商品和部分风险资产。");
+        if (/债券|国债|treasury|yield|加息|rate hike/.test(body)) reasons.push("债券收益率变化会直接影响估值和全球流动性。");
+        if (/比特币|bitcoin|btc|etf|crypto/.test(body)) reasons.push("币圈资金流会影响 BTC、ETH 和山寨资产的风险偏好。");
+        if (/opec|原油|oil|红海|伊朗|以色列|俄乌|war/.test(body)) reasons.push("地缘或供给冲击会推高油价波动并带动避险交易。");
+        if (!reasons.length) reasons.push(impactForNews(news));
+        return reasons;
+      }
+
+      function summarizeNewsConclusion(news) {
+        const type = articleTypeFor(news);
+        const parts = cleanNewsBody(news);
+        const first = inferredNewsConclusion(news, parts);
+        const conclusion = (type === "opinion"
+          ? first.replace(/^(认为|指出|分析|预计|警告|称|表示)[:：，,]?\s*/, "")
+          : first
+        ).slice(0, type === "opinion" ? 30 : 46);
+        const bodyReasons = parts.slice(1, 5);
+        const reasons = bodyReasons.length
+          ? bodyReasons.map(stripNewsSource)
+          : inferredNewsReasons(news, parts);
+        return {
+          type,
+          conclusion: conclusion.endsWith("。") ? conclusion : `${conclusion}。`,
+          reasons: reasons.map((reason) => reason.endsWith("。") ? reason : `${reason}。`),
+        };
+      }
+
       function summarizeItem(item) {
         if (!item) return { conclusion: "-", reasons: [] };
         if (item.kind === "news") {
           const news = item.raw || {};
-          const meta = classifyNews(news);
-          const summary = news.summaryZh || news.summary || news.titleZh || news.title;
-          const reasons = sentenceParts(summary).slice(0, 4);
-          if (news.source || news.published) reasons.push(`来源：${news.source || "新闻"}${news.published ? `，发布时间 ${news.published}` : ""}`);
-          reasons.push(`影响：${meta.impact === "rates" ? "利率、美元和黄金" : meta.impact === "crypto" ? "BTC、ETH 和币圈风险偏好" : "黄金、原油和整体风险偏好"}`);
+          const summary = summarizeNewsConclusion(news);
           return {
-            conclusion: compactConclusion(summary, news.titleZh || news.title || "市场出现一条需要跟踪的新消息"),
-            reasons,
+            conclusion: summary.conclusion,
+            reasons: summary.reasons,
           };
         }
 
@@ -1636,7 +1737,7 @@
         return calendarItems()
           .filter(itemMatches)
           .filter((item) => item.date >= start && item.date <= end)
-          .sort((a, b) => a.date - b.date);
+          .sort((a, b) => b.date - a.date);
       }
 
       function formatPct(value) {
@@ -1739,7 +1840,7 @@
         for (let index = 0; index < 42; index += 1) {
           const day = new Date(start);
           day.setDate(start.getDate() + index);
-          const dayItems = items.filter((item) => sameDay(item.date, day));
+          const dayItems = items.filter((item) => sameDay(item.date, day)).sort((a, b) => b.date - a.date);
           const outside = day.getMonth() !== month;
           cells.push(`
             <div class="day-cell ${outside ? "outside" : ""}">
@@ -2024,20 +2125,86 @@
         return value >= 1000 ? value.toLocaleString("en-US", { maximumFractionDigits: 0 }) : value.toLocaleString("en-US", { maximumFractionDigits: 2 });
       }
 
-      function drawAssetChart(asset) {
+      function niceAxisTicks(min, max, target = 6) {
+        if (!Number.isFinite(min) || !Number.isFinite(max)) return [];
+        if (min === max) return [min];
+        const span = max - min;
+        const rawStep = span / Math.max(2, target - 1);
+        const power = Math.pow(10, Math.floor(Math.log10(rawStep)));
+        const normalized = rawStep / power;
+        const nice = normalized <= 1 ? 1 : normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10;
+        const step = nice * power;
+        const start = Math.floor(min / step) * step;
+        const end = Math.ceil(max / step) * step;
+        const ticks = [];
+        for (let value = start; value <= end + step / 2; value += step) {
+          ticks.push(Number(value.toFixed(6)));
+        }
+        return ticks;
+      }
+
+      function shortDate(value) {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return value;
+        return `${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+
+      function drawPointLabel(ctx, label, x, y, color) {
+        ctx.save();
+        ctx.font = "12px Microsoft YaHei, sans-serif";
+        const textWidth = ctx.measureText(label).width;
+        const boxX = Math.max(8, Math.min(x - textWidth / 2 - 6, state.chartLayout.width - textWidth - 16));
+        const boxY = Math.max(8, Math.min(y - 30, 260));
+        ctx.fillStyle = "rgba(255,255,255,0.94)";
+        ctx.strokeStyle = "rgba(15,23,42,0.12)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(boxX, boxY, textWidth + 12, 24, 6);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = color;
+        ctx.fillText(label, boxX + 6, boxY + 16);
+        ctx.restore();
+      }
+
+      function drawHoverCrosshair(ctx, point) {
+        if (!point || !state.chartLayout) return;
+        const { padding, width, height } = state.chartLayout;
+        ctx.save();
+        ctx.setLineDash([4, 5]);
+        ctx.strokeStyle = "rgba(15, 23, 42, 0.28)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(point.x, padding.top);
+        ctx.lineTo(point.x, height - padding.bottom);
+        ctx.moveTo(padding.left, point.y);
+        ctx.lineTo(width - padding.right, point.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = "#102033";
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function drawAssetChart(asset, hoverIndex = null) {
         const canvas = els.drawerChart;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
-        const rect = canvas.getBoundingClientRect();
-        const scale = window.devicePixelRatio || 1;
-        canvas.width = Math.max(680, Math.floor(rect.width * scale));
-        canvas.height = Math.floor(320 * scale);
-        ctx.setTransform(scale, 0, 0, scale, 0, 0);
-        const width = canvas.width / scale;
-        const height = 320;
-        ctx.clearRect(0, 0, width, height);
         const points = pointsForRange(asset);
         const values = points.map((point) => point.value).filter((value) => typeof value === "number");
+        const pointGap = state.selectedRange === "1y" ? 34 : 42;
+        const logicalWidth = Math.max(680, (values.length - 1) * pointGap + 100);
+        canvas.style.width = `${logicalWidth}px`;
+        canvas.style.height = "320px";
+        const scale = window.devicePixelRatio || 1;
+        canvas.width = Math.floor(logicalWidth * scale);
+        canvas.height = Math.floor(320 * scale);
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        const width = logicalWidth;
+        const height = 320;
+        ctx.clearRect(0, 0, width, height);
         if (values.length < 2) {
           ctx.fillStyle = "#536274";
           ctx.font = "14px Microsoft YaHei, sans-serif";
@@ -2046,28 +2213,49 @@
         }
         const min = Math.min(...values);
         const max = Math.max(...values);
-        const padding = { top: 22, right: 24, bottom: 34, left: 54 };
+        const axisTicks = niceAxisTicks(min, max, 6);
+        const axisMin = axisTicks[0] ?? min;
+        const axisMax = axisTicks[axisTicks.length - 1] ?? max;
+        const padding = { top: 28, right: 28, bottom: 58, left: 62 };
         const innerW = width - padding.left - padding.right;
         const innerH = height - padding.top - padding.bottom;
-        const y = (value) => padding.top + (max === min ? 0.5 : (max - value) / (max - min)) * innerH;
+        const y = (value) => padding.top + (axisMax === axisMin ? 0.5 : (axisMax - value) / (axisMax - axisMin)) * innerH;
         const x = (index) => padding.left + (index / (values.length - 1)) * innerW;
+        const mappedPoints = points.map((point, index) => ({ ...point, x: x(index), y: y(point.value) }));
+        state.chartLayout = { asset, points: mappedPoints, width, height, padding };
 
         ctx.strokeStyle = "#d7dee4";
         ctx.lineWidth = 1;
-        [0, 0.5, 1].forEach((ratio) => {
-          const yy = padding.top + ratio * innerH;
+        ctx.font = "12px Microsoft YaHei, sans-serif";
+        ctx.fillStyle = "#536274";
+        axisTicks.forEach((tick) => {
+          const yy = y(tick);
           ctx.beginPath();
           ctx.moveTo(padding.left, yy);
           ctx.lineTo(width - padding.right, yy);
           ctx.stroke();
+          ctx.fillText(formatNumber(tick), 8, yy + 4);
+        });
+
+        mappedPoints.forEach((point, index) => {
+          ctx.strokeStyle = "rgba(83,98,116,0.18)";
+          ctx.beginPath();
+          ctx.moveTo(point.x, height - padding.bottom);
+          ctx.lineTo(point.x, height - padding.bottom + 5);
+          ctx.stroke();
+          ctx.save();
+          ctx.translate(point.x, height - padding.bottom + 18);
+          ctx.rotate(-Math.PI / 4);
+          ctx.fillStyle = "#536274";
+          ctx.font = "11px Microsoft YaHei, sans-serif";
+          ctx.fillText(shortDate(point.date), 0, 0);
+          ctx.restore();
         });
 
         ctx.beginPath();
-        values.forEach((value, index) => {
-          const xx = x(index);
-          const yy = y(value);
-          if (index === 0) ctx.moveTo(xx, yy);
-          else ctx.lineTo(xx, yy);
+        mappedPoints.forEach((point, index) => {
+          if (index === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
         });
         ctx.strokeStyle = values[values.length - 1] >= values[0] ? "#166534" : "#b42318";
         ctx.lineWidth = 2.5;
@@ -2082,14 +2270,33 @@
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        ctx.fillStyle = "#536274";
-        ctx.font = "12px Microsoft YaHei, sans-serif";
-        ctx.fillText(formatNumber(max), 8, padding.top + 4);
-        ctx.fillText(formatNumber(min), 8, height - padding.bottom);
-        ctx.fillText(points[0].date, padding.left, height - 10);
-        ctx.textAlign = "right";
-        ctx.fillText(points[points.length - 1].date, width - padding.right, height - 10);
-        ctx.textAlign = "left";
+        const highPoint = mappedPoints.reduce((best, point) => point.value > best.value ? point : best, mappedPoints[0]);
+        const lowPoint = mappedPoints.reduce((best, point) => point.value < best.value ? point : best, mappedPoints[0]);
+        drawPointLabel(ctx, `高 ${formatNumber(highPoint.value)}`, highPoint.x, highPoint.y, "#166534");
+        drawPointLabel(ctx, `低 ${formatNumber(lowPoint.value)}`, lowPoint.x, lowPoint.y + 30, "#b42318");
+        if (hoverIndex != null && mappedPoints[hoverIndex]) drawHoverCrosshair(ctx, mappedPoints[hoverIndex]);
+      }
+
+      function handleChartPointer(event) {
+        if (!state.chartLayout) return;
+        const rect = els.drawerChart.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const points = state.chartLayout.points;
+        const nearest = points.reduce((best, point, index) => {
+          const distance = Math.abs(point.x - x);
+          return distance < best.distance ? { index, distance } : best;
+        }, { index: 0, distance: Infinity });
+        const point = points[nearest.index];
+        drawAssetChart(state.chartLayout.asset, nearest.index);
+        els.chartTooltip.style.display = "block";
+        els.chartTooltip.style.left = `${Math.max(12, Math.min(point.x + 14, state.chartLayout.width - 150))}px`;
+        els.chartTooltip.style.top = `${Math.max(12, point.y - 42)}px`;
+        els.chartTooltip.innerHTML = `<b>${escapeHtml(point.date)}</b><span>${escapeHtml(formatNumber(point.value))}</span>`;
+      }
+
+      function hideChartPointer() {
+        if (els.chartTooltip) els.chartTooltip.style.display = "none";
+        if (state.chartLayout) drawAssetChart(state.chartLayout.asset);
       }
 
       function renderChartStats(asset) {
@@ -2120,6 +2327,7 @@
           button.classList.toggle("active", button.dataset.range === state.selectedRange);
         });
         drawAssetChart(asset);
+        els.drawerChart.parentElement.scrollLeft = els.drawerChart.parentElement.scrollWidth;
         renderChartStats(asset);
         els.assetDrawer.classList.add("show");
         els.assetDrawer.setAttribute("aria-hidden", "false");
@@ -2220,6 +2428,8 @@
       els.assetDrawer.addEventListener("click", (event) => {
         if (event.target === els.assetDrawer) closeAssetDrawer();
       });
+      els.drawerChart.addEventListener("mousemove", handleChartPointer);
+      els.drawerChart.addEventListener("mouseleave", hideChartPointer);
 
       document.addEventListener("click", (event) => {
         const related = event.target.closest("button[data-related-news]");

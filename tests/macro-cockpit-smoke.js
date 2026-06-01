@@ -38,12 +38,18 @@ try {
 
 [
   "function summarizeItem",
+  "function summarizeNewsConclusion",
+  "function articleTypeFor",
   "function renderAccordionItems",
   "function renderAssetSpotlight",
   "function openAssetDrawer",
   "function drawAssetChart",
+  "function niceAxisTicks",
+  "function drawHoverCrosshair",
+  "function handleChartPointer",
   "data-accordion-id",
   "data-asset-key",
+  'id="chartTooltip"',
 ].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
 
 const dataPath = path.join(repoRoot, "data", "macro-latest.json");
