@@ -7,8 +7,12 @@
     <style>
       :root {
         --bg: #f4f6f5;
-        --ink: #111827;
-        --muted: #667085;
+        --ink: #0f172a;
+        --text-strong: #0b1220;
+        --text-main: #1f2937;
+        --text-support: #344054;
+        --text-quiet: #536274;
+        --muted: #475467;
         --line: #d7dee4;
         --panel: #ffffff;
         --panel-2: #f8fafc;
@@ -181,6 +185,7 @@
       .now-panel h2,
       .panel-title {
         margin: 0;
+        color: var(--text-strong);
         font-size: 16px;
         font-weight: 900;
       }
@@ -384,7 +389,7 @@
 
       .day-cell.outside {
         background: #f8fafb;
-        color: #98a2b3;
+        color: #667085;
       }
 
       .day-num {
@@ -397,7 +402,7 @@
       }
 
       .day-count {
-        color: var(--muted);
+        color: var(--text-quiet);
         font-size: 11px;
       }
 
@@ -476,7 +481,7 @@
       }
 
       .more {
-        color: var(--muted);
+        color: var(--text-quiet);
         font-size: 11px;
         font-weight: 800;
       }
@@ -494,12 +499,13 @@
 
       .detail h2 {
         margin: 0 0 8px;
+        color: var(--text-strong);
         font-size: 19px;
       }
 
       .detail-sub {
         margin: 0 0 10px;
-        color: var(--muted);
+        color: var(--text-support);
         font-size: 13px;
         line-height: 1.55;
       }
@@ -525,13 +531,19 @@
       .asset-card b {
         display: block;
         margin-bottom: 4px;
+        color: var(--text-strong);
         font-size: 13px;
       }
 
       .data-box span,
-      .read-item span,
+      .read-item span {
+        color: var(--text-support);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
       .asset-card span {
-        color: var(--muted);
+        color: var(--text-quiet);
         font-size: 12px;
         line-height: 1.5;
       }
@@ -576,7 +588,7 @@
       .explain-card p {
         margin: 0;
         padding: 0 10px 10px;
-        color: var(--muted);
+        color: var(--text-support);
         font-size: 12px;
         line-height: 1.55;
       }
@@ -604,7 +616,7 @@
       .empty {
         display: none;
         padding: 30px;
-        color: var(--muted);
+        color: var(--text-quiet);
         text-align: center;
       }
 
@@ -692,7 +704,7 @@
       .hero-reason {
         max-width: 920px;
         margin: 0;
-        color: #d0d5dd;
+        color: #f2f4f7;
         font-size: 15px;
         line-height: 1.65;
       }
@@ -705,7 +717,7 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.06);
-        color: #d0d5dd;
+        color: #e4e7ec;
         font-size: 13px;
         font-weight: 800;
       }
@@ -768,16 +780,23 @@
       .temperature-card b {
         display: block;
         margin-bottom: 6px;
+        color: var(--text-strong);
         font-size: 13px;
       }
 
       .evidence-card p,
       .watch-card p,
       .schedule-item p,
-      .temperature-card span,
       .evidence-note span {
         margin: 0;
-        color: var(--muted);
+        color: var(--text-support);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .temperature-card span {
+        margin: 0;
+        color: var(--text-quiet);
         font-size: 12px;
         line-height: 1.55;
       }
@@ -805,6 +824,10 @@
         grid-template-columns: 76px minmax(0, 1fr) 110px;
         gap: 10px;
         align-items: center;
+      }
+
+      .schedule-item b {
+        color: var(--text-strong);
       }
 
       .side-column {
