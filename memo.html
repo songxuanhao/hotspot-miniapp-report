@@ -298,6 +298,32 @@
         background: #f7fbfb;
       }
 
+      .ai-config {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        gap: 8px;
+        align-items: end;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+      }
+
+      .ai-config label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--text-support);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .ai-status {
+        grid-column: 1 / -1;
+        color: var(--text-support);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
       .draft-panel.show {
         display: block;
       }
@@ -396,7 +422,8 @@
         }
 
         .field-grid,
-        .toolbar {
+        .toolbar,
+        .ai-config {
           grid-template-columns: 1fr;
         }
       }
@@ -446,6 +473,14 @@
           </div>
           <div class="panel-body">
             <textarea class="control" id="rawInput" placeholder="粘贴项目聊天记录、客户需求、会议纪要或你自己的备忘文字"></textarea>
+            <div class="ai-config">
+              <div>
+                <label for="aiEndpoint">真正 AI 总结接口</label>
+                <input class="control" id="aiEndpoint" placeholder="可选：填入你自己的安全 AI 代理接口地址" />
+              </div>
+              <button class="action ghost" id="saveAiEndpointButton" type="button">保存接口</button>
+              <span class="ai-status" id="aiStatus">未配置接口时，会使用本地兜底整理；要做到真正 AI 理解，需要接一个后端代理，不能把模型 Key 直接放在网页里。</span>
+            </div>
             <div class="draft-actions">
               <button class="action primary" id="summarizeButton" type="button">AI 总结</button>
               <button class="action ghost" id="clearInputButton" type="button">清空输入</button>
@@ -509,12 +544,14 @@
 
     <script>
       const STORAGE_KEY = "memoStoreV1";
+      const AI_ENDPOINT_KEY = "memoAiEndpointV1";
 
       const state = {
         store: loadStore(),
         selectedProjectId: "",
         selectedVersionId: "",
         draft: null,
+        aiEndpoint: localStorage.getItem(AI_ENDPOINT_KEY) || "",
       };
 
       const els = {
@@ -524,6 +561,9 @@
         projectSearch: document.querySelector("#projectSearch"),
         projectList: document.querySelector("#projectList"),
         rawInput: document.querySelector("#rawInput"),
+        aiEndpoint: document.querySelector("#aiEndpoint"),
+        saveAiEndpointButton: document.querySelector("#saveAiEndpointButton"),
+        aiStatus: document.querySelector("#aiStatus"),
         summarizeButton: document.querySelector("#summarizeButton"),
         clearInputButton: document.querySelector("#clearInputButton"),
         draftPanel: document.querySelector("#draftPanel"),
@@ -545,6 +585,10 @@
         importFile: document.querySelector("#importFile"),
         toast: document.querySelector("#toast"),
       };
+      els.aiEndpoint.value = state.aiEndpoint;
+      els.aiStatus.textContent = state.aiEndpoint
+        ? "已配置真正 AI 总结接口；点击 AI 总结会优先调用模型。"
+        : "未配置接口时，会使用本地兜底整理；要做到真正 AI 理解，需要接一个后端代理，不能把模型 Key 直接放在网页里。";
 
       function loadStore() {
         try {
@@ -617,14 +661,103 @@
         return `${oldText}\n${nextText}`;
       }
 
-      function summarizeText(raw, project) {
+      function buildAiPrompt(raw, project) {
+        return [
+          "你是我的项目备忘录整理助手。请理解下面的聊天记录或长文本，把它整理成项目档案。",
+          "不要机械摘关键词，要判断：客户真正要什么、哪些是已确认需求、哪些只是讨论、上线时间是否明确、当前进展是什么、我下一步要做什么。",
+          "如果文本是在更新现有项目，请结合当前项目内容，只补充或修正有变化的信息，不要丢掉原有重要内容。",
+          "只返回 JSON，不要输出 Markdown。",
+          "JSON 字段必须是：name, requirement, launchTime, progress, todos。",
+          "requirement 写成清晰条目；progress 写已完成/进行中/卡点；todos 只写我需要跟进的动作。",
+          `当前项目：${JSON.stringify(project || {}, null, 2)}`,
+          `输入内容：\n${raw}`,
+        ].join("\n\n");
+      }
+
+      function normalizeDraft(payload, raw, project) {
+        const data = payload || {};
+        return {
+          name: String(data.name || project?.name || "未命名项目").trim(),
+          requirement: String(data.requirement || project?.requirement || "").trim(),
+          launchTime: String(data.launchTime || project?.launchTime || "").trim(),
+          progress: String(data.progress || project?.progress || "").trim(),
+          todos: String(data.todos || project?.todos || "").trim(),
+          source: raw,
+          summarySource: data.summarySource || "真正 AI 总结",
+        };
+      }
+
+      function parseAiResponse(response, raw, project) {
+        const payload = response?.draft || response?.data || response?.result || response;
+        if (typeof payload === "string") {
+          const jsonText = payload.match(/\{[\s\S]*\}/)?.[0] || payload;
+          return normalizeDraft(JSON.parse(jsonText), raw, project);
+        }
+        return normalizeDraft(payload, raw, project);
+      }
+
+      async function requestAiSummary(raw, project) {
+        const endpoint = els.aiEndpoint.value.trim();
+        if (!endpoint) return null;
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 45000);
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              task: "work-memo-summary",
+              prompt: buildAiPrompt(raw, project),
+              rawText: raw,
+              currentProject: project || null,
+              schema: {
+                name: "项目名称",
+                requirement: "需求",
+                launchTime: "上线时间",
+                progress: "进展说明",
+                todos: "我要做的备忘录",
+              },
+            }),
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          return parseAiResponse(data, raw, project);
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      function cleanSpeaker(line) {
+        return String(line || "")
+          .replace(/^\s*(我|你|客户|产品|开发|设计|运营|甲方|乙方|PM|UI|前端|后端|测试|老板|[\u4e00-\u9fa5]{2,4})\s*[:：]\s*/, "")
+          .trim();
+      }
+
+      function importantLines(lines, patterns, limit = 8) {
+        const picked = lines
+          .filter((line) => patterns.some((pattern) => pattern.test(line)))
+          .map(cleanSpeaker)
+          .filter(Boolean);
+        return [...new Set(picked)].slice(0, limit);
+      }
+
+      function asBullets(lines, fallback) {
+        const normalized = lines.map((line) => line.replace(/^[\-•\d.、\s]+/, "").trim()).filter(Boolean);
+        return normalized.length ? normalized.map((line) => `- ${line}`).join("\n") : fallback;
+      }
+
+      function summarizeTextLocally(raw, project) {
         const lines = normalizeLines(raw);
-        const firstUseful = lines.find((line) => line.length <= 40 && !/[，。]{2,}/.test(line)) || "";
-        const projectName = pickLine(lines, [/项目名称|项目|客户|小程序|系统|平台/]) || project?.name || firstUseful || "未命名项目";
-        const launchTime = pickLine(lines, [/上线|发布时间|交付|截止|ddl|DDL|时间|节点/]) || project?.launchTime || "";
-        const requirement = extractBlock(lines, [/需求|功能|要做|需要|实现|支持|页面|接口|流程|权限|审核/], 5);
-        const progress = extractBlock(lines, [/进展|当前|已经|完成|开发中|联调|测试|卡住|问题|风险|待确认/], 4);
-        const todos = extractBlock(lines, [/我要|我来|待办|备忘|下一步|跟进|确认|整理|补充|对接|提醒/], 4);
+        const firstUseful = cleanSpeaker(lines.find((line) => line.length <= 42 && !/[。！？]{2,}/.test(line)) || "");
+        const projectName = pickLine(lines, [/项目名称|项目|客户|小程序|系统|平台|APP|网站|H5/]) || project?.name || firstUseful || "未命名项目";
+        const launchTime = pickLine(lines, [/上线|发布时间|交付|截止|ddl|DDL|时间|节点|周一|周二|周三|周四|周五|月底|明天|今天|今晚|本周|下周|\d+月\d+日/]) || project?.launchTime || "";
+        const requirementLines = importantLines(lines, [/需求|功能|要做|需要|实现|支持|页面|接口|流程|权限|审核|字段|按钮|列表|导入|导出|登录|支付|后台|管理|展示/], 10);
+        const progressLines = importantLines(lines, [/进展|当前|已经|完成|开发中|联调|测试|卡住|问题|风险|待确认|还差|没做|做完|上线前|验收/], 8);
+        const todoLines = importantLines(lines, [/我要|我来|我这边|待办|备忘|下一步|跟进|确认|整理|补充|对接|提醒|发你|改一下|看一下|处理|催|约/], 8);
+        const requirement = asBullets(requirementLines, extractBlock(lines, [/需求|功能|要做|需要|实现/], 5));
+        const progress = asBullets(progressLines, extractBlock(lines, [/进展|当前|已经|完成|问题|风险/], 4));
+        const todos = asBullets(todoLines, extractBlock(lines, [/我要|待办|下一步|跟进|确认|对接/], 4));
         return {
           name: projectName,
           requirement: mergeText(project?.requirement, requirement),
@@ -632,7 +765,12 @@
           progress: mergeText(project?.progress, progress),
           todos: mergeText(project?.todos, todos),
           source: raw,
+          summarySource: "本地兜底整理",
         };
+      }
+
+      function summarizeText(raw, project) {
+        return summarizeTextLocally(raw, project);
       }
 
       function fillDraft(draft) {
@@ -641,17 +779,34 @@
         els.launchTime.value = draft.launchTime || "";
         els.progress.value = draft.progress || "";
         els.todos.value = draft.todos || "";
-        els.draftMode.textContent = currentProject() ? "更新现有项目" : "创建新项目";
+        els.draftMode.textContent = draft.summarySource || (currentProject() ? "更新现有项目" : "创建新项目");
         els.draftPanel.classList.add("show");
       }
 
-      function createDraft() {
+      async function createDraft() {
         const raw = els.rawInput.value.trim();
         if (!raw) {
           showToast("请先粘贴内容");
           return;
         }
-        state.draft = summarizeText(raw, currentProject());
+        const project = currentProject();
+        els.summarizeButton.disabled = true;
+        els.summarizeButton.textContent = "正在总结...";
+        try {
+          state.draft = await requestAiSummary(raw, project);
+          if (state.draft) {
+            els.aiStatus.textContent = "已使用真正 AI 总结生成草稿。";
+          } else {
+            state.draft = summarizeText(raw, project);
+            els.aiStatus.textContent = "未配置 AI 接口，本次使用本地兜底整理。";
+          }
+        } catch (error) {
+          state.draft = summarizeText(raw, project);
+          els.aiStatus.textContent = `AI 接口调用失败，已使用本地兜底整理：${error.message}`;
+        } finally {
+          els.summarizeButton.disabled = false;
+          els.summarizeButton.textContent = "AI 总结";
+        }
         fillDraft(state.draft);
       }
 
@@ -665,6 +820,7 @@
           progress: els.progress.value.trim(),
           todos: els.todos.value.trim(),
           source: source || "",
+          summarySource: state.draft?.summarySource || "",
         };
       }
 
@@ -835,7 +991,27 @@
         toastTimer = setTimeout(() => els.toast.classList.remove("show"), 1800);
       }
 
+      function saveAiEndpoint() {
+        const endpoint = els.aiEndpoint.value.trim();
+        if (endpoint) {
+          try {
+            const url = new URL(endpoint);
+            if (!["http:", "https:"].includes(url.protocol)) throw new Error("只支持 http/https");
+          } catch (error) {
+            showToast(`接口地址无效：${error.message}`);
+            return;
+          }
+        }
+        state.aiEndpoint = endpoint;
+        localStorage.setItem(AI_ENDPOINT_KEY, endpoint);
+        els.aiStatus.textContent = endpoint
+          ? "已保存真正 AI 总结接口；点击 AI 总结会优先调用模型。"
+          : "已清空接口；后续会使用本地兜底整理。";
+        showToast(endpoint ? "已保存 AI 接口" : "已清空 AI 接口");
+      }
+
       els.summarizeButton.addEventListener("click", createDraft);
+      els.saveAiEndpointButton.addEventListener("click", saveAiEndpoint);
       els.confirmDraftButton.addEventListener("click", confirmDraft);
       els.discardDraftButton.addEventListener("click", () => {
         state.draft = null;
