@@ -304,7 +304,7 @@
 
       .opportunity {
         display: grid;
-        grid-template-columns: minmax(190px, 0.5fr) minmax(500px, 1.5fr);
+        grid-template-columns: minmax(270px, 0.7fr) minmax(560px, 1.3fr);
         gap: 0;
         overflow: hidden;
         border: 1px solid var(--line);
@@ -315,7 +315,7 @@
       }
 
       .opportunity > section {
-        padding: 10px;
+        padding: 12px;
       }
 
       .opportunity > section + section {
@@ -324,8 +324,38 @@
 
       .event-title {
         margin: 0 0 9px;
-        font-size: 16px;
+        color: var(--text);
+        font-size: 17px;
         line-height: 1.35;
+      }
+
+      .opportunity-source {
+        background: #fbfcfd;
+      }
+
+      .opportunity-main {
+        display: grid;
+        gap: 10px;
+      }
+
+      .heat-row {
+        display: grid;
+        grid-template-columns: 54px 1fr;
+        gap: 8px;
+        align-items: center;
+        margin: 10px 0;
+      }
+
+      .heat-row b {
+        color: var(--text);
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .heat-row span {
+        color: var(--text-support);
+        font-size: 12px;
+        font-weight: 800;
       }
 
       .meta {
@@ -345,6 +375,133 @@
         color: #344054;
         font-size: 12px;
         font-weight: 700;
+      }
+
+      .decision-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .decision-metric {
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .decision-metric b {
+        display: block;
+        color: var(--text);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .decision-metric span {
+        display: block;
+        margin-top: 5px;
+        color: var(--text-support);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .decision-badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        min-height: 30px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .decision-badge.do {
+        background: var(--green-soft);
+        color: var(--green);
+      }
+
+      .decision-badge.caution {
+        background: var(--amber-soft);
+        color: var(--amber);
+      }
+
+      .decision-badge.no {
+        background: var(--coral-soft);
+        color: var(--coral);
+      }
+
+      .opportunity-summary {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+        border: 1px solid rgba(16, 117, 110, 0.26);
+        border-radius: 8px;
+        background: #f7fbfb;
+      }
+
+      .opportunity-summary h3 {
+        margin: 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.38;
+      }
+
+      .opportunity-summary p {
+        margin: 0;
+        color: var(--text-main);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .usecase-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .usecase-item {
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .usecase-item b {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .usecase-item span {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        color: var(--text-main);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .keyword-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .keyword-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 4px 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--text-main);
+        font-size: 12px;
+        font-weight: 800;
       }
 
       .decision-row {
@@ -678,7 +835,8 @@
         .compact-grid,
         .name-options,
         .decision-row,
-        .quick-facts {
+        .quick-facts,
+        .usecase-strip {
           grid-template-columns: 1fr;
         }
 
@@ -729,7 +887,7 @@
         </div>
         <aside class="hero-panel">
           <strong id="generatedAt">生成时间：-</strong>
-          <span>收藏保存在当前浏览器；复制按钮会把单个小程序机会整理成可直接发给自己或团队的文本。</span>
+          <span>先看做不做，再看用户为什么会用、微信里搜什么、研发边界在哪里。</span>
         </aside>
       </header>
 
@@ -738,22 +896,22 @@
         <a class="page-tab" href="./macro.html">金融宏观</a>
       </nav>
 
-      <section class="stats" aria-label="报告概览">
-        <div class="metric">
+      <section class="stats decision-metrics" aria-label="报告概览">
+        <div class="metric decision-metric">
           <b id="itemCount">0</b>
-          <span>可评估机会</span>
+          <span>可做机会</span>
         </div>
-        <div class="metric">
+        <div class="metric decision-metric">
+          <b id="cautionCount">0</b>
+          <span>谨慎机会</span>
+        </div>
+        <div class="metric decision-metric">
+          <b id="rejectCount">0</b>
+          <span>放弃热点</span>
+        </div>
+        <div class="metric decision-metric">
           <b id="favoriteCount">0</b>
           <span>已收藏点子</span>
-        </div>
-        <div class="metric">
-          <b id="highCount">0</b>
-          <span>高优先级</span>
-        </div>
-        <div class="metric">
-          <b id="platformCount">0</b>
-          <span>覆盖平台</span>
         </div>
       </section>
 
@@ -815,6 +973,8 @@
         summary: document.querySelector("#summary"),
         generatedAt: document.querySelector("#generatedAt"),
         itemCount: document.querySelector("#itemCount"),
+        cautionCount: document.querySelector("#cautionCount"),
+        rejectCount: document.querySelector("#rejectCount"),
         favoriteCount: document.querySelector("#favoriteCount"),
         highCount: document.querySelector("#highCount"),
         platformCount: document.querySelector("#platformCount"),
@@ -910,6 +1070,71 @@
         if (value === "中") return "amber";
         if (value === "低") return "green";
         return "teal";
+      }
+
+      function decisionKind(item) {
+        const decision = text(item.finalDecision || item.finalVerdict || item.recommendation);
+        if (/^不做|^不值得|放弃/.test(decision)) return "no";
+        if (/谨慎|观察|边界|只做/.test(decision)) return "caution";
+        if (/^做|^可做/.test(decision)) return "do";
+        return item.priority === "高" ? "do" : "caution";
+      }
+
+      function decisionTone(kind) {
+        return kind === "do" ? "可做" : kind === "no" ? "放弃" : "谨慎";
+      }
+
+      function renderDecisionBadge(item) {
+        const kind = decisionKind(item);
+        return `<span class="decision-badge ${kind}">${decisionTone(kind)}</span>`;
+      }
+
+      function splitKeywords(value) {
+        return text(value)
+          .split(/[、,，\s]+/)
+          .map((item) => item.trim())
+          .filter((item) => item && item !== "-")
+          .slice(0, 8);
+      }
+
+      function renderKeywordRow(item) {
+        const words = splitKeywords(item.wechatSearchKeywords || item.searchKeywords);
+        return words.length
+          ? `<div class="keyword-row">${words.map((word) => `<span class="keyword-chip">${escapeHtml(word)}</span>`).join("")}</div>`
+          : `<p class="text">暂无可用搜索词。</p>`;
+      }
+
+      function renderUseCaseStrip(item) {
+        return `
+          <div class="usecase-strip">
+            <div class="usecase-item"><b>用户为什么会用</b><span>${escapeHtml(item.whyUseMiniapp || item.actionValidation || "只有当小程序比原平台更轻、更适合微信分享/收藏/提醒时才成立。")}</span></div>
+            <div class="usecase-item"><b>微信里的真实动作</b><span>${escapeHtml(item.actionValidation || item.userActionChain || "用户需要能在微信内完成搜索、收藏、提醒、卡片或分享。")}</span></div>
+            <div class="usecase-item"><b>研发边界</b><span>${escapeHtml(item.developmentReviewResult || item.feasibilityNotes || "只做公开资料整理、清单、提醒和卡片，不碰内容版权、资质和专业建议。")}</span></div>
+          </div>
+        `;
+      }
+
+      function renderOpportunitySummary(item) {
+        const decision = item.finalDecision || item.finalVerdict || item.recommendation || "需评估";
+        return `
+          <div class="opportunity-summary">
+            <div class="meta">
+              ${renderDecisionBadge(item)}
+              <span class="tag green">热度 ${Math.max(0, Math.min(100, Number(item.heatNormalized) || 0))}</span>
+              <span class="tag ${priorityTone(item.priority)}">${escapeHtml(text(item.priority))}</span>
+            </div>
+            <h3>${escapeHtml(item.miniappOpportunity || item.miniappIntro || decision)}</h3>
+            <p><b>最终结论：</b>${escapeHtml(decision)}</p>
+          </div>
+        `;
+      }
+
+      function renderDecisionMetrics(items) {
+        const counts = items.reduce((acc, item) => {
+          acc[decisionKind(item)] += 1;
+          return acc;
+        }, { do: 0, caution: 0, no: 0 });
+        return counts;
       }
 
       function copyTextFor(item) {
@@ -1050,11 +1275,11 @@
       }
 
       function renderStats(items) {
-        const platforms = new Set(state.items.flatMap((item) => item.platforms || []));
-        els.itemCount.textContent = items.length;
+        const counts = renderDecisionMetrics(state.items);
+        els.itemCount.textContent = counts.do;
+        if (els.cautionCount) els.cautionCount.textContent = counts.caution;
+        if (els.rejectCount) els.rejectCount.textContent = counts.no;
         els.favoriteCount.textContent = state.favorites.size;
-        els.highCount.textContent = state.items.filter((item) => item.priority === "高").length;
-        els.platformCount.textContent = platforms.size;
       }
 
       function renderToc(items) {
@@ -1078,14 +1303,19 @@
             const heat = Math.max(0, Math.min(100, Number(item.heatNormalized) || 0));
             return `
               <article class="opportunity" id="${escapeHtml(domIdFor(item))}">
-                <section>
+                <section class="opportunity-source">
                   <div class="meta">
                     <span class="tag teal">${escapeHtml(text(item.platforms))}</span>
-                    <span class="tag ${priorityTone(item.priority)}">${escapeHtml(text(item.priority))}</span>
                     <span class="tag ${riskTone(item.complianceRisk)}">${escapeHtml(text(item.complianceRisk))}</span>
-                    <span class="tag green">热度 ${heat}</span>
                   </div>
                   <h2 class="event-title">${escapeHtml(item.event)}</h2>
+                  <div class="heat-row">
+                    <b>${heat}</b>
+                    <div>
+                      <span>${escapeHtml(item.heatWindow || "热度持续时间待判断")}</span>
+                      <div class="bar"><i style="width:${heat}%"></i></div>
+                    </div>
+                  </div>
                   <p class="label">平台排名</p>
                   ${renderRankLinks(item)}
                   <details class="inline-detail">
@@ -1095,31 +1325,22 @@
                     </div>
                   </details>
                 </section>
-                <section>
+                <section class="opportunity-main">
+                  ${renderOpportunitySummary(item)}
+                  ${renderUseCaseStrip(item)}
                   <div class="result-panel">
-                    <p class="label">最终结论</p>
-                    <div class="decision-row">
-                      <p class="decision">${escapeHtml(item.finalDecision || item.finalVerdict || item.recommendation)}</p>
-                      <div class="quick-facts">
-                        <div class="fact"><b>客户</b><span>${escapeHtml(item.customer || "微信高频用户")}</span></div>
-                        <div class="fact"><b>相关性</b><span>${escapeHtml(item.hotspotNeedRelevance || "需评估")}</span></div>
-                        <div class="fact"><b>需求</b><span>${escapeHtml(item.needStrength || "非刚需")}</span></div>
-                        <div class="fact"><b>紧急度</b><span>${escapeHtml(item.urgency || "低")}</span></div>
-                        <div class="fact"><b>竞争</b><span>${escapeHtml(item.competitionIntensity || "高")}</span></div>
-                      </div>
+                    <div>
+                      <p class="idea-title">小程序名称备选</p>
+                      ${renderNameOptions(item)}
                     </div>
                     <div class="compact-grid">
                       <div>
-                        <p class="idea-title">小程序名称备选</p>
-                        ${renderNameOptions(item)}
-                      </div>
-                      <div>
-                        <p class="label">小程序简单介绍</p>
-                        <p class="text">${escapeHtml(item.miniappIntro || item.miniappOpportunity)}</p>
                         <p class="label">核心功能</p>
                         <p class="text">${escapeHtml(item.coreFeatures)}</p>
-                        <p class="label">研发评审结果</p>
-                        <p class="text">${escapeHtml(item.developmentReviewResult || item.feasibilityNotes)}</p>
+                      </div>
+                      <div>
+                        <p class="label">微信搜索词</p>
+                        ${renderKeywordRow(item)}
                       </div>
                     </div>
                     <details class="inline-detail">
@@ -1133,6 +1354,13 @@
                         <p class="text">${escapeHtml(item.searchKeywords)}</p>
                       </div>
                     </details>
+                  </div>
+                  <div class="quick-facts">
+                    <div class="fact"><b>客户</b><span>${escapeHtml(item.customer || "微信高频用户")}</span></div>
+                    <div class="fact"><b>相关性</b><span>${escapeHtml(item.hotspotNeedRelevance || "需评估")}</span></div>
+                    <div class="fact"><b>需求</b><span>${escapeHtml(item.needStrength || "非刚需")}</span></div>
+                    <div class="fact"><b>紧急度</b><span>${escapeHtml(item.urgency || "低")}</span></div>
+                    <div class="fact"><b>竞争</b><span>${escapeHtml(item.competitionIntensity || "高")}</span></div>
                   </div>
                   <details class="analysis">
                     <summary>展开用户需求分析</summary>
