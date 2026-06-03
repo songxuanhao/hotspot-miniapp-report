@@ -548,6 +548,53 @@
         line-height: 1.5;
       }
 
+      .indicator-help {
+        position: relative;
+        display: inline-grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--text-support);
+        cursor: help;
+        font-size: 12px;
+        font-weight: 900;
+        vertical-align: middle;
+      }
+
+      .indicator-help .tooltip {
+        position: absolute;
+        z-index: 8;
+        right: -8px;
+        bottom: calc(100% + 10px);
+        display: none;
+        width: min(340px, 82vw);
+        padding: 10px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 40px rgba(16, 32, 51, 0.16);
+        color: var(--text-main);
+        font-size: 12px;
+        line-height: 1.55;
+        text-align: left;
+      }
+
+      .indicator-help:hover .tooltip,
+      .indicator-help:focus .tooltip {
+        display: block;
+      }
+
+      .indicator-help .tooltip b {
+        display: block;
+        margin: 0 0 4px;
+        color: var(--text-strong);
+        font-size: 13px;
+      }
+
       .side {
         display: grid;
         gap: 14px;
@@ -722,6 +769,25 @@
         font-weight: 800;
       }
 
+      .system-status-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 36px;
+        padding: 0 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .system-status-button:hover {
+        background: rgba(255, 255, 255, 0.16);
+      }
+
       .asset-actions,
       .evidence-grid,
       .watchlist,
@@ -760,9 +826,26 @@
 
       .asset-spotlight {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 10px;
+        gap: 12px;
         padding: 12px;
+      }
+
+      .asset-group {
+        display: grid;
+        gap: 8px;
+      }
+
+      .asset-group h3 {
+        margin: 0;
+        color: var(--text-support);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .asset-group-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
       }
 
       .asset-tile {
@@ -801,6 +884,29 @@
         color: var(--text-quiet);
         font-size: 12px;
         line-height: 1.45;
+      }
+
+      .asset-change {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 2px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        background: #edf7f0;
+        color: #166534;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .asset-change.down {
+        background: #fff1f0;
+        color: #b42318;
+      }
+
+      .asset-change.flat {
+        background: #f1f5f9;
+        color: var(--text-support);
       }
 
       .accordion-list {
@@ -1200,7 +1306,7 @@
         }
 
         .asset-actions,
-        .asset-spotlight,
+        .asset-group-grid,
         .evidence-grid,
         .schedule-item {
           grid-template-columns: 1fr;
@@ -1219,7 +1325,9 @@
         </div>
         <div class="hero-meta">
           <span id="generatedAt">--</span>
-          <span id="dataHealth">数据源检查中</span>
+          <button class="system-status-button" id="systemStatusButton" type="button">
+            <span id="dataHealth">数据源检查中</span>
+          </button>
         </div>
       </section>
 
@@ -1291,15 +1399,6 @@
             <div class="watchlist" id="watchlist"></div>
           </section>
 
-          <details class="panel collapsed-panel">
-            <summary>指标解释库</summary>
-            <div class="explain-list" id="explainList"></div>
-          </details>
-
-          <details class="panel collapsed-panel">
-            <summary>系统状态</summary>
-            <div class="side-body" id="sourceGrid"></div>
-          </details>
         </aside>
       </section>
       <div class="asset-drawer-backdrop" id="assetDrawer" aria-hidden="true">
@@ -1337,6 +1436,15 @@
           <div class="modal-body" id="modalBody"></div>
         </article>
       </div>
+      <div class="modal-backdrop" id="systemStatusModal" role="dialog" aria-modal="true" aria-label="系统状态">
+        <article class="news-modal">
+          <div class="modal-head">
+            <h2>系统对接状态</h2>
+            <button class="modal-close" id="systemStatusClose" type="button" aria-label="关闭">×</button>
+          </div>
+          <div class="modal-body" id="systemStatusBody"></div>
+        </article>
+      </div>
     </main>
 
     <script>
@@ -1351,6 +1459,7 @@
         questions: [],
         dailyBriefing: null,
         sources: [],
+        failures: [],
         selectedId: "",
         selectedAccordionId: "",
         selectedAssetKey: "",
@@ -1387,6 +1496,10 @@
         assetGrid: document.querySelector("#assetGrid"),
         explainList: document.querySelector("#explainList"),
         sourceGrid: document.querySelector("#sourceGrid"),
+        systemStatusButton: document.querySelector("#systemStatusButton"),
+        systemStatusModal: document.querySelector("#systemStatusModal"),
+        systemStatusBody: document.querySelector("#systemStatusBody"),
+        systemStatusClose: document.querySelector("#systemStatusClose"),
         assetDrawer: document.querySelector("#assetDrawer"),
         drawerTitle: document.querySelector("#drawerTitle"),
         drawerPrice: document.querySelector("#drawerPrice"),
@@ -1969,9 +2082,9 @@
           <h2>${escapeHtml(event.title)}</h2>
           <p class="detail-sub">${escapeHtml(meta.why)}</p>
           <div class="data-row">
-            <div class="data-box"><b>实际</b><span>${escapeHtml(event.actual)}</span></div>
-            <div class="data-box"><b>前值</b><span>${escapeHtml(event.previous)}</span></div>
-            <div class="data-box"><b>预期</b><span>${escapeHtml(event.expected)}</span></div>
+            <div class="data-box"><b>实际 ${renderInlineIndicatorHelp(event)}</b><span>${escapeHtml(event.actual)}</span></div>
+            <div class="data-box"><b>前值 ${renderInlineIndicatorHelp(event)}</b><span>${escapeHtml(event.previous)}</span></div>
+            <div class="data-box"><b>预期 ${renderInlineIndicatorHelp(event)}</b><span>${escapeHtml(event.expected)}</span></div>
           </div>
           <div class="read-item">
             <b>所以呢</b>
@@ -2008,9 +2121,36 @@
         els.newsModal.classList.remove("show");
       }
 
+      function openSystemStatusModal() {
+        renderSystemStatus();
+        els.systemStatusModal.classList.add("show");
+      }
+
+      function closeSystemStatusModal() {
+        els.systemStatusModal.classList.remove("show");
+      }
+
       function explanationFor(value) {
         const body = `${value?.id || ""} ${value?.name || ""} ${value?.title || ""} ${value?.category || ""} ${value?.notes || ""}`;
         return INDICATOR_EXPLANATIONS.find((item) => item.keys.some((key) => body.includes(key)));
+      }
+
+      function renderInlineIndicatorHelp(value) {
+        const explanation = explanationFor(value);
+        const name = explanation?.name || value?.name || value?.title || "该指标";
+        const what = explanation?.what || "暂未接入这个指标的详细解释。";
+        const read = explanation?.read || "如果页面没有这个数据，优先检查系统状态里的数据源；若源站不提供，则需要改接官方接口、东方财富/AkShare 或 FRED 等替代源。";
+        const asset = explanation?.asset || "当前只能作为辅助信息，不能单独用于资产判断。";
+        return `
+          <span class="indicator-help" aria-label="${escapeHtml(name)}指标解释">?
+            <span class="tooltip">
+              <b>${escapeHtml(name)}</b>
+              ${escapeHtml(what)}<br>
+              ${escapeHtml(read)}<br>
+              ${escapeHtml(asset)}
+            </span>
+          </span>
+        `;
       }
 
       function renderIndicatorExplanation(event) {
@@ -2098,11 +2238,42 @@
             .join("");
         }
         if (els.dataHealth) {
-          els.dataHealth.textContent = state.sources.some((source) => source.status === "failed")
-            ? "部分数据源失败，核心报告可用"
-            : "核心数据源正常";
+          const failed = state.failures.length || state.sources.some((source) => /failed|失败|partial/i.test(source.status || ""));
+          els.dataHealth.textContent = failed ? "部分数据源异常，查看状态" : "核心数据源正常";
         }
         return decision;
+      }
+
+      function renderSystemStatus() {
+        if (!els.systemStatusBody) return;
+        const failures = state.failures || [];
+        const failureHtml = failures.length
+          ? failures.map((failure) => `
+              <div class="read-item">
+                <b>${escapeHtml(failure.source || "未知数据源")}</b>
+                <span>${escapeHtml(failure.error || "接口返回异常，等待下一次自动化重试。")}</span>
+              </div>
+            `).join("")
+          : `<div class="read-item"><b>暂无失败项</b><span>本次报告没有记录到接口失败；若某个资产没有昨日变化，通常是该资产缺少连续历史点。</span></div>`;
+        els.systemStatusBody.innerHTML = `
+          <div class="read-item">
+            <b>当前状态</b>
+            <span>${escapeHtml(failures.length ? "部分数据源失败，核心报告仍可用。" : "核心数据源正常。")}</span>
+          </div>
+          <div class="side-body">
+            ${state.sources.map((source) => `
+              <div class="asset-card">
+                <b>${escapeHtml(source.name)}</b>
+                <span>${escapeHtml(source.status)} · ${escapeHtml(source.usage)}</span>
+              </div>
+            `).join("")}
+          </div>
+          <div class="read-item">
+            <b>失败 / 暂缺</b>
+            <span>拿不到的数据会先保留页面已有结果，不会用空数据覆盖；下一次自动化会重新尝试。</span>
+          </div>
+          ${failureHtml}
+        `;
       }
 
       function renderEvidenceCards(decision) {
@@ -2158,7 +2329,7 @@
 
       function visibleAssetHistory() {
         const current = assetDisplayMap();
-        const preferred = ["国际金价", "BTC", "美元指数 DXY", "VIX", "WTI 原油", "标普500", "ETH", "白银"];
+        const preferred = ["国际金价", "白银", "沪金 Au99.99", "WTI 原油", "Brent 原油", "铜", "美元指数 DXY", "USD/JPY", "VIX", "标普500", "纳斯达克", "BTC", "ETH"];
         const ordered = [...state.assetHistory].sort((a, b) => {
           const ai = preferred.indexOf(a.name);
           const bi = preferred.indexOf(b.name);
@@ -2166,20 +2337,57 @@
         });
         return ordered
           .filter((asset) => current.has(asset.name))
-          .slice(0, 8)
           .map((asset) => ({ ...asset, current: current.get(asset.name) }));
+      }
+
+      function assetDayChange(asset) {
+        const points = Array.isArray(asset?.points) ? asset.points.filter((point) => typeof point.value === "number") : [];
+        if (points.length < 2) return { label: "昨日变化暂缺", className: "flat", value: null };
+        const latest = points[points.length - 1].value;
+        const previous = points[points.length - 2].value;
+        if (!previous) return { label: "昨日变化暂缺", className: "flat", value: null };
+        const pct = ((latest - previous) / previous) * 100;
+        return {
+          label: `${pct >= 0 ? "+" : ""}${pct.toFixed(2)}% 较昨日`,
+          className: pct > 0 ? "up" : pct < 0 ? "down" : "flat",
+          value: pct,
+        };
+      }
+
+      function assetGroupFor(asset) {
+        const name = asset?.name || "";
+        if (/金|银|Au/.test(name)) return "贵金属";
+        if (/原油|Brent|WTI|铜/.test(name)) return "能源与商品";
+        if (/美元|DXY|USD|JPY|国债|利率/.test(name)) return "汇率与利率";
+        if (/标普|纳斯达克|VIX|恒生|沪深/.test(name)) return "股指与波动";
+        if (/BTC|ETH|比特币|以太/.test(name)) return "加密资产";
+        return "其他资产";
       }
 
       function renderAssetSpotlight() {
         if (!els.assetSpotlight) return;
         const assets = visibleAssetHistory();
-        els.assetSpotlight.innerHTML = assets.length
-          ? assets.map((asset) => `
-              <button class="asset-tile" data-asset-key="${escapeHtml(asset.key)}" type="button">
-                <b>${escapeHtml(asset.name)}</b>
-                <strong>${escapeHtml(asset.current?.value || "-")}</strong>
-                <span>${escapeHtml(asset.updatedAt || asset.current?.notes || "-")}</span>
-              </button>
+        const groups = ["贵金属", "能源与商品", "汇率与利率", "股指与波动", "加密资产", "其他资产"]
+          .map((name) => ({ name, items: assets.filter((asset) => assetGroupFor(asset) === name) }))
+          .filter((group) => group.items.length);
+        els.assetSpotlight.innerHTML = groups.length
+          ? groups.map((group) => `
+              <section class="asset-group">
+                <h3>${escapeHtml(group.name)}</h3>
+                <div class="asset-group-grid">
+                  ${group.items.map((asset) => {
+                    const change = assetDayChange(asset);
+                    return `
+                      <button class="asset-tile" data-asset-key="${escapeHtml(asset.key)}" type="button">
+                        <b>${escapeHtml(asset.name)} ${renderInlineIndicatorHelp(asset)}</b>
+                        <strong>${escapeHtml(asset.current?.value || "-")}</strong>
+                        <em class="asset-change ${escapeHtml(change.className)}">${escapeHtml(change.label)}</em>
+                        <span>${escapeHtml(asset.updatedAt || asset.current?.notes || "-")}</span>
+                      </button>
+                    `;
+                  }).join("")}
+                </div>
+              </section>
             `).join("")
           : `<div class="asset-tile"><b>资产数据暂缺</b><strong>-</strong><span>等待下一次自动化刷新。</span></div>`;
       }
@@ -2433,22 +2641,27 @@
             : `<div class="read-item"><b>暂未拉到新闻联播要闻</b><span>不影响四个宏观判断；实时新闻仍会进入日历。</span></div>`;
         }
 
-        els.explainList.innerHTML = INDICATOR_EXPLANATIONS.map((item, index) => `
-          <details class="explain-card" ${index < 3 ? "open" : ""}>
-            <summary>${escapeHtml(item.name)}</summary>
-            <p>${escapeHtml(item.read)}</p>
-            <p>${escapeHtml(item.asset)}</p>
-          </details>
-        `).join("");
+        if (els.explainList) {
+          els.explainList.innerHTML = INDICATOR_EXPLANATIONS.map((item, index) => `
+            <details class="explain-card" ${index < 3 ? "open" : ""}>
+              <summary>${escapeHtml(item.name)}</summary>
+              <p>${escapeHtml(item.read)}</p>
+              <p>${escapeHtml(item.asset)}</p>
+            </details>
+          `).join("");
+        }
 
-        els.sourceGrid.innerHTML = state.sources
-          .map((source) => `
-            <div class="asset-card">
-              <b>${escapeHtml(source.name)}</b>
-              <span>${escapeHtml(source.status)} · ${escapeHtml(source.usage)}</span>
-            </div>
-          `)
-          .join("");
+        if (els.sourceGrid) {
+          els.sourceGrid.innerHTML = state.sources
+            .map((source) => `
+              <div class="asset-card">
+                <b>${escapeHtml(source.name)}</b>
+                <span>${escapeHtml(source.status)} · ${escapeHtml(source.usage)}</span>
+              </div>
+            `)
+            .join("");
+        }
+        renderSystemStatus();
       }
 
       function renderStats() {
@@ -2524,9 +2737,15 @@
       els.newsModal.addEventListener("click", (event) => {
         if (event.target === els.newsModal) closeNewsModal();
       });
+      els.systemStatusButton.addEventListener("click", openSystemStatusModal);
+      els.systemStatusClose.addEventListener("click", closeSystemStatusModal);
+      els.systemStatusModal.addEventListener("click", (event) => {
+        if (event.target === els.systemStatusModal) closeSystemStatusModal();
+      });
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
           closeNewsModal();
+          closeSystemStatusModal();
           closeAssetDrawer();
         }
       });
@@ -2549,6 +2768,7 @@
           state.questions = Array.isArray(data.questions) ? data.questions : [];
           state.dailyBriefing = data.dailyBriefing || null;
           state.sources = Array.isArray(data.sources) ? data.sources : [];
+          state.failures = Array.isArray(data.failures) ? data.failures : [];
           if (els.summary) els.summary.textContent = data.summary || "已读取金融宏观日历。";
           els.generatedAt.textContent = `生成时间：${data.generatedAt || "-"}`;
           render();

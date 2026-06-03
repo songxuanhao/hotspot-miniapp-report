@@ -34,6 +34,14 @@ try {
   'id="riskSchedule"',
   'id="assetDrawer"',
   'id="drawerChart"',
+  'id="systemStatusButton"',
+  'id="systemStatusModal"',
+  'class="indicator-help"',
+  'class="asset-group"',
+  "function renderInlineIndicatorHelp",
+  "function renderSystemStatus",
+  "function assetDayChange",
+  "function assetGroupFor",
 ].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
 
 [
