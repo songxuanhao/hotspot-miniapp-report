@@ -26,6 +26,7 @@ try {
 [
   'id="headlineDecision"',
   'id="assetActions"',
+  'id="coreDataStrip"',
   'id="assetSpotlight"',
   'id="evidenceCards"',
   'id="supportEvidence"',
@@ -39,9 +40,14 @@ try {
   'class="indicator-help"',
   'class="asset-group"',
   "function renderInlineIndicatorHelp",
+  "function fallbackIndicatorExplanation",
+  "function positionIndicatorTooltip",
+  "function renderCoreDataStrip",
   "function renderSystemStatus",
   "function assetDayChange",
   "function assetGroupFor",
+  "非农新增就业",
+  "有效变化暂缺",
 ].forEach((needle) => assert(html.includes(needle), `macro.html should include ${needle}`));
 
 [

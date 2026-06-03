@@ -566,10 +566,10 @@
       }
 
       .indicator-help .tooltip {
-        position: absolute;
-        z-index: 8;
-        right: -8px;
-        bottom: calc(100% + 10px);
+        position: fixed;
+        z-index: 30;
+        left: 12px;
+        top: 12px;
         display: none;
         width: min(340px, 82vw);
         padding: 10px;
@@ -581,10 +581,10 @@
         font-size: 12px;
         line-height: 1.55;
         text-align: left;
+        pointer-events: none;
       }
 
-      .indicator-help:hover .tooltip,
-      .indicator-help:focus .tooltip {
+      .indicator-help .tooltip.show {
         display: block;
       }
 
@@ -820,52 +820,119 @@
         align-items: start;
       }
 
+      .core-data-strip {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 1.35fr repeat(5, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .core-data-card {
+        min-height: 82px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 8px 18px rgba(16, 32, 51, 0.05);
+      }
+
+      .core-data-card.primary {
+        border-color: rgba(16, 32, 51, 0.28);
+        background: linear-gradient(180deg, #ffffff, #f7fbfb);
+      }
+
+      .core-data-label {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--text-strong);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .core-data-value {
+        display: block;
+        margin-top: 8px;
+        color: var(--text-strong);
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1;
+      }
+
+      .core-data-card.primary .core-data-value {
+        font-size: 26px;
+      }
+
+      .core-data-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 8px;
+        color: var(--text-support);
+        font-size: 12px;
+        font-weight: 750;
+      }
+
       .asset-spotlight-panel {
         margin-top: 14px;
       }
 
       .asset-spotlight {
         display: grid;
-        gap: 12px;
-        padding: 12px;
+        gap: 10px;
+        padding: 10px 12px 12px;
       }
 
       .asset-group {
         display: grid;
-        gap: 8px;
+        gap: 6px;
       }
 
       .asset-group h3 {
         margin: 0;
-        color: var(--text-support);
+        color: var(--text-strong);
         font-size: 12px;
         font-weight: 900;
       }
 
       .asset-group-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
+        gap: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
       }
 
       .asset-tile {
-        min-height: 108px;
-        padding: 13px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
+        min-height: 48px;
+        display: grid;
+        grid-template-columns: minmax(150px, 1.15fr) minmax(96px, 0.8fr) minmax(112px, 0.8fr) minmax(130px, 1fr);
+        gap: 10px;
+        align-items: center;
+        padding: 8px 10px;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        border-radius: 0;
         background: #fff;
         color: var(--text-main);
         text-align: left;
         cursor: pointer;
       }
 
+      .asset-tile:last-child {
+        border-bottom: 0;
+      }
+
       .asset-tile:hover {
-        border-color: var(--deep);
-        box-shadow: 0 10px 24px rgba(16, 32, 51, 0.08);
+        background: #f8fafc;
+        box-shadow: inset 3px 0 0 var(--deep);
       }
 
       .asset-tile b {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 4px;
         color: var(--text-strong);
         font-size: 13px;
         line-height: 1.35;
@@ -873,15 +940,14 @@
 
       .asset-tile strong {
         display: block;
-        margin: 8px 0 6px;
         color: var(--text-strong);
-        font-size: 21px;
+        font-size: 15px;
         line-height: 1;
       }
 
       .asset-tile span {
         display: block;
-        color: var(--text-quiet);
+        color: var(--text-support);
         font-size: 12px;
         line-height: 1.45;
       }
@@ -889,8 +955,7 @@
       .asset-change {
         display: inline-flex;
         width: fit-content;
-        margin-top: 2px;
-        padding: 3px 7px;
+        padding: 3px 8px;
         border-radius: 999px;
         background: #edf7f0;
         color: #166534;
@@ -1242,7 +1307,8 @@
       @media (max-width: 1120px) {
         .cockpit-hero,
         .cockpit-grid,
-        .split-evidence {
+        .split-evidence,
+        .core-data-strip {
           grid-template-columns: 1fr;
         }
 
@@ -1306,7 +1372,7 @@
         }
 
         .asset-actions,
-        .asset-group-grid,
+        .asset-tile,
         .evidence-grid,
         .schedule-item {
           grid-template-columns: 1fr;
@@ -1335,6 +1401,8 @@
         <a class="page-tab" href="./index.html">今日热点</a>
         <a class="page-tab active" href="./macro.html">金融宏观</a>
       </nav>
+
+      <section class="core-data-strip" id="coreDataStrip" aria-label="核心宏观数据"></section>
 
       <section class="panel asset-spotlight-panel">
         <div class="panel-head compact">
@@ -1472,6 +1540,7 @@
         headlineDecision: document.querySelector("#headlineDecision"),
         headlineReason: document.querySelector("#headlineReason"),
         assetActions: document.querySelector("#assetActions"),
+        coreDataStrip: document.querySelector("#coreDataStrip"),
         dataHealth: document.querySelector("#dataHealth"),
         evidenceCards: document.querySelector("#evidenceCards"),
         supportEvidence: document.querySelector("#supportEvidence"),
@@ -2135,22 +2204,118 @@
         return INDICATOR_EXPLANATIONS.find((item) => item.keys.some((key) => body.includes(key)));
       }
 
+      function fallbackIndicatorExplanation(value) {
+        const body = `${value?.id || ""} ${value?.name || ""} ${value?.title || ""} ${value?.category || ""} ${value?.notes || ""}`;
+        const name = value?.name || value?.title || "该指标";
+        const templates = [
+          {
+            keys: [/非农|PAYEMS|就业/],
+            name: "美国非农新增就业",
+            what: "美国非农新增就业是判断劳动力市场强弱的核心数据，直接影响美联储降息预期、美元和美债利率。",
+            read: "新增就业明显走强通常代表经济韧性强、降息更难；明显走弱则说明就业降温，市场会交易宽松或衰退。",
+            asset: "强非农偏利多美元和美债收益率、压制黄金和成长资产；温和降温通常利好黄金和风险资产，急跌则偏避险。"
+          },
+          {
+            keys: [/CPI|PCE|PPI|通胀|物价/],
+            name,
+            what: "这是价格压力指标，用来判断通胀是否还在约束央行政策。",
+            read: "高于目标且继续上行，说明宽松空间变小；连续回落，说明利率压力可能缓和。",
+            asset: "通胀粘性偏利多美元和利率，压制黄金、成长股和币圈；通胀降温则相反。"
+          },
+          {
+            keys: [/金价|黄金|沪金|Au|白银|银/],
+            name,
+            what: "贵金属价格反映避险需求、实际利率、美元强弱和资金配置偏好。",
+            read: "黄金强于美元和实际利率时，通常说明避险或结构性买盘更强；沪金与国际金价差可观察国内需求和汇率影响。",
+            asset: "金价上行通常代表避险或降息预期增强；白银同时受工业需求影响，弹性比黄金更大。"
+          },
+          {
+            keys: [/原油|WTI|Brent|布伦特|油/],
+            name,
+            what: "油价是通胀和地缘风险的重要传导口，WTI 偏美国，Brent 更偏全球定价。",
+            read: "油价上涨会抬升通胀预期，也可能来自战争、制裁或 OPEC+ 供给收缩；油价下跌常指向需求弱或供给宽。",
+            asset: "油价急涨偏利多能源、利空降息预期；若由战争推动，通常也利多黄金避险。"
+          },
+          {
+            keys: [/铜|Copper/],
+            name,
+            what: "铜常被视为全球制造业和基建需求的温度计。",
+            read: "铜价走强通常说明增长预期改善或供给紧；铜价走弱则提示工业需求偏弱。",
+            asset: "铜价强更支持周期资产和风险偏好；铜价弱则偏防守。"
+          },
+          {
+            keys: [/美元|DXY|USD|JPY|汇率/],
+            name,
+            what: "美元指数和主要汇率反映全球资金对美元流动性、利率和风险偏好的定价。",
+            read: "DXY 上行通常意味着美元资金更紧或避险增强；美元走弱通常有利于黄金、新兴市场和币圈。",
+            asset: "强美元一般压制黄金和风险资产；弱美元通常改善全球流动性环境。"
+          },
+          {
+            keys: [/VIX|波动|标普|纳斯达克|股指/],
+            name,
+            what: "股指和波动率是风险偏好的直接读数，VIX 越高代表市场越恐慌。",
+            read: "股指上涨且 VIX 低位，说明风险偏好较稳；VIX 快速上行通常意味着避险需求升温。",
+            asset: "风险偏好强利好权益和币圈；恐慌上升时黄金和美元通常更受关注。"
+          },
+          {
+            keys: [/BTC|ETH|比特币|以太|加密/],
+            name,
+            what: "加密资产价格反映高波动风险偏好、美元流动性和 ETF/链上资金流。",
+            read: "BTC 强于 ETH 往往说明资金偏防守；ETH 或山寨强，通常说明风险偏好扩散。",
+            asset: "币圈更受流动性和情绪影响，适合和 DXY、实际利率、恐慌贪婪指数一起看。"
+          },
+          {
+            keys: [/收益率|国债|利率|TIPS|10Y|2Y/],
+            name,
+            what: "债券收益率反映市场对增长、通胀和央行政策的综合定价。",
+            read: "长端利率上行可能来自增长韧性或通胀压力；实际利率上行对黄金压力尤其大。",
+            asset: "收益率上行通常压制黄金和成长资产；收益率下行通常支持黄金和风险资产。"
+          }
+        ];
+        const matched = templates.find((item) => item.keys.some((key) => key.test(body)));
+        if (matched) return matched;
+        return {
+          name,
+          what: `${name}用于补充判断宏观环境，页面会优先从已接入的数据源读取；解释库没有命中时，会按指标名称自动生成这段说明。`,
+          read: "先看它相对前值的方向，再和美元、利率、黄金、股指、币圈情绪一起交叉验证，避免单个指标误导判断。",
+          asset: "如果当前没有数据，先看右上角系统对接状态；可优先尝试 FRED、AkShare、东方财富、Yahoo Finance、CoinGecko 或官方公开数据源。"
+        };
+      }
+
       function renderInlineIndicatorHelp(value) {
-        const explanation = explanationFor(value);
+        const explanation = explanationFor(value) || fallbackIndicatorExplanation(value);
         const name = explanation?.name || value?.name || value?.title || "该指标";
-        const what = explanation?.what || "暂未接入这个指标的详细解释。";
-        const read = explanation?.read || "如果页面没有这个数据，优先检查系统状态里的数据源；若源站不提供，则需要改接官方接口、东方财富/AkShare 或 FRED 等替代源。";
-        const asset = explanation?.asset || "当前只能作为辅助信息，不能单独用于资产判断。";
         return `
           <span class="indicator-help" aria-label="${escapeHtml(name)}指标解释">?
             <span class="tooltip">
               <b>${escapeHtml(name)}</b>
-              ${escapeHtml(what)}<br>
-              ${escapeHtml(read)}<br>
-              ${escapeHtml(asset)}
+              ${escapeHtml(explanation.what)}<br>
+              ${escapeHtml(explanation.read)}<br>
+              ${escapeHtml(explanation.asset)}
             </span>
           </span>
         `;
+      }
+
+      function positionIndicatorTooltip(help) {
+        const tooltip = help?.querySelector(".tooltip");
+        if (!tooltip) return;
+        tooltip.classList.add("show");
+        tooltip.style.left = "12px";
+        tooltip.style.top = "12px";
+        const rect = help.getBoundingClientRect();
+        const tip = tooltip.getBoundingClientRect();
+        const margin = 12;
+        const left = Math.max(margin, Math.min(rect.left + rect.width / 2 - tip.width / 2, window.innerWidth - tip.width - margin));
+        let top = rect.top - tip.height - 10;
+        if (top < margin) top = rect.bottom + 10;
+        tooltip.style.left = `${left}px`;
+        tooltip.style.top = `${Math.max(margin, top)}px`;
+      }
+
+      function hideIndicatorTooltip(help) {
+        const tooltip = help?.querySelector(".tooltip");
+        if (tooltip) tooltip.classList.remove("show");
       }
 
       function renderIndicatorExplanation(event) {
@@ -2276,6 +2441,35 @@
         `;
       }
 
+      function renderCoreDataStrip() {
+        if (!els.coreDataStrip) return;
+        const priority = [
+          "fred-payems",
+          "fred-cpi-yoy",
+          "fred-pce-yoy",
+          "fred-core-pce-yoy",
+          "fred-icsa",
+          "fred-unrate",
+          "nbs-china-cpi",
+          "nbs-china-ppi"
+        ];
+        const byId = new Map(state.events.map((event) => [event.id, event]));
+        const picked = priority.map((id) => byId.get(id)).filter(Boolean).slice(0, 6);
+        els.coreDataStrip.innerHTML = picked.length
+          ? picked.map((event, index) => `
+              <article class="core-data-card ${index === 0 ? "primary" : ""}">
+                <span class="core-data-label">${escapeHtml(event.title || "核心数据")}${renderInlineIndicatorHelp(event)}</span>
+                <strong class="core-data-value">${escapeHtml(event.actual || event.value || "-")}</strong>
+                <span class="core-data-meta">
+                  <span>${escapeHtml(event.country || "-")}</span>
+                  <span>${escapeHtml(event.surprise || "等待公布")}</span>
+                  <span>${escapeHtml(event.period || event.date || "-")}</span>
+                </span>
+              </article>
+            `).join("")
+          : `<article class="core-data-card primary"><span class="core-data-label">非农新增就业${renderInlineIndicatorHelp({ title: "非农新增就业" })}</span><strong class="core-data-value">等待刷新</strong><span class="core-data-meta"><span>核心数据暂缺</span></span></article>`;
+      }
+
       function renderEvidenceCards(decision) {
         if (els.evidenceCards) {
           els.evidenceCards.innerHTML = buildEvidenceCards(decision)
@@ -2341,14 +2535,24 @@
       }
 
       function assetDayChange(asset) {
-        const points = Array.isArray(asset?.points) ? asset.points.filter((point) => typeof point.value === "number") : [];
-        if (points.length < 2) return { label: "昨日变化暂缺", className: "flat", value: null };
-        const latest = points[points.length - 1].value;
-        const previous = points[points.length - 2].value;
-        if (!previous) return { label: "昨日变化暂缺", className: "flat", value: null };
+        const points = Array.isArray(asset?.points)
+          ? asset.points
+              .filter((point) => typeof point.value === "number" && Number.isFinite(point.value))
+              .sort((a, b) => new Date(a.date) - new Date(b.date))
+          : [];
+        if (points.length < 2) return { label: "有效变化暂缺", className: "flat", value: null };
+        const latestPoint = points[points.length - 1];
+        const latest = latestPoint.value;
+        const previousPoint = [...points]
+          .slice(0, -1)
+          .reverse()
+          .find((point) => point.date !== latestPoint.date && point.value && Math.abs(point.value - latest) > Math.abs(latest) * 0.000001);
+        if (!previousPoint) return { label: "有效变化暂缺", className: "flat", value: null };
+        const previous = previousPoint.value;
+        if (!previous) return { label: "有效变化暂缺", className: "flat", value: null };
         const pct = ((latest - previous) / previous) * 100;
         return {
-          label: `${pct >= 0 ? "+" : ""}${pct.toFixed(2)}% 较昨日`,
+          label: `${pct >= 0 ? "+" : ""}${pct.toFixed(2)}% 较${shortDate(previousPoint.date)}`,
           className: pct > 0 ? "up" : pct < 0 ? "down" : "flat",
           value: pct,
         };
@@ -2675,6 +2879,7 @@
 
       function render() {
         const decision = renderHeadline();
+        renderCoreDataStrip();
         renderEvidenceCards(decision);
         renderWatchlist();
         renderRiskSchedule();
@@ -2706,7 +2911,28 @@
       document.addEventListener("click", (event) => {
         const button = event.target.closest("button[data-asset-key]");
         if (!button) return;
+        if (event.target.closest(".indicator-help")) return;
         openAssetDrawer(button.dataset.assetKey);
+      });
+
+      document.addEventListener("mouseenter", (event) => {
+        const help = event.target.closest?.(".indicator-help");
+        if (help) positionIndicatorTooltip(help);
+      }, true);
+
+      document.addEventListener("mouseleave", (event) => {
+        const help = event.target.closest?.(".indicator-help");
+        if (help) hideIndicatorTooltip(help);
+      }, true);
+
+      document.addEventListener("focusin", (event) => {
+        const help = event.target.closest?.(".indicator-help");
+        if (help) positionIndicatorTooltip(help);
+      });
+
+      document.addEventListener("focusout", (event) => {
+        const help = event.target.closest?.(".indicator-help");
+        if (help) hideIndicatorTooltip(help);
       });
 
       els.rangeTabs.addEventListener("click", (event) => {
