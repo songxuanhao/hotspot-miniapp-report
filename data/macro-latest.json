@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-02 08:23:14 +08:00",
-  "summary": "宏观快照：8 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；11 个利率曲线指标，80 条实时新闻；美国走 FRED CSV，中国走国家统计局源，价格和币圈指标走免费公开接口。",
+  "generatedAt": "2026-06-03 08:06:54 +08:00",
+  "summary": "宏观快照：8 个官方宏观指标，4 个价格比值，3 个币圈宏观指标；11 个利率曲线指标，87 条中文优先新闻。核心数据沿用上次成功采集结果，并补入 2026-06-03 中文宏观热榜。",
   "events": [
     {
       "id": "fred-payems",
@@ -158,31 +158,94 @@
       "howToUse": "这块决定大方向：实际利率和 DXY 上行时，黄金/币/新兴市场通常承压；曲线倒挂加深说明衰退或紧缩压力仍在。",
       "news": [
         {
-          "source": "华尔街见闻7x24",
-          "title": "特朗普被爆怒斥内塔尼亚胡“疯了”：“你到底在干什么？”",
-          "titleZh": "特朗普被爆怒斥内塔尼亚胡“疯了”：“你到底在干什么？”",
-          "url": "https://wallstreetcn.com/livenews/3112707",
-          "published": "2026-06-02 08:21",
-          "summary": "据美国“阿克西奥斯新闻网（Axios）”当地时间6月1日下午报道，美国总统特朗普当天在与以色列总理内塔尼亚胡通话时，对以色列升级黎巴嫩局势表示“强烈不满”。报道称，在这次“措辞激烈”的通话中，特朗普指责内塔尼亚胡在黎巴嫩问题上“行动过度”。据一名美国官员透露，特朗普警告内塔尼亚胡，如果轰炸黎巴嫩首都贝鲁特，将“进一步加剧以色列在国际社会的孤立处境”。 据两名知情人士透露，特朗普在通话中称内塔尼亚胡“疯了”，并指责其“不知感恩”。一名美国官员转述特朗普的话称：“如果不是我，你早...",
-          "summaryZh": "据美国“阿克西奥斯新闻网（Axios）”当地时间6月1日下午报道，美国总统特朗普当天在与以色列总理内塔尼亚胡通话时，对以色列升级黎巴嫩局势表示“强烈不满”。报道称，在这次“措辞激烈”的通话中，特朗普指责内塔尼亚胡在黎巴嫩问题上“行动过度”。据一名美国官员透露，特朗普警告内塔尼亚胡，如果轰炸黎巴嫩首都贝鲁特，将“进一步加剧以色列在国际社会的孤立处境”。 据两名知情人士透露，特朗普在通话中称内塔尼亚胡“疯了”，并指责其“不知感恩”。一名美国官员转述特朗普的话称：“如果不是我，你早..."
+          "id": "fallback-2026-06-03-01",
+          "source": "华尔街见闻热榜",
+          "title": "黄金替代美元成官方储备第一大资产",
+          "titleZh": "黄金替代美元成官方储备第一大资产",
+          "url": "https://www.baidu.com/s?wd=%E9%BB%84%E9%87%91%E6%9B%BF%E4%BB%A3%E7%BE%8E%E5%85%83%E6%88%90%E5%AE%98%E6%96%B9%E5%82%A8%E5%A4%87%E7%AC%AC%E4%B8%80%E5%A4%A7%E8%B5%84%E4%BA%A7",
+          "published": "2026-06-03 08:06",
+          "summary": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "summaryZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "articleContent": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "articleContentZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "contentQuality": "summary",
+          "contentChars": 48,
+          "buckets": [
+            "macro-tide",
+            "risk-regime"
+          ]
         },
         {
-          "source": "华尔街见闻7x24",
-          "title": "纳斯达克100指数期货跌0.5%。",
-          "titleZh": "纳斯达克100指数期货跌0.5%。",
-          "url": "https://wallstreetcn.com/livenews/3112706",
-          "published": "2026-06-02 08:13",
-          "summary": "纳斯达克100指数期货跌0.5%。",
-          "summaryZh": "纳斯达克100指数期货跌0.5%。"
+          "id": "fallback-2026-06-03-02",
+          "source": "华尔街见闻热榜",
+          "title": "特朗普操纵 美伊叙事 先说 不在乎谈判成不成 后发帖 预计一周内达成协议 称 以黎停火 但以色列要继续行动",
+          "titleZh": "特朗普操纵 美伊叙事 先说 不在乎谈判成不成 后发帖 预计一周内达成协议 称 以黎停火 但以色列要继续行动",
+          "url": "https://wallstreetcn.com/articles/3773609",
+          "published": "2026-06-03 08:06",
+          "summary": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "summaryZh": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "articleContent": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "articleContentZh": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "contentQuality": "summary",
+          "contentChars": 43,
+          "buckets": [
+            "macro-tide",
+            "risk-regime"
+          ]
         },
         {
-          "source": "华尔街见闻7x24",
-          "title": "韩国首尔综指跌幅收窄至不到1%。",
-          "titleZh": "韩国首尔综指跌幅收窄至不到1%。",
-          "url": "https://wallstreetcn.com/livenews/3112705",
-          "published": "2026-06-02 08:12",
-          "summary": "韩国首尔综指跌幅收窄至不到1%。",
-          "summaryZh": "韩国首尔综指跌幅收窄至不到1%。"
+          "id": "fallback-2026-06-03-03",
+          "source": "华尔街见闻热榜",
+          "title": "美伊谈判反复背后 特朗普痛骂内塔尼亚胡 你他妈疯了 要不是我你早进监狱了",
+          "titleZh": "美伊谈判反复背后 特朗普痛骂内塔尼亚胡 你他妈疯了 要不是我你早进监狱了",
+          "url": "https://wallstreetcn.com/articles/3773679",
+          "published": "2026-06-03 08:06",
+          "summary": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "summaryZh": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "articleContent": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "articleContentZh": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "contentQuality": "summary",
+          "contentChars": 38,
+          "buckets": [
+            "macro-tide",
+            "risk-regime"
+          ]
+        },
+        {
+          "id": "fallback-2026-06-03-04",
+          "source": "凤凰网",
+          "title": "美军机发射 地狱火 导弹 击中一艘伊朗相关油轮",
+          "titleZh": "美军机发射 地狱火 导弹 击中一艘伊朗相关油轮",
+          "url": "https://news.ifeng.com/c/8te0bJrzbXu",
+          "published": "2026-06-03 08:06",
+          "summary": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "summaryZh": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "articleContent": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "articleContentZh": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "contentQuality": "summary",
+          "contentChars": 44,
+          "buckets": [
+            "risk-regime",
+            "macro-tide"
+          ]
+        },
+        {
+          "id": "fallback-2026-06-03-05",
+          "source": "澎湃新闻",
+          "title": "特朗普被曝同以总理通话爆粗口",
+          "titleZh": "特朗普被曝同以总理通话爆粗口",
+          "url": "https://m.thepaper.cn/newsDetail_forward_33288561",
+          "published": "2026-06-03 08:06",
+          "summary": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "summaryZh": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "articleContent": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "articleContentZh": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "contentQuality": "summary",
+          "contentChars": 42,
+          "buckets": [
+            "risk-regime",
+            "macro-tide"
+          ]
         }
       ]
     },
@@ -201,31 +264,94 @@
       "howToUse": "看趋势，不迷信绝对值。多个比值同向时才增强判断；如果互相打架，说明市场在转折或缺少共识。",
       "news": [
         {
-          "source": "华尔街见闻7x24",
-          "title": "特朗普被爆怒斥内塔尼亚胡“疯了”：“你到底在干什么？”",
-          "titleZh": "特朗普被爆怒斥内塔尼亚胡“疯了”：“你到底在干什么？”",
-          "url": "https://wallstreetcn.com/livenews/3112707",
-          "published": "2026-06-02 08:21",
-          "summary": "据美国“阿克西奥斯新闻网（Axios）”当地时间6月1日下午报道，美国总统特朗普当天在与以色列总理内塔尼亚胡通话时，对以色列升级黎巴嫩局势表示“强烈不满”。报道称，在这次“措辞激烈”的通话中，特朗普指责内塔尼亚胡在黎巴嫩问题上“行动过度”。据一名美国官员透露，特朗普警告内塔尼亚胡，如果轰炸黎巴嫩首都贝鲁特，将“进一步加剧以色列在国际社会的孤立处境”。 据两名知情人士透露，特朗普在通话中称内塔尼亚胡“疯了”，并指责其“不知感恩”。一名美国官员转述特朗普的话称：“如果不是我，你早...",
-          "summaryZh": "据美国“阿克西奥斯新闻网（Axios）”当地时间6月1日下午报道，美国总统特朗普当天在与以色列总理内塔尼亚胡通话时，对以色列升级黎巴嫩局势表示“强烈不满”。报道称，在这次“措辞激烈”的通话中，特朗普指责内塔尼亚胡在黎巴嫩问题上“行动过度”。据一名美国官员透露，特朗普警告内塔尼亚胡，如果轰炸黎巴嫩首都贝鲁特，将“进一步加剧以色列在国际社会的孤立处境”。 据两名知情人士透露，特朗普在通话中称内塔尼亚胡“疯了”，并指责其“不知感恩”。一名美国官员转述特朗普的话称：“如果不是我，你早..."
+          "id": "fallback-2026-06-03-01",
+          "source": "华尔街见闻热榜",
+          "title": "黄金替代美元成官方储备第一大资产",
+          "titleZh": "黄金替代美元成官方储备第一大资产",
+          "url": "https://www.baidu.com/s?wd=%E9%BB%84%E9%87%91%E6%9B%BF%E4%BB%A3%E7%BE%8E%E5%85%83%E6%88%90%E5%AE%98%E6%96%B9%E5%82%A8%E5%A4%87%E7%AC%AC%E4%B8%80%E5%A4%A7%E8%B5%84%E4%BA%A7",
+          "published": "2026-06-03 08:06",
+          "summary": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "summaryZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "articleContent": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "articleContentZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+          "contentQuality": "summary",
+          "contentChars": 48,
+          "buckets": [
+            "macro-tide",
+            "risk-regime"
+          ]
         },
         {
-          "source": "华尔街见闻7x24",
-          "title": "纳斯达克100指数期货跌0.5%。",
-          "titleZh": "纳斯达克100指数期货跌0.5%。",
-          "url": "https://wallstreetcn.com/livenews/3112706",
-          "published": "2026-06-02 08:13",
-          "summary": "纳斯达克100指数期货跌0.5%。",
-          "summaryZh": "纳斯达克100指数期货跌0.5%。"
+          "id": "fallback-2026-06-03-02",
+          "source": "华尔街见闻热榜",
+          "title": "特朗普操纵 美伊叙事 先说 不在乎谈判成不成 后发帖 预计一周内达成协议 称 以黎停火 但以色列要继续行动",
+          "titleZh": "特朗普操纵 美伊叙事 先说 不在乎谈判成不成 后发帖 预计一周内达成协议 称 以黎停火 但以色列要继续行动",
+          "url": "https://wallstreetcn.com/articles/3773609",
+          "published": "2026-06-03 08:06",
+          "summary": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "summaryZh": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "articleContent": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "articleContentZh": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+          "contentQuality": "summary",
+          "contentChars": 43,
+          "buckets": [
+            "macro-tide",
+            "risk-regime"
+          ]
         },
         {
-          "source": "华尔街见闻7x24",
-          "title": "韩国首尔综指跌幅收窄至不到1%。",
-          "titleZh": "韩国首尔综指跌幅收窄至不到1%。",
-          "url": "https://wallstreetcn.com/livenews/3112705",
-          "published": "2026-06-02 08:12",
-          "summary": "韩国首尔综指跌幅收窄至不到1%。",
-          "summaryZh": "韩国首尔综指跌幅收窄至不到1%。"
+          "id": "fallback-2026-06-03-03",
+          "source": "华尔街见闻热榜",
+          "title": "美伊谈判反复背后 特朗普痛骂内塔尼亚胡 你他妈疯了 要不是我你早进监狱了",
+          "titleZh": "美伊谈判反复背后 特朗普痛骂内塔尼亚胡 你他妈疯了 要不是我你早进监狱了",
+          "url": "https://wallstreetcn.com/articles/3773679",
+          "published": "2026-06-03 08:06",
+          "summary": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "summaryZh": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "articleContent": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "articleContentZh": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+          "contentQuality": "summary",
+          "contentChars": 38,
+          "buckets": [
+            "macro-tide",
+            "risk-regime"
+          ]
+        },
+        {
+          "id": "fallback-2026-06-03-04",
+          "source": "凤凰网",
+          "title": "美军机发射 地狱火 导弹 击中一艘伊朗相关油轮",
+          "titleZh": "美军机发射 地狱火 导弹 击中一艘伊朗相关油轮",
+          "url": "https://news.ifeng.com/c/8te0bJrzbXu",
+          "published": "2026-06-03 08:06",
+          "summary": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "summaryZh": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "articleContent": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "articleContentZh": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+          "contentQuality": "summary",
+          "contentChars": 44,
+          "buckets": [
+            "risk-regime",
+            "macro-tide"
+          ]
+        },
+        {
+          "id": "fallback-2026-06-03-05",
+          "source": "澎湃新闻",
+          "title": "特朗普被曝同以总理通话爆粗口",
+          "titleZh": "特朗普被曝同以总理通话爆粗口",
+          "url": "https://m.thepaper.cn/newsDetail_forward_33288561",
+          "published": "2026-06-03 08:06",
+          "summary": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "summaryZh": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "articleContent": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "articleContentZh": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+          "contentQuality": "summary",
+          "contentChars": 42,
+          "buckets": [
+            "risk-regime",
+            "macro-tide"
+          ]
         }
       ]
     },
@@ -242,13 +368,58 @@
       "howToUse": "BTC 强、ETH/BTC 弱时，币圈偏防守；ETH/BTC 连续走强时，才说明资金愿意去更高风险资产里找弹性。",
       "news": [
         {
+          "id": "fallback-2026-06-03-06",
+          "source": "华尔街见闻热榜",
+          "title": "AI热情力撑美股新高 纳指 标普九连涨 半导体指数大涨近6% 比特币重挫 铜上涨",
+          "titleZh": "AI热情力撑美股新高 纳指 标普九连涨 半导体指数大涨近6% 比特币重挫 铜上涨",
+          "url": "https://wallstreetcn.com/articles/3773650",
+          "published": "2026-06-03 08:06",
+          "summary": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+          "summaryZh": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+          "articleContent": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+          "articleContentZh": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+          "contentQuality": "summary",
+          "contentChars": 47,
+          "buckets": [
+            "risk-regime",
+            "crypto-rotation",
+            "macro-tide"
+          ]
+        },
+        {
+          "id": "fallback-2026-06-03-07",
+          "source": "财联社热门",
+          "title": "美股收盘 三大股指小幅收涨 标普首次突破7600点 AI狂热压倒中东忧虑",
+          "titleZh": "美股收盘 三大股指小幅收涨 标普首次突破7600点 AI狂热压倒中东忧虑",
+          "url": "https://www.cls.cn/detail/2388968",
+          "published": "2026-06-03 08:06",
+          "summary": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+          "summaryZh": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+          "articleContent": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+          "articleContentZh": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+          "contentQuality": "summary",
+          "contentChars": 49,
+          "buckets": [
+            "risk-regime",
+            "crypto-rotation"
+          ]
+        },
+        {
           "source": "Google新闻 · 财经头条",
           "title": "广东高温天气仍将持续，用电保供任务依然艰巨 - 第一财经",
           "titleZh": "广东高温天气仍将持续，用电保供任务依然艰巨 - 第一财经",
           "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB4a1JoUEpST0pyejR0elNpR2JybWsxODVWN2tIS3FHejRCdTNVN3g2blZxNkVEdzg4ekdYZVhLLUpiWnVsY3ZPYVNYd00teHF0YXk4?oc=5",
           "published": "Mon, 01 Jun 2026 11:45:58 GMT",
           "summary": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
-          "summaryZh": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com"
+          "summaryZh": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
+          "articleContent": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
+          "articleContentZh": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
         },
         {
           "source": "Google新闻 · 财经头条",
@@ -257,7 +428,15 @@
           "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE81MWtNTEozTWZtZjdCSGpCYV9WTDhESjlkdHBLZ01jalQ2b01feExtU0EtMkJEa1VzZWMtUTZ0OHlOcWNUckdqbzJzdEJvRmxUeHkzQ1h4cGhVTWIyR2FqR0xFY0VwSGJWcnRhTlJ5TFc?oc=5",
           "published": "Mon, 01 Jun 2026 23:40:42 GMT",
           "summary": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
-          "summaryZh": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网"
+          "summaryZh": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
+          "articleContent": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
+          "articleContentZh": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
         },
         {
           "source": "Google新闻 · 国际头条",
@@ -266,7 +445,16 @@
           "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9kNFNyYWZhbkQyb2taVmUzY0NXWkxkRjVPX3F4aWE1VGdXRE81RUd0S1lsci1haGdzSzdzR0ZITERrMEZvd1p5MElLS2pYODljTXE1azNPYw?oc=5",
           "published": "Mon, 01 Jun 2026 18:27:17 GMT",
           "summary": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
-          "summaryZh": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网"
+          "summaryZh": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
+          "articleContent": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
+          "articleContentZh": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "risk-regime",
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
         }
       ]
     },
@@ -289,7 +477,15 @@
           "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB4a1JoUEpST0pyejR0elNpR2JybWsxODVWN2tIS3FHejRCdTNVN3g2blZxNkVEdzg4ekdYZVhLLUpiWnVsY3ZPYVNYd00teHF0YXk4?oc=5",
           "published": "Mon, 01 Jun 2026 11:45:58 GMT",
           "summary": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
-          "summaryZh": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com"
+          "summaryZh": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
+          "articleContent": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
+          "articleContentZh": "广东高温天气仍将持续，用电保供任务依然艰巨 第一财经 华泰证券：煤电有望直接受益于用电负荷创新高 新浪财经 煤电狂舞：煤炭股全线爆发，电力股冰火两重天 thepaper.cn 守护夏日万家灯火！南方电网广东电网公司全力保障民生用电 搜狐网 南方五省电力负荷20次创新高!电力板块冲高,电力ETF汇添富(516370)放巨量冲击七连涨,连续3日吸金!AI引爆用电需求,2030年或达8000亿千瓦时 Jiemian.com",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
         },
         {
           "source": "Google新闻 · 财经头条",
@@ -298,7 +494,15 @@
           "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE81MWtNTEozTWZtZjdCSGpCYV9WTDhESjlkdHBLZ01jalQ2b01feExtU0EtMkJEa1VzZWMtUTZ0OHlOcWNUckdqbzJzdEJvRmxUeHkzQ1h4cGhVTWIyR2FqR0xFY0VwSGJWcnRhTlJ5TFc?oc=5",
           "published": "Mon, 01 Jun 2026 23:40:42 GMT",
           "summary": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
-          "summaryZh": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网"
+          "summaryZh": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
+          "articleContent": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
+          "articleContentZh": "智博会上，具身智能馆火热的背后 中国科技网 2026世界智能产业博览会｜现场观察：智行天下，何以能动未来 光明网 2026世界智能产业博览会迎来公众开放日 新浪财经 相聚天津智博会，华大电子\"e芯\"点亮数智新征程 中华网生活 从智博会“机器人天团”，看天津机器人产业强势崛起 中国青年网",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
         },
         {
           "source": "Google新闻 · 国际头条",
@@ -307,12 +511,184 @@
           "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9kNFNyYWZhbkQyb2taVmUzY0NXWkxkRjVPX3F4aWE1VGdXRE81RUd0S1lsci1haGdzSzdzR0ZITERrMEZvd1p5MElLS2pYODljTXE1azNPYw?oc=5",
           "published": "Mon, 01 Jun 2026 18:27:17 GMT",
           "summary": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
-          "summaryZh": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网"
+          "summaryZh": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
+          "articleContent": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
+          "articleContentZh": "黎巴嫩：以色列威胁对真主党发动新一轮空袭，居民纷纷逃离贝鲁特 UN News 以防长称以军占领黎巴嫩南部一战略要地--国际 人民网 以总理：以军将继续按计划在黎南部开展行动 央视网 国际观察丨罕见纵深推进，以军对黎行动会否搅动美伊谈判 新华网 博福特城堡战略价值几何？以色列扩大军事行动背后的安全逻辑与外交困局如何平衡？ 新浪新闻_手机新浪网",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "risk-regime",
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
+        },
+        {
+          "source": "Google新闻 · 国际头条",
+          "title": "伊朗伊斯兰革命卫队称对美以船只实施打击 - 每日经济新闻",
+          "titleZh": "伊朗伊斯兰革命卫队称对美以船只实施打击 - 每日经济新闻",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5JRngzeHFRTzNza25PWHhQM3NGZUprOG9UOU1ObVJGUVVyeHluTzRtSTM4QmVYYUFLTUoyRmZEa3pZb0MxV3dyenhSdmtCUzAyaWs0Xy03SHZYZ01tVWRDSG9kaHU3Zw?oc=5",
+          "published": "Mon, 01 Jun 2026 21:13:00 GMT",
+          "summary": "伊朗伊斯兰革命卫队称对美以船只实施打击 每日经济新闻 午盘：美股涨跌不一 标普500指数基本持平 新浪财经 美军称拦截两枚伊朗向驻科威特美军基地发射的导弹 新京报 又打起来了！伊朗宣布：伊航空航天部队打击美空军基地，并“摧毁预定目标”！伊朗通信塔遭美军袭击，“相关责任在于美国” 每日经济新闻 美国与伊朗再次互相袭击，科威特多地响起防空警报 凤凰网",
+          "summaryZh": "伊朗伊斯兰革命卫队称对美以船只实施打击 每日经济新闻 午盘：美股涨跌不一 标普500指数基本持平 新浪财经 美军称拦截两枚伊朗向驻科威特美军基地发射的导弹 新京报 又打起来了！伊朗宣布：伊航空航天部队打击美空军基地，并“摧毁预定目标”！伊朗通信塔遭美军袭击，“相关责任在于美国” 每日经济新闻 美国与伊朗再次互相袭击，科威特多地响起防空警报 凤凰网",
+          "articleContent": "伊朗伊斯兰革命卫队称对美以船只实施打击 每日经济新闻 午盘：美股涨跌不一 标普500指数基本持平 新浪财经 美军称拦截两枚伊朗向驻科威特美军基地发射的导弹 新京报 又打起来了！伊朗宣布：伊航空航天部队打击美空军基地，并“摧毁预定目标”！伊朗通信塔遭美军袭击，“相关责任在于美国” 每日经济新闻 美国与伊朗再次互相袭击，科威特多地响起防空警报 凤凰网",
+          "articleContentZh": "伊朗伊斯兰革命卫队称对美以船只实施打击 每日经济新闻 午盘：美股涨跌不一 标普500指数基本持平 新浪财经 美军称拦截两枚伊朗向驻科威特美军基地发射的导弹 新京报 又打起来了！伊朗宣布：伊航空航天部队打击美空军基地，并“摧毁预定目标”！伊朗通信塔遭美军袭击，“相关责任在于美国” 每日经济新闻 美国与伊朗再次互相袭击，科威特多地响起防空警报 凤凰网",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "risk-regime",
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
+        },
+        {
+          "source": "Google新闻 · 特朗普关税",
+          "title": "黄金股逆势上涨，黄金股ETF涨超3% - 新浪财经",
+          "titleZh": "黄金股逆势上涨，黄金股ETF涨超3% - 新浪财经",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5vcU4wNllYRnJTbFJTZWtwNXlneG16bDI5N1JuNWFLNDViNXY0SFVmOEVYNmJ4RFF4OG5qNW43SkFWQ2lqc2lTTmwtaEVtSWgtTmY5OE5OWDVaTXBGZTdZX3dQTHR4bUpQZl9RT2dlTQ?oc=5",
+          "published": "Tue, 26 May 2026 05:35:29 GMT",
+          "summary": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
+          "summaryZh": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
+          "articleContent": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
+          "articleContentZh": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
+          "contentQuality": "summary",
+          "contentChars": 0,
+          "buckets": [
+            "risk-regime",
+            "crypto-rotation",
+            "sentiment-extreme"
+          ]
         }
       ]
     }
   ],
   "news": [
+    {
+      "id": "fallback-2026-06-03-01",
+      "source": "华尔街见闻热榜",
+      "title": "黄金替代美元成官方储备第一大资产",
+      "titleZh": "黄金替代美元成官方储备第一大资产",
+      "url": "https://www.baidu.com/s?wd=%E9%BB%84%E9%87%91%E6%9B%BF%E4%BB%A3%E7%BE%8E%E5%85%83%E6%88%90%E5%AE%98%E6%96%B9%E5%82%A8%E5%A4%87%E7%AC%AC%E4%B8%80%E5%A4%A7%E8%B5%84%E4%BA%A7",
+      "published": "2026-06-03 08:06",
+      "summary": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+      "summaryZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+      "articleContent": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+      "articleContentZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
+      "contentQuality": "summary",
+      "contentChars": 48,
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-03-02",
+      "source": "华尔街见闻热榜",
+      "title": "特朗普操纵 美伊叙事 先说 不在乎谈判成不成 后发帖 预计一周内达成协议 称 以黎停火 但以色列要继续行动",
+      "titleZh": "特朗普操纵 美伊叙事 先说 不在乎谈判成不成 后发帖 预计一周内达成协议 称 以黎停火 但以色列要继续行动",
+      "url": "https://wallstreetcn.com/articles/3773609",
+      "published": "2026-06-03 08:06",
+      "summary": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+      "summaryZh": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+      "articleContent": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+      "articleContentZh": "特朗普对美伊谈判和以黎停火释放反复信号，地缘预期摇摆直接影响原油、黄金和全球风险偏好。",
+      "contentQuality": "summary",
+      "contentChars": 43,
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-03-03",
+      "source": "华尔街见闻热榜",
+      "title": "美伊谈判反复背后 特朗普痛骂内塔尼亚胡 你他妈疯了 要不是我你早进监狱了",
+      "titleZh": "美伊谈判反复背后 特朗普痛骂内塔尼亚胡 你他妈疯了 要不是我你早进监狱了",
+      "url": "https://wallstreetcn.com/articles/3773679",
+      "published": "2026-06-03 08:06",
+      "summary": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+      "summaryZh": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+      "articleContent": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+      "articleContentZh": "美伊谈判反复与中东局势升温叠加，市场重新计入地缘风险溢价，避险交易重新活跃。",
+      "contentQuality": "summary",
+      "contentChars": 38,
+      "buckets": [
+        "macro-tide",
+        "risk-regime"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-03-04",
+      "source": "凤凰网",
+      "title": "美军机发射 地狱火 导弹 击中一艘伊朗相关油轮",
+      "titleZh": "美军机发射 地狱火 导弹 击中一艘伊朗相关油轮",
+      "url": "https://news.ifeng.com/c/8te0bJrzbXu",
+      "published": "2026-06-03 08:06",
+      "summary": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+      "summaryZh": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+      "articleContent": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+      "articleContentZh": "美军打击伊朗相关油轮的消息强化了原油供应链与航运风险担忧，油价与黄金更容易获得地缘支撑。",
+      "contentQuality": "summary",
+      "contentChars": 44,
+      "buckets": [
+        "risk-regime",
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-03-05",
+      "source": "澎湃新闻",
+      "title": "特朗普被曝同以总理通话爆粗口",
+      "titleZh": "特朗普被曝同以总理通话爆粗口",
+      "url": "https://m.thepaper.cn/newsDetail_forward_33288561",
+      "published": "2026-06-03 08:06",
+      "summary": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+      "summaryZh": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+      "articleContent": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+      "articleContentZh": "特朗普与以色列总理通话风波说明美国在中东议题上的沟通仍不稳定，短线继续利好避险资产。",
+      "contentQuality": "summary",
+      "contentChars": 42,
+      "buckets": [
+        "risk-regime",
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-03-06",
+      "source": "华尔街见闻热榜",
+      "title": "AI热情力撑美股新高 纳指 标普九连涨 半导体指数大涨近6% 比特币重挫 铜上涨",
+      "titleZh": "AI热情力撑美股新高 纳指 标普九连涨 半导体指数大涨近6% 比特币重挫 铜上涨",
+      "url": "https://wallstreetcn.com/articles/3773650",
+      "published": "2026-06-03 08:06",
+      "summary": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+      "summaryZh": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+      "articleContent": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+      "articleContentZh": "美股再创新高、半导体大涨而比特币重挫，说明当前风险资产内部呈现“AI 股强、加密承压”的分化。",
+      "contentQuality": "summary",
+      "contentChars": 47,
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation",
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-03-07",
+      "source": "财联社热门",
+      "title": "美股收盘 三大股指小幅收涨 标普首次突破7600点 AI狂热压倒中东忧虑",
+      "titleZh": "美股收盘 三大股指小幅收涨 标普首次突破7600点 AI狂热压倒中东忧虑",
+      "url": "https://www.cls.cn/detail/2388968",
+      "published": "2026-06-03 08:06",
+      "summary": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+      "summaryZh": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+      "articleContent": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+      "articleContentZh": "标普首次突破 7600 点，说明权益市场仍在押注 AI 主线，但这种冒险情绪并没有同步扩散到币圈。",
+      "contentQuality": "summary",
+      "contentChars": 49,
+      "buckets": [
+        "risk-regime",
+        "crypto-rotation"
+      ]
+    },
     {
       "source": "华尔街见闻7x24",
       "title": "特朗普被爆怒斥内塔尼亚胡“疯了”：“你到底在干什么？”",
@@ -1483,125 +1859,6 @@
       "contentChars": 0,
       "buckets": [
         "macro-tide",
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "Crypto investment firm Keyrock is acquiring bankrupt lender Blockfills",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/business/2026/06/01/crypto-investment-firm-keyrock-is-acquiring-bankrupt-lender-blockfills",
-      "published": "Mon, 01 Jun 2026 20:48:19 +0000",
-      "summary": "The Brussels-based digital asset services firm plans to purchase BlockFills months after the Chicago-based company filed for Chapter 11 bankruptcy, if a court approves.",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / News Video Prices Research Events Data & Indices Sponsored Search / en Finance Share Share this article Copy link X (Twitter) LinkedIn Facebook Email Crypto investment firm Keyrock is acquiring bankrupt lender Blockfills The Brussels-based digital asset services firm plans to purchase BlockFills months after the Chicago-based company filed for Chapter 11 bankruptcy, if a court approves. By Will Canny | Edited by Nikhilesh De Jun 1, 2026, 8:48 p.m. 3 min read Make preferred on Keyrock CEO and co-founder Kevin de Patoul. (Keyrock) What to know : Keyrock is acquiring bankrupt crypto trading and lending firm BlockFills for $3.25 million, subject to court approval. BlockFills filed for Chapter 11 bankruptcy in March, reporting between $100 million and $500 million in liabilities but only between $50 million and $100 million in assets. The acquisition will give Keyrock access to BlockFills' institutional client network, which includes hedge funds, asset managers, market makers and mining companies. Keyrock, a Brussels-based digital asset services firm, is in the process of acquiring bankrupt crypto trading and lending firm Blockfills, according to two people with knowledge of the matter. A Keyrock spokesperson told CoinDesk that the acquisition is subject to court approval. According to a bankruptcy filing , Keyrock agreed to a purchase price of $3.25 million, and will assume \"substantially all\" of BlockFills' assets, certain liabilities, some of its equity interests, customer lists and its proprietary technology and intellectual property. \"We can confirm that, as set out in the official Bankruptcy Court document filed on 26 May 2026, Keyrock SA has been declared the 'Successful Bidder' for certain assets of Reliz Technology Group Holdings Inc. and its affiliated debtors,\" a Keyrock spokesperson said in a statement. \"A hearing to consider approval of the sale is currently scheduled for June [16,] 2026. In the meantime, parties continue to collaborate on the administrative process to complete the transaction. Furthermore, final completion of the transaction remains subject to final court approval and the appropriate regulatory approvals referenced in Keyrock's bid,\" they added. BlockFills provides institutional clients with liquidity, financing and risk-management services, including crypto lending and borrowing, derivatives trading, and over-the-counter (OTC) execution. Its customer base includes hedge funds, asset managers, market makers and mining companies. Keyrock is a Brussels-based digital asset services firm that provides market making, liquidity, OTC trading and infrastructure solutions to crypto exchanges, institutions and token issuers. Representatives for BlockFills did not return a request for comment by press time. On March 15, Reliz Ltd., the operator of BlockFills, and three affiliated entities filed voluntary Chapter 11 petitions in the U.S. Bankruptcy Court for the District of Delaware. The court filing showed Reliz reporting...",
-      "articleContentZh": "搜索/新闻 视频 价格 研究活动 数据和指数 赞助商 搜索 / en Finance 分享 分享这篇文章 复制链接 X (Twitter) LinkedIn Facebook 电子邮件 加密投资公司 Keyrock 正在收购破产贷款人 Blockfills 这家总部位于布鲁塞尔的数字资产服务公司计划在芝加哥公司根据美国破产法第 11 章申请破产几个月后收购 BlockFills（如果法院批准）。作者：威尔·坎尼 |编辑 Nikhilesh De 2026 年 6 月 1 日 晚上 8:48 3 分钟阅读 Keyrock 首席执行官兼联合创始人 Kevin de Patoul 的首选。 (Keyrock) 须知：Keyrock 将以 325 万美元收购破产的加密货币交易和贷款公司 BlockFills，尚待法院批准。 BlockFills 在 3 月份根据美国破产法第 11 章申请破产，负债为 1 亿至 5 亿美元，但资产仅为 5,000 万至 1 亿美元。此次收购将使 Keyrock 能够进入 BlockFills 的机构客户网络，其中包括对冲基金、资产管理公司、做市商和矿业公司。据两位知情人士透露，总部位于布鲁塞尔的数字资产服务公司 Keyrock 正在收购破产的加密货币交易和贷款公司 Blockfills。 Keyrock 发言人告诉 CoinDesk，此次收购尚需法院批准。根据破产申请，Keyrock 同意 325 万美元的收购价，并将承担 BlockFills 的“几乎所有”资产、某些负债、部分股权、客户名单及其专有技术和知识产权。 “我们可以确认，正如 2026 年 5 月 26 日提交的破产法院官方文件所述，Keyrock SA 已被宣布为 Reliz Technology Group Holdings Inc. 及其附属债务的某些资产的‘成功竞购者’……",
-      "contentQuality": "full",
-      "contentChars": 7484,
-      "buckets": [
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "Crypto funds suffer second-largest outflows of 2026 while XRP and HYPE attract inflows",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/markets/2026/06/01/crypto-funds-suffer-second-largest-outflows-of-2026-while-xrp-and-hype-attract-inflows",
-      "published": "Mon, 01 Jun 2026 17:59:06 +0000",
-      "summary": "Investors pulled $1.67 billion from digital asset investment products last week, with bitcoin funds posting their largest weekly outflow of the year, according to a recent report from CoinShares.",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / News Video Prices Research Events Data & Indices Sponsored Search / en Markets Share Share this article Copy link X (Twitter) LinkedIn Facebook Email Crypto funds suffer second-largest outflows of 2026 while XRP and HYPE attract inflows Investors pulled $1.67 billion from digital asset investment products last week, with bitcoin funds posting their largest weekly outflow of the year, according to a recent report from CoinShares. By Helene Braun , AI Boost | Edited by Nikhilesh De Jun 1, 2026, 5:59 p.m. 2 min read Make preferred on (Getty Images) What to know : Crypto investment products saw $1.67 billion in outflows last week, the second-largest weekly withdrawal of 2026, bringing three-week redemptions to $4.21 billion. The pullback, driven largely by U.S. investors amid rising geopolitical tensions involving Iran and Israel, pushed assets under management down to about $141 billion, the lowest since early April. Bitcoin funds bore the brunt with a record $1.44 billion weekly outflow and sharply reduced year-to-date inflows, while Ethereum products also saw heavy redemptions and only a handful of altcoins, led by XRP, attracted notable new money. Crypto investment products recorded their second-largest weekly outflow of 2026 by the end of May, with investors pulling $1.67 billion from digital asset funds as geopolitical tensions and a broader risk-off mood weighed on markets, according to a report from CoinShares. The withdrawals marked the third consecutive week of net outflows and brought total redemptions over the past three weeks to $4.21 billion. CoinShares said concerns surrounding Iran had overwhelmed any positive sentiment generated by recent progress on the CLARITY Act, a U.S. crypto market structure bill. Assets under management across digital asset investment products fell to $141 billion from $148 billion the previous week, their lowest level since early April. The latest outflows coincide with a sharp decline in crypto prices. Bitcoin fell close to the $70,000 mark on Monday after reports that Iran had halted talks with the United States in protest over Israel's continued incursions into Lebanon. The move coincided with Strategy (MSTR), the largest holder of bitcoin, selling some of its stack after years of its executive chairman Michal Saylor vowing he wouldn't do so. The largest cryptocurrency dropped about 3% over the past 24 hour period, adding pressure to digital asset investment products. The United States accounted for nearly all of last week's withdrawals, with investors pulling $1.63 billion from crypto funds. Germany, which had largely avoided earlier bouts of selling, recorded $25.7 million in outflows. Sweden and Hong Kong posted withdrawals of $6.6 million and $4.5 million, respectively. Bitcoin BTC $ 71,079.34 investment products saw the largest share of the selling, losing $1.44 billion during the week. According to CoinShares, that was the largest weekly bitcoin outflow of 2026, surpassing both the previous...",
-      "articleContentZh": "根据 CoinShares 最近的一份报告，加密货币基金遭受 2026 年第二大资金流出，而 XRP 和 HYPE 则吸引资金流入 投资者上周从数字资产投资产品中撤资 16.7 亿美元，其中比特币基金创下了今年最大的单周流出量。作者：Helene Braun，AI Boost |编辑 Nikhilesh De 2026 年 6 月 1 日 下午 5:59 2 分钟阅读 (Getty Images) 须知：加密投资产品上周流出 16.7 亿美元，为 2026 年第二大单周撤资，三周赎回额达到 42.1 亿美元。此次回调主要是由美国投资者在伊朗和以色列地缘政治紧张局势加剧推动下推动的，导致管理资产降至约 1,410 亿美元，为 4 月初以来的最低水平。比特币基金首当其冲，每周流出创纪录的 14.4 亿美元，而年初至今的流入量急剧减少，而以太坊产品也出现了大量赎回，只有以 XRP 为首的少数山寨币吸引了大量新资金。 CoinShares 的一份报告显示，截至 5 月底，加密投资产品创下 2026 年第二大单周流出量，由于地缘政治紧张局势和更广泛的避险情绪打压市场，投资者从数字资产基金撤资 16.7 亿美元。此次提款标志着连续第三周出现净流出，并使过去三周的赎回总额达到 42.1 亿美元。 CoinShares 表示，围绕伊朗的担忧压倒了美国加密货币市场结构法案《澄清法案》近期进展所产生的任何积极情绪。跨数字资产管理的资产...",
-      "contentQuality": "full",
-      "contentChars": 6598,
-      "buckets": [
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "Saylor's Strategy sold bitcoin for the first time since 2022. These firms are still buying",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/business/2026/06/01/saylor-s-strategy-sold-bitcoin-for-the-first-time-since-2022-these-firms-are-still-buying",
-      "published": "Mon, 01 Jun 2026 17:25:55 +0000",
-      "summary": "With Strategy breaking its accumulation streak and many peers stepping aside, the list of active digital asset treasuries has narrowed considerably.",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / News Video Prices Research Events Data & Indices Sponsored Search / en Finance Share Share this article Copy link X (Twitter) LinkedIn Facebook Email Saylor's Strategy sold bitcoin for the first time since 2022. These firms are still buying With Strategy breaking its accumulation streak and many peers stepping aside, the list of active digital asset treasuries has narrowed considerably. By Krisztian Sandor | Edited by Aoyon Ashraf Jun 1, 2026, 5:25 p.m. 3 min read Make preferred on Tom Lee and Michael Saylor at Consensus. (CoinDesk) What to know : Strategy sold bitcoin for the first time since December 2022, ending a streak that helped define the crypto treasury trade. Most digital asset treasury firms have halted purchases or started selling assets since the market turned lower in October. Bitmine and Strive remained among the few companies still actively buying over the past month. Strategy (MSTR), the company whose bitcoin accumulation strategy inspired a new generation of so-called digital asset treasury firms, sold BTC for the first time since December 2022, offloading roughly $2.5 million worth of tokens. The move came as the scheme has faced major headwinds since gaining popularity last year. Dozens of companies raised capital through stock and debt offerings to buy bitcoin, ether (ETH) and other cryptocurrencies, aiming to replicate Michael Saylor's playbook. The model worked for a while last year as crypto prices surged and treasury stocks traded at premiums to their underlying values. However, that all changed as crypto markets peaked in October. As token prices fell and treasury stocks slipped below net asset value, many firms lost the ability to raise capital on attractive terms, and some stocks fell more than 90% from their peak. Some stopped buying, while others turned into sellers. Through all that, Strategy held strong and kept buying as its Executive Chairman, Michael Saylor, continued to advocate for buying and holding. But that didn't hold for long. Strategy first alluded to a potential sale earlier in May and then finally reported the first sale on Monday, June 1. With Strategy breaking its accumulation streak and many peers stepping aside, some might think it's the final nail in the coffin for the treasury firms, as the list of active buyers has now narrowed considerably. Still buying However, a few remaining companies continue to buy. Among them is Bitmine (BMNR), Tom Lee's Ethereum treasury company. The company purchased roughly $53 million worth of ETH last week and accumulated over 338,000 tokens through May, worth roughly $665 million at current prices. It holds more than 5.4 million ETH, making it the largest corporate holder of the token. However, Tom Lee said the firm plans to slow its accumulation pace as it approaches its goal of owning 5% of the ETH supply. Another Ethereum-centric Bit Digital (BTBT) returned to the market in May, buying $20 million worth of ETH. That was the company's first purchase since...",
-      "articleContentZh": "搜索/新闻 视频 价格 研究活动 数据和指数 赞助搜索 / en Finance 分享 分享这篇文章 复制链接 X (Twitter) LinkedIn Facebook 电子邮件 Saylor's Strategy 自 2022 年以来首次出售比特币。这些公司仍在购买 随着 Strategy 打破其增持势头，许多同行退出，活跃的数字资产国债名单已大幅缩小。作者：克里斯蒂安·桑德尔 |编辑 Aoyon Ashraf 2026 年 6 月 1 日下午 5:25 3 分钟阅读 Consensus 上对 Tom Lee 和 Michael Saylor 的偏好。 (CoinDesk) 须知：Strategy 自 2022 年 12 月以来首次出售比特币，结束了有助于定义加密货币国债交易的连续走势。自 10 月份市场走低以来，大多数数字资产库公司已停止购买或开始出售资产。 Bitmine 和 Strive 仍然是过去一个月仍在积极买入的少数公司之一。 Strategy (MSTR) 的比特币积累策略启发了新一代所谓的数字资产财务公司，该公司自 2022 年 12 月以来首次出售 BTC，抛售了价值约 250 万美元的代币。此举出台之际，该计划自去年受欢迎以来一直面临重大阻力。数十家公司通过股票和债券发行筹集资金，购买比特币、以太币（ETH）和其他加密货币，旨在复制迈克尔·塞勒（Michael Saylor）的做法。去年，随着加密货币价格飙升以及库存股的交易价格高于其基本价值，该模型曾一度发挥作用。然而，随着加密货币市场在 10 月份达到顶峰，这一切都发生了变化。随着代币价格下跌和库存股跌破资产净值，许多公司失去了以有吸引力的条件筹集资金的能力，一些股票较峰值下跌了 90% 以上。有些人停止购买...",
-      "contentQuality": "full",
-      "contentChars": 7356,
-      "buckets": [
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "It's not 2022 anymore: What Strategy's first bitcoin sale can (and can't) tell us about this one",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/markets/2026/06/01/strategy-s-second-bitcoin-sale-revives-memories-of-2022",
-      "published": "Mon, 01 Jun 2026 17:06:34 +0000",
-      "summary": "Michael Saylor's Strategy has evolved into a far more complex bitcoin-finance machine since it last sold BTC three and half years ago.",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / News Video Prices Research Events Data & Indices Sponsored Search / en Markets Share Share this article Copy link X (Twitter) LinkedIn Facebook Email It's not 2022 anymore: What Strategy's first bitcoin sale can (and can't) tell us about this one Michael Saylor's Strategy has evolved into a far more complex bitcoin-finance machine since it last sold BTC three and half years ago. By Jamie Crawley , AI Boost | Edited by Nikhilesh De Updated Jun 1, 2026, 5:12 p.m. Published Jun 1, 2026, 5:06 p.m. 3 min read Make preferred on (CoinDesk) What to know : Strategy's May sale of 32 BTC was only the second disclosed bitcoin sale in the company's history. The firm's first sale, in December 2022, was a tax-loss harvesting transaction that critics wrongly viewed as the start of a broader liquidation. While the 2022 sale proved insignificant, Strategy's transformation into a complex financing vehicle means investors can't assume the latest sale will have the same outcome. When Strategy (MSTR) disclosed that it sold 32 bitcoin in May, memories were jogged of the company's first-ever bitcoin sale in December 2022. Both events generated headlines questioning whether Michael Saylor's company was backing away from its long-standing bitcoin accumulation strategy. Both prompted scrutiny of the firm's finances. Both represented extraordinarily rare moments in the history of the world's largest corporate bitcoin holder. Yet the more useful lesson from the 2022 sale may be that investors should be cautious about reading too much into any single disposal. Late 2022 was one of the most tumultuous periods in cryptocurrency's history, the culmination of the \"crypto winter\" that unfolded that year which came to a head with the collapse of exchange FTX in early November. From a high of around $69,000 a year earlier, bitcoin had fallen over 75% to below $16,000. \"Of course bitcoin isn’t going to zero,\" geopolitical strategist Peter Zeihan wrote on X on Nov. 12. \"We have carbon taxes in some places. Bitcoin is going negative.\" The following month, MicroStrategy as it was then known, sold 704 BTC for roughly $11.8 million as bitcoin traded near $16,500 . The company said the transaction was designed to harvest tax losses that could offset future gains. Michael Saylor's firm then bought 810 BTC two days later, leaving its overall bitcoin position larger than before. At the time, however, many critics saw something more consequential. Gold advocate Peter Schiff argued the sale exposed cracks in Saylor's unwavering commitment to bitcoin and suggested it could be the first step toward a broader liquidation . \"Shares of MicroStrategy just made a new 52-week low, down 90% from the record-high in Feb. 2021,\" he wrote in a separate post . \"Don't make the mistake of thinking 90% off is a good buy. This isn't just a sale, it's a going-out-of-business sale.\" History unfolded differently. Rather than marking the beginning of a selling cycle, the December 2022 transaction occurred n...",
-      "articleContentZh": "搜索/新闻 视频 价格 研究 活动 数据和指数 赞助商 搜索 / en 市场 分享 分享这篇文章 复制链接 X (Twitter) LinkedIn Facebook 电子邮件 现在已经不再是 2022 年了：Strategy 的第一次比特币销售可以（和不能）告诉我们什么 自从三年半前上次出售 BTC 以来，Michael Saylor 的 Strategy 已经发展成为一个复杂得多的比特币金融机器。作者：Jamie Crawley，AI Boost |编辑 Nikhilesh De 更新于 2026 年 6 月 1 日下午 5:12发布于 2026 年 6 月 1 日下午 5:06 3 分钟阅读 在 (CoinDesk) 上设为首选 须知：Strategy 5 月份出售了 32 BTC，这只是该公司历史上第二次披露的比特币销售。该公司于 2022 年 12 月进行的首次出售是一笔税收损失交易，批评者错误地将其视为更广泛清算的开始。尽管事实证明 2022 年的出售规模微不足道，但 Strategy 转型为复杂的融资工具意味着投资者不能假设最新的出售会产生相同的结果。当 Strategy (MSTR) 披露其在 5 月份出售了 32 枚比特币时，人们回想起该公司在 2022 年 12 月首次出售比特币。这两起事件都成为头条新闻，质疑 Michael Saylor 的公司是否正在放弃其长期的比特币积累策略。两者都引发了对该公司财务状况的审查。两者都代表了全球最大的比特币持有企业历史上极其罕见的时刻。然而，2022 年出售的更有用的教训可能是，投资者应谨慎对待任何单一处置。 2022 年底是加密货币历史上最动荡的时期之一，是当年“加密货币冬天”的顶峰，随着 11 月初 FTX 交易所的倒闭，这一冬天达到了顶峰。从大约...",
-      "contentQuality": "full",
-      "contentChars": 7440,
-      "buckets": [
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "Ethereum's Vitalik Buterin is rethinking how DeFi handles market crashes",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/tech/2026/06/01/ethereum-s-vitalik-buterin-is-rethinking-how-defi-handles-market-crashes",
-      "published": "Mon, 01 Jun 2026 17:01:41 +0000",
-      "summary": "In a research post published Monday, Buterin proposed creating index-tracking assets using options contracts rather than the debt-based structures that underpin much of DeFi today.",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / News Video Prices Research Events Data & Indices Sponsored Search / en Tech Share Share this article Copy link X (Twitter) LinkedIn Facebook Email Ethereum's Vitalik Buterin is rethinking how DeFi handles market crashes In a research post published Monday, Buterin proposed creating index-tracking assets using options contracts rather than the debt-based structures that underpin much of DeFi today. By Margaux Nijkerk | Edited by Nikhilesh De Jun 1, 2026, 5:01 p.m. 2 min read Make preferred on What to know : Ethereum co-founder Vitalik Buterin proposed replacing DeFi's debt-and-liquidation model with an options-based system that could allow users to gain exposure to assets like the U.S. dollar or crypto indexes without facing sudden liquidations during market downturns. Buterin argued the design could reduce reliance on real-time price oracle, a major source of risk in DeFi, though the approach would require regular rebalancing and remains an early-stage research proposal. Ethereum co-founder Vitalik Buterin is exploring a new way to build crypto investment products that could reduce one of decentralized finance's biggest risks: sudden liquidations. In a research post published Monday, Buterin proposed creating index-tracking assets using options contracts rather than the debt-based structures that underpin much of DeFi today. The idea is to allow users to gain exposure to a basket of crypto assets, similar to an index fund, without relying on collateralized debt positions (CDPs), which can be wiped out when markets move sharply. \"What if we use options as the base of DeFi, instead of CDPs and liquidations?\" Buterin wrote in a post shared on X . Under today's DeFi model, users typically borrow against crypto collateral to create synthetic assets or stablecoins. If the value of that collateral falls too quickly, positions can be automatically liquidated, often triggering cascades of forced selling during periods of market stress. Buterin argued an options-based system could replace that abrupt \"you get liquidated\" dynamic with a smoother process. Rather than instantly losing a position when prices move against a trader, exposure would gradually diverge from a target allocation, potentially making the system more resilient during periods of volatility. A key advantage, according to Buterin, is that the design could function using slower-moving price oracles, the data feeds that tell DeFi protocols what assets are worth. Most DeFi applications today rely on near real-time oracle updates, which can become targets for manipulation during periods of market turbulence. By contrast, Buterin said an options-based framework could work with \"slow oracles\" similar to those used by prediction markets. That could reduce the risk of protocols acting on incorrect price data and lessen the need for split-second automated liquidations. The proposal is particularly relevant to algorithmic stablecoins, which have historically depended on oracle systems and co...",
-      "articleContentZh": "搜索/新闻 视频 价格 研究活动 数据和指数 赞助搜索 / en 技术 分享 分享这篇文章 复制链接 X (Twitter) LinkedIn Facebook 电子邮件 以太坊的 Vitalik Buterin 正在重新思考 DeFi 如何处理市场崩溃 在周一发表的一篇研究文章中，Buterin 提议使用期权合约创建指数跟踪资产，而不是使用当今支撑大部分 DeFi 的基于债务的结构。作者：Margaux Nijkerk |编辑 Nikhilesh De 2026 年 6 月 1 日 下午 5:01 2 分钟阅读《了解什么》中的首选：以太坊联合创始人 Vitalik Buterin 提议用基于期权的系统取代 DeFi 的债务和清算模型，该系统可以让用户获得美元或加密货币指数等资产的敞口，而不会在市场低迷期间面临突然清算。 Buterin 认为，该设计可以减少对实时价格预言机的依赖，这是 DeFi 的主要风险来源，尽管该方法需要定期重新平衡，并且仍然是一个早期研究提案。以太坊联合创始人 Vitalik Buterin 正在探索一种构建加密投资产品的新方法，该产品可以减少去中心化金融最大的风险之一：突然清算。在周一发表的一篇研究文章中，Buterin 提议使用期权合约创建指数跟踪资产，而不是当今支撑大部分 DeFi 的基于债务的结构。这个想法是允许用户获得一篮子加密资产的敞口，类似于指数基金，而不依赖于抵押债务头寸（CDP），当市场剧烈波动时，这些资产可能会被消灭。 “如果我们使用期权作为 DeFi 的基础，而不是 CDP 和清算，会怎样？” Buterin 在 X 上分享的一篇文章中写道。在当今的 DeFi 模式下，用户通常会以加密货币抵押品借款来创建合成资产或稳定币。我...",
-      "contentQuality": "full",
-      "contentChars": 6632,
-      "buckets": [
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "Michael Saylor breaks silence after Strategy sells $2.5 million in bitcoin",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/markets/2026/06/01/michael-saylor-breaks-silence-after-strategy-sells-usd2-5-million-in-bitcoin",
-      "published": "Mon, 01 Jun 2026 16:06:23 +0000",
-      "summary": "Michael Saylor says Strategy aims to make STRC the world's best credit instrument after the company sold bitcoin to help fund preferred stock distributions",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / News Video Prices Research Events Data & Indices Sponsored Search / en Markets Share Share this article Copy link X (Twitter) LinkedIn Facebook Email Michael Saylor breaks silence after Strategy sells $2.5 million in bitcoin Michael Saylor says Strategy aims to make STRC the world's best credit instrument after the company sold bitcoin to help fund preferred stock distributions By James Van Straten | Edited by Sheldon Reback Jun 1, 2026, 4:06 p.m. 2 min read Make preferred on Executive Chairman MicroStrategy, Michael Saylor (CoinDesk) What to know : Strategy sold 32 bitcoin for roughly $2.5 million, with proceeds expected to fund distributions on its STRC preferred stock. \"Our goal is to make STRC the best credit instrument in the world,\" Saylor said on X, signaling Strategy's growing focus on its preferred stock. The sale has sparked comparisons to the company's December 2022 bitcoin sale near the market bottom, prompting speculation the company may have once again sold near a market bottom. Disclosure: The author of this story owns shares in Strategy (MSTR). Strategy (MSTR) Executive Chairman Michael Saylor appeared to underscore the company's focus on its perpetual preferred stock, making STRC the focus of his first public comment after the largest publicly traded holder of bitcoin BTC $ 71,079.34 sold the cryptocurrency to fund dividend payments on the instrument. \"Our goal is to make STRC the best credit instrument in the world,\" Saylor wrote on X on Monday. The post came after the company said it sold 32 bitcoin for about $2.5 million last week. Proceeds from the sale \"are expected to be used to fund distributions on preferred stock,\" it said in an 8-K filing. While the filing directly linked the sale to the dividend payment, Saylor's decision to highlight the equity rather than the bitcoin sale is likely to reinforce investor perceptions that the company is increasingly focused on building its preferred stock while growing bitcoin exposure on a per-share basis. Saylor has repeatedly argued that Strategy evaluates financing and capital allocation decisions through the lens of bitcoin per share and increasing shareholder value rather than simply maximizing the amount of bitcoin it owns. Buy high, sell low A running joke among crypto followers on X, the so-called Crypto Twitter, is that Strategy always buys bitcoin at the weekly high. Yet the company's only previous bitcoin sale took place in December 2022, when the largest cryptocurrency was priced at roughly $18,000, just weeks after the collapse of crypto exchange FTX pushed prices to a cycle low near $15,000. This time, it sold at an average price of $77,135, with bitcoin now trading around $70,000 after falling as low as $60,000 in February. The question is whether it has again sold near a market bottom. More For You Investors pulled $1.67 billion from digital asset investment products last week, with bitcoin funds posting their largest weekly outflow of the year, according to a...",
-      "articleContentZh": "搜索/新闻 视频 价格 研究活动 数据和指数 赞助 搜索 / en 市场 分享 分享这篇文章 复制链接 X (Twitter) LinkedIn Facebook 电子邮件 Michael Saylor 在 Strategy 出售 250 万美元的比特币后打破沉默 Michael Saylor 表示，在该公司出售比特币以帮助资助优先股分配后，Strategy 的目标是使 STRC 成为世界上最好的信贷工具已编辑 Sheldon Reback 2026 年 6 月 1 日下午 4:06 2 分钟阅读 MicroStrategy 执行主席 Michael Saylor (CoinDesk) 的优先股须知：Strategy 以大约 250 万美元的价格出售了 32 个比特币，收益预计将用于分配其 STRC 优先股。 Saylor 在 X 上表示：“我们的目标是使 STRC 成为世界上最好的信贷工具。”这表明 Strategy 越来越关注其优先股。此次出售引发了人们将该公司与 2022 年 12 月接近市场底部的比特币出售进行比较，引发人们猜测该公司可能再次在接近市场底部的情况下出售。披露：本文作者拥有 Strategy (MSTR) 的股份。 Strategy (MSTR) 执行主席 Michael Saylor 似乎强调了该公司对其永久优先股的关注，这使得 STRC 成为他首次公开评论的焦点，此前最大的比特币公开交易持有者 BTC 71,079.34 美元出售了加密货币，为该工具的股息支付提供资金。 “我们的目标是让 STRC 成为世界上最好的信贷工具，”塞勒周一在 X 上写道。该帖子发布前，该公司表示上周以约 250 万美元的价格出售了 32 个比特币。该公司在 8-K 文件中表示，此次出售的收益“预计将用于资助优先股的分配”。虽然该文件将出售与股息支付直接联系起来，但塞勒的决定强调......",
-      "contentQuality": "full",
-      "contentChars": 5658,
-      "buckets": [
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "CoinDesk",
-      "title": "Strategy sparks panic with bitcoin sale, but analysts say it was 'immaterial'",
-      "titleZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "url": "https://www.coindesk.com/markets/2026/06/01/analysts-agree-strategy-s-bitcoin-sale-was-immaterial-differ-on-future-signals",
-      "published": "Mon, 01 Jun 2026 15:45:51 +0000",
-      "summary": "The move suggests a greater willingness on the part of Michael Saylor and Strategy to use BTC holdings to support the capital structure, said one analyst, while others disagreed.",
-      "summaryZh": "加密市场：CoinDesk 报道，涉及比特币、以太坊、ETF、SEC 或链上风险，主要用来观察币圈资金流向和风险偏好。",
-      "articleContent": "Search / Noticias Vídeo Precios Investigación Eventos Datos e índices Patrocinado Search / en Markets Share Share this article Copy link X (Twitter) LinkedIn Facebook Email Strategy sparks panic with bitcoin sale, but analysts say it was 'immaterial' The move suggests a greater willingness on the part of Michael Saylor and Strategy to use BTC holdings to support the capital structure, said one analyst, while others disagreed. By Helene Braun | Edited by Stephen Alpher Updated Jun 1, 2026, 4:23 p.m. Published Jun 1, 2026, 3:45 p.m. 3 min read Make preferred on What to know : Strategy’s sale of 32 bitcoin, its first in four years, raised questions about whether the company is shifting its long-standing accumulation strategy. Two Wall Street analysts said the roughly $2.5 million sale was economically immaterial and viewed it as a tactical move to help fund preferred-stock dividends rather than a meaningful policy change, while another suggested something larger was afoot. Strategy is lower by 5% on Monday, while bitcoin has fallen back to a near two-month low of $71,000. For years, Strategy (MSTR) Executive Chairman Michael Saylor insisted he would never sell bitcoin BTC $ 71.079,34 . Yet on Monday, the largest company disclosed that it sold 32 bitcoin last week , its first sale in four years. The announcement prompted questions about whether one of bitcoin's most prominent corporate advocates was changing course. Most analysts don't think so. While the transaction sparked debate among investors, they largely agree that the sale was too small to alter Strategy's long-term bitcoin accumulation strategy. The company on Monday said that it sold 32 bitcoin between May 26 and May 31 at an average price of $77,135, generating roughly $2.5 million to help fund dividend payments on STRC, its high-yielding perpetual preferred stock known as Stretch. Strategy still held more than 843,700 BTC at the end of May, meaning the sale represented about 0.004% of its total holdings. While the announcement initially fueled concerns that Executive Chairman Michael Saylor was backing away from his long-held commitment to accumulating bitcoin, several analysts argued that the interpretation misses the bigger picture. 'Economically immaterial' TD Cowen analyst Lance Vitanza said reports suggesting Strategy had become a meaningful seller of bitcoin were overblown. Vitanza noted that management has discussed the possibility of limited bitcoin sales on several recent occasions as part of a broader financing strategy. He added that TD Cowen’s model already anticipated small tactical sales and therefore made no changes to its bitcoin accumulation assumptions or its $400 price target on the stock. The analyst also pointed to signs that Strategy is rebuilding its cash position. The company also sold 801,944 shares of common stock and used part of the proceeds to replenish cash reserves after repurchasing $1.5 billion of convertible debt at a discount. Benchmark analyst Mark Palm...",
-      "articleContentZh": "一位分析师表示，这一举动表明 Michael Saylor 和 Strategy 更愿意使用持有的 BTC 来支持资本结构，但其他分析师则不同意。作者：海伦·布劳恩编辑：Stephen Alpher 更新于 2026 年 6 月 1 日下午 4:23发布于 2026 年 6 月 1 日下午 3:45 3 分钟阅读“要知道的事情”上的首选：Strategy 四年来首次出售 32 个比特币，引发了人们对该公司是否正在改变其长期积累战略的疑问。两位华尔街分析师表示，大约 250 万美元的出售在经济上并不重要，并认为这是为优先股股息提供资金的战术举措，而不是有意义的政策变化，而另一位分析师则表示更大的事情正在酝酿之中。周一策略下跌5%，而比特币则回落至近两个月低点71,000美元。多年来，Strategy (MSTR) 执行主席 Michael Saylor 坚称他永远不会以 BTC 71.079,34 美元的价格出售比特币。然而周一，最大的公司透露，它上周出售了 32 枚比特币，这是四年来的首次出售。这一声明引发了人们的疑问：比特币最著名的企业倡导者之一是否正在改变路线。大多数分析师不这么认为。虽然这笔交易引发了投资者的争论，但他们基本上一致认为，此次出售规模太小，无法改变 Strategy 的长期比特币积累策略。该公司周一表示，它在 5 月 26 日至 5 月 31 日期间以 77,135 美元的平均价格出售了 32 个比特币，产生了约 250 万美元，以帮助支付股息……",
-      "contentQuality": "full",
-      "contentChars": 6932,
-      "buckets": [
         "crypto-rotation",
         "sentiment-extreme"
       ]
@@ -19580,5 +19837,7 @@
       "usage": "华尔街见闻、腾讯财经、CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；先抓新闻链接全文，失败才降级为标题/摘要，新闻联播为 best-effort。"
     }
   ],
-  "failures": []
+  "failures": [
+    "Python runtime fallback: 2026-06-03 本地 .python-deps 访问被拒绝，核心宏观/价格数据沿用 2026-06-02 最近一次成功采集结果；中文新闻已使用 2026-06-03 本地热榜报告补入。"
+  ]
 }
