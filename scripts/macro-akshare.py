@@ -591,6 +591,9 @@ def strip_html_for_article(value):
     body = re.sub(r"(?is)</p>|</div>|</li>|</h[1-6]>", "\n", body)
     body = re.sub(r"(?is)<[^>]+>", " ", body)
     body = normalize_text(body)
+    body = re.sub(r"方便，快捷 手机查看财经快讯 专业，丰富 一手掌握市场脉搏", " ", body)
+    body = re.sub(r"提示： 微信扫一扫 分享到您的 朋友圈", " ", body)
+    body = re.sub(r"打开微信， 点击底部的“发现” 使用“扫一扫” 即可将网页分享至朋友圈.*$", " ", body)
     body = re.sub(r"(责任编辑|责编|编辑)[:：].*$", "", body)
     return body.strip()
 
@@ -823,6 +826,46 @@ def tencent_finance_items(limit=10):
     return items
 
 
+def eastmoney_realtime_news(limit=12):
+    url = "https://np-weblist.eastmoney.com/comm/web/getFastNewsList"
+    response = requests.get(
+        url,
+        params={
+            "client": "web",
+            "biz": "web_724",
+            "fastColumn": "102",
+            "sortEnd": "",
+            "pageSize": str(max(limit, 20)),
+            "req_trace": str(int(time.time() * 1000)),
+        },
+        headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "application/json,text/plain,*/*",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+            "Referer": "https://kuaixun.eastmoney.com/7_24.html",
+        },
+        timeout=15,
+    )
+    response.raise_for_status()
+    rows = response.json().get("data", {}).get("fastNewsList", [])
+    items = []
+    for row in rows[:limit]:
+        title = row.get("title") or row.get("summary") or ""
+        summary = row.get("summary") or title
+        code = str(row.get("code") or "").strip()
+        link = f"https://finance.eastmoney.com/a/{code}.html" if code else ""
+        item = make_news(
+            "东方财富全球快讯",
+            title,
+            link,
+            row.get("showTime", ""),
+            summary,
+        )
+        item["buckets"] = list(dict.fromkeys([*item.get("buckets", []), "macro-tide", "risk-regime"]))
+        items.append(item)
+    return items
+
+
 def row_text(row, candidates):
     for key in candidates:
         if key in row and str(row[key]).strip() and str(row[key]).lower() != "nan":
@@ -879,6 +922,7 @@ def get_market_news():
     failures = []
     chinese_direct_sources = [
         ("华尔街见闻7x24", wallstreetcn_live_items),
+        ("东方财富全球快讯", eastmoney_realtime_news),
         ("腾讯财经", tencent_finance_items),
     ]
     for source, fetcher in chinese_direct_sources:
@@ -1299,7 +1343,7 @@ def main():
         {
             "name": "RSS / Google News / AkShare 新闻",
             "status": "已接入，无需 key",
-            "usage": "华尔街见闻、腾讯财经、CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；先抓新闻链接全文，失败才降级为标题/摘要，新闻联播为 best-effort。",
+            "usage": "华尔街见闻、东方财富全球快讯、腾讯财经、CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；先抓新闻链接全文，失败才降级为标题/摘要，新闻联播为 best-effort。",
         },
     ]
     payload = {

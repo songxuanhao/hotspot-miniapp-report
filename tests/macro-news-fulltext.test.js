@@ -19,6 +19,10 @@ function assert(condition, message) {
   "contentChars",
   "腾讯财经",
   "https://finance.qq.com",
+  "def eastmoney_realtime_news",
+  "东方财富全球快讯",
+  "https://np-weblist.eastmoney.com/comm/web/getFastNewsList",
+  "https://finance.eastmoney.com/a/",
 ].forEach((needle) => assert(collector.includes(needle), `macro collector should include ${needle}`));
 
 if (!process.exitCode) {
