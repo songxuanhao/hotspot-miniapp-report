@@ -6,7 +6,8 @@ import os
 import re
 import sys
 import time
-from urllib.parse import quote_plus
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import quote_plus, urljoin
 import xml.etree.ElementTree as ET
 import warnings
 
@@ -482,6 +483,13 @@ def clean_text(value, limit=180):
     return text[:limit].rstrip() + ("..." if len(text) > limit else "")
 
 
+def normalize_text(value):
+    text = html.unescape(str(value or ""))
+    text = re.sub(r"\\u([0-9a-fA-F]{4})", lambda match: chr(int(match.group(1), 16)), text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
 def has_cjk(value):
     return bool(re.search(r"[\u4e00-\u9fff]", str(value or "")))
 
@@ -569,8 +577,105 @@ def make_news(source, title, url="", published="", summary=""):
         "published": clean_text(published, 80),
         "summary": summary_text,
         "summaryZh": clean_text(summary_zh, 240),
+        "articleContent": "",
+        "articleContentZh": "",
+        "contentQuality": "summary",
+        "contentChars": 0,
         "buckets": list(dict.fromkeys(buckets)),
     }
+
+
+def strip_html_for_article(value):
+    body = re.sub(r"(?is)<(script|style|noscript|svg|iframe|form|header|footer|nav|aside)[^>]*>.*?</\1>", " ", str(value or ""))
+    body = re.sub(r"(?is)<br\s*/?>", "\n", body)
+    body = re.sub(r"(?is)</p>|</div>|</li>|</h[1-6]>", "\n", body)
+    body = re.sub(r"(?is)<[^>]+>", " ", body)
+    body = normalize_text(body)
+    body = re.sub(r"(责任编辑|责编|编辑)[:：].*$", "", body)
+    return body.strip()
+
+
+def article_candidates_from_html(page_html):
+    candidates = []
+    for pattern in [
+        r'"articleBody"\s*:\s*"([^"]{180,})"',
+        r'"content"\s*:\s*"([^"]{180,})"',
+        r'"text"\s*:\s*"([^"]{180,})"',
+    ]:
+        for match in re.finditer(pattern, page_html, flags=re.I | re.S):
+            candidates.append(normalize_text(match.group(1)))
+    for pattern in [
+        r'(?is)<article[^>]*>(.*?)</article>',
+        r'(?is)<div[^>]+id=["\']?js_content["\']?[^>]*>(.*?)</div>',
+        r'(?is)<div[^>]+class=["\'][^"\']*(?:article|content|rich_media|post_body|text_area)[^"\']*["\'][^>]*>(.*?)</div>',
+        r'(?is)<section[^>]+class=["\'][^"\']*(?:article|content|rich_media)[^"\']*["\'][^>]*>(.*?)</section>',
+    ]:
+        for match in re.finditer(pattern, page_html):
+            candidates.append(strip_html_for_article(match.group(1)))
+    paragraphs = re.findall(r"(?is)<p[^>]*>(.*?)</p>", page_html)
+    if paragraphs:
+        candidates.append(strip_html_for_article("\n".join(paragraphs)))
+    return [item for item in candidates if len(item) >= 120]
+
+
+def fetch_article_content(url):
+    if not url or not str(url).startswith(("http://", "https://")):
+        return {"content": "", "quality": "summary", "chars": 0}
+    try:
+        response = requests.get(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/125 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+            },
+            timeout=7,
+            allow_redirects=True,
+        )
+        response.raise_for_status()
+        response.encoding = response.apparent_encoding or response.encoding
+        candidates = article_candidates_from_html(response.text)
+        if not candidates:
+            return {"content": "", "quality": "summary", "chars": 0}
+        content = max(candidates, key=len)
+        content = re.sub(r"\s+", " ", content).strip()
+        quality = "full" if len(content) >= 500 else "partial"
+        return {"content": content[:6000], "quality": quality, "chars": len(content)}
+    except Exception:
+        return {"content": "", "quality": "summary", "chars": 0}
+
+
+def enrich_news_with_fulltext(news, limit=80):
+    articles = [{"content": "", "quality": "summary", "chars": 0} for _ in news]
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {
+            executor.submit(fetch_article_content, item.get("url", "")): index
+            for index, item in enumerate(news[:limit])
+            if item.get("url")
+        }
+        for future in as_completed(futures):
+            index = futures[future]
+            try:
+                articles[index] = future.result()
+            except Exception:
+                articles[index] = {"content": "", "quality": "summary", "chars": 0}
+
+    enriched = []
+    for index, item in enumerate(news):
+        article = articles[index]
+        content = article.get("content") or item.get("summary") or item.get("title") or ""
+        quality = article.get("quality") if article.get("content") else "summary"
+        content_zh = clean_text(content, 1800) if has_cjk(content) else translate_to_zh(content, 1800)
+        enriched.append(
+            {
+                **item,
+                "articleContent": clean_text(content, 3000),
+                "articleContentZh": content_zh,
+                "contentQuality": quality,
+                "contentChars": article.get("chars", len(content)),
+            }
+        )
+    return enriched
 
 
 def rss_items(source, url, limit=10):
@@ -675,6 +780,49 @@ def google_news_zh_url(query):
     return f"https://news.google.com/rss/search?q={quote_plus(query)}&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
 
 
+def tencent_finance_items(limit=10):
+    page = ""
+    url = ""
+    for candidate in ["https://finance.qq.com", "https://new.qq.com/ch/finance/"]:
+        try:
+            response = requests.get(
+                candidate,
+                headers={
+                    "User-Agent": "Mozilla/5.0",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                },
+                timeout=18,
+            )
+            response.raise_for_status()
+            response.encoding = response.apparent_encoding or response.encoding
+            page = response.text
+            url = candidate
+            break
+        except Exception:
+            continue
+    if not page:
+        return []
+    matches = re.findall(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', page, flags=re.I | re.S)
+    items = []
+    seen = set()
+    for href, label_html in matches:
+        title = clean_text(label_html, 120)
+        link = urljoin(url, href)
+        if not title or len(title) < 6 or "new.qq.com" not in link:
+            continue
+        key = re.sub(r"\W+", "", title)
+        if key in seen:
+            continue
+        seen.add(key)
+        item = make_news("腾讯财经", title, link, "", title)
+        item["buckets"] = list(dict.fromkeys([*item.get("buckets", []), "macro-tide", "risk-regime"]))
+        items.append(item)
+        if len(items) >= limit:
+            break
+    return items
+
+
 def row_text(row, candidates):
     for key in candidates:
         if key in row and str(row[key]).strip() and str(row[key]).lower() != "nan":
@@ -731,6 +879,7 @@ def get_market_news():
     failures = []
     chinese_direct_sources = [
         ("华尔街见闻7x24", wallstreetcn_live_items),
+        ("腾讯财经", tencent_finance_items),
     ]
     for source, fetcher in chinese_direct_sources:
         try:
@@ -745,6 +894,7 @@ def get_market_news():
         "Google新闻 · 全球央行": google_news_zh_url("美联储 欧洲央行 日本央行 降息 加息"),
         "Google新闻 · 大宗商品": google_news_zh_url("黄金 原油 铜价 OPEC 通胀 供应链"),
         "Google新闻 · 中国市场": google_news_zh_url("中国 宏观 人民币 国债 社融 LPR A股 港股"),
+        "腾讯财经聚合": google_news_zh_url("site:news.qq.com 腾讯新闻 财经 A股 美股 黄金 原油 宏观 when:7d"),
         "Google新闻 · 美联储利率": google_news_zh_url("美联储 降息 加息 通胀 PCE 非农 美债收益率 when:7d"),
         "Google新闻 · 特朗普关税": google_news_zh_url("特朗普 关税 中美贸易 美元 黄金 股市 when:7d"),
         "Google新闻 · 战争地缘": google_news_zh_url("俄乌 中东 伊朗 以色列 红海 战争 黄金 原油 when:7d"),
@@ -782,7 +932,7 @@ def get_market_news():
         if item.get("title") and key not in seen:
             seen.add(key)
             deduped.append(item)
-    return deduped[:80], briefing, failures
+    return enrich_news_with_fulltext(deduped[:80]), briefing, failures
 
 
 def get_crypto_metrics():
@@ -1149,7 +1299,7 @@ def main():
         {
             "name": "RSS / Google News / AkShare 新闻",
             "status": "已接入，无需 key",
-            "usage": "CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；新闻标题/摘要自动转中文，新闻联播为 best-effort。",
+            "usage": "华尔街见闻、腾讯财经、CoinDesk、MarketWatch、Federal Reserve、Fed Speeches、Google News 宏观主题 RSS；先抓新闻链接全文，失败才降级为标题/摘要，新闻联播为 best-effort。",
         },
     ]
     payload = {

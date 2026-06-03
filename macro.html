@@ -1603,8 +1603,9 @@
 
       function cleanNewsBody(news) {
         const title = text(news?.titleZh || news?.title).replace(/[?？]+/g, "。");
+        const article = text(news?.articleContentZh || news?.articleContent).replace(/[?？]+/g, "。");
         const summary = text(news?.summaryZh || news?.summary).replace(/[?？]+/g, "。");
-        const body = summary && summary !== "-" && summary !== title ? summary : title;
+        const body = article && article !== "-" && article.length > summary.length ? article : (summary && summary !== "-" && summary !== title ? summary : title);
         return sentenceParts(body)
           .filter((item) => !/^本文|^文章|^本篇|探讨了|分析了/.test(item))
           .map((item) => stripNewsSource(item.replace(/^摘要[:：]\s*/, "")))
@@ -1987,7 +1988,9 @@
         };
         const summary = summarizeItem(item);
         els.modalTitle.textContent = summary.conclusion;
+        const quality = news.contentQuality === "full" ? `已抓取全文（${news.contentChars || 0}字）` : news.contentQuality === "partial" ? `已抓取部分正文（${news.contentChars || 0}字）` : "仅标题/摘要，已降级处理";
         els.modalBody.innerHTML = `
+          <p class="detail-sub">${escapeHtml(quality)}</p>
           <div class="read-item">
             <b>事实</b>
             <span>${escapeHtml(summary.fact || summary.conclusion.replace(/^事实[:：]/, ""))}</span>

@@ -49,6 +49,8 @@ try {
   "function impactForNews",
   "function expectedValueFrom",
   "function dedupeNews",
+  "articleContentZh",
+  "contentQuality",
   "function articleTypeFor",
   "function renderAccordionItems",
   "function renderAssetSpotlight",
