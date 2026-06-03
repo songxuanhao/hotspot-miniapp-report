@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>工作备忘录</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f6f8;
+        --panel: #ffffff;
+        --panel-soft: #f8fafc;
+        --text: #0f172a;
+        --text-main: #1f2937;
+        --text-support: #344054;
+        --text-quiet: #536274;
+        --line: #d9e1e8;
+        --teal: #10756e;
+        --teal-soft: #e6f4f2;
+        --blue: #175cd3;
+        --blue-soft: #eef4ff;
+        --amber: #a16207;
+        --amber-soft: #fff7d6;
+        --green: #166534;
+        --green-soft: #e8f6ed;
+        --red: #b42318;
+        --red-soft: #fff0ed;
+        --shadow: 0 18px 45px rgba(31, 41, 51, 0.09);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(16, 117, 110, 0.08), rgba(244, 246, 248, 0) 300px),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
+          sans-serif;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .app {
+        width: min(1480px, 100%);
+        margin: 0 auto;
+        padding: 22px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        gap: 16px;
+        align-items: end;
+        padding: 12px 0 16px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(30px, 5vw, 46px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .subline {
+        margin: 10px 0 0;
+        color: var(--text-support);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .status-card {
+        min-width: 280px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: var(--shadow);
+      }
+
+      .status-card b {
+        display: block;
+        color: var(--text);
+        font-size: 20px;
+      }
+
+      .status-card span {
+        display: block;
+        margin-top: 5px;
+        color: var(--text-support);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .page-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 14px;
+      }
+
+      .page-tab {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #344054;
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .page-tab.active {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #fff;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 300px minmax(460px, 1fr) 390px;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .panel {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 10px 24px rgba(31, 41, 51, 0.06);
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .panel-title {
+        margin: 0;
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 950;
+      }
+
+      .panel-body {
+        display: grid;
+        gap: 10px;
+        padding: 12px;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        gap: 8px;
+      }
+
+      .control,
+      .action {
+        min-height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+      }
+
+      .control {
+        width: 100%;
+        padding: 8px 10px;
+      }
+
+      textarea.control {
+        min-height: 220px;
+        resize: vertical;
+        line-height: 1.6;
+      }
+
+      .action {
+        padding: 0 12px;
+        font-weight: 900;
+      }
+
+      .action.primary {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #fff;
+      }
+
+      .action.ghost {
+        background: var(--panel-soft);
+      }
+
+      .action.danger {
+        border-color: rgba(180, 35, 24, 0.28);
+        background: var(--red-soft);
+        color: var(--red);
+      }
+
+      .project-list,
+      .history-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .project-button,
+      .version-button {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text-main);
+        text-align: left;
+      }
+
+      .project-button.active,
+      .version-button.active {
+        border-color: var(--teal);
+        background: var(--teal-soft);
+      }
+
+      .project-button b,
+      .version-button b {
+        display: block;
+        color: var(--text);
+        font-size: 13px;
+      }
+
+      .project-button span,
+      .version-button span {
+        display: block;
+        margin-top: 4px;
+        color: var(--text-support);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .field {
+        display: grid;
+        gap: 5px;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        color: var(--text-support);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .field textarea {
+        min-height: 96px;
+      }
+
+      .draft-panel {
+        display: none;
+        border: 1px solid rgba(16, 117, 110, 0.28);
+        border-radius: 8px;
+        background: #f7fbfb;
+      }
+
+      .draft-panel.show {
+        display: block;
+      }
+
+      .draft-actions,
+      .row-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .current-card,
+      .version-preview {
+        display: grid;
+        gap: 9px;
+      }
+
+      .read-box {
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+      }
+
+      .read-box b {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .read-box span {
+        white-space: pre-wrap;
+        color: var(--text-main);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .empty {
+        padding: 12px;
+        border: 1px dashed var(--line);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        color: var(--text-support);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .toast {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 20;
+        transform: translateY(12px);
+        opacity: 0;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: #102033;
+        color: #fff;
+        font-size: 13px;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      @media (max-width: 1180px) {
+        .hero,
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .status-card {
+          min-width: 0;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .app {
+          padding: 14px;
+        }
+
+        .field-grid,
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">项目内容 / 版本历史 / 待办记录</p>
+          <h1>工作备忘录</h1>
+          <p class="subline" id="summary">把聊天记录整理成项目档案，确认后写入版本历史。</p>
+        </div>
+        <aside class="status-card">
+          <b id="projectCount">0 个项目</b>
+          <span id="storeStatus">本地记录待读取</span>
+        </aside>
+      </header>
+
+      <nav class="page-tabs" aria-label="报告页面">
+        <a class="page-tab" href="./index.html">今日热点</a>
+        <a class="page-tab" href="./macro.html">金融宏观</a>
+        <a class="page-tab active" href="./memo.html">工作备忘录</a>
+      </nav>
+
+      <section class="layout">
+        <aside class="panel">
+          <div class="panel-head">
+            <p class="panel-title">项目</p>
+            <button class="action ghost" id="newProjectButton" type="button">新建</button>
+          </div>
+          <div class="panel-body">
+            <input class="control" id="projectSearch" type="search" placeholder="搜索项目" />
+            <div class="project-list" id="projectList"></div>
+            <div class="row-actions">
+              <button class="action ghost" id="exportButton" type="button">导出</button>
+              <button class="action ghost" id="importButton" type="button">导入</button>
+              <input id="importFile" type="file" accept="application/json" hidden />
+            </div>
+          </div>
+        </aside>
+
+        <section class="panel">
+          <div class="panel-head">
+            <p class="panel-title">内容更新</p>
+            <span class="pill" id="selectedProjectLabel">未选择项目</span>
+          </div>
+          <div class="panel-body">
+            <textarea class="control" id="rawInput" placeholder="粘贴项目聊天记录、客户需求、会议纪要或你自己的备忘文字"></textarea>
+            <div class="draft-actions">
+              <button class="action primary" id="summarizeButton" type="button">AI 总结</button>
+              <button class="action ghost" id="clearInputButton" type="button">清空输入</button>
+            </div>
+
+            <article class="draft-panel" id="draftPanel">
+              <div class="panel-head">
+                <p class="panel-title">待确认内容</p>
+                <span class="pill" id="draftMode">待确认</span>
+              </div>
+              <div class="panel-body">
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="projectName">项目名称</label>
+                    <input class="control" id="projectName" />
+                  </div>
+                  <div class="field">
+                    <label for="launchTime">上线时间</label>
+                    <input class="control" id="launchTime" />
+                  </div>
+                  <div class="field full">
+                    <label for="requirement">需求</label>
+                    <textarea class="control" id="requirement"></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="progress">进展说明</label>
+                    <textarea class="control" id="progress"></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="todos">我要做的备忘录</label>
+                    <textarea class="control" id="todos"></textarea>
+                  </div>
+                </div>
+                <div class="draft-actions">
+                  <button class="action primary" id="confirmDraftButton" type="button">确认更新</button>
+                  <button class="action ghost" id="discardDraftButton" type="button">取消草稿</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-head">
+            <p class="panel-title">当前与历史</p>
+            <button class="action danger" id="deleteProjectButton" type="button">删除</button>
+          </div>
+          <div class="panel-body">
+            <div class="current-card" id="currentCard"></div>
+            <div>
+              <p class="panel-title">历史版本</p>
+              <div class="history-list" id="historyList"></div>
+            </div>
+            <div class="version-preview" id="versionPreview"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <div class="toast" id="toast">已保存</div>
+
+    <script>
+      const STORAGE_KEY = "memoStoreV1";
+
+      const state = {
+        store: loadStore(),
+        selectedProjectId: "",
+        selectedVersionId: "",
+        draft: null,
+      };
+
+      const els = {
+        projectCount: document.querySelector("#projectCount"),
+        storeStatus: document.querySelector("#storeStatus"),
+        selectedProjectLabel: document.querySelector("#selectedProjectLabel"),
+        projectSearch: document.querySelector("#projectSearch"),
+        projectList: document.querySelector("#projectList"),
+        rawInput: document.querySelector("#rawInput"),
+        summarizeButton: document.querySelector("#summarizeButton"),
+        clearInputButton: document.querySelector("#clearInputButton"),
+        draftPanel: document.querySelector("#draftPanel"),
+        draftMode: document.querySelector("#draftMode"),
+        projectName: document.querySelector("#projectName"),
+        requirement: document.querySelector("#requirement"),
+        launchTime: document.querySelector("#launchTime"),
+        progress: document.querySelector("#progress"),
+        todos: document.querySelector("#todos"),
+        confirmDraftButton: document.querySelector("#confirmDraftButton"),
+        discardDraftButton: document.querySelector("#discardDraftButton"),
+        currentCard: document.querySelector("#currentCard"),
+        historyList: document.querySelector("#historyList"),
+        versionPreview: document.querySelector("#versionPreview"),
+        newProjectButton: document.querySelector("#newProjectButton"),
+        deleteProjectButton: document.querySelector("#deleteProjectButton"),
+        exportButton: document.querySelector("#exportButton"),
+        importButton: document.querySelector("#importButton"),
+        importFile: document.querySelector("#importFile"),
+        toast: document.querySelector("#toast"),
+      };
+
+      function loadStore() {
+        try {
+          const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+          if (parsed && Array.isArray(parsed.projects)) return parsed;
+        } catch {
+          return { projects: [] };
+        }
+        return { projects: [] };
+      }
+
+      function saveStore() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state.store));
+      }
+
+      function id(prefix) {
+        return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+      }
+
+      function text(value) {
+        return value == null || value === "" ? "-" : String(value);
+      }
+
+      function escapeHtml(value) {
+        return text(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;");
+      }
+
+      function nowText() {
+        return new Date().toLocaleString("zh-CN", { hour12: false });
+      }
+
+      function currentProject() {
+        return state.store.projects.find((project) => project.id === state.selectedProjectId) || null;
+      }
+
+      function normalizeLines(value) {
+        return String(value || "")
+          .replace(/\r/g, "")
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean);
+      }
+
+      function pickLine(lines, patterns) {
+        const line = lines.find((entry) => patterns.some((pattern) => pattern.test(entry)));
+        if (!line) return "";
+        return line.replace(/^[^:：]{1,12}[:：]\s*/, "").trim();
+      }
+
+      function extractBlock(lines, patterns, fallbackCount = 4) {
+        const matched = lines.filter((line) => patterns.some((pattern) => pattern.test(line)));
+        if (matched.length) {
+          return matched
+            .map((line) => line.replace(/^[^:：]{1,12}[:：]\s*/, "").trim())
+            .slice(0, 8)
+            .join("\n");
+        }
+        return lines.slice(0, fallbackCount).join("\n");
+      }
+
+      function mergeText(oldValue, newValue) {
+        const oldText = String(oldValue || "").trim();
+        const nextText = String(newValue || "").trim();
+        if (!oldText) return nextText;
+        if (!nextText || oldText.includes(nextText)) return oldText;
+        return `${oldText}\n${nextText}`;
+      }
+
+      function summarizeText(raw, project) {
+        const lines = normalizeLines(raw);
+        const firstUseful = lines.find((line) => line.length <= 40 && !/[，。]{2,}/.test(line)) || "";
+        const projectName = pickLine(lines, [/项目名称|项目|客户|小程序|系统|平台/]) || project?.name || firstUseful || "未命名项目";
+        const launchTime = pickLine(lines, [/上线|发布时间|交付|截止|ddl|DDL|时间|节点/]) || project?.launchTime || "";
+        const requirement = extractBlock(lines, [/需求|功能|要做|需要|实现|支持|页面|接口|流程|权限|审核/], 5);
+        const progress = extractBlock(lines, [/进展|当前|已经|完成|开发中|联调|测试|卡住|问题|风险|待确认/], 4);
+        const todos = extractBlock(lines, [/我要|我来|待办|备忘|下一步|跟进|确认|整理|补充|对接|提醒/], 4);
+        return {
+          name: projectName,
+          requirement: mergeText(project?.requirement, requirement),
+          launchTime,
+          progress: mergeText(project?.progress, progress),
+          todos: mergeText(project?.todos, todos),
+          source: raw,
+        };
+      }
+
+      function fillDraft(draft) {
+        els.projectName.value = draft.name || "";
+        els.requirement.value = draft.requirement || "";
+        els.launchTime.value = draft.launchTime || "";
+        els.progress.value = draft.progress || "";
+        els.todos.value = draft.todos || "";
+        els.draftMode.textContent = currentProject() ? "更新现有项目" : "创建新项目";
+        els.draftPanel.classList.add("show");
+      }
+
+      function createDraft() {
+        const raw = els.rawInput.value.trim();
+        if (!raw) {
+          showToast("请先粘贴内容");
+          return;
+        }
+        state.draft = summarizeText(raw, currentProject());
+        fillDraft(state.draft);
+      }
+
+      function versionFromFields(source) {
+        return {
+          id: id("version"),
+          createdAt: nowText(),
+          name: els.projectName.value.trim() || "未命名项目",
+          requirement: els.requirement.value.trim(),
+          launchTime: els.launchTime.value.trim(),
+          progress: els.progress.value.trim(),
+          todos: els.todos.value.trim(),
+          source: source || "",
+        };
+      }
+
+      function confirmDraft() {
+        const version = versionFromFields(state.draft?.source || els.rawInput.value);
+        let project = currentProject();
+        if (!project) {
+          project = {
+            id: id("project"),
+            createdAt: nowText(),
+            versions: [],
+          };
+          state.store.projects.unshift(project);
+          state.selectedProjectId = project.id;
+        }
+        project.name = version.name;
+        project.requirement = version.requirement;
+        project.launchTime = version.launchTime;
+        project.progress = version.progress;
+        project.todos = version.todos;
+        project.updatedAt = version.createdAt;
+        project.versions = Array.isArray(project.versions) ? project.versions : [];
+        project.versions.unshift(version);
+        state.selectedVersionId = version.id;
+        state.draft = null;
+        els.draftPanel.classList.remove("show");
+        els.rawInput.value = "";
+        saveStore();
+        render();
+        showToast("已确认并写入历史版本");
+      }
+
+      function renderProjectList() {
+        const keyword = els.projectSearch.value.trim().toLowerCase();
+        const projects = state.store.projects.filter((project) => {
+          const body = [project.name, project.requirement, project.progress, project.todos].join(" ").toLowerCase();
+          return !keyword || body.includes(keyword);
+        });
+        els.projectList.innerHTML = projects.length
+          ? projects.map((project) => `
+              <button class="project-button ${project.id === state.selectedProjectId ? "active" : ""}" data-project-id="${escapeHtml(project.id)}" type="button">
+                <b>${escapeHtml(project.name || "未命名项目")}</b>
+                <span>${escapeHtml(project.launchTime || "未设置上线时间")} · ${escapeHtml(project.updatedAt || project.createdAt || "-")}</span>
+              </button>
+            `).join("")
+          : `<div class="empty">暂无项目。</div>`;
+      }
+
+      function readBox(label, value) {
+        return `<div class="read-box"><b>${escapeHtml(label)}</b><span>${escapeHtml(value || "-")}</span></div>`;
+      }
+
+      function renderCurrent() {
+        const project = currentProject();
+        els.selectedProjectLabel.textContent = project ? project.name || "未命名项目" : "未选择项目";
+        els.currentCard.innerHTML = project
+          ? [
+              readBox("项目名称", project.name),
+              readBox("需求", project.requirement),
+              readBox("上线时间", project.launchTime),
+              readBox("进展说明", project.progress),
+              readBox("我要做的备忘录", project.todos),
+            ].join("")
+          : `<div class="empty">选择项目后显示当前内容。</div>`;
+      }
+
+      function renderHistory() {
+        const project = currentProject();
+        const versions = project?.versions || [];
+        els.historyList.innerHTML = versions.length
+          ? versions.map((version, index) => `
+              <button class="version-button ${version.id === state.selectedVersionId ? "active" : ""}" data-version-id="${escapeHtml(version.id)}" type="button">
+                <b>版本 ${versions.length - index}</b>
+                <span>${escapeHtml(version.createdAt)} · ${escapeHtml(version.name)}</span>
+              </button>
+            `).join("")
+          : `<div class="empty">暂无历史版本。</div>`;
+        const selected = versions.find((version) => version.id === state.selectedVersionId) || versions[0];
+        if (selected && !state.selectedVersionId) state.selectedVersionId = selected.id;
+        els.versionPreview.innerHTML = selected
+          ? [
+              readBox("版本时间", selected.createdAt),
+              readBox("项目名称", selected.name),
+              readBox("需求", selected.requirement),
+              readBox("上线时间", selected.launchTime),
+              readBox("进展说明", selected.progress),
+              readBox("我要做的备忘录", selected.todos),
+            ].join("")
+          : `<div class="empty">选择历史版本后查看。</div>`;
+      }
+
+      function render() {
+        const count = state.store.projects.length;
+        els.projectCount.textContent = `${count} 个项目`;
+        els.storeStatus.textContent = count ? "已保存到当前浏览器" : "还没有项目记录";
+        renderProjectList();
+        renderCurrent();
+        renderHistory();
+      }
+
+      function newProject() {
+        state.selectedProjectId = "";
+        state.selectedVersionId = "";
+        state.draft = {
+          name: "",
+          requirement: "",
+          launchTime: "",
+          progress: "",
+          todos: "",
+          source: "",
+        };
+        fillDraft(state.draft);
+        render();
+      }
+
+      function deleteProject() {
+        const project = currentProject();
+        if (!project) {
+          showToast("请先选择项目");
+          return;
+        }
+        if (!confirm(`删除项目「${project.name || "未命名项目"}」及全部历史版本？`)) return;
+        state.store.projects = state.store.projects.filter((item) => item.id !== project.id);
+        state.selectedProjectId = state.store.projects[0]?.id || "";
+        state.selectedVersionId = "";
+        saveStore();
+        render();
+        showToast("已删除项目");
+      }
+
+      function exportStore() {
+        const blob = new Blob([JSON.stringify(state.store, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `work-memo-${Date.now()}.json`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function importStore(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const parsed = JSON.parse(String(reader.result || ""));
+            if (!parsed || !Array.isArray(parsed.projects)) throw new Error("格式不正确");
+            state.store = parsed;
+            state.selectedProjectId = state.store.projects[0]?.id || "";
+            state.selectedVersionId = state.store.projects[0]?.versions?.[0]?.id || "";
+            saveStore();
+            render();
+            showToast("已导入备忘录");
+          } catch (error) {
+            showToast(`导入失败：${error.message}`);
+          }
+        };
+        reader.readAsText(file, "utf-8");
+      }
+
+      let toastTimer;
+      function showToast(message) {
+        els.toast.textContent = message;
+        els.toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => els.toast.classList.remove("show"), 1800);
+      }
+
+      els.summarizeButton.addEventListener("click", createDraft);
+      els.confirmDraftButton.addEventListener("click", confirmDraft);
+      els.discardDraftButton.addEventListener("click", () => {
+        state.draft = null;
+        els.draftPanel.classList.remove("show");
+      });
+      els.clearInputButton.addEventListener("click", () => {
+        els.rawInput.value = "";
+      });
+      els.newProjectButton.addEventListener("click", newProject);
+      els.deleteProjectButton.addEventListener("click", deleteProject);
+      els.projectSearch.addEventListener("input", renderProjectList);
+      els.projectList.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-project-id]");
+        if (!button) return;
+        state.selectedProjectId = button.dataset.projectId;
+        const project = currentProject();
+        state.selectedVersionId = project?.versions?.[0]?.id || "";
+        state.draft = null;
+        els.draftPanel.classList.remove("show");
+        render();
+      });
+      els.historyList.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-version-id]");
+        if (!button) return;
+        state.selectedVersionId = button.dataset.versionId;
+        renderHistory();
+      });
+      els.exportButton.addEventListener("click", exportStore);
+      els.importButton.addEventListener("click", () => els.importFile.click());
+      els.importFile.addEventListener("change", () => importStore(els.importFile.files[0]));
+
+      state.selectedProjectId = state.store.projects[0]?.id || "";
+      state.selectedVersionId = state.store.projects[0]?.versions?.[0]?.id || "";
+      render();
+    </script>
+  </body>
+</html>
