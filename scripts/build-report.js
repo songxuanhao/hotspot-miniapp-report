@@ -379,30 +379,48 @@ function analysisFor(group, index) {
   const hasRealWechatAction = !/^不值得/.test(cfg.decision);
   const platformCount = new Set(records.map((record) => record.platform)).size;
   const highestHeat = Math.max(...records.map((record) => record.heatNormalized));
-  const finalDecision =
+  const finalDecisionDetail =
     hasRealWechatAction && (platformCount >= 2 || highestHeat >= 80)
       ? cfg.decision
       : category === "general"
         ? "不值得追逐的热点：热度存在，但微信内可执行动作弱。"
         : cfg.decision;
+  const finalDecision = /^不值得/.test(finalDecisionDetail)
+    ? "不值得追逐"
+    : /^不做/.test(finalDecisionDetail)
+      ? "不做"
+      : /^谨慎做/.test(finalDecisionDetail)
+        ? "谨慎做"
+        : "做";
 
-  const hotspotNeedRelevance = /^不/.test(finalDecision)
+  const hotspotNeedRelevance = /^不/.test(finalDecisionDetail)
     ? "弱：热点讨论多，但难转成微信内高频刚需动作"
     : /高：|敏感|版权|资质/.test(cfg.compliance)
       ? "中：有微信动作，但需避开资质、版权或平台内容边界"
       : "中到强：能转成微信内卡片、清单、提醒、收藏或分享动作";
-  const needStrength = /^不/.test(finalDecision)
+  const needStrength = /^不/.test(finalDecisionDetail)
     ? "非刚需"
     : /提醒|清单|记录/.test(cfg.features)
       ? "中等偏刚需"
       : "非刚需但有即时表达需求";
-  const urgency = /提醒|出行|考试|赛程|天气|事故|安全/.test(content) ? "中到高" : /^不/.test(finalDecision) ? "低" : "中";
+  const urgency = /提醒|出行|考试|赛程|天气|事故|安全/.test(content) ? "中到高" : /^不/.test(finalDecisionDetail) ? "低" : "中";
   const competitionIntensity = /原平台|短视频|视频|专业|资讯|搜索|App/.test(defaultCompetitors(category)) ? "高" : "中";
-  const doDecisionRationale = /^不/.test(finalDecision)
+  const doDecisionRationale = /^不/.test(finalDecisionDetail)
     ? "不做：客户在微信里的真实动作链弱，或需求被原平台/搜索/垂类 App 更好满足，继续做容易变成伪需求。"
-    : /谨慎/.test(finalDecision)
+    : /谨慎/.test(finalDecisionDetail)
       ? "谨慎做：只承接微信内轻动作，避开版权内容、资质判断和第三方受限数据，不能替代原平台。"
       : "可做：热点能落到微信内的搜索、收藏、提醒、卡片或分享动作，比打开原平台更轻。";
+  const demandReviewRound1 = `第 1 轮需求评审：客户是${cfg.customer}；相关性为${hotspotNeedRelevance}；需求强度${needStrength}，紧急度${urgency}，竞争${competitionIntensity}。`;
+  const demandReviewRound2 = `第 2 轮需求评审：根据动作链和竞品压力，最终范围收敛为：${cfg.opportunity}`;
+  const techReviewRound1 = "第 1 轮技术评审：数据来自 TrendRadar/NewsNow API；第三方内容只做标题、链接和排名引用，不做内容搬运。";
+  const techReviewRound2 = `第 2 轮技术评审：MVP 范围为：${cfg.risk}`;
+  const platformRanks = records.map((record) => ({
+    platform: record.platform,
+    rank: record.rank,
+    normalizedScore: record.heatNormalized,
+    title: record.title,
+    url: record.url,
+  }));
 
   return {
     id: `${dateKey}-api-${String(index + 1).padStart(3, "0")}`,
@@ -423,41 +441,46 @@ function analysisFor(group, index) {
     persona: cfg.customer,
     scenario: scenarioFor(category),
     userActionChain: actionChainFor(category),
-    actionValidation: /^不/.test(finalDecision)
+    actionValidation: /^不/.test(finalDecisionDetail)
       ? "动作链不稳：用户更可能在原平台消费内容，微信搜索小程序的动机弱。"
       : "动作链成立，但必须比打开原平台更轻，更适合微信转发、收藏或提醒。",
     miniappOpportunity: cfg.opportunity,
     competitors: defaultCompetitors(category),
-    canSolve: /^不/.test(finalDecision)
+    canSolve: /^不/.test(finalDecisionDetail)
       ? "不能稳定解决，最多做收藏或提醒，难以形成独立使用理由。"
       : "能解决微信内轻量表达、收藏、清单或提醒，不能替代原平台内容消费。",
-    whyUseMiniapp: /^不/.test(finalDecision)
+    whyUseMiniapp: /^不/.test(finalDecisionDetail)
       ? "用户没有足够理由离开原平台再打开小程序。"
       : "只有当小程序把热点变成可分享卡片、清单或提醒时，用户才有理由不用原平台。",
     feasibilityNotes: cfg.risk,
-    demandReviewRound1: `第 1 轮需求评审：客户是${cfg.customer}；相关性为${hotspotNeedRelevance}；需求强度${needStrength}，紧急度${urgency}，竞争${competitionIntensity}。`,
-    demandReviewRound2: `第 2 轮需求评审：根据动作链和竞品压力，最终范围收敛为：${cfg.opportunity}`,
-    techReviewRound1: "第 1 轮技术评审：数据来自 TrendRadar/NewsNow API；第三方内容只做标题、链接和排名引用，不做内容搬运。",
-    techReviewRound2: `第 2 轮技术评审：MVP 范围为：${cfg.risk}`,
+    demandReviewRound1,
+    demandReviewRound2,
+    demandReviews: [demandReviewRound1, demandReviewRound2],
+    techReviewRound1,
+    techReviewRound2,
+    techReviews: [techReviewRound1, techReviewRound2],
     developmentReviewResult: cfg.risk,
     finalDecision,
+    finalDecisionDetail,
     doDecisionRationale,
+    nameCandidates: cfg.names,
     miniappNameOptions: cfg.names,
     namingComplianceNotes: "起名标准：不使用明星、综艺、影视、赛事、品牌、媒体、学校考试、医疗金融法律等受保护或需资质词；名称必须是微信任务词，2-6 个汉字优先，长期可复用，一眼看出用途，避免官方、权威、治愈、直播、免费观看等高风险词。",
     miniappIntro: cfg.intro,
     criticReview: "反方评审：如果只是复述热榜，用户会直接看原平台；必须证明微信内动作更轻。",
-    criticRevision: /^不/.test(finalDecision)
+    criticRevision: /^不/.test(finalDecisionDetail)
       ? "修改后：不强行立项，只保留观察结论。"
       : "修改后：只保留卡片、清单、提醒、收藏、分享这些微信内动作。",
-    finalVerdict: finalDecision,
+    finalVerdict: finalDecisionDetail,
     nameDirection: cfg.names.join("、"),
     searchKeywords: cfg.names.join("、"),
     coreFeatures: cfg.features,
-    adPotential: /^不/.test(finalDecision) ? "低" : category === "finance" || category === "health" || category === "education" ? "中" : "高",
+    adPotential: /^不/.test(finalDecisionDetail) ? "低" : category === "finance" || category === "health" || category === "education" ? "中" : "高",
     complianceRisk: cfg.compliance,
     difficulty: cfg.difficulty,
     priority: cfg.priority,
-    recommendation: finalDecision,
+    recommendation: finalDecisionDetail,
+    platformRanks,
     sourceLinks: records.map((record) => ({
       platform: record.platform,
       rank: `#${record.rank}`,
