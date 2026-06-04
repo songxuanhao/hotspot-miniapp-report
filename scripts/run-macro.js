@@ -47,6 +47,26 @@ function runPythonCollector() {
   throw new Error(`Macro collector failed: ${errors.join(" | ")}`);
 }
 
+function runRuntimeFallbackCollector() {
+  const script = path.join(repoRoot, "scripts", "macro-runtime-fallback.py");
+  const result = spawnSync(bundledPython, [script], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    shell: false,
+    env: {
+      ...process.env,
+      PYTHONIOENCODING: "utf-8",
+      HTTPS_PROXY: process.env.HTTPS_PROXY || "http://127.0.0.1:10808",
+      HTTP_PROXY: process.env.HTTP_PROXY || "http://127.0.0.1:10808",
+    },
+    timeout: 300000,
+  });
+  if (result.status === 0 && result.stdout.trim()) {
+    return JSON.parse(result.stdout);
+  }
+  throw new Error(`Runtime fallback collector failed: ${result.stderr || result.stdout || `exit ${result.status}`}`);
+}
+
 function writeJson(file, data) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`, "utf8");
@@ -58,7 +78,13 @@ async function main() {
     return;
   }
 
-  const report = runPythonCollector();
+  let report;
+  try {
+    report = runPythonCollector();
+  } catch (primaryError) {
+    console.warn("Primary macro collector failed; using runtime fallback.");
+    report = runRuntimeFallbackCollector();
+  }
   const eventCount = Array.isArray(report.events) ? report.events.length : 0;
   const ratioCount = Array.isArray(report.ratios) ? report.ratios.length : 0;
   const cryptoCount = Array.isArray(report.cryptoMetrics) ? report.cryptoMetrics.length : 0;
