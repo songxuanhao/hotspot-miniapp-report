@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-04 09:13:37 +08:00",
+  "generatedAt": "2026-06-06 04:36:48 +08:00",
   "summary": "宏观快照：8 个宏观指标，4 个价格比值，3 个币圈宏观指标；11 个利率曲线指标，80 条中文优先新闻。当前运行走 runtime fallback：美国 FRED、Yahoo Finance、alternative.me、CoinGecko 已刷新；中国 AkShare 依赖因本地 .python-deps 权限异常，暂沿用上一版成功快照。",
   "events": [
     {
       "id": "fred-payems",
-      "date": "2026-04-01",
+      "date": "2026-05-01",
       "time": "已公布",
-      "period": "2026-04-01",
+      "period": "2026-05-01",
       "country": "美国",
       "category": "就业",
       "title": "非农新增就业",
       "expected": "官方源无预期",
-      "actual": "+115 千人",
-      "previous": "+185 千人",
+      "actual": "+172 千人",
+      "previous": "+179 千人",
       "surprise": "较上月少增",
       "status": "released",
       "importance": "high",
@@ -38,9 +38,9 @@
     },
     {
       "id": "fred-unrate",
-      "date": "2026-04-01",
+      "date": "2026-05-01",
       "time": "已公布",
-      "period": "2026-04-01",
+      "period": "2026-05-01",
       "country": "美国",
       "category": "就业",
       "title": "失业率",
@@ -89,15 +89,15 @@
     },
     {
       "id": "fred-icsa",
-      "date": "2026-05-23",
+      "date": "2026-05-30",
       "time": "已公布",
-      "period": "2026-05-23",
+      "period": "2026-05-30",
       "country": "美国",
       "category": "就业",
       "title": "初请失业金人数",
       "expected": "官方源无预期",
-      "actual": "215 千人",
-      "previous": "210 千人",
+      "actual": "225 千人",
+      "previous": "212 千人",
       "surprise": "较上周上升",
       "status": "released",
       "importance": "high",
@@ -147,40 +147,40 @@
       "tone": "defensive",
       "inclination": "实际利率、美元指数、通胀/曲线综合偏紧，宏观潮水偏退。",
       "bullets": [
-        "美国非农新增：+115 千人（前值 +185 千人）",
+        "美国非农新增：+172 千人（前值 +179 千人）",
         "美国 CPI 同比：3.9%（前值 3.3%）",
         "美国 PCE / 核心PCE：3.8% / 3.3%",
-        "美国10年实际利率：2.07%；DXY：99.47",
-        "美国10Y：4.46%；10Y-2Y：0.41%",
-        "美国失业率：4.3%；初请：215 千人",
+        "美国10年实际利率：2.11%；DXY：100.06",
+        "美国10Y：4.47%；10Y-2Y：0.42%",
+        "美国失业率：4.3%；初请：225 千人",
         "中国背景：CPI 同比 +1.2% / 环比 +0.3%；PPI 同比 +2.8%"
       ],
       "howToUse": "这块决定大方向：实际利率和 DXY 上行时，黄金/币/新兴市场通常承压；曲线倒挂加深说明衰退或紧缩压力仍在。",
       "news": [
         {
-          "id": "fallback-2026-06-04-03",
-          "source": "百度热搜",
-          "title": "美众议院通过决议限制特朗普对伊动武",
-          "titleZh": "美众议院通过决议限制特朗普对伊动武",
-          "url": "https://www.baidu.com/s?wd=%E7%BE%8E%E4%BC%97%E8%AE%AE%E9%99%A2%E9%80%9A%E8%BF%87%E5%86%B3%E8%AE%AE%E9%99%90%E5%88%B6%E7%89%B9%E6%9C%97%E6%99%AE%E5%AF%B9%E4%BC%8A%E5%8A%A8%E6%AD%A6",
-          "published": "2026-06-04 09:13",
-          "summary": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "summaryZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "articleContent": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "articleContentZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+          "id": "fallback-2026-06-06-02",
+          "source": "华尔街见闻",
+          "title": "炸裂 美国5月非农新增就业17.2万人 超过预期近一倍 失业率维持在4.3%",
+          "titleZh": "炸裂 美国5月非农新增就业17.2万人 超过预期近一倍 失业率维持在4.3%",
+          "url": "https://wallstreetcn.com/articles/3773981",
+          "published": "2026-06-06 04:36",
+          "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
           "contentQuality": "summary",
-          "contentChars": 35,
+          "contentChars": 31,
           "buckets": [
             "macro-tide"
           ]
         },
         {
-          "id": "fallback-2026-06-04-04",
-          "source": "财联社热门",
-          "title": "长线外资看好中国 持续加码硬科技",
-          "titleZh": "长线外资看好中国 持续加码硬科技",
-          "url": "https://www.cls.cn/detail/2389959",
-          "published": "2026-06-04 09:13",
+          "id": "fallback-2026-06-06-03",
+          "source": "华尔街见闻",
+          "title": "罕见 AI巨头 呼吁全球暂停AI开发 警告模型正逐步具备 自我升级 能力",
+          "titleZh": "罕见 AI巨头 呼吁全球暂停AI开发 警告模型正逐步具备 自我升级 能力",
+          "url": "https://wallstreetcn.com/articles/3773915",
+          "published": "2026-06-06 04:36",
           "summary": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
           "summaryZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
           "articleContent": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
@@ -192,16 +192,33 @@
           ]
         },
         {
-          "id": "fallback-2026-06-04-05",
+          "id": "fallback-2026-06-06-04",
+          "source": "财联社热门",
+          "title": "美国通胀预期大幅升温 穆迪警告 美联储恐被迫加息",
+          "titleZh": "美国通胀预期大幅升温 穆迪警告 美联储恐被迫加息",
+          "url": "https://www.cls.cn/detail/2391910",
+          "published": "2026-06-06 04:36",
+          "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "contentQuality": "summary",
+          "contentChars": 31,
+          "buckets": [
+            "macro-tide"
+          ]
+        },
+        {
+          "id": "fallback-2026-06-06-05",
           "source": "凤凰网",
-          "title": "离签署协议已非常接近 特朗普披露美伊谈判细节",
-          "titleZh": "离签署协议已非常接近 特朗普披露美伊谈判细节",
-          "url": "https://news.ifeng.com/c/8tfYHflwBeK",
-          "published": "2026-06-04 09:13",
-          "summary": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "summaryZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "articleContent": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "articleContentZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+          "title": "闻泰科技起诉安世荷兰已立案",
+          "titleZh": "闻泰科技起诉安世荷兰已立案",
+          "url": "https://news.ifeng.com/c/8ti5dci0HPR",
+          "published": "2026-06-06 04:36",
+          "summary": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+          "summaryZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+          "articleContent": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+          "articleContentZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
           "contentQuality": "summary",
           "contentChars": 35,
           "buckets": [
@@ -209,36 +226,18 @@
           ]
         },
         {
-          "id": "fallback-2026-06-04-06",
-          "source": "华尔街见闻",
-          "title": "特朗普 确实对内塔尼亚胡 爆粗口 愿与伊朗最高领袖会面 正与伊朗达成协议 海上封锁或持续到9月",
-          "titleZh": "特朗普 确实对内塔尼亚胡 爆粗口 愿与伊朗最高领袖会面 正与伊朗达成协议 海上封锁或持续到9月",
-          "url": "https://wallstreetcn.com/articles/3773781",
-          "published": "2026-06-04 09:13",
-          "summary": "地缘与原油风险仍在抬头，短线继续影响黄金、原油和全球风险偏好。",
-          "summaryZh": "地缘与原油风险仍在抬头，短线继续影响黄金、原油和全球风险偏好。",
-          "articleContent": "地缘与原油风险仍在抬头，短线继续影响黄金、原油和全球风险偏好。",
-          "articleContentZh": "地缘与原油风险仍在抬头，短线继续影响黄金、原油和全球风险偏好。",
+          "id": "fallback-2026-06-06-06",
+          "source": "知乎",
+          "title": "美国如何一次性解决 36 万亿美债问题",
+          "titleZh": "美国如何一次性解决 36 万亿美债问题",
+          "url": "https://www.zhihu.com/question/6607165102",
+          "published": "2026-06-06 04:36",
+          "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
           "contentQuality": "summary",
           "contentChars": 31,
-          "buckets": [
-            "macro-tide",
-            "risk-regime"
-          ]
-        },
-        {
-          "id": "fallback-2026-06-04-08",
-          "source": "凤凰网",
-          "title": "特朗普为何骂内塔尼亚胡 疯了",
-          "titleZh": "特朗普为何骂内塔尼亚胡 疯了",
-          "url": "https://news.ifeng.com/c/8ter8XhY8eS",
-          "published": "2026-06-04 09:13",
-          "summary": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "summaryZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "articleContent": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "articleContentZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
-          "contentQuality": "summary",
-          "contentChars": 35,
           "buckets": [
             "macro-tide"
           ]
@@ -250,15 +249,32 @@
       "title": "② 该避险还是冒险？",
       "subtitle": "风险体制",
       "tone": "defensive",
-      "inclination": "避险票 2 : 冒险票 1。 当前更偏避险。",
+      "inclination": "避险票 4 : 冒险票 0。 当前更偏避险。",
       "bullets": [
-        "金银比：60.8（近月 -1.6%）",
-        "金油比：47.0（近月 +10.7%）",
-        "金特比：1 BTC ≈ 14.1 盎司黄金（近月 -20.9%）",
-        "VIX：16.06"
+        "金银比：64.0（近月 +2.7%）",
+        "金油比：48.1（近月 +8.0%）",
+        "金特比：1 BTC ≈ 14.1 盎司黄金（近月 -21.0%）",
+        "VIX：21.51"
       ],
       "howToUse": "看趋势，不迷信绝对值。多个比价同向时才增强判断；如果互相打架，说明市场在转折或缺少共识。",
       "news": [
+        {
+          "id": "fallback-2026-06-06-01",
+          "source": "今日头条",
+          "title": "母亲把黄金藏水壶被女儿当废品卖了",
+          "titleZh": "母亲把黄金藏水壶被女儿当废品卖了",
+          "url": "https://www.toutiao.com/trending/7647722605785612351/",
+          "published": "2026-06-06 04:36",
+          "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+          "contentQuality": "summary",
+          "contentChars": 31,
+          "buckets": [
+            "risk-regime"
+          ]
+        },
         {
           "id": "fallback-2026-06-04-01",
           "source": "今日头条",
@@ -327,24 +343,6 @@
           "buckets": [
             "risk-regime"
           ]
-        },
-        {
-          "id": "fallback-2026-06-03-01",
-          "source": "华尔街见闻热榜",
-          "title": "黄金替代美元成官方储备第一大资产",
-          "titleZh": "黄金替代美元成官方储备第一大资产",
-          "url": "https://www.baidu.com/s?wd=%E9%BB%84%E9%87%91%E6%9B%BF%E4%BB%A3%E7%BE%8E%E5%85%83%E6%88%90%E5%AE%98%E6%96%B9%E5%82%A8%E5%A4%87%E7%AC%AC%E4%B8%80%E5%A4%A7%E8%B5%84%E4%BA%A7",
-          "published": "2026-06-03 08:06",
-          "summary": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
-          "summaryZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
-          "articleContent": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
-          "articleContentZh": "欧央行与中文财经热榜同步聚焦黄金替代美元成为官方储备第一大资产，说明主权层面的避险偏好仍在抬升。",
-          "contentQuality": "summary",
-          "contentChars": 48,
-          "buckets": [
-            "macro-tide",
-            "risk-regime"
-          ]
         }
       ]
     },
@@ -352,11 +350,11 @@
       "id": "crypto-rotation",
       "title": "③ 币圈的钱往哪流？",
       "subtitle": "内部轮动",
-      "tone": "risk",
-      "inclination": "ETH/BTC 走强，资金从 BTC 防守向更高弹性的资产扩散。",
+      "tone": "defensive",
+      "inclination": "ETH/BTC 走弱，资金更偏回流 BTC 防守，高弹性资产承压。",
       "bullets": [
-        "ETH/BTC：0.0283（近月 +0.1%）",
-        "BTC 市占率：55.1%"
+        "ETH/BTC：0.0261（近月 -7.1%）",
+        "BTC 市占率：56.0%"
       ],
       "howToUse": "BTC 强、ETH/BTC 弱时，币圈偏防守；ETH/BTC 连续走强时，才说明资金愿意去更高风险资产里找弹性。",
       "news": [
@@ -459,7 +457,7 @@
       "inclination": "情绪进入极度恐慌区，具备逆向观察价值，但仍需价格确认。",
       "bullets": [
         "恐慌贪婪指数：12/100（极度恐慌）",
-        "加密总市值：$2.30 万亿（24h -3.8%）"
+        "加密总市值：$2.18 万亿（24h -4.6%）"
       ],
       "howToUse": "情绪指标只在极端区间最有价值。中间区间不要硬解读，主要用来辅助判断市场是否已经过热或过冷。",
       "news": [
@@ -554,6 +552,159 @@
     }
   ],
   "news": [
+    {
+      "id": "fallback-2026-06-06-01",
+      "source": "今日头条",
+      "title": "母亲把黄金藏水壶被女儿当废品卖了",
+      "titleZh": "母亲把黄金藏水壶被女儿当废品卖了",
+      "url": "https://www.toutiao.com/trending/7647722605785612351/",
+      "published": "2026-06-06 04:36",
+      "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "contentQuality": "summary",
+      "contentChars": 31,
+      "buckets": [
+        "risk-regime"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-02",
+      "source": "华尔街见闻",
+      "title": "炸裂 美国5月非农新增就业17.2万人 超过预期近一倍 失业率维持在4.3%",
+      "titleZh": "炸裂 美国5月非农新增就业17.2万人 超过预期近一倍 失业率维持在4.3%",
+      "url": "https://wallstreetcn.com/articles/3773981",
+      "published": "2026-06-06 04:36",
+      "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "contentQuality": "summary",
+      "contentChars": 31,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-03",
+      "source": "华尔街见闻",
+      "title": "罕见 AI巨头 呼吁全球暂停AI开发 警告模型正逐步具备 自我升级 能力",
+      "titleZh": "罕见 AI巨头 呼吁全球暂停AI开发 警告模型正逐步具备 自我升级 能力",
+      "url": "https://wallstreetcn.com/articles/3773915",
+      "published": "2026-06-06 04:36",
+      "summary": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "summaryZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "articleContent": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "articleContentZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "contentQuality": "summary",
+      "contentChars": 35,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-04",
+      "source": "财联社热门",
+      "title": "美国通胀预期大幅升温 穆迪警告 美联储恐被迫加息",
+      "titleZh": "美国通胀预期大幅升温 穆迪警告 美联储恐被迫加息",
+      "url": "https://www.cls.cn/detail/2391910",
+      "published": "2026-06-06 04:36",
+      "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "contentQuality": "summary",
+      "contentChars": 31,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-05",
+      "source": "凤凰网",
+      "title": "闻泰科技起诉安世荷兰已立案",
+      "titleZh": "闻泰科技起诉安世荷兰已立案",
+      "url": "https://news.ifeng.com/c/8ti5dci0HPR",
+      "published": "2026-06-06 04:36",
+      "summary": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "summaryZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "articleContent": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "articleContentZh": "权益市场和科技主题的强弱，能帮助判断当前资金是在追逐风险还是回到防守。",
+      "contentQuality": "summary",
+      "contentChars": 35,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-06",
+      "source": "知乎",
+      "title": "美国如何一次性解决 36 万亿美债问题",
+      "titleZh": "美国如何一次性解决 36 万亿美债问题",
+      "url": "https://www.zhihu.com/question/6607165102",
+      "published": "2026-06-06 04:36",
+      "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "contentQuality": "summary",
+      "contentChars": 31,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-07",
+      "source": "凤凰网",
+      "title": "在这件事上 特朗普宣布要花7亿美元",
+      "titleZh": "在这件事上 特朗普宣布要花7亿美元",
+      "url": "https://news.ifeng.com/c/8tiAmm9M2oW",
+      "published": "2026-06-06 04:36",
+      "summary": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "summaryZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "articleContent": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "articleContentZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "contentQuality": "summary",
+      "contentChars": 35,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-08",
+      "source": "知乎",
+      "title": "怎么看待美国公务员被强制安装白宫 App 可一键夸特朗普",
+      "titleZh": "怎么看待美国公务员被强制安装白宫 App 可一键夸特朗普",
+      "url": "https://www.zhihu.com/question/2045446455956091852",
+      "published": "2026-06-06 04:36",
+      "summary": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "summaryZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "articleContent": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "articleContentZh": "特朗普与贸易/谈判叙事反复，会直接影响美元、风险资产与避险资产的切换。",
+      "contentQuality": "summary",
+      "contentChars": 35,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
+    {
+      "id": "fallback-2026-06-06-09",
+      "source": "华尔街见闻",
+      "title": "非农重燃通胀担忧 新美联储通讯社 美联储鹰派或重启加息",
+      "titleZh": "非农重燃通胀担忧 新美联储通讯社 美联储鹰派或重启加息",
+      "url": "https://wallstreetcn.com/articles/3773984",
+      "published": "2026-06-06 04:36",
+      "summary": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "summaryZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContent": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "articleContentZh": "这条中文宏观新闻用于补充解释当天的流动性、风险偏好或情绪变化。",
+      "contentQuality": "summary",
+      "contentChars": 31,
+      "buckets": [
+        "macro-tide"
+      ]
+    },
     {
       "id": "fallback-2026-06-04-01",
       "source": "今日头条",
@@ -1717,150 +1868,6 @@
       "buckets": [
         "macro-tide"
       ]
-    },
-    {
-      "source": "Google新闻 · 美联储利率",
-      "title": "黄金走势：通胀担忧加剧！金价跌破4400，聚焦美国4月核心PCE物价指数 - Mitrade",
-      "titleZh": "黄金走势：通胀担忧加剧！金价跌破4400，聚焦美国4月核心PCE物价指数 - Mitrade",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5jcml5aTZVMl9LTmtBbXRROHpyS3U3UkRwR29uWU1hU2RKX3lwTGF5T0lZVVRQcDI4elRLNHoyeTNLcThMMVRuN1pVSUZXT01SMEpsRzZWMGRaejZhSFFzTFUyelQwNE94VS1oWHA0ODF1ejZVV1A5UVgyQQ?oc=5",
-      "published": "Wed, 27 May 2026 19:06:00 GMT",
-      "summary": "黄金走势：通胀担忧加剧！金价跌破4400，聚焦美国4月核心PCE物价指数 Mitrade",
-      "summaryZh": "黄金走势：通胀担忧加剧！金价跌破4400，聚焦美国4月核心PCE物价指数 Mitrade",
-      "articleContent": "黄金走势：通胀担忧加剧！金价跌破4400，聚焦美国4月核心PCE物价指数 Mitrade",
-      "articleContentZh": "黄金走势：通胀担忧加剧！金价跌破4400，聚焦美国4月核心PCE物价指数 Mitrade",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "macro-tide",
-        "risk-regime"
-      ]
-    },
-    {
-      "source": "Google新闻 · 美联储利率",
-      "title": "美国5月非农前瞻：劳动力市场能否打开降息门槛？黄金、美元、美股迎关键考验 - TradingKey",
-      "titleZh": "美国5月非农前瞻：劳动力市场能否打开降息门槛？黄金、美元、美股迎关键考验 - TradingKey",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQYUFGQXU0eXFPd08wMjItMTlNU2RnT1ppVFJNSmRLODMyMnljQVNoVWZNT2pXZUY2WjlfeDg1dk1GNEd0YkxvWHNqQ2J3eTliX20zSUh4TWdXUTk5TGdjVkJxUUpzT1pMcmFSb3NNVmFMN2g1WEMwdVF1T3FrYVFCM0h4TFU0T3FDdHF5cUttOUcxWjlWbmVlb3VSTURwSWIxSTdkZEdDSndnNUVNNG10YUdpbGhmZVhkVzNFelY5RlI0NWotUXBQZlJGT0lCR2dTZ1lCdHJvbTM1cE1xSnlkbExLaw?oc=5",
-      "published": "Fri, 29 May 2026 16:32:00 GMT",
-      "summary": "美国5月非农前瞻：劳动力市场能否打开降息门槛？黄金、美元、美股迎关键考验 TradingKey",
-      "summaryZh": "美国5月非农前瞻：劳动力市场能否打开降息门槛？黄金、美元、美股迎关键考验 TradingKey",
-      "articleContent": "美国5月非农前瞻：劳动力市场能否打开降息门槛？黄金、美元、美股迎关键考验 TradingKey",
-      "articleContentZh": "美国5月非农前瞻：劳动力市场能否打开降息门槛？黄金、美元、美股迎关键考验 TradingKey",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "macro-tide",
-        "risk-regime"
-      ]
-    },
-    {
-      "source": "Google新闻 · 美联储利率",
-      "title": "迎战“超级非农”：美元强弱大洗牌！新手必读的 CFD 数据行情生存指南 - Bitget",
-      "titleZh": "迎战“超级非农”：美元强弱大洗牌！新手必读的 CFD 数据行情生存指南 - Bitget",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE42d29hZHlSM3BSNGlrZkxucldLR2tockYzZ1VQRmV5MDg5eWFxbTVfN2FhZExkc3dFdjUxNUM0RnhkUUxHRkhXV2JiWXBHSWQ1Q051SFB5LTRRa0RPMjkzOUVn0gFiQVVfeXFMTjZ3b2FkeVIzcFI0aWtmTG5yV0tHa2hyRjNnVVBGZXkwODl5YXFtNV83YWFkTGRzd0V2NTE1QzRGeGRRTEdGSFdXYmJZcEdJZDVDTnVIUHktNFFrRE8yOTM5RWc?oc=5",
-      "published": "Mon, 01 Jun 2026 03:30:32 GMT",
-      "summary": "迎战“超级非农”：美元强弱大洗牌！新手必读的 CFD 数据行情生存指南 Bitget",
-      "summaryZh": "迎战“超级非农”：美元强弱大洗牌！新手必读的 CFD 数据行情生存指南 Bitget",
-      "articleContent": "迎战“超级非农”：美元强弱大洗牌！新手必读的 CFD 数据行情生存指南 Bitget",
-      "articleContentZh": "迎战“超级非农”：美元强弱大洗牌！新手必读的 CFD 数据行情生存指南 Bitget",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "macro-tide"
-      ]
-    },
-    {
-      "source": "Google新闻 · 特朗普关税",
-      "title": "特朗普刚刚就美伊协议最新表态！油价跌超4%、黄金直逼4400、美股高位分化 - 黄金网",
-      "titleZh": "特朗普刚刚就美伊协议最新表态！油价跌超4%、黄金直逼4400、美股高位分化 - 黄金网",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBFd1NWZHJMcmRrYkhnbXhwWE5NR3pwSGhIWlRsdFVYNnNqRUhfczUyS2VuQkFieUdGbktnREo4ZEowUHJtVl83MGxyRXdocEFUYjVhdDdWRE1VekVyRXJpRnJiQnVCS0t6?oc=5",
-      "published": "Thu, 28 May 2026 00:36:02 GMT",
-      "summary": "特朗普刚刚就美伊协议最新表态！油价跌超4%、黄金直逼4400、美股高位分化 黄金网",
-      "summaryZh": "特朗普刚刚就美伊协议最新表态！油价跌超4%、黄金直逼4400、美股高位分化 黄金网",
-      "articleContent": "特朗普刚刚就美伊协议最新表态！油价跌超4%、黄金直逼4400、美股高位分化 黄金网",
-      "articleContentZh": "特朗普刚刚就美伊协议最新表态！油价跌超4%、黄金直逼4400、美股高位分化 黄金网",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "risk-regime"
-      ]
-    },
-    {
-      "source": "Google新闻 · 特朗普关税",
-      "title": "新闻 - 腾讯新闻",
-      "titleZh": "新闻 - 腾讯新闻",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA4TUNmU1g4bDQ0M3U5YkUybzhabUlsM1Ftc3loU2dQeDN1M0JLZXFRbkdJYkZ5dTQ5MlBrdEJyTFpQV3VYQm9UeHZCXzdDZmFHd3FTS1Z3?oc=5",
-      "published": "Tue, 26 May 2026 09:04:00 GMT",
-      "summary": "新闻 腾讯新闻",
-      "summaryZh": "新闻 腾讯新闻",
-      "articleContent": "新闻 腾讯新闻",
-      "articleContentZh": "新闻 腾讯新闻",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": []
-    },
-    {
-      "source": "Google新闻 · 特朗普关税",
-      "title": "【财经纵览】：WTI原油终结四连跌，黄金下探4500，标普、纳指续创新高，美光涨超19%突破1万亿 - Mitrade",
-      "titleZh": "【财经纵览】：WTI原油终结四连跌，黄金下探4500，标普、纳指续创新高，美光涨超19%突破1万亿 - Mitrade",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBSZTdId25lWmwwRzlvb05SZlFfYVpaMFpLbTZ4eEVwMDJvaWY0V1pBU1NRM2R4NWxJd1Eyd3M0NXZvMWMwV2dwcnU0VXVvdy10dFJHcUp5ZWswc0JzWFl6OUxwUnU4dk1CNHhqWG5jdWRMbnJpcGV4cA?oc=5",
-      "published": "Tue, 26 May 2026 09:24:00 GMT",
-      "summary": "【财经纵览】：WTI原油终结四连跌，黄金下探4500，标普、纳指续创新高，美光涨超19%突破1万亿 Mitrade",
-      "summaryZh": "【财经纵览】：WTI原油终结四连跌，黄金下探4500，标普、纳指续创新高，美光涨超19%突破1万亿 Mitrade",
-      "articleContent": "【财经纵览】：WTI原油终结四连跌，黄金下探4500，标普、纳指续创新高，美光涨超19%突破1万亿 Mitrade",
-      "articleContentZh": "【财经纵览】：WTI原油终结四连跌，黄金下探4500，标普、纳指续创新高，美光涨超19%突破1万亿 Mitrade",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "risk-regime"
-      ]
-    },
-    {
-      "source": "Google新闻 · 特朗普关税",
-      "title": "黄金股逆势上涨，黄金股ETF涨超3% - 新浪财经",
-      "titleZh": "黄金股逆势上涨，黄金股ETF涨超3% - 新浪财经",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5vcU4wNllYRnJTbFJTZWtwNXlneG16bDI5N1JuNWFLNDViNXY0SFVmOEVYNmJ4RFF4OG5qNW43SkFWQ2lqc2lTTmwtaEVtSWgtTmY5OE5OWDVaTXBGZTdZX3dQTHR4bUpQZl9RT2dlTQ?oc=5",
-      "published": "Tue, 26 May 2026 05:35:29 GMT",
-      "summary": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
-      "summaryZh": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
-      "articleContent": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
-      "articleContentZh": "黄金股逆势上涨，黄金股ETF涨超3% 新浪财经",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "risk-regime",
-        "crypto-rotation",
-        "sentiment-extreme"
-      ]
-    },
-    {
-      "source": "Google新闻 · 特朗普关税",
-      "title": "欧洲央行罕见警告：特朗普对伊朗开战或引发一场金融危机！ - FX168",
-      "titleZh": "欧洲央行罕见警告：特朗普对伊朗开战或引发一场金融危机！ - FX168",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA5ZXZreVBwUnE3Z2lsQWkxTElGS0dqV05xMjNuendybzN6RFhobWJ5WlZOS1RRUDJTMmM4QUZHZEVJMndFbFFkUF83WXVfMlBZXzJja3N3SlU3c2praHR6dWM4MGRIbFhxYVVRSktKYnBaTEp5aEQ0NA?oc=5",
-      "published": "Fri, 29 May 2026 02:23:26 GMT",
-      "summary": "欧洲央行罕见警告：特朗普对伊朗开战或引发一场金融危机！ FX168",
-      "summaryZh": "欧洲央行罕见警告：特朗普对伊朗开战或引发一场金融危机！ FX168",
-      "articleContent": "欧洲央行罕见警告：特朗普对伊朗开战或引发一场金融危机！ FX168",
-      "articleContentZh": "欧洲央行罕见警告：特朗普对伊朗开战或引发一场金融危机！ FX168",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": [
-        "risk-regime"
-      ]
-    },
-    {
-      "source": "Google新闻 · 特朗普关税",
-      "title": "JEF 260618 57.50C (JEF260618C57500) 股票社区和讨论 - Moomoo",
-      "titleZh": "JEF 260618 57.50C (JEF260618C57500) 股票社区和讨论 - Moomoo",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBkWGY4dzBOLWZvYmdFMmpibm14aDZJNzZLNVpXTTV2Q3AtZUJxbFg3dkpTd1lvY0ZiSXFJeFREaVpJX1R6Qk9yc2lFbjl3Vmp1aFRGVkVnWW9XWmtHdkYxd0x1QnNtS3BJZE5WUE9OWGlSdw?oc=5",
-      "published": "Fri, 29 May 2026 01:30:00 GMT",
-      "summary": "JEF 260618 57.50C (JEF260618C57500) 股票社区和讨论 Moomoo",
-      "summaryZh": "JEF 260618 57.50C (JEF260618C57500) 股票社区和讨论 Moomoo",
-      "articleContent": "JEF 260618 57.50C (JEF260618C57500) 股票社区和讨论 Moomoo",
-      "articleContentZh": "JEF 260618 57.50C (JEF260618C57500) 股票社区和讨论 Moomoo",
-      "contentQuality": "summary",
-      "contentChars": 0,
-      "buckets": []
     }
   ],
   "dailyBriefing": {
@@ -1912,95 +1919,95 @@
   "ratios": [
     {
       "name": "金银比",
-      "value": "60.8",
-      "rawValue": 60.84300549786194,
-      "changePct": -1.6280540382837105,
+      "value": "64.0",
+      "rawValue": 64.01384445426426,
+      "changePct": 2.724534567176362,
       "notes": "黄金价格 / 白银价格；上行偏避险，下行偏工业和风险偏好修复。"
     },
     {
       "name": "金油比",
-      "value": "47.0",
-      "rawValue": 47.01562991712997,
-      "changePct": 10.70701041666049,
+      "value": "48.1",
+      "rawValue": 48.127352159468444,
+      "changePct": 8.03776551701938,
       "notes": "黄金价格 / WTI 原油价格；噪音较大，但上行常提示增长担忧或原油走弱。"
     },
     {
       "name": "金特比",
       "value": "1 BTC ≈ 14.1 盎司黄金",
-      "rawValue": 14.089692101740294,
-      "changePct": -20.874319374212224,
+      "rawValue": 14.061455879368044,
+      "changePct": -20.96213459640197,
       "notes": "BTC 价格 / 黄金价格；上行代表 BTC 相对黄金更强，偏风险偏好。"
     },
     {
       "name": "ETH/BTC",
-      "value": "0.0283",
-      "rawValue": 0.028292638163103723,
-      "changePct": 0.10010214736946299,
+      "value": "0.0261",
+      "rawValue": 0.02613563035906405,
+      "changePct": -7.129063481337128,
       "notes": "ETH 价格 / BTC 价格；上行说明币圈内部风险偏好改善。"
     }
   ],
   "prices": [
     {
       "name": "国际金价",
-      "value": "$4,482.0",
-      "notes": "Yahoo Finance GC=F，作为伦敦金现货近似观察，2026-06-04"
+      "value": "$4,345.9",
+      "notes": "Yahoo Finance GC=F，作为伦敦金现货近似观察，2026-06-05"
     },
     {
       "name": "白银",
-      "value": "$73.67",
-      "notes": "Yahoo Finance，2026-06-04"
+      "value": "$67.89",
+      "notes": "Yahoo Finance，2026-06-05"
     },
     {
       "name": "WTI 原油",
-      "value": "$95.33",
-      "notes": "Yahoo Finance，2026-06-04"
+      "value": "$90.30",
+      "notes": "Yahoo Finance，2026-06-05"
     },
     {
       "name": "Brent 原油",
-      "value": "$96.92",
-      "notes": "Yahoo Finance BZ=F，2026-06-04"
+      "value": "$92.98",
+      "notes": "Yahoo Finance BZ=F，2026-06-05"
     },
     {
       "name": "铜",
-      "value": "$6.49",
-      "notes": "Yahoo Finance HG=F，增长晴雨表，2026-06-04"
+      "value": "$6.25",
+      "notes": "Yahoo Finance HG=F，增长晴雨表，2026-06-05"
     },
     {
       "name": "美元指数 DXY",
-      "value": "99.47",
-      "notes": "Yahoo Finance DX-Y.NYB，金/币/新兴市场反向锚，2026-06-04",
-      "rawValue": 99.474
+      "value": "100.06",
+      "notes": "Yahoo Finance DX-Y.NYB，金/币/新兴市场反向锚，2026-06-05",
+      "rawValue": 100.064
     },
     {
       "name": "VIX",
-      "value": "16.06",
-      "notes": "Yahoo Finance ^VIX，股市波动率风险温度计，2026-06-04",
-      "rawValue": 16.06
+      "value": "21.51",
+      "notes": "Yahoo Finance ^VIX，股市波动率风险温度计，2026-06-05",
+      "rawValue": 21.51
     },
     {
       "name": "标普500",
-      "value": "7,554",
-      "notes": "Yahoo Finance ^GSPC，2026-06-04"
+      "value": "7,384",
+      "notes": "Yahoo Finance ^GSPC，2026-06-05"
     },
     {
       "name": "纳斯达克",
-      "value": "26,854",
-      "notes": "Yahoo Finance ^IXIC，2026-06-04"
+      "value": "25,709",
+      "notes": "Yahoo Finance ^IXIC，2026-06-05"
     },
     {
       "name": "USD/JPY",
-      "value": "159.90",
-      "notes": "Yahoo Finance USDJPY=X，日元套利/全球流动性观察，2026-06-04"
+      "value": "160.19",
+      "notes": "Yahoo Finance USDJPY=X，日元套利/全球流动性观察，2026-06-05"
     },
     {
       "name": "BTC",
-      "value": "$63,150",
-      "notes": "Yahoo Finance，2026-06-04"
+      "value": "$61,110",
+      "notes": "Yahoo Finance，2026-06-05"
     },
     {
       "name": "ETH",
-      "value": "$1,787",
-      "notes": "Yahoo Finance，2026-06-04"
+      "value": "$1,597",
+      "notes": "Yahoo Finance，2026-06-05"
     },
     {
       "name": "沪金 Au99.99",
@@ -2020,16 +2027,8 @@
       "symbol": "GC=F",
       "unit": "美元/盎司",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 3350.2
-        },
-        {
-          "date": "2025-06-04",
-          "value": 3373.5
-        },
         {
           "date": "2025-06-05",
           "value": 3350.7
@@ -3036,7 +3035,11 @@
         },
         {
           "date": "2026-06-04",
-          "value": 4482
+          "value": 4475.7998
+        },
+        {
+          "date": "2026-06-05",
+          "value": 4345.8999
         }
       ]
     },
@@ -3046,16 +3049,8 @@
       "symbol": "SI=F",
       "unit": "美元/盎司",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 34.503
-        },
-        {
-          "date": "2025-06-04",
-          "value": 34.519
-        },
         {
           "date": "2025-06-05",
           "value": 35.689
@@ -4062,7 +4057,11 @@
         },
         {
           "date": "2026-06-04",
-          "value": 73.665
+          "value": 73.779
+        },
+        {
+          "date": "2026-06-05",
+          "value": 67.89
         }
       ]
     },
@@ -4072,16 +4071,8 @@
       "symbol": "CL=F",
       "unit": "美元/桶",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 63.41
-        },
-        {
-          "date": "2025-06-04",
-          "value": 62.85
-        },
         {
           "date": "2025-06-05",
           "value": 63.37
@@ -5088,7 +5079,11 @@
         },
         {
           "date": "2026-06-04",
-          "value": 95.33
+          "value": 93.04
+        },
+        {
+          "date": "2026-06-05",
+          "value": 90.3
         }
       ]
     },
@@ -5098,16 +5093,8 @@
       "symbol": "BZ=F",
       "unit": "美元/桶",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 65.63
-        },
-        {
-          "date": "2025-06-04",
-          "value": 64.86
-        },
         {
           "date": "2025-06-05",
           "value": 65.34
@@ -6114,7 +6101,11 @@
         },
         {
           "date": "2026-06-04",
-          "value": 96.92
+          "value": 95.03
+        },
+        {
+          "date": "2026-06-05",
+          "value": 92.98
         }
       ]
     },
@@ -6124,16 +6115,8 @@
       "symbol": "HG=F",
       "unit": "美元/磅",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 4.8095
-        },
-        {
-          "date": "2025-06-04",
-          "value": 4.8645
-        },
         {
           "date": "2025-06-05",
           "value": 4.9135
@@ -7140,7 +7123,11 @@
         },
         {
           "date": "2026-06-04",
-          "value": 6.487
+          "value": 6.511
+        },
+        {
+          "date": "2026-06-05",
+          "value": 6.255
         }
       ]
     },
@@ -7150,16 +7137,8 @@
       "symbol": "DX-Y.NYB",
       "unit": "点",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 99.25
-        },
-        {
-          "date": "2025-06-04",
-          "value": 98.79
-        },
         {
           "date": "2025-06-05",
           "value": 98.74
@@ -8157,8 +8136,16 @@
           "value": 99.22
         },
         {
+          "date": "2026-06-03",
+          "value": 99.53
+        },
+        {
           "date": "2026-06-04",
-          "value": 99.474
+          "value": 99.41
+        },
+        {
+          "date": "2026-06-05",
+          "value": 100.064
         }
       ]
     },
@@ -8168,16 +8155,8 @@
       "symbol": "^VIX",
       "unit": "点",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-03",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 17.69
-        },
-        {
-          "date": "2025-06-04",
-          "value": 17.61
-        },
         {
           "date": "2025-06-05",
           "value": 18.48
@@ -9181,6 +9160,14 @@
         {
           "date": "2026-06-03",
           "value": 16.06
+        },
+        {
+          "date": "2026-06-04",
+          "value": 15.4
+        },
+        {
+          "date": "2026-06-05",
+          "value": 21.51
         }
       ]
     },
@@ -9190,16 +9177,8 @@
       "symbol": "^GSPC",
       "unit": "点",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-03",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-04",
-          "value": 5970.8101
-        },
-        {
-          "date": "2025-06-05",
-          "value": 5939.2998
-        },
         {
           "date": "2025-06-06",
           "value": 6000.3599
@@ -10195,6 +10174,14 @@
         {
           "date": "2026-06-03",
           "value": 7553.6802
+        },
+        {
+          "date": "2026-06-04",
+          "value": 7584.3101
+        },
+        {
+          "date": "2026-06-05",
+          "value": 7383.7402
         }
       ]
     },
@@ -10204,16 +10191,8 @@
       "symbol": "^IXIC",
       "unit": "点",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-03",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-04",
-          "value": 19460.4902
-        },
-        {
-          "date": "2025-06-05",
-          "value": 19298.4492
-        },
         {
           "date": "2025-06-06",
           "value": 19529.9492
@@ -11208,7 +11187,15 @@
         },
         {
           "date": "2026-06-03",
-          "value": 26853.9766
+          "value": 26853.9805
+        },
+        {
+          "date": "2026-06-04",
+          "value": 26830.9609
+        },
+        {
+          "date": "2026-06-05",
+          "value": 25709.4316
         }
       ]
     },
@@ -11218,12 +11205,8 @@
       "symbol": "USDJPY=X",
       "unit": "汇率",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-03",
-          "value": 143.837
-        },
         {
           "date": "2025-06-04",
           "value": 142.732
@@ -12257,8 +12240,16 @@
           "value": 159.968
         },
         {
+          "date": "2026-06-03",
+          "value": 159.94
+        },
+        {
           "date": "2026-06-04",
-          "value": 159.898
+          "value": 159.99
+        },
+        {
+          "date": "2026-06-05",
+          "value": 160.189
         }
       ]
     },
@@ -12268,12 +12259,8 @@
       "symbol": "BTC-USD",
       "unit": "美元",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-04",
-          "value": 104731.9844
-        },
         {
           "date": "2025-06-05",
           "value": 101575.9531
@@ -13727,8 +13714,16 @@
           "value": 66703.6562
         },
         {
+          "date": "2026-06-03",
+          "value": 64014.3672
+        },
+        {
           "date": "2026-06-04",
-          "value": 63150
+          "value": 63801.5742
+        },
+        {
+          "date": "2026-06-05",
+          "value": 61109.6797
         }
       ]
     },
@@ -13738,12 +13733,8 @@
       "symbol": "ETH-USD",
       "unit": "美元",
       "source": "Yahoo Finance",
-      "updatedAt": "2026-06-04",
+      "updatedAt": "2026-06-05",
       "points": [
-        {
-          "date": "2025-06-04",
-          "value": 2608.6431
-        },
         {
           "date": "2025-06-05",
           "value": 2416.2856
@@ -15197,8 +15188,16 @@
           "value": 1857.7163
         },
         {
+          "date": "2026-06-03",
+          "value": 1811.7323
+        },
+        {
           "date": "2026-06-04",
-          "value": 1786.6801
+          "value": 1769.5806
+        },
+        {
+          "date": "2026-06-05",
+          "value": 1597.14
         }
       ]
     }
@@ -15213,15 +15212,15 @@
     },
     {
       "name": "加密总市值",
-      "value": "$2.30 万亿",
-      "rawValue": 2300930945435.988,
-      "changePct": -3.7920040818033387,
-      "notes": "24h -3.8%；来源 CoinGecko。"
+      "value": "$2.18 万亿",
+      "rawValue": 2181700586772.7756,
+      "changePct": -4.6095460178176815,
+      "notes": "24h -4.6%；来源 CoinGecko。"
     },
     {
       "name": "BTC 市占率",
-      "value": "55.1%",
-      "rawValue": 55.13417105285241,
+      "value": "56.0%",
+      "rawValue": 55.97778972751165,
       "notes": "BTC 市值占全市场比例；来源 CoinGecko。"
     }
   ],
@@ -15231,42 +15230,42 @@
       "value": "4.05%",
       "rawValue": 4.05,
       "changePct": null,
-      "notes": "FRED DGS2，2026-06-02；近5个交易日 +0.04pct。"
+      "notes": "FRED DGS2，2026-06-04；近5个交易日 +0.06pct。"
     },
     {
       "name": "美国10年国债收益率",
-      "value": "4.46%",
-      "rawValue": 4.46,
+      "value": "4.47%",
+      "rawValue": 4.47,
       "changePct": null,
-      "notes": "FRED DGS10，2026-06-02；近5个交易日 -0.04pct。"
+      "notes": "FRED DGS10，2026-06-04；近5个交易日 +0.02pct。"
     },
     {
       "name": "美国30年国债收益率",
       "value": "4.97%",
       "rawValue": 4.97,
       "changePct": null,
-      "notes": "FRED DGS30，2026-06-02；近5个交易日 -0.06pct。"
+      "notes": "FRED DGS30，2026-06-04；近5个交易日 -0.01pct。"
     },
     {
       "name": "美国10Y-2Y利差",
-      "value": "0.41%",
-      "rawValue": 0.41,
+      "value": "0.42%",
+      "rawValue": 0.42,
       "changePct": null,
-      "notes": "FRED T10Y2Y，2026-06-03；近5个交易日 -0.07pct。"
+      "notes": "FRED T10Y2Y，2026-06-04；近5个交易日 -0.04pct。"
     },
     {
       "name": "美国10年实际利率",
-      "value": "2.07%",
-      "rawValue": 2.07,
+      "value": "2.11%",
+      "rawValue": 2.11,
       "changePct": null,
-      "notes": "FRED DFII10，2026-06-02；近5个交易日 -0.03pct。"
+      "notes": "FRED DFII10，2026-06-04；近5个交易日 +0.05pct。"
     },
     {
       "name": "美国10年盈亏平衡通胀率",
-      "value": "2.38%",
-      "rawValue": 2.38,
+      "value": "2.36%",
+      "rawValue": 2.36,
       "changePct": null,
-      "notes": "FRED T10YIE，2026-06-03；近5个交易日 -0.01pct。"
+      "notes": "FRED T10YIE，2026-06-04；近5个交易日 -0.03pct。"
     },
     {
       "name": "中国2年国债收益率",
